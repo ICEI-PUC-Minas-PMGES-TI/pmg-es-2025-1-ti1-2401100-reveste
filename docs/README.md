@@ -137,24 +137,20 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 | ID      | Descrição do Requisito                                                              | Prioridade |
 | ------- | ------------------------------------------------------------------------------------- | ---------- |
-| RNF-001 | O sistema deve ser responsivo para rodar em um dispositivos móvel ⚠️ EXEMPLO ⚠️ | MÉDIA     |
-| RNF-002 | Deve processar requisições do usuário em no máximo 3s ⚠️ EXEMPLO ⚠️          | BAIXA      |
+| RNF-001 | A aplicação deve rodar para diferentes navegadores (google chrome, firefox, safari) pelo menos os mais usados. | ALTO     |
+| RNF-002 | Seguir princípios de design responsivo (mobile first)          | MÉDIA      |
+| RNF-003 | O uso do localStorage deve ser otimizado, evitando salvar dados desnecessários para não comprometer o desempenho.        | ALTO      |
+| RNF-004 | Código e arquivos CSS/JS devem ser minificados para reduzir o tempo de carregamento.         | BAIXA      |
+| RNF-005 | Todos os formulários devem ter validações visíveis para orientar o usuário.       | MÉDIA      |
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Os requisitos de um projeto são classificados em dois grupos:
->
-> - [Requisitos Funcionais (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
->   correspondem a uma funcionalidade que deve estar presente na plataforma (ex: cadastro de usuário).
-> - [Requisitos Não Funcionais (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
->   correspondem a uma característica técnica, seja de usabilidade, desempenho, confiabilidade, segurança ou outro (ex: suporte a dispositivos iOS e Android).
->
-> Lembre-se que cada requisito deve corresponder à uma e somente uma característica alvo da sua solução. Além disso, certifique-se de que todos os aspectos capturados nas Histórias de Usuário foram cobertos.
->
-> **Orientações**:
->
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+### Restrições de projetos
+| ID      | Descrição da Restrição                                                              | Prioridade |
+| ------- | ------------------------------------------------------------------------------------- | ---------- |
+| RP-001 | O projeto deve ser desenvolvido apenas com HTML, CSS e JavaScript. | ALTO     |
+| RP-002 | A aplicação deve rodar 100% no lado do cliente (client-side), sem backend.          | ALTO      |
+| RP-003 | As funcionalidades implementadas devem seguir estritamente o escopo definido, sem adição de recursos extras.      | ALTO      |
+
+
 
 ## Projeto de Interface
 
