@@ -22,7 +22,7 @@ a pessoas que precisam de ajuda. O sistema permite o cadastro de doações, a ge
 
 ## Requisitos funcionais
 
-## Requisitos não funcionais
+## ✅ Requisitos não funcionais
 
 1. A aplicação deve rodar para diferentes navegadores (google chrome, firefox, safari) pelo menos os mais usados.
 2. Seguir principiosde design responsivo (mobile first)
@@ -31,8 +31,8 @@ a pessoas que precisam de ajuda. O sistema permite o cadastro de doações, a ge
 5. Todos os formulários devem ter validações visíveis para orientar o usuário.
 
 
-## Restrições de projetos
+## 🚫 Restrições de projetos
 
-1. O projeto deve ser desenvolvido apenas com HTML, CSS e JavaScript
+1. O projeto deve ser desenvolvido apenas com HTML, CSS e JavaScript.
 2. A aplicação deve rodar 100% no lado do cliente (client-side), sem backend.
-3. Não serão implementadas funcionalidades extras além do escopo definido.
+3. As funcionalidades implementadas devem seguir estritamente o escopo definido, sem adição de recursos extras.
