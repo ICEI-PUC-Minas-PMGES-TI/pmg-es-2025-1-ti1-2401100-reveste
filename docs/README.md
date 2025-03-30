@@ -54,30 +54,30 @@ Implementar um sistema estruturado de doações pode mitigar os impactos negativ
 ## Etapa de Entendimento
 
 > * **Matriz CSD**
-> * ![Screenshot_1](https://github.com/user-attachments/assets/469f744a-d127-49ae-b020-e5a21f656929)
+> * ![MatrizCSD](images/MatrizCSD.png)
 > * **Mapa de StakeHolders**
-> * ![Screenshot_2](https://github.com/user-attachments/assets/184b4590-68da-4839-82a3-f8ba07c1756b)
+> * ![MatrizCSD](images/MapaStakeHolders.png)
 > * **Entrevistas qualitativas e highlights de pesquisa**:
 > * **Entrevista qualitativa 1**:
-> * ![Screenshot_4](https://github.com/user-attachments/assets/c9337175-df5d-4a44-98dc-21b7c1cb33ab)
+> * ![Entrevista1](images/Entrevista1.png)
 > * **Entrevista Qualitativa 2**:
-> * ![Screenshot_3](https://github.com/user-attachments/assets/4e721a3f-1c59-46c2-8ddb-5cebc87b9bcb)
+> * ![Entrevista2](images/Entrevista2.png)
 > * **Entrevista Qualitativa 3**:
-> * ![Screenshot_5](https://github.com/user-attachments/assets/bfca6f19-edbd-4f48-8ae2-e3b8c06242ff)
+> * ![Entrevista3](images/Entrevista3.png)
 > * **Entrevista Qualitativa 4**:
-> * ![Screenshot_6](https://github.com/user-attachments/assets/bf863000-52ec-44d8-9c81-0b236dcd45c3)
+> * ![Entrevista4](images/Entrevista4.png)
 > * **Entrevista Qualitativa 5**:
-> * ![Screenshot_7](https://github.com/user-attachments/assets/38e3b5c6-d0a4-4a5e-9760-66ae8f18edb8) 
+> * ![Entrevista5](images/Entrevista5.png)
 ## Etapa de Definição
 
 ### Personas
 
 > * **Persona 1**:
-> * ![Screenshot_8](https://github.com/user-attachments/assets/4f4243e1-31c4-41a2-bb0e-969602667cff)
+> * ![Persona1](images/Persona1.png)
 > * **Persona 2**:
-> * ![Screenshot_9](https://github.com/user-attachments/assets/053ba992-047a-44c0-bb45-f0e3fbe71eda)
+> * ![Persona2](images/Persona2.png)
 > * **Persona 3**:
-> * ![Screenshot_10](https://github.com/user-attachments/assets/a9cc32d6-97c1-49b3-8af9-a4dc77083cb7)
+> * ![Persona3](images/Persona3.png)
 
 
 # Product Design
@@ -104,11 +104,11 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 
 > * **Prosposta de valores**
 > * **Persona 1**:
-> * ![Screenshot_11](https://github.com/user-attachments/assets/8c14af20-64e3-4c2e-895f-5c10fcc9cb8c)
+> * ![PropostadeValor1](images/MpPersona1.png)
 > * **Persona 2**:
-> * ![Screenshot_12](https://github.com/user-attachments/assets/63839c40-372b-46d8-87f0-ef140a2db031)
+> * ![PropostadeValor2](images/MpPersona2.png)
 > * **Persona 3**:
-> * ![Screenshot_13](https://github.com/user-attachments/assets/92a6d0ab-d18d-46f6-b3a0-1e574d0bd18b)
+> * ![PropostadeValor3](images/MpPersona3.png)
 
 ## Requisitos
 
