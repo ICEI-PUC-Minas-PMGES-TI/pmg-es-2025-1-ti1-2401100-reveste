@@ -20,7 +20,7 @@ a pessoas que precisam de ajuda. O sistema permite o cadastro de doações, a ge
 * Michelle Hanne Soares de Andrade
 
 
-## Requisitos funcionais
+## 🔧 Requisitos funcionais
 1. O sistema deve mostrar quais peças de roupas cada ONG mais necessita;
 2. O sistema deve permitir cada representante cadastrar sua ONG;
 3. O sistema deve possibilitar cada ONG cadastrada publicar informações sobre os postos de coletas e retiradas de doações; 
