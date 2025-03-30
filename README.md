@@ -18,3 +18,10 @@ a pessoas que precisam de ajuda. O sistema permite o cadastro de doações, a ge
 
 * Diego Augusto de Faria Barros
 * Michelle Hanne Soares de Andrade
+
+
+## Requisitos funcionais
+
+## Requisitos não funcionais
+
+## Restrições de projetos
