@@ -34,7 +34,7 @@ a pessoas que precisam de ajuda. O sistema permite o cadastro de doações, a ge
 3. O uso do localStorage deve ser otimizado, evitando salvar dados desnecessários para não comprometer o desempenho.
 4. Código e arquivos CSS/JS devem ser minificados para reduzir o tempo de carregamento.
 5. Todos os formulários devem ter validações visíveis para orientar o usuário.
-6. 
+
 
 
 ## 🚫 Restrições de projetos
