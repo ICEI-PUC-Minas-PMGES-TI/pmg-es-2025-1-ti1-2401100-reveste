@@ -53,9 +53,9 @@ Implementar um sistema estruturado de doações pode mitigar os impactos negativ
 
 ## Etapa de Entendimento
 
-**✳️✳️✳️ APRESENTE OS ARTEFATOS DA ETAPA  ✳️✳️✳️**
-
+> * **Matriz CSD**
 > * ![Screenshot_1](https://github.com/user-attachments/assets/469f744a-d127-49ae-b020-e5a21f656929)
+> * **Mapa de StakeHolders**
 > * ![Screenshot_2](https://github.com/user-attachments/assets/184b4590-68da-4839-82a3-f8ba07c1756b)
 > * **Entrevistas qualitativas e highlights de pesquisa**:
 > * **Entrevista qualitativa 1**:
@@ -71,8 +71,6 @@ Implementar um sistema estruturado de doações pode mitigar os impactos negativ
 ## Etapa de Definição
 
 ### Personas
-
-**✳️✳️✳️ APRESENTE OS DIAGRAMAS DE PERSONAS ✳️✳️✳️**
 
 > * **Persona 1**:
 > * ![Screenshot_8](https://github.com/user-attachments/assets/4f4243e1-31c4-41a2-bb0e-969602667cff)
@@ -101,15 +99,6 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 | Uma pessoa vulnerável com acesso a internet | Saber quais são os tipos de roupas disponíveis para doação no estabelecimento | Saber se  consigo utilizar aquela peça e se é útil para mim. |
 | Um voluntário que deseja ajudar na distribuição de roupas para pessoas necessitadas |Uma plataforma que me permita organizar e acompanhar doações e entregas de algumas ONGs  | Saiba onde e como e candidatar ao voluntariado dessas ONGs. |
 | Representante de uma empresa que deseja realizar uma campanha de doação de roupas entre seus funcionários | Uma plataforma que facilite a coleta, o cadastro e a entrega das doações para as ONGs parceiras | Promover a responsabilidade social da empresa e engajar os funcionários em ações de solidariedade |
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
->
-> **Orientações**:
->
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
 
 ## Proposta de Valor
 
