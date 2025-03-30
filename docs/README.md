@@ -29,54 +29,25 @@ A documentação do projeto é estruturada da seguinte forma:
 
 # Contexto
 
-Detalhes sobre o espaço de problema, os objetivos do projeto, sua justificativa e público-alvo.
-
 ## Problema
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+Atualmente, muitas famílias em situação de vulnerabilidade e pessoas em situação de rua enfrentam dificuldades para obter roupas adequadas. Seja para se proteger do frio ou para manter a dignidade no dia a dia, a falta de vestimentas adequadas é um desafio constante. No entanto, grande parte da população só se mobiliza para ajudar durante o inverno, com campanhas sazonais de doação de agasalhos. É essencial que esse apoio aconteça durante todo o ano, garantindo que essas pessoas tenham acesso contínuo a roupas limpas e em bom estado.
 
- 
 
 ## Objetivos
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
+Nossa proposta é criar uma plataforma que conecte pessoas e famílias em situação de vulnerabilidade a locais que realizam doações de roupas. Além disso, a aplicação permitirá que qualquer pessoa interessada em contribuir saiba onde pode doar peças em bom estado que já não utiliza, facilitando o processo de arrecadação e distribuição ao longo de todo o ano. Dessa forma, buscamos promover um impacto social duradouro e acessível para todos.
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
->
-> **Orientações**:
->
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+O que pensamos e que exista uma aplicação onde computadores fossem instalados em locais específicos (posto de saúde, estação de move, postos policiais) onde possa ter bastante movimento dessas famílias e pessoas necessitadas e esses computadores teriam a aplicação mostrando onde é o ponto de coleta de roupa mais próximo.
 
 ## Justificativa
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
->
-> O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
->
-> **Orientações**:
->
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+Diante desse cenário, há uma oportunidade significativa para o desenvolvimento de soluções que facilitem e incentivem a doação de roupas em Belo Horizonte. Uma plataforma que conecte doadores a pontos de coleta e distribua eficientemente as roupas para quem precisa pode suprir essa lacuna, garantindo que as doações ocorram de forma contínua e organizada, não apenas em períodos de campanhas sazonais.
+Implementar um sistema estruturado de doações pode mitigar os impactos negativos da falta de roupas adequadas entre as populações vulneráveis, melhorando sua qualidade de vida e promovendo a inclusão social.
 
 ## Público-Alvo
 
-**✳️✳️✳️ COLOQUE AQUI O SEU TEXTO ✳️✳️✳️**
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Descreva quais são as pessoas que usarão a sua aplicação indicando os diferentes perfis. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc.
->
-> Adicione informações sobre o público-alvo por meio de uma descrição textual, ou diagramas de personas, mapa de stakeholders, ou como o grupo achar mais conveniente.
->
-> **Orientações**:
->
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
+![stakeholders](images/stakeholders)
 
 # Product Discovery
 
