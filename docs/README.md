@@ -55,20 +55,19 @@ Implementar um sistema estruturado de doações pode mitigar os impactos negativ
 
 **✳️✳️✳️ APRESENTE OS ARTEFATOS DA ETAPA  ✳️✳️✳️**
 
-> * [![Screenshot_1](https://github.com/user-attachments/assets/469f744a-d127-49ae-b020-e5a21f656929)
-> * [![Screenshot_2](https://github.com/user-attachments/assets/184b4590-68da-4839-82a3-f8ba07c1756b)
+> * ![Screenshot_1](https://github.com/user-attachments/assets/469f744a-d127-49ae-b020-e5a21f656929)
+> * ![Screenshot_2](https://github.com/user-attachments/assets/184b4590-68da-4839-82a3-f8ba07c1756b)
 > * **Entrevistas qualitativas e highlights de pesquisa**:
 > * **Entrevista qualitativa 1**:
-> ![Screenshot_4](https://github.com/user-attachments/assets/c9337175-df5d-4a44-98dc-21b7c1cb33ab)
+> * ![Screenshot_4](https://github.com/user-attachments/assets/c9337175-df5d-4a44-98dc-21b7c1cb33ab)
 > * **Entrevista Qualitativa 2**:
-> ![Screenshot_3](https://github.com/user-attachments/assets/4e721a3f-1c59-46c2-8ddb-5cebc87b9bcb)
+> * ![Screenshot_3](https://github.com/user-attachments/assets/4e721a3f-1c59-46c2-8ddb-5cebc87b9bcb)
 > * **Entrevista Qualitativa 3**:
-> ![Screenshot_5](https://github.com/user-attachments/assets/bfca6f19-edbd-4f48-8ae2-e3b8c06242ff)
+> * ![Screenshot_5](https://github.com/user-attachments/assets/bfca6f19-edbd-4f48-8ae2-e3b8c06242ff)
 > * **Entrevista Qualitativa 4**:
-> ![Screenshot_6](https://github.com/user-attachments/assets/bf863000-52ec-44d8-9c81-0b236dcd45c3)
+> * ![Screenshot_6](https://github.com/user-attachments/assets/bf863000-52ec-44d8-9c81-0b236dcd45c3)
 > * **Entrevista Qualitativa 5**:
-> ![Screenshot_7](https://github.com/user-attachments/assets/38e3b5c6-d0a4-4a5e-9760-66ae8f18edb8)
-> * 
+> * ![Screenshot_7](https://github.com/user-attachments/assets/38e3b5c6-d0a4-4a5e-9760-66ae8f18edb8) 
 ## Etapa de Definição
 
 ### Personas
@@ -76,11 +75,11 @@ Implementar um sistema estruturado de doações pode mitigar os impactos negativ
 **✳️✳️✳️ APRESENTE OS DIAGRAMAS DE PERSONAS ✳️✳️✳️**
 
 > * **Persona 1**:
-> ![Screenshot_8](https://github.com/user-attachments/assets/4f4243e1-31c4-41a2-bb0e-969602667cff)
+> * ![Screenshot_8](https://github.com/user-attachments/assets/4f4243e1-31c4-41a2-bb0e-969602667cff)
 > * **Persona 2**:
-> ![Screenshot_9](https://github.com/user-attachments/assets/053ba992-047a-44c0-bb45-f0e3fbe71eda)
+> * ![Screenshot_9](https://github.com/user-attachments/assets/053ba992-047a-44c0-bb45-f0e3fbe71eda)
 > * **Persona 3**:
-> ![Screenshot_10](https://github.com/user-attachments/assets/a9cc32d6-97c1-49b3-8af9-a4dc77083cb7)
+> * ![Screenshot_10](https://github.com/user-attachments/assets/a9cc32d6-97c1-49b3-8af9-a4dc77083cb7)
 
 
 # Product Design
