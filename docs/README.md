@@ -41,6 +41,7 @@ Implementar um sistema estruturado de doações pode mitigar os impactos negativ
 
 ## Público-Alvo
 
+![stakeholders](images/stakeholders.png)
 
 # Product Discovery
 
