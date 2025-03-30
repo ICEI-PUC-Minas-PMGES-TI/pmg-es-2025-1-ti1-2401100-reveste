@@ -130,8 +130,16 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 | ID     | Descrição do Requisito                                   | Prioridade |
 | ------ | ---------------------------------------------------------- | ---------- |
-| RF-001 | Permitir que o usuário cadastre tarefas ⚠️ EXEMPLO ⚠️ | ALTA       |
-| RF-002 | Emitir um relatório de tarefas no mês ⚠️ EXEMPLO ⚠️ | MÉDIA     |
+| RF-001 | O sistema deve mostrar quais peças de roupas cada ONG mais necessita | ALTA       |
+| RF-002 | O sistema deve permitir cada representante cadastrar sua ONG | MÉDIA     |
+| RF-003 | O sistema deve possibilitar cada ONG cadastrada publicar informações sobre os postos de coletas e retiradas de doações; | MÉDIA     |
+| RF-004 | Tanto os doadores quanto as pessoas que irão receber as doações devem poder visualizar os locais de coleta e retirada de doações de cada ONG específica | MÉDIA |
+| RF-005 | O sistema deve permitir salvar as ONGs preferidas | BAIXA |
+| RF-006 | O sistema deve permitir que os estabelecimentos sejam localizados através de geolocalização | BAIXA |
+| RF-007 | O sistema deve permitir cadastrar estabelecimentos temporários | MÉDIA     |
+| RF-008 | O sistema deve permitir filtrar os establecimentos através de pesquisas | BAIXA     |
+| RF-009 | O sistema deve permitir as ONGs cadastrar seus estabelecimentos | ALTA     |
+| RF-010 | O sistema deve permitir que os usuários que irão doar agendem sua doação | MÉDIA     |
 
 ### Requisitos não Funcionais
 
