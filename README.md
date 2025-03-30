@@ -21,6 +21,11 @@ a pessoas que precisam de ajuda. O sistema permite o cadastro de doações, a ge
 
 
 ## Requisitos funcionais
+1. O sistema deve mostrar quais peças de roupas cada ONG mais necessita;
+2. O sistema deve permitir cada representante cadastrar sua ONG;
+3. O sistema deve possibilitar cada ONG cadastrada publicar informações sobre os postos de coletas e retiradas de doações; 
+4. Tanto os doadores quanto as pessoas que irão receber as doações devem poder visualizar os locais de coleta e retirada de doações de cada ONG específica;
+5. O sistema deve permitir salvar as ONGs preferidas;
 
 ## ✅ Requisitos não funcionais
 
@@ -29,6 +34,7 @@ a pessoas que precisam de ajuda. O sistema permite o cadastro de doações, a ge
 3. O uso do localStorage deve ser otimizado, evitando salvar dados desnecessários para não comprometer o desempenho.
 4. Código e arquivos CSS/JS devem ser minificados para reduzir o tempo de carregamento.
 5. Todos os formulários devem ter validações visíveis para orientar o usuário.
+6. 
 
 
 ## 🚫 Restrições de projetos
