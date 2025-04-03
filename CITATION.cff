@@ -2,26 +2,30 @@ cff-version: 1.0.1
 message: Please cite this software using these metadata.
 title: 
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
+  - family-names: Lopes de Souza da Fonseca
+    given-names: Rafael
+  - family-names: Paulino Cicero
+    given-names: Gustavo
+  - family-names: Leão Braga
+    given-names: Bernardo
+  - family-names: Alves Kfuri
+    given-names: Caio
+  - family-names: Hoske Aguiar
+    given-names: Bruno Henrique
+  - family-names: Santos Carvalho
+    given-names: Rafael
+ - family-names: Freitas de Souza
+    given-names: Murilo
+- family-names: Demaria Santos
+    given-names: Bernardo
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Faria Barros 
+    given-names: Diego Augusto
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Hanne Soares de Andrade
+    given-names: Michelle
 keywords:
   - 
   - 
