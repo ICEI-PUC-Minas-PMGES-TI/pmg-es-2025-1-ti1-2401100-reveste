@@ -201,7 +201,7 @@ Painel de Gestão Ponto de Apoio
 ### User Flow
 **User Flow**
 
-![userflow](userflow.jpg)
+![userflow](images/userflow.jpg)
 
 ### Protótipo Interativo
 
@@ -217,35 +217,36 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 
 | Ambiente                    | Plataforma | Link de acesso                                     |
 | --------------------------- | ---------- | -------------------------------------------------- |
-| Processo de Design Thinking | Miro       | https://miro.com/XXXXXXX ⚠️ EXEMPLO ⚠️        |
-| Repositório de código     | GitHub     | https://github.com/XXXXXXX ⚠️ EXEMPLO ⚠️      |
-| Hospedagem do site          | Render     | https://site.render.com/XXXXXXX ⚠️ EXEMPLO ⚠️ |
-| Protótipo Interativo       | MarvelApp  | https://marvelapp.com/XXXXXXX ⚠️ EXEMPLO ⚠️   |
-|                             |            |                                                    |
+| Processo de Design Thinking | Miro       | [MIRO](https://miro.com/app/board/uXjVIGInpEk=/) |
+| Repositório de código     | GitHub     | [Repostório](https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-1-ti1-2401100-reveste) |
+| Protótipo Interativo       | MarvelApp  | [Prototipo](https://marvelapp.com/prototype/34186c06)|
+| Comunicação         | WhatsApp           |  [WhatsApp](https://web.whatsapp.com/)|
+| Diagramação | Figma | [Figma]([https://code.visualstudio.com/](https://www.figma.com/design/2bVvGTvSVjfC7qbCE777eQ/Desapegaí?node-id=0-1&t=fbQftLfk2K2iNxSR-1))| |
+| Editor de Código | VSCODE | [VSCODE](https://code.visualstudio.com/)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Liste as ferramentas empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível. Inclua itens como: (1) Editor de código, (2) )ferramentas de comunicação, (3) )ferramentas de diagramação, (4) )plataformas de hospedagem, entre outras.
+> Listagem das ferramentas
+> (1) VSCODE
+> Escolhemos o VSCODE porque ele oferece uma variedade de extensões que facilitaram a codificação do site, além de ser integrado com o GIT, trazendo facilidade nos commits, pulls etc.
+> (2) MIRO
+> Utilizamos o MIRO porque além de ter sido recomendado pelos professores, já tinha alguns modelos do que devia ser preenchhido.
+> (3) WhatsApp
+> Utilizamos o WhatsApp como meio de comunicação por ser mais acessível pra todos.
+> (4) Github
+> Utilizamos o GITHUB por ser uma ferramenta muito poderosa.
+> (5) MarvelApp
+> Foi usado para fazer o prototipo interativo, por ser muito intuitivo.
+> (6) Figma
+> Utilizamos o figma para fazer a prototipação, por ser muito intuitivo também.
 
 ## Gerenciamento do Projeto
 
 Divisão de papéis no grupo e apresentação da estrutura da ferramenta de controle de tarefas (Kanban).
 
-![Exemplo de Kanban](images/exemplo-kanban.png)
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
+**PROJECTS GITHUB**
+> ![Quadro2](images/Projects1.png)
 >
-> Nesta parte do documento, você deve apresentar  o processo de trabalho baseado nas metodologias ágeis, a divisão de papéis e tarefas, as ferramentas empregadas e como foi realizada a gestão de configuração do projeto via GitHub.
->
-> Coloque detalhes sobre o processo de Design Thinking e a implementação do Framework Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
->
-> **Orientações**:
->
-> - [Sobre Projects - GitHub Docs](https://docs.github.com/pt/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
-> - [Gestão de projetos com GitHub | balta.io](https://balta.io/blog/gestao-de-projetos-com-github)
-> - [(460) GitHub Projects - YouTube](https://www.youtube.com/playlist?list=PLiO7XHcmTsldZR93nkTFmmWbCEVF_8F5H)
-> - [11 Passos Essenciais para Implantar Scrum no seu Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
+> Nessa imagem podemos ver a organização de tarefas, com elas sendo encaminhadas para os respectivos membros
+> ![Quadro2](images/Projects2.png)
 
 # Solução Implementada
 
@@ -358,13 +359,8 @@ Esta seção apresenta os módulos e APIs utilizados na solução
 
 As referências utilizadas no trabalho foram:
 
-* SOBRENOME, Nome do autor. Título da obra. 8. ed. Cidade: Editora, 2000. 287 p ⚠️ EXEMPLO ⚠️
+* [ESTADO DE MINAS. BH: Servas lança campanha para arrecadar itens de inverno: saiba como doar. 10 jun. 2024. Disponível em:](https://www.em.com.br/gerais/2024/06/6875041-bh-servas-lanca-campanha-para-arrecadar-itens-de-inverno-saiba-como-doar.html)
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
->
-> **Orientações**:
->
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
+* [NOVA ACRÓPOLE. Voluntários da Nova Acrópole Savassi realizam recolhimento de roupas para doação à Dreminas. 2024. Disponível em:](https://nova-acropole.org.br/noticias/savassi/voluntarios-da-nova-acropole-savassi-realizam-recolhimento-de-roupas-para-doacao-a-dreminas/)
+
+*[JORNAL DE BRASÍLIA. Grupo HOPE cria projeto de doação de roupas chamado “Doe Esperança”. 19 jan. 2024. Disponível em: ](https://jornaldebrasilia.com.br/blogs-e-colunas/analice-nicolau/grupo-hope-cria-projeto-de-doacao-de-roupas-chamado-doe-esperanca/)
