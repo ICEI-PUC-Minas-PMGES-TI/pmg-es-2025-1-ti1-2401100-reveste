@@ -201,11 +201,11 @@ Painel de Gestão Ponto de Apoio
 ### User Flow
 **User Flow**
 
-![userflow](userflow.png)
+> ![userflow](userflow.jpg)
 
 ### Protótipo Interativo
 
-![Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/34186c06)
+[Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/34186c06)
 
 # Metodologia
 
