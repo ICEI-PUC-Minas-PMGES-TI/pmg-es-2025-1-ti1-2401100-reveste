@@ -14,18 +14,18 @@ authors:
     given-names: Bruno Henrique
   - family-names: Santos Carvalho
     given-names: Rafael
- - family-names: Freitas de Souza
+  - family-names: Freitas de Souza
     given-names: Murilo
-- family-names: Demaria Santos
+  - family-names: Demaria Santos
     given-names: Bernardo
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: Faria Barros 
+  - family-names: Faria Barros
     given-names: Diego Augusto
-  - name-suffix: Professor
+    name-suffix: Professor
     affiliation: PUC Minas
-    family-names: Hanne Soares de Andrade
+  - family-names: Hanne Soares de Andrade
     given-names: Michelle
+    name-suffix: Professor
+    affiliation: PUC Minas
 keywords:
   - Doação
   - Roupas
@@ -33,7 +33,7 @@ keywords:
   - Coleta
   - Doadores
   - Solidariedade
-repository-code: 
+repository-code:
 license: CC-BY-4.0
 version: 1.0.0
 date-released: 2022-07-14
