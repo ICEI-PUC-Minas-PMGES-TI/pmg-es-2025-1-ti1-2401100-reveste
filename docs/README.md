@@ -221,21 +221,21 @@ Relação de ferramentas empregadas pelo grupo durante o projeto.
 | Repositório de código     | GitHub     | [Repostório](https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2025-1-ti1-2401100-reveste) |
 | Protótipo Interativo       | MarvelApp  | [Prototipo](https://marvelapp.com/prototype/34186c06)|
 | Comunicação         | WhatsApp           |  [WhatsApp](https://web.whatsapp.com/)|
-| Diagramação | Figma | [Figma]([https://code.visualstudio.com/](https://www.figma.com/design/2bVvGTvSVjfC7qbCE777eQ/Desapegaí?node-id=0-1&t=fbQftLfk2K2iNxSR-1))| |
+| Diagramação | Figma | [Figma](https://www.figma.com/design/2bVvGTvSVjfC7qbCE777eQ/Desapegaí?node-id=0-1&t=fbQftLfk2K2iNxSR-1) | 
 | Editor de Código | VSCODE | [VSCODE](https://code.visualstudio.com/)
 
 > Listagem das ferramentas
-> (1) VSCODE
+> * (1) VSCODE
 > Escolhemos o VSCODE porque ele oferece uma variedade de extensões que facilitaram a codificação do site, além de ser integrado com o GIT, trazendo facilidade nos commits, pulls etc.
-> (2) MIRO
+> * (2) MIRO
 > Utilizamos o MIRO porque além de ter sido recomendado pelos professores, já tinha alguns modelos do que devia ser preenchhido.
-> (3) WhatsApp
+> * (3) WhatsApp
 > Utilizamos o WhatsApp como meio de comunicação por ser mais acessível pra todos.
-> (4) Github
+> * (4) Github
 > Utilizamos o GITHUB por ser uma ferramenta muito poderosa.
-> (5) MarvelApp
+> * (5) MarvelApp
 > Foi usado para fazer o prototipo interativo, por ser muito intuitivo.
-> (6) Figma
+> * (6) Figma
 > Utilizamos o figma para fazer a prototipação, por ser muito intuitivo também.
 
 ## Gerenciamento do Projeto
@@ -363,4 +363,4 @@ As referências utilizadas no trabalho foram:
 
 * [NOVA ACRÓPOLE. Voluntários da Nova Acrópole Savassi realizam recolhimento de roupas para doação à Dreminas. 2024. Disponível em:](https://nova-acropole.org.br/noticias/savassi/voluntarios-da-nova-acropole-savassi-realizam-recolhimento-de-roupas-para-doacao-a-dreminas/)
 
-*[JORNAL DE BRASÍLIA. Grupo HOPE cria projeto de doação de roupas chamado “Doe Esperança”. 19 jan. 2024. Disponível em: ](https://jornaldebrasilia.com.br/blogs-e-colunas/analice-nicolau/grupo-hope-cria-projeto-de-doacao-de-roupas-chamado-doe-esperanca/)
+* [JORNAL DE BRASÍLIA. Grupo HOPE cria projeto de doação de roupas chamado “Doe Esperança”. 19 jan. 2024. Disponível em: ](https://jornaldebrasilia.com.br/blogs-e-colunas/analice-nicolau/grupo-hope-cria-projeto-de-doacao-de-roupas-chamado-doe-esperanca/)
