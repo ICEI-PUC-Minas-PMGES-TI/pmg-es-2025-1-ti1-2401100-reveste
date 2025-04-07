@@ -159,44 +159,44 @@ Estes são os protótipos de telas do sistema.
 HOME PAGE
 
 > ![Home Page](images/Home.png)
-
-Tela Inicial da aplicação, onde o usuário irá informar o que ele é (Doador, Beneficiário, Ponto de apoio)
+>
+>Tela Inicial da aplicação, onde o usuário irá informar o que ele é (Doador, Beneficiário, Ponto de apoio)
 
 Seleção de Ponto de Apoio
 
 > ![Seleção ponto de apoio](images/SeleçãodePonto.png)
-
-Tela onde o doador ou beneficiário poderá ver locais de apoio perto dele(a) e acessar seu estoque.
+>
+>Tela onde o doador ou beneficiário poderá ver locais de apoio perto dele(a) e acessar seu estoque.
 
 
 Painel de estoque
 
 > ![Estoque](images/PainelEstoque.png)
+>
+>Tela onde vai ser possível do usuário vizualizar o estoque de um ponto de apoio.
 
-Tela onde vai ser possível do usuário vizualizar o estoque de um ponto de apoio.
-
-Cadastro Ponto
+Cadastro Ponto de Apoio
 
 > ![CadastroPonto](images/CadastroPonto.png)
+>
+>Tela onde os pontos de apoio irão se cadastrar na plataforma.
 
-Tela onde os pontos de apoio irão se cadastrar na plataforma.
-
-Login Ponto
+Login Ponto de Apoio
 > ![LoginPonto](images/LoginPonto.png)
+>
+>Tela onde pontos de apoio já cadastrados poderão entrar na plataforma
 
-Tela onde pontos de apoio já cadastrados poderão entrar na plataforma
-
-Cadastro de doação
+Cadastro de doações
 
 > ![CadastroDoação](images/TelaCadastroDoação.png)
-
-Tela onde doadores poderão agendar uma doação em um ponto de apoio
+>
+>Tela onde doadores poderão agendar uma doação em um ponto de apoio
 
 Painel de Gestão Ponto de Apoio
 
 > ![PainelPonto](images/PainelPonto.png)
-
-Tela onde o local de apoio irá administrar estoque, agendamentos e outras configurações
+>
+>Tela onde o local de apoio irá administrar estoque, agendamentos e outras configurações
 
 ### User Flow
 **User Flow**
