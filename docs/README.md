@@ -156,37 +156,56 @@ Artefatos relacionados com a interface e a interacão do usuário na proposta de
 
 Estes são os protótipos de telas do sistema.
 
-> HOME PAGE
+HOME PAGE
 
-> * ![Home Page](images/Home.png)
+> ![Home Page](images/Home.png)
+
+Tela Inicial da aplicação, onde o usuário irá informar o que ele é (Doador, Beneficiário, Ponto de apoio)
+
+Seleção de Ponto de Apoio
+
+> ![Seleção ponto de apoio](images/SeleçãodePonto.png)
+
+Tela onde o doador ou beneficiário poderá ver locais de apoio perto dele(a) e acessar seu estoque.
 
 
+Painel de estoque
+
+> ![Estoque](images/PainelEstoque.png)
+
+Tela onde vai ser possível do usuário vizualizar o estoque de um ponto de apoio.
+
+Cadastro Ponto
+
+> ![CadastroPonto](images/CadastroPonto.png)
+
+Tela onde os pontos de apoio irão se cadastrar na plataforma.
+
+Login Ponto
+> ![LoginPonto](images/LoginPonto.png)
+
+Tela onde pontos de apoio já cadastrados poderão entrar na plataforma
+
+Cadastro de doação
+
+> ![CadastroDoação](images/TelaCadastroDoação.png)
+
+Tela onde doadores poderão agendar uma doação em um ponto de apoio
+
+Painel de Gestão Ponto de Apoio
+
+> ![PainelPonto](images/PainelPonto.png)
+
+Tela onde o local de apoio irá administrar estoque, agendamentos e outras configurações
 
 ### User Flow
+**User Flow**
 
-**✳️✳️✳️ COLOQUE AQUI O DIAGRAMA DE FLUXO DE TELAS ✳️✳️✳️**
-
-![Exemplo de fluxo de telas](images/exemplo-userflow.png)
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Fluxo de usuário (User Flow) é uma técnica que permite ao desenvolvedor mapear todo fluxo de telas do site ou app. Essa técnica funciona para alinhar os caminhos e as possíveis ações que o usuário pode fazer junto com os membros de sua equipe.
->
-> **Orientações**:
->
-> - [User Flow: O Quê É e Como Fazer?](https://medium.com/7bits/fluxo-de-usu%C3%A1rio-user-flow-o-que-%C3%A9-como-fazer-79d965872534)
-> - [User Flow vs Site Maps](http://designr.com.br/sitemap-e-user-flow-quais-as-diferencas-e-quando-usar-cada-um/)
-> - [Top 25 User Flow Tools &amp; Templates for Smooth](https://www.mockplus.com/blog/post/user-flow-tools)
+![userflow](userflow.png)
 
 ### Protótipo Interativo
 
-**✳️✳️✳️ COLOQUE AQUI UM IFRAME COM SEU PROTÓTIPO INTERATIVO ✳️✳️✳️**
-
-✅ [Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/4hd6091?emb=1&iosapp=false&frameless=false)  ⚠️ EXEMPLO ⚠️
-
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Um protótipo interativo apresenta o projeto de interfaces e permite ao usuário navegar pelas funcionalidades como se estivesse lidando com o software pronto. Utilize as mesmas ferramentas de construção de wireframes para montagem do seu protótipo interativo. Inclua o link para o protótipo interativo do projeto.
+![Protótipo Interativo (MarvelApp)](https://marvelapp.com/prototype/34186c06)
 
 # Metodologia
 
