@@ -201,7 +201,7 @@ Painel de Gestão Ponto de Apoio
 ### User Flow
 **User Flow**
 
-> ![userflow](userflow.jpg)
+![userflow](userflow.jpg)
 
 ### Protótipo Interativo
 
