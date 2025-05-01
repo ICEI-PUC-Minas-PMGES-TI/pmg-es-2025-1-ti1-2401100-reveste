@@ -1,7 +1,45 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(4, 15, 57);
 }
 .meio{
+    top: 50%;
+    left: 50%;
+    background-color: rgba(1, 9, 18, 0.732);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    padding: 80px;
+    border-radius: 15px;
+    width: 30%;
+}
+h1{
+    color: white;
+}
+h2{
+    color: greenyellow;
+}
+p{
+    color: white;
+}
+input{
+    padding: 1px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    width: 100%;
+}
+button{
+    background-color: dodgerblue;
+    border: none;
+    padding: 5px;
     position: relative;
-    left: 40%;
+    left: 110px;
+    width: 50%;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+
+}
+button:hover{
+    background-color: deepskyblue;
 }
