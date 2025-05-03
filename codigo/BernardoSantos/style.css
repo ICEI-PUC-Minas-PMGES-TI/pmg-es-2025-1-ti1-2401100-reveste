@@ -16,18 +16,7 @@ body {
     padding: 20px;
     box-sizing: border-box;
   }
-  
-  .logo {
-    width: 100%;
-    height: 100px;
-    background-color: #d1d9e6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    color: black;
-    font-weight: bold;
-  }
+
   
   .menu h3 {
     margin-top: 20px;
