@@ -75,11 +75,22 @@ function atualizarLista() {
       ong.pecasNecessarias.map(p => `
         <li>${p.quantidade}x ${p.nomePeca} (Tam: ${p.tamanho}, Prioridade: ${p.prioridade})</li>
       `).join('') + '</ul>';
-
     lista.appendChild(ongDiv);
   });
 
-  texto.value = JSON.stringify(listaOngs, null, 2);
+  // Texto formatado
+  let textoFormatado = '';
+  listaOngs.forEach(ong => {
+    textoFormatado += `ONG: ${ong.nomeONG}\n`;
+
+    ong.pecasNecessarias.forEach(p => {
+      textoFormatado += `- ${p.quantidade}x ${p.nomePeca}\n  Tamanho: ${p.tamanho}\n  Prioridade: ${p.prioridade}\n`;
+    });
+
+    textoFormatado += '\n';
+  });
+
+  texto.value = textoFormatado;
 }
 
 function limparFormulario() {
