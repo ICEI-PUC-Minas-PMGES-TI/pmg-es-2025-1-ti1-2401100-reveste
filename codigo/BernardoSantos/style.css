@@ -16,11 +16,9 @@ body {
     padding: 20px;
     box-sizing: border-box;
   }
-
-  
-  .menu h3 {
-    margin-top: 20px;
-    margin-bottom: 5px;
+  .logo img {
+    width: 235px;  
+    height: auto;
   }
   
   .menu ul {
