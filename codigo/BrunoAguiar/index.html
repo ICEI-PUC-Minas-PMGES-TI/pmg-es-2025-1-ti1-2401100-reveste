@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário para Doação</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #111C30;
+        }
+
+        .header-nav {
+            background-color: #111C30;
+            padding: 15px 0;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 40px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-nav .nav-link {
+            color: white;
+            margin-left: 25px;
+        }
+
+        .form-container {
+            background-color: #111C30;
+            color: white;
+            max-width: 450px;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 50px auto;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .form-label {
+            margin-top: 10px;
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+        }
+
+        .btn-agendar {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .footer {
+            background-color: #111C30;
+            color: white;
+            padding: 15px 0;
+            margin-top: auto;
+        }
+
+        .footer-btn {
+            background-color: #0055c4;
+            border-radius: 5px;
+            color: white;
+            padding: 5px 15px;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+
+        .footer-btn.whatsapp {
+            background-color: #076adf;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav class="header-nav">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="logo-placeholder">
+                        LOGO
+                    </div>
+                    <div class="d-flex">
+                        <a href="#" class="nav-link">Quero roupa</a>
+                        <a href="#" class="nav-link">Quero doar</a>
+                        <a href="#" class="nav-link">Sou ponto de apoio</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content - Form Section -->
+    <main>
+        <section class="container">
+            <article class="form-container">
+                <h2>Formulário para doação</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" placeholder="João Silva">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="joao@emailmail.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nascimento" class="form-label">Data de nascimento</label>
+                        <input type="date" class="form-control" id="nascimento">
+                    </div>
+                    <div class="mb-3">
+                        <label for="horario" class="form-label">Data e horário da doação</label>
+                        <input type="datetime-local" class="form-control" id="horario">
+                    </div>
+                    <button type="submit" class="btn-agendar">Agendar doação</button>
+                </form>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="d-flex align-items-center">
+                <span>Para chamar o suporte:</span>
+                <a href="#" class="footer-btn">Telegram</a>
+                <a href="#" class="footer-btn whatsapp">watsapp</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
