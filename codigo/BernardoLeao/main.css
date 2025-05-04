@@ -1,3 +1,62 @@
-body, html {
+:root {
+    --main-color: #184848;
+    --second-color: #006060;
+    --third-color: #007878;
+    --fourth-color: #a8c030;
+    --fifth-color: #f0f0d8;
+    --darkmode-color: #041f1f;
+}
+
+body,
+html {
     margin: 0;
+}
+
+header {
+    width: 100%;
+    height: 13vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header img {
+    width: 13%;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    list-style: none;
+}
+
+header ul a {
+    text-decoration: none;
+    color: white;
+    background-color: var(--main-color);
+    transition: .3s;
+    width: 25%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+header ul a:hover {
+    background-color: var(--second-color);
+}
+
+header ul a::before {
+    content: "";
+    position: absolute;
+    height: 6vh;
+    width: 0.1%;
+    margin-left: -10%;
+    background-color: rgb(182, 182, 182);
 }
