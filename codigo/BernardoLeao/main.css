@@ -10,6 +10,9 @@
 body,
 html {
     margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 header {
@@ -18,9 +21,6 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
 }
 
 header img {
@@ -40,8 +40,8 @@ header ul a {
     color: white;
     background-color: var(--main-color);
     transition: .3s;
-    width: 25%;
-    height: 5vh;
+    width: 30%;
+    height: 6vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,6 +50,7 @@ header ul a {
 
 header ul a:hover {
     background-color: var(--second-color);
+    cursor: pointer;
 }
 
 header ul a::before {
@@ -57,6 +58,90 @@ header ul a::before {
     position: absolute;
     height: 6vh;
     width: 0.1%;
-    margin-left: -10%;
+    margin-left: -12%;
     background-color: rgb(182, 182, 182);
+}
+
+main {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 30%;
+    height: 70vh;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.container h1 {
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.inputs {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputs input {
+    width: 100%;
+    height: 4.5vh;
+    border: solid black 0.1vh;
+    outline: none;
+    border-radius: 2px;
+    padding-left: 5%;
+    background-color: transparent;
+    z-index: 99;
+    font-size: 1rem;
+}
+
+.inputs textarea {
+    background-color: transparent;
+    resize: none;
+    width: 100%;
+    height: 10vh;
+    padding-left: 5%;
+}
+
+.inputs div {
+    width: 70%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.inputs div span {
+    position: absolute;
+    margin-left: 1%;
+}
+
+.container button {
+    width: 45%;
+    height: 5vh;
+    border: none;
+    outline: none;
+    background-color: var(--main-color);
+    color: white;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: .3s;
+}
+
+.container button:hover {
+    background-color: var(--second-color);
+    cursor: pointer;
 }
