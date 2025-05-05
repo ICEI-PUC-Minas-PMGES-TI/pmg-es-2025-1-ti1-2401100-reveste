@@ -115,11 +115,13 @@
     background-color: #0984e3;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 12px 20px;
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.3s;
-    font-size: 14px;
+    font-size: 16px;
+    flex: 1;
+    margin-right: 10px;
   }
   
   .card button:hover {
