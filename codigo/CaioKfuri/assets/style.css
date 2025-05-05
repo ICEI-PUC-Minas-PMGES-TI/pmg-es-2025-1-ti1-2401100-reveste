@@ -79,8 +79,8 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: opacity 1s ease;
   }
-  
   .card img {
     width: auto;
     height: 180px;
@@ -115,11 +115,13 @@
     background-color: #0984e3;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 12px 20px;
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.3s;
-    font-size: 14px;
+    font-size: 16px;
+    flex: 1;
+    margin-right: 10px;
   }
   
   .card button:hover {
@@ -131,10 +133,13 @@
     fill: #ccc;
     cursor: pointer;
     transition: transform 0.2s;
-
   }
   
   .heart-icon:hover {
     transform: scale(0.5);
     fill: red;
+  }
+
+  .card.nao-favoritada {
+    opacity: 0.4;
   }
