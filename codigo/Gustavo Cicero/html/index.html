@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doação de Roupas - Ponto de Apoio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+
+</head>
+<body>
+    <div class="container">
+        <h1>Registrar Ponto de Apoio</h1>
+        <form action="#" method="post">
+            <label for="nome">Nome do Responsável</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+            <label for="local">Local do Ponto de Apoio</label>
+            <input type="text" id="local" name="local" placeholder="Digite o endereço" required>
+
+            <label for="contato">Contato</label>
+            <input type="text" id="contato" name="contato" placeholder="Telefone ou e-mail" required>
+
+            <label for="tipo">Tipo de Doação</label>
+            <select id="tipo" name="tipo" required>
+                <option value="">Selecione</option>
+                <option value="roupas_adultos">Roupas para Adultos</option>
+                <option value="roupas_criancas">Roupas para Crianças</option>
+                <option value="cobertores">Cobertores</option>
+            </select>
+
+            <button type="submit">Registrar</button>
+        </form>
+        <footer>Solidariedade em ação - Desapegaí</footer>
+    </div>
+</body>
+</html>
