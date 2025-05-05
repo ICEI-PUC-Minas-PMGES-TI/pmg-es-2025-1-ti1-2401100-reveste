@@ -79,8 +79,8 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition: opacity 1s ease;
   }
-  
   .card img {
     width: auto;
     height: 180px;
@@ -133,10 +133,13 @@
     fill: #ccc;
     cursor: pointer;
     transition: transform 0.2s;
-
   }
   
   .heart-icon:hover {
     transform: scale(0.5);
     fill: red;
+  }
+
+  .card.nao-favoritada {
+    opacity: 0.4;
   }

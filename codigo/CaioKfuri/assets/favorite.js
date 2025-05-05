@@ -31,10 +31,13 @@ function renderFavorites() {
 
   favoriteOngs.forEach(ong => {
     const card = document.createElement("div");
-    card.className = "card";
+    card.classList.add("card");
+    if (!ong.favorited) {
+      card.classList.add("nao-favoritada");
+    }
 
-    const heartIcon = ong.favorited ? "./imgs/heart-solid.svg" : "./imgs/heart-regular.svg";
-    const heartClass = ong.favorited ? "heart-icon favoritado" : "heart-icon";
+    const heartSrc = ong.favorited ? './imgs/heart-solid.svg' : './imgs/heart-regular.svg';
+    const heartClass = ong.favorited ? 'heart-icon favoritado' : 'heart-icon';
 
     card.innerHTML = `
       <img src="${ong.imagem}" alt="${ong.nome}">
@@ -43,7 +46,12 @@ function renderFavorites() {
         <p>${ong.descricao}</p>
         <div class="actions">
           <button onclick="verDetalhes(${ong.id})">Ver detalhes</button>
-          <img src="${heartIcon}" alt="Favorito" class="${heartClass}" data-id="${ong.id}" onclick="alternarFavorito(this)">
+          <img 
+            src="${heartSrc}" 
+            alt="Favorito" 
+            class="${heartClass}" 
+            data-id="${ong.id}" 
+            onclick="alternarFavorito(this)">
         </div>
       </div>
     `;
@@ -63,11 +71,10 @@ function alternarFavorito(icone) {
   const id = parseInt(icone.getAttribute("data-id"));
   const ong = favoriteOngs.find(o => o.id === id);
 
-  if (ong) {
-    ong.favorited = !ong.favorited;
-    icone.src = ong.favorited ? "./imgs/heart-solid.svg" : "./imgs/heart-regular.svg";
-    icone.classList.toggle("favoritado", ong.favorited);
-  }
+  if (!ong) return;
+
+  ong.favorited = !ong.favorited;
+  renderFavorites();
 }
 
 renderFavorites();
