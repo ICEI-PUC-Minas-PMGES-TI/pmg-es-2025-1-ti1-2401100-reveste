@@ -59,7 +59,7 @@ header ul a::before {
     height: 6vh;
     width: 0.1%;
     margin-left: -12%;
-    background-color: rgb(182, 182, 182);
+    background-color: rgb(243, 243, 243);
 }
 
 main {
@@ -78,7 +78,7 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1.5px;
 }
 
 .container h1 {
@@ -126,7 +126,7 @@ main {
 
 .inputs div span {
     position: absolute;
-    margin-left: 1%;
+    margin-left: 1.1%;
 }
 
 .container button {
