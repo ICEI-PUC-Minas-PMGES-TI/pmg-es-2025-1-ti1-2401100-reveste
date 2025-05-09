@@ -11,6 +11,7 @@ body{
     padding: 80px;
     border-radius: 15px;
     width: 30%;
+    height: 75%;
 }
 h1{
     color: white;
@@ -42,4 +43,11 @@ button{
 }
 button:hover{
     background-color: deepskyblue;
+}
+header{
+    text-align: center;
+}
+header img{
+    max-width: 80%;
+    height: auto;
 }
