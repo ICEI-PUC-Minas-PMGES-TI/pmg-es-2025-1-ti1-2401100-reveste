@@ -15,9 +15,15 @@ function adicionarPeca() {
       <option value="Média">Média</option>
       <option value="Baixa">Baixa</option>
     </select>
+    <button onclick="removerPeca(this)">Remover Peça</button>
   `;
 
   container.appendChild(div);
+}
+
+function removerPeca(button) {
+  const pecaDiv = button.parentElement;
+  pecaDiv.remove();
 }
 
 function salvarONG() {

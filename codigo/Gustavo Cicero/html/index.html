@@ -6,18 +6,21 @@
   <title>Necessidades das ONGs</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<img class="logo" src="logo.png" alt="" width="200px">
 <body>
   <button id="voltar" onclick="window.location.href='/codigo/BernardoSantos/html/estoque.html'">← Voltar</button>
   
   <div class="container">
     <h1>Necessidades das ONGs</h1>
     
+    <p>Você pode cadastrar as necessidades das ONGs, incluindo itens como roupas, alimentos e materiais diversos. Preencha os campos abaixo e contribua para um mundo melhor.</p>
+    
     <div class="formulario">
+      <label for="nomeONG">Nome da ONG:</label>
       <input type="text" id="nomeONG" placeholder="Nome da ONG" />
+
       <div id="pecasContainer"></div>
-      <button onclick="adicionarPeca()">+ Adicionar Peça</button>
-      <button onclick="salvarONG()">Salvar ONG</button>
+      <button class="adicionar-btn" onclick="adicionarPeca()">+ Adicionar Peça</button>
+      <button class="salvar-btn" onclick="salvarONG()">Salvar ONG</button>
     </div>
 
     <h2>Lista de Necessidades</h2>

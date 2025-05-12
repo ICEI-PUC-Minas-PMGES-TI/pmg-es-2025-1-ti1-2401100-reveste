@@ -1,12 +1,20 @@
+/* Resetando margens e padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #0d1b2a;
-    color: white;
-    margin: 0;
-    padding: 0;
-  }
-  
-  #voltar {
+  font-family: 'Arial', sans-serif;
+  background-color: #0d1b2a;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo do botão de voltar */
+#voltar {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -19,43 +27,117 @@ body {
   font-weight: bold;
   font-size: 1rem;
 }
-  
-  .container {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 20px;
-    background-color: #1b263b;
-    border-radius: 10px;
-  }
-  
-  input, select, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    color: black;
-  }
-  
-  button {
-    margin-right: 10px;
-    background-color: #415a77;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .peca-form {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
-  }
-  .logo{
-    float: right;
-margin: 0;
 
-  }
+#voltar:hover {
+  background-color: #415a77;
+  color: white;
+}
+
+/* Estilo do container principal */
+.container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 20px;
+  background-color: #1b263b;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos principais */
+h1, h2 {
+  color: #ffcc00;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilo do formulário */
+.formulario {
+  margin-bottom: 30px;
+}
+
+label {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  display: block;
+  color: #ffcc00;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #415a77;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  background-color: #415a77;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #3c4e68;
+}
+
+/* Estilos para os botões específicos */
+.adicionar-btn {
+  margin-top: 15px;
+  background-color: #ffcc00;
+  color: #1b263b;
+}
+
+.adicionar-btn:hover {
+  background-color: #ffd740;
+  color: #1b263b;
+}
+
+.salvar-btn {
+  margin-left: 10px;
+  background-color: #ff5722;
+}
+
+.salvar-btn:hover {
+  background-color: #e64a19;
+}
+
+/* Estilo da lista de necessidades */
+#listaNecessidades {
+  background-color: #283593;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+#listaNecessidades ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+#listaNecessidades li {
+  margin-bottom: 8px;
+}
+
+/* Estilo do textarea para copiar */
+#textoCopiar {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  font-size: 1rem;
+  resize: none;
+}
