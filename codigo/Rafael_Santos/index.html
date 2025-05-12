@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM&callback=console.debug&libraries=maps,marker&v=beta" defer></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM&callback=console.debug&libraries=maps,marker&v=beta"></script>
+    <link rel="stylesheet" href="./css/style.css"></link>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
     <style>
-        /* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
         gmp-map {
           height: 100%;
         }
-  
-        /* Optional: Makes the sample page fill the window. */
         html,
         body {
           height: 100%;
@@ -22,16 +21,37 @@
       </style>
 </head>
 <body>
-    <gmp-map
-      center="40.1215,-100.4503"
-      zoom="10"
-      map-id="1">
-      
-      <gmp-advanced-marker
-        position="40.1215,-100.4503"
-        title="Minha localização">
-      </gmp-advanced-marker>
+  <header>
+    <img src="./images/logo.png"/>
+    <nav>
+      <a>Quero roupa</a>
+      <a>Quero doar</a>
+      <a>Sou ponto de apoio</a>
+    </nav>
+  </header>
+  <main class="main-body">
+    <section class="filters">
+      <div class="input-icon-container">
+        <span class="material-icons">manage_search</span>
+        <input class="filter-locale" placeholder="Qualquer lugar em BH" />
+      </div>
+    </section>
+    <div>
+      <section>
+      </section>
+      <section>
 
-    </gmp-map>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div>
+      <p>Para chamar o suporte:</p>
+    </div>
+    <div>
+      <button class="contact">Telegram</button>
+      <button class="contact">Whatsapp</button>
+    </div>
+  </footer>
 </body>
 </html>
