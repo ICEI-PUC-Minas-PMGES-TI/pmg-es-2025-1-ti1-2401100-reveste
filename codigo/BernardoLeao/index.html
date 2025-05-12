@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="/codigo/BernardoLeao/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,55 +14,33 @@
 </head>
 
 <body>
-    <header>
-        <img src="/codigo/BernardoLeao/imgs/Light Logo.svg" alt="">
+    <div class="containerLoginECadastrar">
+        <div class="imagemIgreja"></div>
 
-        <ul>
-            <li>Home</li>
-            <li>Postos</li>
-            <li>Minhas Publicações</li>
-            <a class="btnSair" href="">Sair</a>
-        </ul>
-    </header>
+        <main class="mainLoginECadastro">
+            <div class="containerLogin">
+                <h1>Login</h1>
 
-    <main>
-        <div class="container">
-            <h1>Cadastrar Ponto de Coleta</h1>
-            <div class="inputs">
-                <div>
-                    <span class="spanNome">Nome do Posto:</span>
-                    <input type="text">
+                <div class="inputs">
+                    <div>
+                        <input class="inputCNPJ" maxlength="18" type="text" required>
+                        <span class="spanCNPJ">CNPJ:</span>
+                    </div>
+
+                    <div>
+                        <input type="password" maxlength="30" required>
+                        <span class="spanSenha">Senha:</span>
+                    </div>
+                    <a href="">Esqueceu a senha?</a>
                 </div>
-
-                <div>
-                    <span class="spanEndereco">Endereço:</span>
-                    <input type="text">
+                <button class="btnEntrar">Entrar</button>
+                <div class="divSC">
+                    <span>Não cadastrou o seu ponto de apoio? <button
+                            class="buttomCadastrar">Cadastrar-se</button></span>
                 </div>
-
-                <div>
-                    <span class="spanCidade">Cidade:</span>
-                    <input type="text">
-                </div>
-
-                <div>
-                    <span class="spanHorario">Horário de Funcionamento</span>
-                    <input type="text">
-                </div>
-
-                <div>
-                    <span class="spanTelefone">Telefone:</span>
-                    <input type="text">
-                </div>
-
-                <div>
-                    <span class="spanObservacao">Observação:</span>
-                    <textarea name="" id=""></textarea>
-                </div>
-
             </div>
-            <button>Publicar Posto</button>
-        </div>
-    </main>
+        </main>
+    </div>
 </body>
 
 </html>
