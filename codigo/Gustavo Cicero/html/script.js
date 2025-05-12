@@ -1,8 +1,10 @@
 let listaOngs = JSON.parse(localStorage.getItem('necessidades')) || [];
 
 function adicionarPeca() {
+  // Container onde as peças serão adicionadas
   const container = document.getElementById('pecasContainer');
 
+  // Criação de um novo formulário de peça
   const div = document.createElement('div');
   div.classList.add('peca-form');
 
@@ -15,15 +17,10 @@ function adicionarPeca() {
       <option value="Média">Média</option>
       <option value="Baixa">Baixa</option>
     </select>
-    <button onclick="removerPeca(this)">Remover Peça</button>
   `;
 
+  // Adiciona o formulário de peça ao container
   container.appendChild(div);
-}
-
-function removerPeca(button) {
-  const pecaDiv = button.parentElement;
-  pecaDiv.remove();
 }
 
 function salvarONG() {
@@ -69,34 +66,19 @@ function salvarLocal() {
 }
 
 function atualizarLista() {
-  const lista = document.getElementById('listaNecessidades');
-  const texto = document.getElementById('textoCopiar');
-
-  lista.innerHTML = "";
-  texto.value = "";
+  const listaTextoCopiar = document.getElementById('listaTextoCopiar');
+  
+  listaTextoCopiar.value = "";  // Limpar conteúdo antes de atualizar
 
   listaOngs.forEach(ong => {
-    const ongDiv = document.createElement('div');
-    ongDiv.innerHTML = `<strong>${ong.nomeONG}</strong><ul>` +
-      ong.pecasNecessarias.map(p => `
-        <li>${p.quantidade}x ${p.nomePeca} (Tam: ${p.tamanho}, Prioridade: ${p.prioridade})</li>
-      `).join('') + '</ul>';
-    lista.appendChild(ongDiv);
-  });
-
-  // Texto formatado
-  let textoFormatado = '';
-  listaOngs.forEach(ong => {
-    textoFormatado += `ONG: ${ong.nomeONG}\n`;
+    listaTextoCopiar.value += `ONG: ${ong.nomeONG}\n`;
 
     ong.pecasNecessarias.forEach(p => {
-      textoFormatado += `- ${p.quantidade}x ${p.nomePeca}\n  Tamanho: ${p.tamanho}\n  Prioridade: ${p.prioridade}\n`;
+      listaTextoCopiar.value += `- ${p.quantidade}x ${p.nomePeca} (Tam: ${p.tamanho}, Prioridade: ${p.prioridade})\n`;
     });
 
-    textoFormatado += '\n';
+    listaTextoCopiar.value += '\n';
   });
-
-  texto.value = textoFormatado;
 }
 
 function limparFormulario() {

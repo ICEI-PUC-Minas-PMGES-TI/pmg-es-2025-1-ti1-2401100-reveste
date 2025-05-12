@@ -21,11 +21,12 @@ body {
   background-color: #fff;
   color: #1b263b;
   border: none;
-  padding: 10px 15px;
+  padding: 12px 18px;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
   font-size: 1rem;
+  transition: background-color 0.3s;
 }
 
 #voltar:hover {
@@ -45,7 +46,7 @@ body {
 
 /* Títulos principais */
 h1, h2 {
-  color: #ffcc00;
+  color: #4db8ff;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -59,7 +60,7 @@ label {
   font-size: 1.1rem;
   margin-bottom: 8px;
   display: block;
-  color: #ffcc00;
+  color: #b0c4de;
 }
 
 input, select, textarea {
@@ -70,15 +71,16 @@ input, select, textarea {
   border: 1px solid #415a77;
   font-size: 1rem;
   color: #333;
-  background-color: #fff;
+  background-color: #f5f5f5;
+  transition: border-color 0.3s;
 }
 
-textarea {
-  resize: vertical;
+input:focus, select:focus, textarea:focus {
+  border-color: #4db8ff;
 }
 
 button {
-  background-color: #415a77;
+  background-color: #4db8ff;
   color: white;
   border: none;
   padding: 12px 18px;
@@ -86,31 +88,30 @@ button {
   cursor: pointer;
   font-size: 1rem;
   margin-top: 10px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #3c4e68;
+  background-color: #3a8ab7;
 }
 
 /* Estilos para os botões específicos */
 .adicionar-btn {
+  background-color: #50b3a2;
   margin-top: 15px;
-  background-color: #ffcc00;
-  color: #1b263b;
 }
 
 .adicionar-btn:hover {
-  background-color: #ffd740;
-  color: #1b263b;
+  background-color: #459e8a;
 }
 
 .salvar-btn {
   margin-left: 10px;
-  background-color: #ff5722;
+  background-color: #ff6f61;
 }
 
 .salvar-btn:hover {
-  background-color: #e64a19;
+  background-color: #e65c4f;
 }
 
 /* Estilo da lista de necessidades */
@@ -136,8 +137,16 @@ button:hover {
   padding: 10px;
   margin-top: 20px;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: #f5f5f5;
   color: #333;
   font-size: 1rem;
   resize: none;
+  border: 1px solid #415a77;
+}
+
+#textoCopiar:focus {
+  border-color: #4db8ff;
+}
+.logo{
+    float: right;
 }
