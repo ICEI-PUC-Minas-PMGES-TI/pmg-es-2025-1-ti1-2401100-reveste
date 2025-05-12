@@ -116,10 +116,10 @@ button:hover {
 
 /* Estilo da lista de necessidades */
 #listaNecessidades {
-  background-color: #283593;
+
   padding: 15px;
   border-radius: 8px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 #listaNecessidades ul {

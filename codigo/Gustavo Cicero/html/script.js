@@ -1,10 +1,8 @@
 let listaOngs = JSON.parse(localStorage.getItem('necessidades')) || [];
 
 function adicionarPeca() {
-  // Container onde as peças serão adicionadas
   const container = document.getElementById('pecasContainer');
 
-  // Criação de um novo formulário de peça
   const div = document.createElement('div');
   div.classList.add('peca-form');
 
@@ -17,10 +15,16 @@ function adicionarPeca() {
       <option value="Média">Média</option>
       <option value="Baixa">Baixa</option>
     </select>
+    <button class="removerPeca" onclick="removerPeca(event)">Remover</button>
   `;
 
-  // Adiciona o formulário de peça ao container
   container.appendChild(div);
+}
+
+// Função para remover uma peça
+function removerPeca(event) {
+  const pecaDiv = event.target.parentElement;
+  pecaDiv.remove();
 }
 
 function salvarONG() {
@@ -68,7 +72,7 @@ function salvarLocal() {
 function atualizarLista() {
   const listaTextoCopiar = document.getElementById('listaTextoCopiar');
   
-  listaTextoCopiar.value = "";  // Limpar conteúdo antes de atualizar
+  listaTextoCopiar.value = "";  
 
   listaOngs.forEach(ong => {
     listaTextoCopiar.value += `ONG: ${ong.nomeONG}\n`;
@@ -80,11 +84,12 @@ function atualizarLista() {
     listaTextoCopiar.value += '\n';
   });
 }
-
-function limparFormulario() {
-  document.getElementById('nomeONG').value = '';
-  document.getElementById('pecasContainer').innerHTML = '';
+function Enviar_necessidades(event) {
+  const pecaDiv = event.target.parentElement;
+  pecaDiv.send();
 }
+
+document.getElementById('adicionarPeca').addEventListener('click', adicionarPeca);
 
 window.onload = () => {
   atualizarLista();
