@@ -34,16 +34,66 @@
   </div>
 
   <div id="modal" class="modal">
-    <div class="modal-content">
-      <h2 id="modal-title">Cadastrar Roupa</h2>
-      <input id="nome" type="text" placeholder="Nome" />
-      <input id="tamanho" type="text" placeholder="Tamanho" />
-      <input id="cor" type="text" placeholder="Cor" />
-      <input id="quantidade" type="number" placeholder="Quantidade" />
-      <input id="foto" type="file" accept="image/*" />
-      <button onclick="salvarRoupa()">Salvar</button>
-    </div>
+  <div class="modal-content">
+    <h2 id="modal-title">Cadastrar Roupa</h2>
+
+    
+    <input id="nome" type="text" placeholder="Nome" />
+
+    
+    <select id="tamanho">
+      <option value="">Selecione o tamanho</option>
+      <option value="PP">PP</option>
+      <option value="P">P</option>
+      <option value="M">M</option>
+      <option value="G">G</option>
+      <option value="GG">GG</option>
+      <option value="XG">XG</option>
+      <option value="XXG">XXG</option>
+    </select>
+
+   
+    <select id="cor">
+      <option value="">Selecione a cor</option>
+      <option value="Branco">Branco</option>
+      <option value="Preto">Preto</option>
+      <option value="Cinza">Cinza</option>
+      <option value="Vermelho">Vermelho</option>
+      <option value="Verde">Verde</option>
+      <option value="Azul">Azul</option>
+      <option value="Amarelo">Amarelo</option>
+      <option value="Rosa">Rosa</option>
+      <option value="Roxo">Roxo</option>
+      <option value="Marrom">Marrom</option>
+      <option value="Laranja">Laranja</option>
+      <option value="Bege">Bege</option>
+      <option value="Bordô">Bordô</option>
+      <option value="Dourado">Dourado</option>
+      <option value="Prata">Prata</option>
+      <option value="Lilás">Lilás</option>
+      <option value="Turquesa">Turquesa</option>
+      <option value="Salmão">Salmão</option>
+      <option value="Vinho">Vinho</option>
+      <option value="Pêssego">Pêssego</option>
+      <option value="Cáqui">Cáqui</option>
+      <option value="Oliva">Oliva</option>
+      <option value="Fúcsia">Fúcsia</option>
+      <option value="Magenta">Magenta</option>
+      <option value="Ciano">Ciano</option>
+      <option value="Mostarda">Mostarda</option>
+    </select>
+
+  
+    <input id="quantidade" type="number" placeholder="Quantidade" />
+
+ 
+    <input id="foto" type="file" accept="image/*" />
+
+   
+    <button onclick="salvarRoupa()">Salvar</button>
   </div>
+</div>
+
 
   <script src="/codigo/BernardoSantos/js/script.js"></script>
 </body>
