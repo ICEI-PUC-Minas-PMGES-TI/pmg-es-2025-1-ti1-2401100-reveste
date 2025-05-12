@@ -62,4 +62,27 @@
         transform: translateY(-50%);
         color: gray;
     }
+
+    .body-view {
+        display: flex;
+        height: 94%;
+        justify-content: space-between;
+    }
+
+    .section {
+        height: 100%;
+        width: 100%;
+    }
+
+    .section.maps {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    gmp-map {
+        place-self: center;
+        height: 90% !important;
+        width: 90%;
+    }
 }

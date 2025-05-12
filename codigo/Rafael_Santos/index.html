@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM&callback=console.debug&libraries=maps,marker&v=beta" defer></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,11 +37,14 @@
         <input class="filter-locale" placeholder="Qualquer lugar em BH" />
       </div>
     </section>
-    <div>
-      <section>
+    <div class="body-view">
+      <section class="section cards">
       </section>
-      <section>
-
+      <section class="section maps">
+        <gmpx-api-loader key="AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM" solution-channel="GMP_GE_mapsandplacesautocomplete_v2">
+        </gmpx-api-loader>
+        <gmp-map center="-19.918914794921875,-43.938743591308594" zoom="14" map-id="DEMO_MAP_ID">
+        </gmp-map>
       </section>
     </div>
   </main>
