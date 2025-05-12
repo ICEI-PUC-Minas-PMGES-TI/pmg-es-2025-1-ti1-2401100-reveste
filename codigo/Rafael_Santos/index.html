@@ -2,6 +2,7 @@
 <html lang="pt-BR">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM&callback=console.debug&libraries=maps,marker&v=beta" defer></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
+    <script type="module" src="./js/index.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +24,7 @@
 </head>
 <body>
   <header>
-    <img src="./images/logo.png"/>
+    <img src="./images/Logo.svg" style="width: 100px;"/>
     <nav>
       <a>Quero roupa</a>
       <a>Quero doar</a>
@@ -38,7 +39,7 @@
       </div>
     </section>
     <div class="body-view">
-      <section class="section cards">
+      <section class="section cards" id="section-cards">
       </section>
       <section class="section maps">
         <gmpx-api-loader key="AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM" solution-channel="GMP_GE_mapsandplacesautocomplete_v2">

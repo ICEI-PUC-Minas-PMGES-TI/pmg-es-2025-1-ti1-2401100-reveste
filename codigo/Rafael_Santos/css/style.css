@@ -13,7 +13,7 @@
 
     .main-body {
         background-color: #1B263B;
-        height: 75%;
+        height: 80%;
     }
 
     footer {
@@ -70,8 +70,14 @@
     }
 
     .section {
-        height: 100%;
         width: 100%;
+    }
+
+    .section.cards {
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, 115px);
     }
 
     .section.maps {
