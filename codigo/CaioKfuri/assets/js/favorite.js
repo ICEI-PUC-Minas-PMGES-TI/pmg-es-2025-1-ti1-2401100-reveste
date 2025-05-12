@@ -27,6 +27,12 @@ const favoriteOngs = [
 
 function renderFavorites() {
   const container = document.getElementById("favorites-container");
+  
+  if (!container) {
+    console.error("Container not found");
+    return;
+  }
+  
   container.innerHTML = "";
 
   favoriteOngs.forEach(ong => {
