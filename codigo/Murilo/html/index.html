@@ -13,11 +13,11 @@
 <body>
         <div class="mb-2  d-flex flex-column" id="filter">
 
-            <div class= "gap-3 p-3 text-dark bg-light w-25" id="filter">
+            <div class= "gap-3 p-3 text-dark bg-dark w-25" id="filter">
             
                 <div>
-                    <label for="peca" class="form-label fs-3 fw-bold">Peça de Roupa</label>
-                    <select id="peca" class="form-select">
+                    <label for="peca" class="form-label fs-3 fw-bold text-success">Peça de Roupa</label>
+                    <select id="peca" class="form-select ">
                         <option value="">Todas</option>
                         <option value="camiseta">Camiseta</option>
                         <option value="calca">Calça</option>
@@ -28,13 +28,13 @@
                 </div>
 
                 <div class="form-check mt-2">
-                    <label class="form-check-label" for="favoritos">
+                    <label class="form-check-label text-white" for="favoritos">
                         Favoritos
                     </label>
-                        <input class="form-check-input" type="checkbox" id="favoritos">
+                        <input class="form-check-input text-white" type="checkbox" id="favoritos">
                 </div>
             
-                <div class="d-flex flex-column justify-content-center">
+                <div class="d-flex flex-column justify-content-center text-white">
                     <label for="distancia" class="form-label mt-2">Distância (km)</label>
                     <input type="range" class="form-range" min="0" max="100" id="distancia">
                     <p id="rangeText"></p>
@@ -43,17 +43,15 @@
                 <input id="butaoSalvarFiltro" type="button" value="Aplicar Filtro" class="button-filter">
 
                 <section>
-                <div class="row">
-                    <div id="points-images">
-                        <div id="images-container">
-
+                    <div class="row">
+                        <div id="images-container" class="mt-4">
+                            <div class="images-here"> </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
             </div>
            
-            </div> 
+        </div> 
 
             
         </div>

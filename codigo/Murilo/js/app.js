@@ -20,18 +20,20 @@ function salvarFiltro() {
     console.log("Favoritos:", favoritosButaoValor);
 }
 
+
 var butaoSalvarFiltro = document.getElementById("butaoSalvarFiltro");
 butaoSalvarFiltro.addEventListener("click", salvarFiltro);
 
+//Aplicar filtro
 document.querySelector(".button-filter").addEventListener("click", function () {
-    let containerImages = document.getElementById("images-container");
-
+    let containerImages = document.getElementById("images-container")
     containerImages.innerHTML = '';
 
-    let image = document.createElement("img");
-    image.src = "/img/62a8c2db1865d.jpg";
-    image.style.width = "200px"; 
-    image.style.marginTop = "20px"; 
+    let images = document.createElement('img');
+    images.src = '/img/62a8c2db1865d.jpg'
+    images.style.width = '200px';
+    images.style
+    containerImages.appendChild(images);
 
-    containerImages.appendChild(image);
+
 });
