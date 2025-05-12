@@ -44,6 +44,7 @@
         height: 25px;
         text-align: center;
         color: black;
+        padding-bottom: 5px;
     }
 
     .input-icon-container {
