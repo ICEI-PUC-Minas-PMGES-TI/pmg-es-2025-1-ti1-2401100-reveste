@@ -19,6 +19,31 @@ function salvarFiltro() {
     console.log("Distância:", rangeInputFiltro);
     console.log("Favoritos:", favoritosButaoValor);
 }
+window.addEventListener('DOMContentLoaded', () =>{
+    let container = document.getElementById("images-container");
+    
+    let imagesUrls = [
+    "/img/62a8c2db1865d.jpg",
+    "/img/62a8c2db1865d.jpg",
+    "/img/62a8c2db1865d.jpg",
+    "/img/62a8c2db1865d.jpg",
+    "/img/62a8c2db1865d.jpg",
+    "/img/62a8c2db1865d.jpg",
+    "/img/62a8c2db1865d.jpg",
+    "/img/62a8c2db1865d.jpg",
+    ]
+
+    imagesUrls.forEach(url => {
+        let img = document.createElement("img");
+        img.src = url;
+        img.alt = "Pontos";
+        img.style.width = "200px";
+        img.style.margin = "10px";
+        container.appendChild(img);
+    })
+
+})
+
 
 
 var butaoSalvarFiltro = document.getElementById("butaoSalvarFiltro");
