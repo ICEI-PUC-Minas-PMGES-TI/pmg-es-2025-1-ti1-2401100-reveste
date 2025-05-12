@@ -7,16 +7,18 @@ body {
   }
   
   #voltar {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: white;
-    color: black;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #fff;
+  color: #1b263b;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
   
   .container {
     max-width: 800px;
