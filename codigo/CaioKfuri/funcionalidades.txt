@@ -1,4 +1,0 @@
-- Fazer tela dos favoritos de um usuário
-- Montar estrutura JSON sobre os dados para poder salvar os favoritos (Doador/beneficiado)
-- Pop-up para quando um usuário não logado clicar para favoritar, para fazer login ou cadastrar
-- Botão de favorito na página do mapa + opção de favoritos no perfil do usuário
