@@ -1,8 +1,8 @@
+// Manipulação do formulário
 document.getElementById('cadastroForm').addEventListener('submit', function(event) {
   event.preventDefault();
 
   const formData = new FormData(event.target);
-
   const email = formData.get('email');
 
   // Validação simples de e-mail com expressão regular
@@ -28,10 +28,8 @@ const cnpjInput = document.querySelector('#cnpj');
 
 cnpjInput.addEventListener('input', () => {
   let value = cnpjInput.value.replace(/\D/g, ''); // Remove tudo que não for número
-
   if (value.length > 14) value = value.slice(0, 14);
 
-  // Aplica a máscara de CNPJ: 00.000.000/0000-00
   value = value
     .replace(/^(\d{2})(\d)/, '$1.$2')
     .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
@@ -46,8 +44,7 @@ const telefoneInput = document.querySelector('#telefone');
 
 telefoneInput.addEventListener('input', () => {
   let value = telefoneInput.value.replace(/\D/g, ''); // Remove tudo que não for número
-
-  if (value.length > 11) value = value.slice(0, 11); 
+  if (value.length > 11) value = value.slice(0, 11);
 
   if (value.length <= 10) {
     // Formato fixo: (00) 0000-0000
@@ -62,4 +59,23 @@ telefoneInput.addEventListener('input', () => {
   }
 
   telefoneInput.value = value;
+});
+
+// Mostrar/Ocultar senha
+const senhaInput = document.getElementById('senha');
+const toggleSenha = document.getElementById('toggleSenha');
+
+toggleSenha.addEventListener('click', () => {
+  const tipoAtual = senhaInput.getAttribute('type');
+  const icone = toggleSenha.querySelector('i');
+
+  if (tipoAtual === 'password') {
+    senhaInput.setAttribute('type', 'text');
+    icone.classList.remove('bi-eye');
+    icone.classList.add('bi-eye-slash');
+  } else {
+    senhaInput.setAttribute('type', 'password');
+    icone.classList.remove('bi-eye-slash');
+    icone.classList.add('bi-eye');
+  }
 });
