@@ -20,7 +20,19 @@ document.getElementById('cadastroForm').addEventListener('submit', function(even
     telefone: formData.get('telefone')
   };
 
-  console.log("JSON de cadastro:", JSON.stringify(dados));
+  // Recupera cadastros anteriores do localStorage
+  let cadastros = JSON.parse(localStorage.getItem('cadastrosONG')) || [];
+
+  // Adiciona o novo cadastro
+  cadastros.push(dados);
+
+  // Salva novamente no localStorage
+  localStorage.setItem('cadastrosONG', JSON.stringify(cadastros));
+
+  alert("Cadastro salvo com sucesso!");
+
+  // Limpa o formulário
+  event.target.reset();
 });
 
 // Máscara de formatação para o campo de CNPJ
@@ -73,9 +85,11 @@ toggleSenha.addEventListener('click', () => {
     senhaInput.setAttribute('type', 'text');
     icone.classList.remove('bi-eye');
     icone.classList.add('bi-eye-slash');
+    icone.textContent = " Ocultar senha";
   } else {
     senhaInput.setAttribute('type', 'password');
     icone.classList.remove('bi-eye-slash');
     icone.classList.add('bi-eye');
+    icone.textContent = " Mostrar senha";
   }
 });
