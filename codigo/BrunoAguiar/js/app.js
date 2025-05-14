@@ -22,30 +22,75 @@ const agendamento = {
 };
 
 // Função para obter o parâmetro da query string
-function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-}
+let agendamentos = [];
 
-// Função para definir o nome do ponto de apoio
-function definirPontoApoio() {
-    const idPontoApoio = getQueryParam('id');
-    const nomePontoApoioElement = document.getElementById('nomePontoApoio');
-
-    if (idPontoApoio) {
-        // Encontrar o ponto de apoio correspondente no array
-        const pontoApoioEncontrado = pontoApoio.find(ponto => ponto.id === parseInt(idPontoApoio));
-
-        if (pontoApoioEncontrado) {
-            nomePontoApoioElement.textContent = pontoApoioEncontrado.nome;
-        } else {
-            nomePontoApoioElement.textContent = 'Ponto de Apoio não encontrado';
+        // Função para obter o parâmetro da query string
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
         }
-    } else {
-        // Se nenhum ID for fornecido, mostrar uma mensagem padrão
-        nomePontoApoioElement.textContent = 'Selecione um Ponto de Apoio';
-    }
-}
 
-// Chamar a função quando a página carregar
-window.onload = definirPontoApoio;
+        // Função para definir o nome do ponto de apoio
+        function definirPontoApoio() {
+            const idPontoApoio = getQueryParam('id');
+            const nomePontoApoioElement = document.getElementById('nomePontoApoio');
+
+            if (idPontoApoio) {
+                // Encontrar o ponto de apoio correspondente no array
+                const pontoApoioEncontrado = pontoApoio.find(ponto => ponto.id === parseInt(idPontoApoio));
+
+                if (pontoApoioEncontrado) {
+                    nomePontoApoioElement.textContent = pontoApoioEncontrado.nome;
+                    // Salvar o ID do ponto de apoio em um atributo do formulário
+                    document.getElementById('idPontoApoio').value = pontoApoioEncontrado.id;
+                } else {
+                    nomePontoApoioElement.textContent = 'Ponto de Apoio não encontrado';
+                }
+            } else {
+                // Se nenhum ID for fornecido, mostrar uma mensagem padrão
+                nomePontoApoioElement.textContent = 'Selecione um Ponto de Apoio';
+            }
+        }
+
+
+        function criarAgendamento(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const cpf = document.getElementById('cpf').value;
+            const horario = document.getElementById('horario').value;
+            const idPontoApoio = document.getElementById('idPontoApoio').value;
+
+
+            if (!nome || !email || !cpf || !horario || !idPontoApoio) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            const novoAgendamento = {
+                id: agendamentos.length + 1, // Gera um novo ID
+                idPontoApoio: parseInt(idPontoApoio),
+                nome: nome,
+                email: email,
+                cpf: cpf.replace(/[^\d]/g, ''), // Remove caracteres não numéricos
+                data_horario_doacao: horario
+            };
+
+            agendamentos.push(novoAgendamento);
+
+            event.target.reset();
+
+            alert(`Agendamento criado com sucesso para ${nome} no ponto de apoio ${pontoApoio.find(p => p.id === novoAgendamento.idPontoApoio).nome}`);
+
+            console.log('Agendamentos:', agendamentos);
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            definirPontoApoio();
+
+            const form = document.querySelector('form');
+            form.addEventListener('submit', criarAgendamento);
+        });

@@ -1,38 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doação de Roupas - Ponto de Apoio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Necessidades das ONGs</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Registrar Ponto de Apoio</h1>
-        <form action="#" method="post">
-            <label for="nome">Nome do Responsável</label>
-            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+  <button id="voltar" onclick="window.location.href='/codigo/BernardoSantos/html/estoque.html'">← Voltar</button>
+  
+  <div class="container">
+    <h1>Necessidades das ONGs</h1>
+    
+    <p>Você pode cadastrar as necessidades das ONGs, incluindo itens como roupas, alimentos e materiais diversos. Preencha os campos abaixo e contribua para um mundo melhor.</p>
+    
+    <div class="formulario">
+      <label for="nomeONG">Nome da ONG:</label>
+      <input type="text" id="nomeONG" placeholder="Nome da ONG" />
 
-            <label for="local">Local do Ponto de Apoio</label>
-            <input type="text" id="local" name="local" placeholder="Digite o endereço" required>
-
-            <label for="contato">Contato</label>
-            <input type="text" id="contato" name="contato" placeholder="Telefone ou e-mail" required>
-
-            <label for="tipo">Tipo de Doação</label>
-            <select id="tipo" name="tipo" required>
-                <option value="">Selecione</option>
-                <option value="roupas_adultos">Roupas para Adultos</option>
-                <option value="roupas_criancas">Roupas para Crianças</option>
-                <option value="cobertores">Cobertores</option>
-            </select>
-
-            <button type="submit">Registrar</button>
-        </form>
-        <footer>Solidariedade em ação - Desapegaí</footer>
+      <div id="pecasContainer"></div>
+      <button class="adicionar-btn" onclick="adicionarPeca()">+ Adicionar Peça</button>
+      <button class="salvar-btn" onclick="salvarONG()">Salvar ONG</button>
     </div>
+
+    <h2>Lista de Necessidades e Texto para Copiar</h2>
+    <div id="listaNecessidades"></div>
+    <textarea id="listaTextoCopiar" rows="10" cols="50"></textarea>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

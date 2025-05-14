@@ -7,17 +7,16 @@
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/codigo/Murilo/css/style.css">
 
 </head>
 <body>
-        <div class="mb-2  d-flex flex-column" id="filter">
-
-            <div class= "gap-3 p-3 text-dark bg-light w-25" id="filter">
-            
+        <div class="mb-2 d-flex flex-column" id="filter">
+            <div class= "gap-3 p-3 text-dark bg-dark w-25">
                 <div>
-                    <label for="peca" class="form-label fs-3 fw-bold">Peça de Roupa</label>
-                    <select id="peca" class="form-select">
+                    <h1 class="fs-1 text-success fw-bold mb-4">Desapegaí</h1>
+                    <label for="peca" class="form-label fs-4 text-white">Peça de Roupa</label>
+                    <select id="peca" class="form-select ">
                         <option value="">Todas</option>
                         <option value="camiseta">Camiseta</option>
                         <option value="calca">Calça</option>
@@ -28,36 +27,36 @@
                 </div>
 
                 <div class="form-check mt-2">
-                    <label class="form-check-label" for="favoritos">
+                    <label class="form-check-label text-white" for="favoritos">
                         Favoritos
                     </label>
-                        <input class="form-check-input" type="checkbox" id="favoritos">
+                        <input class="form-check-input text-white" type="checkbox" id="favoritos">
                 </div>
             
                 <div class="d-flex flex-column justify-content-center">
-                    <label for="distancia" class="form-label mt-2">Distância (km)</label>
-                    <input type="range" class="form-range" min="0" max="100" id="distancia">
-                    <p id="rangeText"></p>
+                    <label for="distancia" class="form-label  text-white mt-2">Distância (km)</label>
+                    <input type="range" class="form-range" min="0" max="100" value="0" id="distancia">
+                    <div class="d-flex justify-content-center">
+                        <p id="rangeText"></p>
+                    </div>
                 </div>
                 
-                <input id="butaoSalvarFiltro" type="button" value="Aplicar Filtro" class="button-filter">
+                <input id="butaoAplicarFiltro" type="button" value="Aplicar Filtro" class="button-filter">
 
                 <section>
-                <div class="row">
-                    <div id="points-images">
-                        <div id="images-container">
+                    <div class="row">
+                        <div id="images-container" class="d-flex flex-wrap w-100 mt-4">
 
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
             </div>
            
-            </div> 
+        </div> 
 
             
         </div>
 </body>
 </html>
 
-<script src="/js/app.js"></script>
+<script src="/codigo/Murilo/js/app.js"></script>
