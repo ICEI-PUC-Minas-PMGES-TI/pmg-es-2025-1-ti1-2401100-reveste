@@ -1,29 +1,56 @@
+const dados = {
+  locais: {
+    ongs: [
+      {
+        nome: "Roupa que Abraça",
+        endereco: "Rua 123",
+        pecas: ["camiseta", "calça"],
+        favorito: false,
+        imagem: "/img/ondRoupa.jpg"
+      },
+      {
+        nome: "Coração Solidário",
+        endereco: "Av. Brasil, 456",
+        pecas: ["blusa", "meias"],
+        favorito: true,
+        imagem: "/img/dom-quixote-campanha-agasalho.jpg"
+      }
+    ],
+    pontosApoio: [
+      {
+        nome: "Centro de Apoio",
+        endereco: "Praça Central, 789",
+        pecas: ["casaco"],
+        favorito: false,
+        imagem: "/img/roupaLivre.png"
+      },
+
+      {
+        nome: "Vestir com Amor",
+        endereco: "Praça Matriz, 712",
+        pecas: ["casaco"],
+        favorito: false,
+        imagem: "/img/vestirAmor.jpg"
+      }
+
+
+    ]
+  }
+}
+
 
 //Carrega as imagens ao carregar a página
 window.addEventListener('DOMContentLoaded', () =>{
     let container = document.getElementById("images-container");
     
-    let imagesUrls = [
-    "/img/62a8c2db1865d.jpg",
-    "/img/62a8c2db1865d.jpg",
-    "/img/62a8c2db1865d.jpg",
-    "/img/62a8c2db1865d.jpg",
-    "/img/62a8c2db1865d.jpg",
-    "/img/62a8c2db1865d.jpg",
-    "/img/62a8c2db1865d.jpg",
-    "/img/62a8c2db1865d.jpg",
-    "/img/62a8c2db1865d.jpg",
-    "/img/62a8c2db1865d.jpg",
-    "/img/62a8c2db1865d.jpg",
-    ]
-
-    imagesUrls.forEach(url => {
-        let img = document.createElement("img");
-        img.src = url;
-        img.alt = "Pontos";
+    const todosLocais = [...dados.locais.ongs, ...dados.locais.pontosApoio];
+    todosLocais.forEach(local => {
+        const img = document.createElement("img");
+        img.src = local.imagem;
+        img.alt = local.nome;
         img.style.width = "200px";
-        img.style.margin = "10px";
-        img.style.borderRadius = '5px';
+        img.style.marginTop = "20px";
+        img.style.marginRight = "20px";
         container.appendChild(img);
     })
 
