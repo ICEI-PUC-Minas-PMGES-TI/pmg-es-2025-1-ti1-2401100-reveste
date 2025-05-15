@@ -42,14 +42,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // Mostrar todos ao iniciar
   renderizarImagens(todosLocais);
 
-  const rangeInput = document.getElementById("distancia");
-  const rangeText = document.getElementById("rangeText");
-  rangeText.innerText = rangeInput.value + " km";
-
-  rangeInput.addEventListener("input", () => {
-    rangeText.innerText = rangeInput.value + " km";
-  });
-
   document.querySelector(".button-filter").addEventListener("click", () => {
     const containerImages = document.getElementById("images-container");
     containerImages.innerHTML = '';
