@@ -48,6 +48,7 @@ const containerCadastrar = document.querySelector('.containerCadastrar');
 
 document.querySelector('.buttomCadastrar').addEventListener('click', () => {
     containerLogin.classList.add('movimentoContainerLogin');
+    document.querySelector(".imagemIgreja").classList.add("index");
     setTimeout(() => {
         containerCadastrar.style.display = 'flex';
     }, 200);
@@ -57,6 +58,7 @@ document.querySelector('.buttomCadastrar').addEventListener('click', () => {
 });
 
 document.querySelector('.buttomEntrar').addEventListener('click', () => {
+    document.querySelector(".imagemIgreja").classList.remove("index");
     setTimeout(() => {
         containerLogin.classList.remove('movimentoContainerLogin');
     }, 600)

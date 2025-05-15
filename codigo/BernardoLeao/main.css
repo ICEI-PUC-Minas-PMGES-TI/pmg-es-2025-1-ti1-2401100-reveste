@@ -17,7 +17,7 @@ html {
     padding: 0;
     height: 100%;
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
 }
 
 body {
@@ -29,7 +29,7 @@ body {
     font-style: normal;
     display: flex;
     justify-content: center;
-    background-image: url(/codigo/BernardoLeao/imgs/ceu.svg);
+    background-image: url(../BernardoLeao/imgs/ceu.svg);
 }
 
 .containerLoginECadastrar {
@@ -49,7 +49,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url(/codigo/BernardoLeao/imgs/igreja.svg);
+    background-image: url(../BernardoLeao/imgs/igreja.svg);
     background-position: center cover;
     z-index: 1;
     pointer-events: none;
@@ -402,6 +402,10 @@ header {
     opacity: 1;
     margin-top: 0%;
     transition-delay: 1.5s;
+}
+
+.index {
+    z-index: -1;
 }
 
 @media (max-width: 600px) {
