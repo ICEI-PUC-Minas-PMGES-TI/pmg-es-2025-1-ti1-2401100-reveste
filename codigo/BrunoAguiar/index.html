@@ -32,21 +32,22 @@
                 <h2>Formulário para doação</h2>
                 <h5><i id="nomePontoApoio">-</i></h5>
                 <form>
+                    <input type="hidden" id="idPontoApoio" value="">
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="nome" placeholder="João Silva">
+                        <input type="text" class="form-control" id="nome" placeholder="João Silva" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="joao@emailmail.com">
+                        <input type="email" class="form-control" id="email" placeholder="joao@emailmail.com" required>
                     </div>
                     <div class="mb-3">
                         <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="cpf" placeholder="152.214.51-78">
+                        <input type="text" class="form-control" id="cpf" placeholder="152.214.51-78" required>
                     </div>
                     <div class="mb-3">
                         <label for="horario" class="form-label">Data e horário da doação</label>
-                        <input type="datetime-local" class="form-control" id="horario">
+                        <input type="datetime-local" class="form-control" id="horario" required>
                     </div>
                     <button type="submit" class="btn-agendar">Agendar doação</button>
                 </form>

@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM&callback=console.debug&libraries=maps,marker&v=beta" defer></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
+    <script type="module" src="./js/index.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM&callback=console.debug&libraries=maps,marker&v=beta"></script>
+    <link rel="stylesheet" href="./css/style.css"></link>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
     <style>
-        /* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
         gmp-map {
           height: 100%;
         }
-  
-        /* Optional: Makes the sample page fill the window. */
         html,
         body {
           height: 100%;
@@ -22,16 +23,40 @@
       </style>
 </head>
 <body>
-    <gmp-map
-      center="40.1215,-100.4503"
-      zoom="10"
-      map-id="1">
-      
-      <gmp-advanced-marker
-        position="40.1215,-100.4503"
-        title="Minha localização">
-      </gmp-advanced-marker>
-
-    </gmp-map>
+  <header>
+    <img src="./images/Logo.svg" style="width: 100px;"/>
+    <nav>
+      <a>Quero roupa</a>
+      <a>Quero doar</a>
+      <a>Sou ponto de apoio</a>
+    </nav>
+  </header>
+  <main class="main-body">
+    <section class="filters">
+      <div class="input-icon-container">
+        <span class="material-icons">manage_search</span>
+        <input class="filter-locale" placeholder="Qualquer lugar em BH" />
+      </div>
+    </section>
+    <div class="body-view">
+      <section class="section cards" id="section-cards">
+      </section>
+      <section class="section maps">
+        <gmpx-api-loader key="AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM" solution-channel="GMP_GE_mapsandplacesautocomplete_v2">
+        </gmpx-api-loader>
+        <gmp-map id="map" center="-19.918914794921875,-43.938743591308594" zoom="14" map-id="DEMO_MAP_ID">
+        </gmp-map>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div>
+      <p>Para chamar o suporte:</p>
+    </div>
+    <div>
+      <button class="contact">Telegram</button>
+      <button class="contact">Whatsapp</button>
+    </div>
+  </footer>
 </body>
 </html>

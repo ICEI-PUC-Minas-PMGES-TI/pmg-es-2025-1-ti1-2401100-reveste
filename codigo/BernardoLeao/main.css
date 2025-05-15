@@ -7,141 +7,417 @@
     --darkmode-color: #041f1f;
 }
 
+* {
+    user-select: none;
+}
+
 body,
 html {
-    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
-}
-
-header {
-    width: 100%;
-    height: 13vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-header img {
-    width: 13%;
-}
-
-header ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 30%;
-    list-style: none;
-}
-
-header ul a {
-    text-decoration: none;
-    color: white;
-    background-color: var(--main-color);
-    transition: .3s;
-    width: 30%;
-    height: 6vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    border-radius: 5px;
+    background-image: url(/codigo/BernardoLeao/imgs/ceu.svg);
 }
 
-header ul a:hover {
-    background-color: var(--second-color);
-    cursor: pointer;
-}
-
-header ul a::before {
-    content: "";
+.containerLoginECadastrar {
     position: absolute;
-    height: 6vh;
-    width: 0.1%;
-    margin-left: -12%;
-    background-color: rgb(243, 243, 243);
-}
-
-main {
     width: 100%;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container {
-    width: 30%;
-    height: 70vh;
-    border-radius: 5px;
+    height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1.5px;
+    transition: 0.9s ease-in-out;
 }
 
-.container h1 {
-    font-size: 1.4rem;
-    font-weight: 300;
-    text-align: center;
+.imagemIgreja {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(/codigo/BernardoLeao/imgs/igreja.svg);
+    background-position: center cover;
+    z-index: 1;
+    pointer-events: none;
+    transition: 2s;
+}
+
+header {
+    width: 97%;
+    height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnVoltarLoginECadastro {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: solid var(--main-color) 1px;
+    width: 6%;
+    height: 4vh;
+    text-decoration: none;
+    color: white;
+    border-radius: 3px;
+    transition: .2s;
+    background-color: var(--main-color);
+}
+
+.btnVoltarLoginECadastro svg {
+    fill: white;
+}
+
+.btnVoltarLoginECadastro:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+}
+
+.btnVoltarLoginECadastro:hover svg {
+    fill: white;
+}
+
+.mainLoginECadastro {
+    width: 100%;
+    height: 91vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerLogin {
+    width: 30%;
+    height: 60vh;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(40px);
+    border: solid white 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.6s ease-in-out;
+    margin-left: 0;
+    pointer-events: auto;
+}
+
+.containerCadastrar {
+    width: 35%;
+    height: 75vh;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(40px);
+    border: solid white 1px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s ease-in-out;
+    pointer-events: auto;
+    margin-left: 140%;
+    position: absolute;
+}
+
+.containerLogin,
+.containerCadastrar h1 {
+    color: var(--third-color);
 }
 
 .inputs {
     width: 100%;
-    height: 50vh;
+    height: 20vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.inputsCadastrar {
+    width: 100%;
+    height: 43vh;
+    display: flex;
     flex-direction: column;
-    gap: 10px;
-}
-
-.inputs input {
-    width: 100%;
-    height: 4.5vh;
-    border: solid black 0.1vh;
-    outline: none;
-    border-radius: 2px;
-    padding-left: 5%;
-    background-color: transparent;
-    z-index: 99;
-    font-size: 1rem;
-}
-
-.inputs textarea {
-    background-color: transparent;
-    resize: none;
-    width: 100%;
-    height: 10vh;
-    padding-left: 5%;
+    justify-content: center;
+    align-items: center;
 }
 
 .inputs div {
-    width: 70%;
     display: flex;
     justify-content: left;
     align-items: center;
+    width: 60%;
+    height: 3.5vh;
+    margin: 4%;
 }
 
-.inputs div span {
-    position: absolute;
-    margin-left: 1.1%;
+.inputsCadastrar div {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 60%;
+    height: 3.5vh;
+    margin: 4%;
 }
 
-.container button {
-    width: 45%;
+.inputs div input,
+.inputsCadastrar div input {
+    width: 100%;
     height: 5vh;
-    border: none;
-    outline: none;
-    background-color: var(--main-color);
+    font-size: 1rem;
+    border-radius: 3px;
+    border: solid white 0.1px;
+    outline: 10px var(--fourth-color);
+    background-color: transparent;
+    -webkit-appearance: none;
     color: white;
-    font-weight: 700;
-    border-radius: 2px;
+    padding-left: 6.5%;
+}
+
+.inputs span {
+    position: absolute;
+    z-index: 2;
+    transition: 0.2s ease-in-out;
+    pointer-events: none;
+    text-align: left;
+    margin-left: 4%;
+    width: 11%;
+    color: white;
+}
+
+.inputsCadastrar span {
+    position: absolute;
+    z-index: 2;
+    transition: 0.2s ease-in-out;
+    pointer-events: none;
+    text-align: left;
+    margin-left: 4%;
+    width: 11%;
+    color: white;
+}
+
+.inputs input.not-empty+span,
+.inputsCadastrar input.not-empty+span {
+    margin-top: -13%;
+    margin-left: -0%;
+    z-index: 99;
+}
+
+.inputs a,
+.inputsCadastrar a {
+    font-size: 1rem;
+    width: 60%;
+    text-align: right;
+    color: var(--third-color);
     transition: .3s;
 }
 
-.container button:hover {
-    background-color: var(--second-color);
+.inputs a:hover,
+.inputsCadastrar a:hover {
+    color: var(--main-color);
+}
+
+.btnEntrar {
+    background-color: var(--main-color);
+    border: none;
+    outline: none;
+    color: white;
+    width: 60%;
+    height: 5vh;
+    border-radius: 5px;
+    transition: .3s;
+    margin-top: 5%;
+}
+
+.btnCadastrar {
+    background-color: var(--main-color);
+    border: none;
+    outline: none;
+    color: white;
+    width: 60%;
+    height: 5vh;
+    border-radius: 5px;
+    transition: .3s;
+    margin-top: 2%;
+}
+
+.btnEntrar:hover,
+.btnCadastrar:hover {
+    background-color: var(--third-color);
     cursor: pointer;
+}
+
+.divSC {
+    margin-top: 2%;
+}
+
+.divCC {
+    margin-top: 1%;
+}
+
+.divSC span,
+.divCC span {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: black;
+}
+
+.divSC button,
+.divCC button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: var(--third-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.divSC button:hover,
+.divCC button:hover {
+    color: var(--main-color);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.containerCPNJeTelefone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+}
+
+.containerCPNJeTelefone div {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.containerCPNJeTelefone div input {
+    width: 100%;
+}
+
+.divTemporario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 61%;
+    height: 5vh;
+}
+
+.divCheckbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+}
+
+.divCheckbox input {
+    width: 15%;
+    height: 3vh;
+    background-color: transparent;
+    border: solid white 1px;
+    outline: none;
+}
+
+.divCheckbox input:hover {
+    cursor: pointer;
+}
+
+.divTemporario span {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.divDataPA {
+    opacity: 1;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    opacity: 0;
+    transition: .5s ease-in-out;
+    gap: 2%;
+}
+
+.inputInicio,
+.inputFinal {
+    width: 30%;
+    border: none;
+    background-color: transparent;
+    border-bottom: solid white 1px;
+    outline: none;
+    color: white;
+    text-align: center;
+}
+
+.mostrarInputsData {
+    opacity: 1;
+    display: flex;
+}
+
+.movimentoContainerLogin {
+    margin-left: -100%;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.movimentoContainerCadastrar {
+    margin-left: 0%;
+    opacity: 1;
+}
+
+/* -------------------------------------------------------- Animações de Navegação de Telas de Login e Cadastro -------------------------------------------------------- */
+
+.MostrarTelaDeLoginECadastroParaOUsuario {
+    margin-left: 0%;
+    transition-delay: .7s;
+}
+
+.MovimentarLogoParaAEsquerdaESumir {
+    margin-left: -60%;
+    opacity: 0;
+    transition-delay: .3s;
+}
+
+.Movimentarh2ParaAEsquerdaESumir {
+    margin-left: -60%;
+    opacity: 0;
+    transition: .5s;
+    transition-delay: .2s;
+}
+
+.MovimentarNavDePapeisParaAEsquerdaESumir {
+    margin-left: -60%;
+    opacity: 0;
+    transition: .7s;
+    pointer-events: none;
+}
+
+.MovimentarBotaoDeProsseguirParaAEsquerdaESumir {
+    margin-left: -130%;
+    visibility: hidden;
+    transition: .7s;
+    pointer-events: none;
+    transition-delay: .2s;
+}
+
+.MostrarImagemDaIgrejaDeLoginECadastroParaOUsuario {
+    opacity: 1;
+    margin-top: 0%;
+    transition-delay: 1.5s;
 }
