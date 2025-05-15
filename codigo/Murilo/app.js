@@ -78,4 +78,15 @@ function renderizarImagens(lista) {
     container.appendChild(img);
   });
 }
+document.getElementById("removerFiltro").addEventListener('click', () => {
+    
+  document.getElementById("peca").value = "todas";
+  document.getElementById("favoritos").checked = false;
+  document.getElementById("distancia").value = 0;
+  document.getElementById("rangeText").innerText = "0 km";
 
+  const todosLocais = [...dados.locais.ongs, ...dados.locais.pontosApoio];
+  const container = document.getElementById("images-container");
+  container.innerHTML = "";
+  renderizarImagens(todosLocais);
+});
