@@ -6,14 +6,14 @@ const dados = {
         endereco: "Rua 123",
         pecas: ["camiseta", "calça"],
         favorito: false,
-        imagem: "/img/ondRoupa.jpg"
+        imagem: "./img/ondRoupa.jpg"
       },
       {
         nome: "Coração Solidário",
         endereco: "Av. Brasil, 456",
         pecas: ["camiseta", "jaqueta"],
         favorito: true,
-        imagem: "/img/dom-quixote-campanha-agasalho.jpg"
+        imagem: "./img/dom-quixote-campanha-agasalho.jpg"
       }
     ],
     pontosApoio: [
@@ -22,14 +22,14 @@ const dados = {
         endereco: "Praça Central, 789",
         pecas: ["casaco"],
         favorito: false,
-        imagem: "/img/roupaLivre.png"
+        imagem: "./img/roupaLivre.png"
       },
       {
         nome: "Vestir com Amor",
         endereco: "Praça Matriz, 712",
         pecas: ["tenis"],
         favorito: false,
-        imagem: "/img/vestirAmor.jpg"
+        imagem: "./img/vestirAmor.jpg"
       }
     ]
   }
