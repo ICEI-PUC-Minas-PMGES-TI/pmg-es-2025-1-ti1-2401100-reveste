@@ -16,7 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const container = document.getElementById('detalhes-container');
     const heartSrc = ong.favorited ? './imgs/heart-solid.svg' : './imgs/heart-regular.svg';
+    const cardClass = ong.favorited ? 'detalhes-card' : 'detalhes-card nao-favoritada';
     
+    container.className = cardClass;
     container.innerHTML = `
         <img src="${ong.imagem}" alt="${ong.nome}" class="detalhes-img">
         <div class="detalhes-content">
@@ -24,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
             <h1>${ong.nome}</h1>
             <p><strong>Descrição:</strong> ${ong.descricao}</p>
             <p><strong>Detalhes:</strong> ${ong.detalhes}</p>
-            
             <div class="acoes-container">
                 <button class="btn-favoritar" onclick="toggleFavorito(${ong.id})">
                     <img src="${heartSrc}" alt="Favoritar">
@@ -34,25 +35,25 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
     `;
-    
     document.title = `${ong.nome} - Detalhes`;
 });
 
 function toggleFavorito(id) {
     const ong = favoriteOngs.find(o => o.id === id);
-    
     if (!ong) return;
-    
     ong.favorited = !ong.favorited;
-    
+
+    const container = document.getElementById('detalhes-container');
     const heartImg = document.querySelector('.btn-favoritar img');
     const buttonText = document.querySelector('.btn-favoritar');
-    
+
     if (ong.favorited) {
         heartImg.src = './imgs/heart-solid.svg';
         buttonText.innerHTML = `<img src="./imgs/heart-solid.svg" alt="Favoritar"> Favoritado`;
+        container.classList.remove('nao-favoritada');
     } else {
         heartImg.src = './imgs/heart-regular.svg';
         buttonText.innerHTML = `<img src="./imgs/heart-regular.svg" alt="Favoritar"> Favoritar`;
+        container.classList.add('nao-favoritada');
     }
 }
