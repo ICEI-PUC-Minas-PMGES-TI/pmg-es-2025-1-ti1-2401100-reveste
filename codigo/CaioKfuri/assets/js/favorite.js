@@ -10,7 +10,7 @@ const favoriteOngs = [
   {
     id: 2,
     nome: "Aquecendo Vidas",
-    imagem: "./imgs/ong1.png",
+    imagem: "./imgs/ong2.jpg",
     descricao: "Ajuda moradores de rua com roupas de frio e kits de higiene.",
     detalhes: "Campanhas de arrecadação de agasalhos e ações nas ruas durante o inverno para proteção das pessoas em situação de rua.",
     favorited: true
@@ -18,7 +18,7 @@ const favoriteOngs = [
   {
     id: 3,
     nome: "Roupas Que Abraçam",
-    imagem: "./imgs/ong1.png",
+    imagem: "./imgs/ong3.jpg",
     descricao: "Oferece roupas dignas para mulheres em recomeço.",
     detalhes: "Atende vítimas de violência doméstica com doações personalizadas de roupas e apoio à autoestima.",
     favorited: true
