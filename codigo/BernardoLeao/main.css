@@ -13,14 +13,14 @@
 
 body,
 html {
+    margin: 0;
+    padding: 0;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
 }
 
 body {
-    width: 100%;
-    height: 100vh;
     border: none;
     background-repeat: no-repeat;
     background-position: center;
@@ -118,18 +118,18 @@ header {
 
 .containerCadastrar {
     width: 35%;
-    height: 75vh;
+    height: 85vh;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(40px);
     border: solid white 1px;
     flex-direction: column;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     transition: all 0.6s ease-in-out;
     pointer-events: auto;
-    margin-left: 140%;
+    margin-left: 150%;
     position: absolute;
 }
 
@@ -149,7 +149,7 @@ header {
 
 .inputsCadastrar {
     width: 100%;
-    height: 43vh;
+    height: 53vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -293,24 +293,6 @@ header {
     transition: .3s;
 }
 
-.containerCPNJeTelefone {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 5vh;
-}
-
-.containerCPNJeTelefone div {
-    width: 50%;
-    display: flex;
-    align-items: center;
-}
-
-.containerCPNJeTelefone div input {
-    width: 100%;
-}
-
 .divTemporario {
     display: flex;
     justify-content: space-between;
@@ -420,4 +402,108 @@ header {
     opacity: 1;
     margin-top: 0%;
     transition-delay: 1.5s;
+}
+
+@media (max-width: 600px) {
+    .containerLogin {
+        width: 80%;
+        height: 50vh;
+    }
+
+    .containerLogin h1 {
+        font-size: 1.1rem;
+    }
+
+    .inputs div {
+        width: 70%;
+        margin: 6%;
+    }
+
+    .inputs span {
+        font-size: 0.6rem;
+    }
+
+    .inputs a {
+        width: 70%;
+        font-size: 0.6rem;
+    }
+
+    .btnEntrar {
+        width: 70%;
+        font-size: 0.6rem;
+    }
+
+    .btnCadastrar {
+        width: 70%;
+        font-size: 0.6rem;
+    }
+
+    .divSC,
+    .divCC {
+        margin-top: 0%;
+    }
+
+    .divSC span,
+    .divCC span {
+        font-size: 0.6rem;
+    }
+
+    .divSC button,
+    .divCC button {
+        font-size: 0.7rem;
+    }
+
+    .inputsCadastrar {
+        height: 46vh;
+    }
+
+    .inputs div input,
+    .inputsCadastrar div input {
+        font-size: 0.7rem;
+    }
+
+    .inputs input.not-empty+span {
+        margin-top: -19%;
+    }
+
+    .inputsCadastrar input.not-empty+span {
+        margin-top: -17%;
+    }
+
+    .containerCadastrar {
+        width: 80%;
+        height: 75vh;
+        margin-left: 200%;
+    }
+
+    .movimentoContainerCadastrar {
+        margin-left: 0%;
+    }
+
+    .containerCadastrar h1 {
+        font-size: 1.1rem;
+    }
+
+    .inputsCadastrar div {
+        width: 70%;
+        margin: 5%;
+    }
+
+    .inputsCadastrar span {
+        font-size: 0.6rem;
+    }
+
+    .divTemporario {
+        width: 73%;
+    }
+
+    .divTemporario span {
+        font-size: 0.5rem;
+    }
+
+    .imagemIgreja {
+        margin-top: 1%;
+        margin-left: 1%;
+        background-image: url(../BernardoLeao/imgs/igreja-375px.svg);
+    }
 }

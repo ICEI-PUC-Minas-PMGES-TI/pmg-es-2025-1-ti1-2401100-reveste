@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         delay: 400
     });
 
-    sr.reveal('.container', {  origin: 'bottom'});
+    sr.reveal('.container', { origin: 'bottom' });
 });
 
 
@@ -48,10 +48,20 @@ const containerCadastrar = document.querySelector('.containerCadastrar');
 
 document.querySelector('.buttomCadastrar').addEventListener('click', () => {
     containerLogin.classList.add('movimentoContainerLogin');
-    containerCadastrar.classList.add('movimentoContainerCadastrar')
+    setTimeout(() => {
+        containerCadastrar.style.display = 'flex';
+    }, 200);
+    setTimeout(() => {
+        containerCadastrar.classList.add('movimentoContainerCadastrar')
+    }, 700);
 });
 
 document.querySelector('.buttomEntrar').addEventListener('click', () => {
-    containerLogin.classList.remove('movimentoContainerLogin');
+    setTimeout(() => {
+        containerLogin.classList.remove('movimentoContainerLogin');
+    }, 600)
     containerCadastrar.classList.remove('movimentoContainerCadastrar')
+    setTimeout(() => {
+        containerCadastrar.style.display = 'none';
+    }, 600)
 });
