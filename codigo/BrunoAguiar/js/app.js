@@ -12,45 +12,41 @@ const pontoApoio = [{
   }
 ];
 
-const agendamento = { 
-    id: 2, 
-    idPontoApoio: 1, 
-    nome: "João Silva", 
-    email: "joao.silva@example.com", 
-    cpf: "15221451678", 
-    numero:"31984097103",
-    data_horario_doacao: "2025-05-10T14:30:00" 
-};
+const agendamento = [];
 
-// Função para obter o parâmetro da query string
-let agendamentos = [];
+let agendamentos = JSON.parse(localStorage.getItem('agendamentos')) || [];
 
-        // Função para obter o parâmetro da query string
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
         }
-
-        // Função para definir o nome do ponto de apoio
         function definirPontoApoio() {
             const idPontoApoio = getQueryParam('id');
             const nomePontoApoioElement = document.getElementById('nomePontoApoio');
 
             if (idPontoApoio) {
-                // Encontrar o ponto de apoio correspondente no array
                 const pontoApoioEncontrado = pontoApoio.find(ponto => ponto.id === parseInt(idPontoApoio));
 
                 if (pontoApoioEncontrado) {
                     nomePontoApoioElement.textContent = pontoApoioEncontrado.nome;
-                    // Salvar o ID do ponto de apoio em um atributo do formulário
                     document.getElementById('idPontoApoio').value = pontoApoioEncontrado.id;
                 } else {
                     nomePontoApoioElement.textContent = 'Ponto de Apoio não encontrado';
+                    blockCampos();
                 }
             } else {
-                // Se nenhum ID for fornecido, mostrar uma mensagem padrão
                 nomePontoApoioElement.textContent = 'Selecione um Ponto de Apoio';
+                blockCampos();
             }
+        }
+
+        function blockCampos()
+        {
+            document.getElementById('nome').disabled = true;
+            document.getElementById('email').disabled = true;
+            document.getElementById('cpf').disabled = true;
+            document.getElementById('horario').disabled = true;
+            document.getElementById('numero').disabled = true;
         }
 
 
@@ -70,17 +66,23 @@ let agendamentos = [];
                 return;
             }
 
+            const maxId = agendamentos.length > 0 
+                ? Math.max(...agendamentos.map(a => a.id)) 
+                : 0;
+                
             const novoAgendamento = {
-                id: agendamentos.length + 1, // Gera um novo ID
+                id: maxId + 1,
                 idPontoApoio: parseInt(idPontoApoio),
                 nome: nome,
                 email: email,
                 numero: numero.replace(/[^\d]/g, ''),
-                cpf: cpf.replace(/[^\d]/g, ''), // Remove caracteres não numéricos
+                cpf: cpf.replace(/[^\d]/g, ''), 
                 data_horario_doacao: horario
             };
 
             agendamentos.push(novoAgendamento);
+            
+            localStorage.setItem('agendamentos', JSON.stringify(agendamentos));
 
             event.target.reset();
 
@@ -91,7 +93,8 @@ let agendamentos = [];
 
 
         document.addEventListener('DOMContentLoaded', () => {
-
+            console.log('Agendamentos carregados do localStorage:', agendamentos);
+            
             definirPontoApoio();
 
             const form = document.querySelector('form');
@@ -110,9 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     function mascaraTelefone(telefone) {
-        telefone = telefone.replace(/\D/g, ''); // Remove caracteres não numéricos
+        telefone = telefone.replace(/\D/g, '');
         
-        // Aplicar formatação progressiva
         if (telefone.length > 0) {
             telefone = '(' + telefone;
         }
@@ -120,12 +122,10 @@ document.addEventListener('DOMContentLoaded', function() {
             telefone = telefone.substring(0, 3) + ') ' + telefone.substring(3);
         }
         if (telefone.length > 10) {
-            // Para celular (11 dígitos)
             if (telefone.length > 10) {
                 telefone = telefone.substring(0, 10) + '-' + telefone.substring(10);
             }
         } else if (telefone.length > 9) {
-            // Para telefone fixo (10 dígitos)
             telefone = telefone.substring(0, 9) + '-' + telefone.substring(9);
         }
         
