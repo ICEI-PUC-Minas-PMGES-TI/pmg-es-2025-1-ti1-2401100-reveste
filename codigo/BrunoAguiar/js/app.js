@@ -18,6 +18,7 @@ const agendamento = {
     nome: "João Silva", 
     email: "joao.silva@example.com", 
     cpf: "15221451678", 
+    numero:"31984097103",
     data_horario_doacao: "2025-05-10T14:30:00" 
 };
 
@@ -60,10 +61,11 @@ let agendamentos = [];
             const email = document.getElementById('email').value;
             const cpf = document.getElementById('cpf').value;
             const horario = document.getElementById('horario').value;
+            const numero = document.getElementById('numero').value;
             const idPontoApoio = document.getElementById('idPontoApoio').value;
 
 
-            if (!nome || !email || !cpf || !horario || !idPontoApoio) {
+            if (!nome || !email || !cpf || !horario || !numero || !idPontoApoio) {
                 alert('Por favor, preencha todos os campos.');
                 return;
             }
@@ -73,6 +75,7 @@ let agendamentos = [];
                 idPontoApoio: parseInt(idPontoApoio),
                 nome: nome,
                 email: email,
+                numero: numero.replace(/[^\d]/g, ''),
                 cpf: cpf.replace(/[^\d]/g, ''), // Remove caracteres não numéricos
                 data_horario_doacao: horario
             };
