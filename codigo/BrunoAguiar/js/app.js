@@ -97,3 +97,68 @@ let agendamentos = [];
             const form = document.querySelector('form');
             form.addEventListener('submit', criarAgendamento);
         });
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    function mascaraCPF(cpf) {
+        cpf = cpf.replace(/\D/g, '');
+        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); 
+        cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        return cpf;
+    }
+
+
+    function mascaraTelefone(telefone) {
+        telefone = telefone.replace(/\D/g, ''); // Remove caracteres não numéricos
+        
+        // Aplicar formatação progressiva
+        if (telefone.length > 0) {
+            telefone = '(' + telefone;
+        }
+        if (telefone.length > 3) {
+            telefone = telefone.substring(0, 3) + ') ' + telefone.substring(3);
+        }
+        if (telefone.length > 10) {
+            // Para celular (11 dígitos)
+            if (telefone.length > 10) {
+                telefone = telefone.substring(0, 10) + '-' + telefone.substring(10);
+            }
+        } else if (telefone.length > 9) {
+            // Para telefone fixo (10 dígitos)
+            telefone = telefone.substring(0, 9) + '-' + telefone.substring(9);
+        }
+        
+        return telefone;
+    }
+
+
+    const cpfInput = document.querySelector('input#cpf');
+    const telefoneInput = document.querySelector('input[placeholder="(31) 9723-7293"]');
+
+    if (cpfInput) {
+        cpfInput.addEventListener('input', function(e) {
+            const value = e.target.value;
+            e.target.value = mascaraCPF(value);
+        });
+    }
+
+    if (telefoneInput) {
+        telefoneInput.addEventListener('input', function(e) {
+            const value = e.target.value;
+            e.target.value = mascaraTelefone(value);
+        });
+    }
+
+    cpfInput?.addEventListener('keypress', function(e) {
+        if (e.target.value.length >= 14) {
+            e.preventDefault();
+        }
+    });
+
+    telefoneInput?.addEventListener('keypress', function(e) {
+        if (e.target.value.length >= 15) {
+            e.preventDefault();
+        }
+    });
+});
