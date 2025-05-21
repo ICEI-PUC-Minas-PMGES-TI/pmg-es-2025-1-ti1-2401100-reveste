@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gerenciamento ONG</title>
+  <link rel="stylesheet" href="css/temporarios.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="logo">
+        <img src="imagens/logo.png" alt="Logo" />
+      </div>
+      <div class="menu">
+        <h3>Gestão</h3>
+        <ul>
+          <li onclick="window.location.href='estoque.html'">Estoque</li>
+          <li onclick="window.location.href='agendamentos.html'">Agendamentos</li>
+          <li onclick="window.location.href='necessidade.html'">Necessidade</li>
+        </ul>
+        <h3>Configurações</h3>
+        <ul>
+          <li onclick="window.location.href='./html/estoque.html'">Pontos de apoio fixos</li>
+          <li onclick="window.location.href='./html/estoque.html'">Pontos de apoio temporário</li>
+        </ul>
+      </div>
+    </div>
+    <div class="main">
+      <h1>Pontos de apoio temporários</h1>
+      <h2>Gerenciamento</h2>
+      <div class="card" style="width: 25rem;">
+  <img src="imagens/igreja.avif" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Paróquia São Jorge</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Endereço: R. Corcovado, 425 - Jardim America, Belo Horizonte - MG, 30421-389</li>
+    <li class="list-group-item">Início: 15/06/2025</li>
+    <li class="list-group-item">Fim: 15/07/2025</li>
+  </ul>
+  <div class="card-body">
+    <button type="submit">Salvar</button>
+  </div>
+</div>
+      <div id="grid" class="grid">
+        <div class="add-item" onclick="openModal()">+</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
