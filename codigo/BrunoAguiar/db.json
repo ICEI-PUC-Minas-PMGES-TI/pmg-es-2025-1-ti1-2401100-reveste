@@ -1,0 +1,27 @@
+{
+  "agendamento": [
+    {
+      "id": 1,
+      "idPontoApoio": 1,
+      "Nome": "NomeExemplo",
+      "cpf": "12345678910",
+      "numero": "31999998888",
+      "email": "email@exemplo.com",
+      "data_hora_agendamento": "2025-06-06T18:48"
+    }
+  ],
+  "pontoApoio": [
+    { 
+      "id": 1, 
+      "nome": "Igreja Batista"
+    },
+    { 
+      "id": 2, 
+      "nome": "ONG Reveste"
+    },
+    { 
+      "id": 3, 
+      "nome": "Teste"
+    }
+  ]
+}

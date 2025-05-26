@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Filtro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="./css/style.css"/>
+</head>
+<body>
+
+  <div class="p-3 text-dark bg-dark w-25 min-vh-100" id="filter">
+    <h1 class="fs-1 text-success fw-bold mb-4">Desapegaí</h1>
+
+    <label for="peca" class="form-label fs-4 text-white">Peça de Roupa</label>
+    <select id="peca" class="form-select">
+      <option value="todas">Todas</option>
+      <option value="camiseta">Camiseta</option>
+      <option value="calca">Calça</option>
+      <option value="jaqueta">Jaqueta</option>
+      <option value="sapato">Sapato</option>
+      <option value="tenis">Tênis</option>
+    </select>
+
+    <div class="form-check mt-2">
+      <input class="form-check-input" type="checkbox" id="favoritos">
+      <label class="form-check-label text-white" for="favoritos">Favoritos</label>
+    </div>
+
+    <input id="butaoAplicarFiltro" type="button" value="Aplicar Filtro" class="button-filter btn btn-success mt-2">
+    <input id="removerFiltro" type="button" value="Remover Filtro" class="btn btn-secondary mt-2" >
+
+    <div id="images-container" class="d-flex flex-wrap mt-4 gap-3 justify-content-start"></div>
+  </div>
+
+  <script src="./js/images-filter.js"></script>
+</body>
+</html>
