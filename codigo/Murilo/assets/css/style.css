@@ -22,6 +22,7 @@ aside {
     background-color: #111C30;
     display: flex;
     flex-direction: column;
+    transition: 1s ease;
 }
 
 /*<==== MAIN ====>*/
@@ -29,13 +30,13 @@ main {
     width: 80%;
     display: flex;
     flex-direction: column;
-    padding: 30px 60px;
 }
 
 main header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    padding: 30px;
 }
 
 main header h2 {
@@ -49,19 +50,47 @@ main header div{
 }
 
 main header div :nth-child(1){
-    width: 150px;
+    width: 130px;
 }
 
-main header div :nth-child(2){
-    width: 40px;
-    height: 40px;
-    filter: invert(100%);
+main header div button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
 }
 
+#list-menu-img {
+  height: 45px;
+  filter: invert(100%);
+  transition: transform 300ms ease, width 300ms ease, height 300ms ease;
+}
+#list-menu-img:hover{
+    transform: scale(1.1);
+}
+
+#list-menu-img.active {
+  transform: scale(1.2) rotate(90deg);
+}
 /* FILTER */
 #filter {
-    display: none;
-    width: 100%;
+    width: 0;
+    transform: translateX(-100px);
+    overflow: hidden;
+    transition: width 0.4s ease;
+    display: flex; 
+}
+
+#filter.active {
+    width: 20%; 
+    transform: translateX(0);
+
 }
 
 #filter > div {
