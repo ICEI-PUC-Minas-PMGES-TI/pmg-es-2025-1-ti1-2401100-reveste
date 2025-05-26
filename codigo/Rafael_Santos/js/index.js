@@ -11,6 +11,16 @@ function onInit() {
             }
         })
         .catch(error => console.error('Erro ao carregar os dados:', error));
+
+    if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+            console.log(position);
+            }
+        ), (error) => {
+            console.error(`Erro: ${error.message}`);
+        }
+    }
 }
 
 
@@ -24,9 +34,11 @@ function setCards(card) {
     let body = document.createElement("div");
     let img = document.createElement("img");
     let address = document.createElement("p");
+    let buttonDetail = document.createElement('button');
 
     body.append(img);
     body.append(address);
+    body.append(buttonDetail);
     header.append(title);
     container.append(header);
     container.append(body);
@@ -44,6 +56,12 @@ function setCards(card) {
 
     img.style.width = "156px";
     img.style.height = "65px";
+
+    buttonDetail.innerText = "Quero doar";
+    buttonDetail.style.backgroundColor = "#6DA34D";
+    buttonDetail.style.width = "100px";
+    buttonDetail.style.borderRadius = "10px";
+    buttonDetail.style.border = "none";
 
     address.style.fontSize = "x-small";
 
