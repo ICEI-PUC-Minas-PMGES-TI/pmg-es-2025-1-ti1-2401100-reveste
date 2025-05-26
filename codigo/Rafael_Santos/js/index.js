@@ -15,7 +15,10 @@ function onInit() {
     if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(
             position => {
-            console.log(position);
+                const map = document.getElementById('map');
+                const gMapAdvancedMarker = document.createElement('gmp-advanced-marker');
+                gMapAdvancedMarker.setAttribute('position', `${position.coords.latitude}, ${position.coords.longitude}`);
+                map.appendChild(gMapAdvancedMarker);
             }
         ), (error) => {
             console.error(`Erro: ${error.message}`);
