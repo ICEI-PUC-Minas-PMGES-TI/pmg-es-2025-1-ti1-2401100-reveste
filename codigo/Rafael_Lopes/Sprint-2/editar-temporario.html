@@ -15,7 +15,8 @@
     <input type="date" id="inicio" required />
     <input type="date" id="fim" required />
     <input type="text" id="imagem" placeholder="URL da Imagem" required />
-    <button type="submit">Salvar Alterações</button>
+    <button type="submit" id="saveButton">Salvar Alterações</button>
+    <button type="button" id="cancelButton">Cancelar</button>
   </form>
 
   <script>
@@ -48,6 +49,9 @@
       alert("Alterações salvas com sucesso!");
       window.location.href = "temporarios.html";
     });
+    document.getElementById('cancelButton').addEventListener('click', function () {
+  window.location.href = "temporarios.html";
+});
   </script>
 </body>
 </html>
