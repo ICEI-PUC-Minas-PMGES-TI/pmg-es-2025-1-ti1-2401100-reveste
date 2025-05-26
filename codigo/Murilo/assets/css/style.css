@@ -1,12 +1,134 @@
-*{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
-body{
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
     background-color: #1B263B;
 }
 
-  #first-graph {
-    width: 200px;
-    height: 200px;
-  }
+/*<==== ASIDE ====>*/
+aside {
+    width: 20%;
+    background-color: #111C30;
+    display: flex;
+    flex-direction: column;
+}
+
+/*<==== MAIN ====>*/
+main {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 60px;
+}
+
+main header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+main header h2 {
+    font-size: 32px;
+}
+
+main header div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+main header div :nth-child(1){
+    width: 150px;
+}
+
+main header div :nth-child(2){
+    width: 40px;
+    height: 40px;
+    filter: invert(100%);
+}
+
+/* FILTER */
+#filter {
+    display: none;
+    width: 100%;
+}
+
+#filter > div {
+    margin-left: 40px;
+    margin-top: 60px;
+}
+
+#filter div header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#filter div header h2 {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+#filter div header img {
+    filter: invert(100%);
+    width: 18px;
+    height: 18px;
+}
+
+#filter-checkboxes div {
+    margin-bottom: 60px;
+}
+
+#filter-checkboxes div > label {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#filter-checkboxes div ul {
+    list-style: none;
+}
+
+#filter-checkboxes div ul li {
+    margin-top: 5px;
+}
+
+#filter-checkboxes div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+#clothes-size-forms-select {
+    margin-top: 5px;
+    width: 80px;
+    padding: 5px;
+    color: black;
+}
+
+#clothes-size-forms-select option {
+    color: black;
+}
+
+/* GRAPHS */
+#graphs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 80px;
+}
+
+#graphs div > h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
