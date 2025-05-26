@@ -23,40 +23,38 @@
 
 
         <main>
-           <canvas id="first-graph" width="500" height="500"></canvas>
-
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <script>
-            fetch('./js/json/graph-data.json')
-                .then(response => {
-                if (!response.ok) throw new Error('Erro ao carregar JSON');
-                return response.json();
-                })
-                .then(data => {
-                const ctx = document.getElementById('first-graph').getContext('2d');
-
-                new Chart(ctx, {
-                    type: 'pie',
-                    data: data,
-                    options: {
-                    responsive: false,
-                    plugins: {
-                        legend: {
-                        display: false,
-                        position: 'bottom'
-                        },
-                        tooltip: {
-                        enabled: true
+           <div>
+                <h2>Roupas Doadas</h2>
+               <canvas id="first-graph" width="500" height="500"></canvas>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                fetch('./js/json/graph-data.json')
+                    .then(response => {
+                    if (!response.ok) throw new Error('Erro ao carregar JSON');
+                    return response.json();
+                    })
+                    .then(data => {
+                    const ctx = document.getElementById('first-graph').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'pie',
+                        data: data,
+                        options: {
+                        responsive: false,
+                        plugins: {
+                            legend: {
+                            display: false,
+                            position: 'bottom'
+                            },
+                            tooltip: {
+                            enabled: true
+                            }
                         }
-                    }
-                    }
-                });
-                })
-                .catch(error => console.error(error));
-            </script>
-
-
- 
+                        }
+                    });
+                    })
+                    .catch(error => console.error(error));
+                </script>
+           </div>
         </main>
 </body>
 </html>
