@@ -1,0 +1,57 @@
+.doacoes-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
+}
+.doacao-card {
+    background-color: #222B45;
+    border-radius: 14px;
+    border: 2px solid #22304A;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(31, 38, 59, 0.10);
+    padding: 24px 22px 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.doacao-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #fff;
+    font-weight: 700;
+}
+.doacao-card p {
+    font-size: 15px;
+    color: #e0e6ed;
+    margin-bottom: 6px;
+}
+.doacao-card .doacao-data {
+    font-size: 13px;
+    color: #3FC1C9;
+    margin-bottom: 0;
+}
+.doacao-card .doacao-status {
+    font-size: 13px;
+    color: #fff;
+    background: #22627c;
+    border-radius: 6px;
+    padding: 4px 12px;
+    display: inline-block;
+    margin-top: 8px;
+}
+.btn-detalhes-doacao {
+    background: #22627c;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 10px;
+    transition: background 0.2s, color 0.2s;
+}
+.btn-detalhes-doacao:hover {
+    background: #3FC1C9;
+    color: #222B45;
+}
