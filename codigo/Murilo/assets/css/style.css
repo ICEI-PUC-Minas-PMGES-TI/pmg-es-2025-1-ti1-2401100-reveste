@@ -80,8 +80,17 @@ main header div button {
 }
 /* FILTER */
 #filter {
-    display: none;
-    width: 100%;
+    width: 0;
+    transform: translateX(-100px);
+    overflow: hidden;
+    transition: width 0.4s ease;
+    display: flex; 
+}
+
+#filter.active {
+    width: 20%; 
+    transform: translateX(0);
+
 }
 
 #filter > div {
