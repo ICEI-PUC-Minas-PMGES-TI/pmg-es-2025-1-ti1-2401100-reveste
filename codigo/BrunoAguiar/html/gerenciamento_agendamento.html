@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRAS - Vila Antena</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/agendamentos.css" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-bars menu-toggle" onclick="toggleSidebar()"></i>
+            CRAS - VILA ANTENA
+        </div>
+        <ul class="sidebar-nav">
+            <li>
+                <a href="#" class="d-flex align-items-center menu" onclick="toggleSubmenu('gestao')">
+                    <i class="fas fa-user"></i>
+                    <span>Gestão</span>
+                    <i class="fas fa-chevron-down ms-auto chevron" id="gestao-chevron"></i>
+                </a>
+                <div class="submenu" id="gestao-submenu">
+                    <a href="#">
+                        <i class="fas fa-boxes"></i>
+                        Estoque
+                    </a>
+                    <a href="#" class="active">
+                        <i class="fas fa-calendar-alt"></i>
+                        Agendamentos
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="d-flex align-items-center menu" onclick="toggleSubmenu('config')">
+                    <i class="fas fa-cog"></i>
+                    <span>Configurações</span>
+                    <i class="fas fa-chevron-down ms-auto chevron" id="config-chevron"></i>
+                </a>
+                <div class="submenu" id="config-submenu">
+                    <a href="#">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Ponto de apoio
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <button class="menu-toggle d-md-none" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+        </div>
+
+        <h1 class="page-title">Agendamentos</h1>
+
+        <div class="appointments-grid">
+            <div class="appointment-card">
+                <div class="appointment-title">Agendamento #1</div>
+                <div class="appointment-details">
+                    <strong>João Silva</strong><br>
+                    23/05/25 - 14:00<br>
+                    CPF 98506-7250
+                </div>
+            </div>
+
+            <div class="appointment-card">
+                <div class="appointment-title">Agendamento #1</div>
+                <div class="appointment-details">
+                    <strong>João Silva</strong><br>
+                    23/05/25 - 14:00<br>
+                    CPF 98506-7250
+                </div>
+            </div>
+
+            <div class="appointment-card">
+                <div class="appointment-title">Agendamento #1</div>
+                <div class="appointment-details">
+                    <strong>João Silva</strong><br>
+                    23/05/25 - 14:00<br>
+                    CPF 98506-7250
+                </div>
+            </div>
+
+            <div class="appointment-card">
+                <div class="appointment-title">Agendamento #1</div>
+                <div class="appointment-details">
+                    <strong>João Silva</strong><br>
+                    23/05/25 - 14:00<br>
+                    CPF 98506-7250
+                </div>
+            </div>
+
+            <div class="appointment-card">
+                <div class="appointment-title">Agendamento #1</div>
+                <div class="appointment-details">
+                    <strong>João Silva</strong><br>
+                    23/05/25 - 14:00<br>
+                    CPF 98506-7250
+                </div>
+            </div>
+
+            <div class="appointment-card">
+                <div class="appointment-title">Agendamento #1</div>
+                <div class="appointment-details">
+                    <strong>João Silva</strong><br>
+                    23/05/25 - 14:00<br>
+                    CPF 98506-7250
+                </div>
+            </div>
+
+            <div class="appointment-card">
+                <div class="appointment-title">Agendamento #1</div>
+                <div class="appointment-details">
+                    <strong>João Silva</strong><br>
+                    23/05/25 - 14:00<br>
+                    CPF 98506-7250
+                </div>
+            </div>
+
+            <div class="appointment-card">
+                <div class="appointment-title">Agendamento #1</div>
+                <div class="appointment-details">
+                    <strong>João Silva</strong><br>
+                    23/05/25 - 14:00<br>
+                    CPF 98506-7250
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+        <div>Para chamar o suporte:</div>
+        <div class="contact-links">
+            <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('show');
+        }
+
+        function toggleSubmenu(menuId) {
+            const submenu = document.getElementById(menuId + '-submenu');
+            const chevron = document.getElementById(menuId + '-chevron');
+            
+            // Close other submenus
+            document.querySelectorAll('.submenu').forEach(menu => {
+                if (menu.id !== menuId + '-submenu') {
+                    menu.classList.remove('show');
+                }
+            });
+            
+            document.querySelectorAll('.chevron').forEach(ch => {
+                if (ch.id !== menuId + '-chevron') {
+                    ch.classList.remove('rotate');
+                }
+            });
+            
+            // Toggle current submenu
+            submenu.classList.toggle('show');
+            chevron.classList.toggle('rotate');
+        }
+
+        // Initialize - show Gestão submenu by default since Agendamentos is active
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleSubmenu('gestao');
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(event.target) && 
+                !menuToggle.contains(event.target)) {
+                sidebar.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
