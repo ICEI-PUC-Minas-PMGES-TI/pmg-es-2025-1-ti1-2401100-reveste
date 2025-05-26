@@ -19,25 +19,29 @@
           <li onclick="window.location.href='agendamentos.html'">Agendamentos</li>
           <li onclick="window.location.href='necessidade.html'">Necessidade</li>
         </ul>
+        <h3>Configurações</h3>
+        <ul>
+          <li>Ponto de apoio</li>
+        </ul>
       </div>
     </div>
 
     <div class="main">
       <h1>Roupas Não Aceitas</h1>
 
-      <div>
-        <input id="nome" type="text" placeholder="Nome da roupa">
-        <select id="tamanho">
-          <option value="">Tamanho</option>
-          <option value="PP">PP</option>
-          <option value="P">P</option>
-          <option value="M">M</option>
-          <option value="G">G</option>
-          <option value="GG">GG</option>
-        </select>
-        <input id="motivo" type="text" placeholder="Motivo da recusa">
-        <button onclick="adicionarRoupaNaoAceita()">Adicionar</button>
-      </div>
+      <div class="formulario">
+  <input id="nome" type="text" placeholder="Nome da roupa">
+  <select id="tamanho">
+    <option value="">Tamanho</option>
+    <option value="PP">PP</option>
+    <option value="P">P</option>
+    <option value="M">M</option>
+    <option value="G">G</option>
+    <option value="GG">GG</option>
+  </select>
+  <input id="motivo" type="text" placeholder="Motivo da recusa">
+  <button onclick="adicionarRoupaNaoAceita()">Adicionar</button>
+</div>
 
       <div id="lista" class="grid" style="margin-top: 30px;"></div>
     </div>
