@@ -1,39 +1,16 @@
-const dados = {
-  locais: {
-    ongs: [
-      {
-        nome: "Roupa que Abraça",
-        endereco: "Rua 123",
-        pecas: ["camiseta", "calça"],
-        favorito: false,
-        imagem: "./img/ondRoupa.jpg"
-      },
-      {
-        nome: "Coração Solidário",
-        endereco: "Av. Brasil, 456",
-        pecas: ["camiseta", "jaqueta"],
-        favorito: true,
-        imagem: "./img/dom-quixote-campanha-agasalho.jpg"
-      }
-    ],
-    pontosApoio: [
-      {
-        nome: "Centro de Apoio",
-        endereco: "Praça Central, 789",
-        pecas: ["casaco"],
-        favorito: false,
-        imagem: "./img/roupaLivre.png"
-      },
-      {
-        nome: "Vestir com Amor",
-        endereco: "Praça Matriz, 712",
-        pecas: ["tenis"],
-        favorito: false,
-        imagem: "./img/vestirAmor.jpg"
-      }
-    ]
-  }
-};
+fetch('./assets/datas.json')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => console.error('Erro ao carregar JSON:', error));
+
+fetch('./assets/graph.json')
+.then(response => response.json())
+.then(data => {
+  console.log(data);
+})
+.catch(error => console.error('Erro ao carregar JSON:', error));
 
 window.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById("images-container");

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Área de Gestão</title>
+</head>
+<body>
+    <aside>
+        <div>
+            <h2>Nome</h2>
+            <img src="" alt="ponto-de-apoio.png">
+
+            <div id="filter">
+                <h2>Filtros</h2>
+                <img src="" alt="filter.png">
+
+            </div>
+        </div>
+
+
+        <main>
+           <canvas id="first-graph" width="500" height="500"></canvas>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+            fetch('./js/json/graph-data.json')
+                .then(response => {
+                if (!response.ok) throw new Error('Erro ao carregar JSON');
+                return response.json();
+                })
+                .then(data => {
+                const ctx = document.getElementById('first-graph').getContext('2d');
+
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: data,
+                    options: {
+                    responsive: false,
+                    plugins: {
+                        legend: {
+                        display: false,
+                        position: 'bottom'
+                        },
+                        tooltip: {
+                        enabled: true
+                        }
+                    }
+                    }
+                });
+                })
+                .catch(error => console.error(error));
+            </script>
+
+
+ 
+        </main>
+</body>
+</html>

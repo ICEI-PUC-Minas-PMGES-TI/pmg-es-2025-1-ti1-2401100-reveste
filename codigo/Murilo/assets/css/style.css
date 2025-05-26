@@ -1,0 +1,12 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+body{
+    background-color: #1B263B;
+}
+
+  #first-graph {
+    width: 200px;
+    height: 200px;
+  }
