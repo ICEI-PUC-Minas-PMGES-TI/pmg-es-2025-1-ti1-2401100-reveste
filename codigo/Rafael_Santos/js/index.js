@@ -18,6 +18,7 @@ function onInit() {
                 const map = document.getElementById('map');
                 const gMapAdvancedMarker = document.createElement('gmp-advanced-marker');
                 gMapAdvancedMarker.setAttribute('position', `${position.coords.latitude}, ${position.coords.longitude}`);
+                gMapAdvancedMarker.content = createCustomUserMarker();
                 map.appendChild(gMapAdvancedMarker);
             }
         ), (error) => {
@@ -26,6 +27,16 @@ function onInit() {
     }
 }
 
+function createCustomUserMarker() {
+    const marker = document.createElement('div');
+    marker.style.width = '20px';
+    marker.style.height = '20px';
+    marker.style.backgroundColor = 'blue';
+    marker.style.border = '3px solid white';
+    marker.style.borderRadius = '50%';
+    marker.style.boxShadow = '0 0 6px rgba(0,0,0,0.5)';
+    return marker;
+}
 
 function setCards(card) {
     let apoio = new Apoio(card);
