@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editar Ponto de Apoio</title>
+  <link rel="stylesheet" href="css/editar-temporarios.css">
+</head>
+<body>
+  <h1>Editar Ponto de Apoio Temporário</h1>
+
+  <form id="form-editar">
+    <input type="text" id="nome" placeholder="Nome" required />
+    <input type="text" id="endereco" placeholder="Endereço" required />
+    <input type="date" id="inicio" required />
+    <input type="date" id="fim" required />
+    <input type="text" id="imagem" placeholder="URL da Imagem" required />
+    <button type="submit" id="saveButton">Salvar Alterações</button>
+    <button type="button" id="cancelButton">Cancelar</button>
+  </form>
+
+  <script>
+    const id = parseInt(localStorage.getItem('pontoParaEditar'));
+    let pontos = JSON.parse(localStorage.getItem('pontosApoio')) || [];
+
+    const ponto = pontos.find(p => p.id === id);
+
+    if (!ponto) {
+      alert("Ponto de apoio não encontrado.");
+      window.location.href = "temporarios.html";
+    }
+
+    document.getElementById('nome').value = ponto.nome;
+    document.getElementById('endereco').value = ponto.endereco;
+    document.getElementById('inicio').value = ponto.inicio;
+    document.getElementById('fim').value = ponto.fim;
+    document.getElementById('imagem').value = ponto.imagem;
+
+    document.getElementById('form-editar').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      ponto.nome = document.getElementById('nome').value;
+      ponto.endereco = document.getElementById('endereco').value;
+      ponto.inicio = document.getElementById('inicio').value;
+      ponto.fim = document.getElementById('fim').value;
+      ponto.imagem = document.getElementById('imagem').value;
+
+      localStorage.setItem('pontosApoio', JSON.stringify(pontos));
+      alert("Alterações salvas com sucesso!");
+      window.location.href = "temporarios.html";
+    });
+    document.getElementById('cancelButton').addEventListener('click', function () {
+  window.location.href = "temporarios.html";
+});
+  </script>
+</body>
+</html>

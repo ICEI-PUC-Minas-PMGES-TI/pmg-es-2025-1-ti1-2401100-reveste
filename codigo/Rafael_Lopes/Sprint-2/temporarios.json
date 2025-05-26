@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "nome": "Paróquia São Jorge",
+    "endereco": "R. Corcovado, 425 - Jardim América, Belo Horizonte - MG, 30421-389",
+    "inicio": "2025-06-15",
+    "fim": "2025-07-15",
+    "imagem": "imagens/igreja.avif"
+  }
+]
