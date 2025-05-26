@@ -1,11 +1,24 @@
-// Carrega os pontos de apoio do localStorage
-let pontos = JSON.parse(localStorage.getItem('pontosApoio')) || [];
+let pontos = JSON.parse(localStorage.getItem('pontosApoio'));
+
+if (!pontos || pontos.length === 0) {
+  fetch('temporarios.json')
+    .then(response => response.json())
+    .then(data => {
+      pontos = data;
+      salvarLocal();
+      renderizarPontos();
+    })
+    .catch(error => {
+      console.error('Erro ao carregar os dados:', error);
+    });
+} else {
+  renderizarPontos();
+}
 
 function salvarLocal() {
   localStorage.setItem('pontosApoio', JSON.stringify(pontos));
 }
 
-// Função para renderizar os cards na tela
 function renderizarPontos() {
   const container = document.getElementById('grid');
   container.innerHTML = '';
@@ -32,13 +45,7 @@ function renderizarPontos() {
   });
 }
 
-// Função para redirecionar para a página de edição com o ID do ponto
 function editarPonto(id) {
   localStorage.setItem('pontoParaEditar', id);
   window.location.href = 'editar-temporario.html';
 }
-
-// Executa ao carregar a página
-window.onload = () => {
-  renderizarPontos();
-};
