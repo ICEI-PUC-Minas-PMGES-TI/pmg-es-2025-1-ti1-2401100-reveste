@@ -13,7 +13,7 @@
         <!--Será implementado um componente de outra pessoa aqui-->
     </aside>
     
-    <main>
+     <main>
         <header>
             <h2>Gestão</h2>
             <div>
@@ -28,16 +28,78 @@
             <div>
                 <h2>Roupas Doadas</h2>
                 <canvas id="first-graph" width="500" height="500"></canvas>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    fetch('./js/json/graph-data.json')
+                    .then(response => {
+                    if (!response.ok) throw new Error('Erro ao carregar JSON');
+                    return response.json();
+                    })
+                    .then(data => {
+                        const ctx = document.getElementById('first-graph').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'pie',
+                        data: data,
+                        options: {
+                        responsive: false,
+                        plugins: {
+                            legend: {
+                            display: false,
+                            },
+                            tooltip: {
+                            enabled: true
+                        }
+                    }
+                        }
+                    });
+                })
+                    .catch(error => console.error(error));
+                    </script>
             </div>
             <div>
                 <h2>Roupas Disponíveis</h2>
                 <canvas id="second-graph" width="500" height="500"></canvas>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    fetch('./js/json/graph-data.json')
+                    .then(response => {
+                    if (!response.ok) throw new Error('Erro ao carregar JSON');
+                    return response.json();
+                    })
+                    .then(data => {
+                        const ctx = document.getElementById('second-graph').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'pie',
+                        data: data,
+                        options: {
+                        responsive: false,
+                        plugins: {
+                            legend: {
+                            display: false,
+                            },
+                            tooltip: {
+                            enabled: true
+                        }
+                    }
+                        }
+                    });
+                })
+                    .catch(error => console.error(error));
+                </script>
             </div>
         </section>
     </main>
     
-    <aside id="filter">
-        <div>
+    <aside id="menu">
+         <div id="graph-type">
+            <h2>Tipo do Gráfico</h2>
+            <select id="graph-type-select">
+                <option value="column">Coluna</option>
+                <option value="pie">Pizza</option>
+                <option value="bar">Barra</option>
+            </select>
+        </div>
+        <div id="filter">
             <header>
                 <h2>Filtros</h2>
                 <img src="./assets/img/filtro.png" alt="filter.png">
@@ -88,57 +150,10 @@
                 </div>
             </div>
         </div>
+
     </aside>
     <footer>
     </footer>
-
-    <!-- SCRIPT CENTRAL AQUI -->
-    <script>
-        const data = {
-            labels: [
-                "Infantil - RN", "Infantil - P", "Infantil - M", "Infantil - G", "Infantil - XG",
-                "Masculino - PP", "Masculino - P", "Masculino - M", "Masculino - G", "Masculino - GG", "Masculino - XG",
-                "Feminino - PP", "Feminino - P", "Feminino - M", "Feminino - G", "Feminino - GG", "Feminino - XG"
-            ],
-            datasets: [{
-                data: [5, 10, 15, 20, 25, 8, 12, 18, 22, 28, 30, 7, 11, 17, 21, 26, 29],
-                backgroundColor: [
-                    "#FFD700", "#FFC300", "#FFB000", "#FFA000", "#FF8C00",
-                    "#1E90FF", "#1C86EE", "#1874CD", "#104E8B", "#0B3D91", "#08306B",
-                    "#FF69B4", "#FF6EB4", "#FF85B5", "#FF9ABA", "#FFADC1", "#FFC0CB"
-                ],
-                hoverOffset: 4
-            }]
-        };
-
-        const options = {
-            responsive: false,
-            plugins: {
-                legend: {
-                    display: false,
-                    position: 'bottom'
-                },
-                tooltip: {
-                    enabled: true
-                }
-            }
-        };
-
-        const ctx1 = document.getElementById('first-graph').getContext('2d');
-        new Chart(ctx1, {
-            type: 'pie',
-            data: data,
-            options: options
-        });
-
-        const ctx2 = document.getElementById('second-graph').getContext('2d');
-        new Chart(ctx2, {
-            type: 'pie',
-            data: data,
-            options: options
-        });
-    </script>
-
     <script src="./js/graph-filter.js"></script>
 </body>
 </html>
