@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desapegai</title>
-    <link rel="stylesheet" href="../BernardoLeao/main.css">
+    <link rel="stylesheet" href="/codigo/BernardoLeao/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,29 +14,6 @@
 </head>
 
 <body>
-    <div class="sombra">
-        <div class="PontoDeApoioNaoEncontrado">
-            <header>
-                <svg class="fecharMensagem1" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                    <path
-                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
-                </svg>
-            </header>
-            <h1>Ponto de Apoio não encontrado!</h1>
-        </div>
-
-        <div class="CadastroBemSucedido">
-            <header>
-                <svg class="fecharMensagem2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                    <path
-                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
-                </svg>
-            </header>
-            <h1>Cadastro feito com sucesso!</h1>
-        </div>
-    </div>
     <div class="containerLoginECadastrar">
         <div class="imagemIgreja"></div>
 
@@ -51,14 +28,15 @@
                     </div>
 
                     <div>
-                        <input type="password" class="inputSenha" autocomplete="new-password" maxlength="30" required>
+                        <input type="password" maxlength="30" required>
                         <span class="spanSenha">Senha:</span>
                     </div>
                     <a href="">Esqueceu a senha?</a>
                 </div>
-                <button class="btnEntrar" disabled>Entrar</button>
+                <button class="btnEntrar">Entrar</button>
                 <div class="divSC">
-                    <span>Ainda não cadastrou? <button class="buttomCadastrar">Cadastrar-se</button></span>
+                    <span>Não cadastrou o seu ponto de apoio? <button
+                            class="buttomCadastrar">Cadastrar-se</button></span>
                 </div>
             </div>
 
@@ -67,46 +45,48 @@
 
                 <div class="inputsCadastrar">
                     <div>
-                        <input type="text" class="inputNome" id="nome">
+                        <input type="text" class="inputNome">
                         <span class="spanNome">Nome:</span>
                     </div>
                     <div>
-                        <input type="text" class="inputEndereco" id="endereco">
+                        <input type="text" class="inputEndereco">
                         <span class="spanEndereco">Endereço:</span>
                     </div>
-                    <div>
-                        <input type="text" class="inputTelefone" id="telefone">
-                        <span class="spanTelefone">Telefone:</span>
-                    </div>
+                    <div class="containerCPNJeTelefone">
+                        <div>
+                            <input type="text" class="inputTelefone">
+                            <span class="spanTelefone">Telefone:</span>
+                        </div>
 
-                    <div>
-                        <input type="text" class="inputCNPJCadastrar" id="cnpjCadastrar">
-                        <span class="spanCNPJCadastrar">CNPJ:</span>
+                        <div>
+                            <input type="text" class="inputCNPJCadastrar">
+                            <span class="spanCNPJCadastrar">CNPJ:</span>
+                        </div>
                     </div>
                     <div>
-                        <input type="text" class="inputEmail" id="email">
+                        <input type="text" class="inputEmail">
                         <span class="spanEmail">Email:</span>
                     </div>
                     <div>
-                        <input type="password" class="inputSenhaCadastrar" maxlength="30" id="senhaCadastrar">
+                        <input type="password" class="inputSenhaCadastrar" maxlength="30">
                         <span class="spanSenhaCadastrar">Senha:</span>
                     </div>
                 </div>
                 <div class="divTemporario">
                     <div class="divCheckbox">
-                        <input class="checkbox" type="checkbox" id="temporario">
+                        <input class="checkbox" type="checkbox">
                         <span>PA Temporário?</span>
                     </div>
 
                     <div class="divDataPA">
-                        <input class="inputInicio" id="inicio" type="text">
+                        <input class="inputInicio" type="text">
                         <span>até</span>
-                        <input class="inputFinal" id="final" type="text">
+                        <input class="inputFinal" type="text">
                     </div>
                 </div>
-                <button class="btnCadastrar" id="btnCadastrar" disabled>Cadastrar</button>
+                <button class="btnCadastrar">Cadastrar</button>
                 <div class="divCC">
-                    <span>Já se cadastrou? <button class="buttomEntrar">Entrar</button></span>
+                    <span>Já cadastrou um ponto de apoio? <button class="buttomEntrar">Entrar</button></span>
                 </div>
             </div>
         </main>
@@ -115,7 +95,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-    <script src="../BernardoLeao/script.js"></script>
+    <script src="/codigo/BernardoLeao/script.js"></script>
 </body>
 
 </html>
