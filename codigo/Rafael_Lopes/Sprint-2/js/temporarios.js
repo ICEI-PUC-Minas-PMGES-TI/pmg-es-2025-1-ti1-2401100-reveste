@@ -39,6 +39,7 @@ function renderizarPontos() {
       </ul>
       <div class="card-body">
         <button onclick="editarPonto(${ponto.id})">Alterar</button>
+        <button onclick="excluirPonto(${ponto.id})" style="background-color: red; color: white;">Excluir</button>
       </div>
     `;
     container.appendChild(card);
@@ -48,4 +49,12 @@ function renderizarPontos() {
 function editarPonto(id) {
   localStorage.setItem('pontoParaEditar', id);
   window.location.href = 'editar-temporario.html';
+}
+
+function excluirPonto(id) {
+  if (confirm('Tem certeza que deseja excluir este ponto de apoio?')) {
+    pontos = pontos.filter(ponto => ponto.id !== id);
+    salvarLocal();
+    renderizarPontos();
+  }
 }
