@@ -29,12 +29,24 @@
 
     <div class="main">
       <h1>Pontos de Apoio Temporários</h1>
-      <div id="grid" class="grid">
-        
-      </div>
+      <div id="grid" class="grid"></div>
+      <div class="add-item" onclick="abrirModal()">+</div>
     </div>
   </div>
+   <div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h2>Cadastrar Ponto Temporário</h2>
 
+      <input id="nome" type="text" placeholder="Nome" />
+      <input id="endereco" type="text" placeholder="Endereço" />
+      <input id="inicio" type="date" />
+      <input id="fim" type="date" />
+      <input id="imagem" type="file" accept="image/*" />
+
+      <button onclick="salvarPonto()">Salvar</button>
+      <button type="button" id="cancelButton">Cancelar</button>
+    </div>
+  </div>
   <script src="js/temporarios.js"></script>
 </body>
 </html>

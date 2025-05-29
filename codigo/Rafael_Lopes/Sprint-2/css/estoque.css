@@ -65,7 +65,7 @@ body {
   color: black;
   display: flex;
   flex-direction: column;
-  height: 300px; /* aumentado para caber tudo */
+  height: 300px;
   overflow: hidden;
   position: relative;
   border-radius: 8px;

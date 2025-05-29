@@ -58,3 +58,51 @@ function excluirPonto(id) {
     renderizarPontos();
   }
 }
+
+function abrirModal() {
+  document.getElementById('modal').style.display = 'flex';
+}
+
+function salvarPonto() {
+  const nome = document.getElementById('nome').value;
+  const endereco = document.getElementById('endereco').value;
+  const inicio = document.getElementById('inicio').value;
+  const fim = document.getElementById('fim').value;
+  const imagemInput = document.getElementById('imagem');
+  const imagem = imagemInput.files[0];
+
+  if (!nome || !endereco || !inicio || !fim || !imagem) {
+    alert('Preencha todos os campos e selecione uma imagem.');
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    const novoPonto = {
+      id: Date.now(),
+      nome,
+      endereco,
+      inicio,
+      fim,
+      imagem: e.target.result
+    };
+
+    pontos.push(novoPonto);
+    salvarLocal();
+    renderizarPontos();
+
+    document.getElementById('modal').style.display = 'none';
+    document.getElementById('nome').value = '';
+    document.getElementById('endereco').value = '';
+    document.getElementById('inicio').value = '';
+    document.getElementById('fim').value = '';
+    imagemInput.value = '';
+  };
+
+  reader.readAsDataURL(imagem);
+}
+ cancelButton.addEventListener('click', () => {
+    if (confirm('Deseja cancelar e voltar para a lista de filmes?')) {
+        window.location.href = 'temporarios.html';
+    }
+});

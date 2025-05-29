@@ -49,6 +49,8 @@ body {
 }
 
 .add-item {
+  margin: 30px;
+  width: 200px;
   background-color: #d1d9e6;
   height: 250px;
   display: flex;
@@ -107,7 +109,6 @@ body {
   cursor: pointer;
   border-radius: 4px;
 }
-
 .modal {
   display: none;
   position: fixed;
@@ -129,13 +130,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-.modal-content input,
-.modal-content select,
-.modal-content button {
-  margin-bottom: 10px;
-  padding: 8px;
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 14px;
+.modal-content input{
+  margin: 5px;
 }
