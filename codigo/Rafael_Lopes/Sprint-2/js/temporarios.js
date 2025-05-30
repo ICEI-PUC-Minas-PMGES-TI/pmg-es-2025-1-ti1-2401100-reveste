@@ -1,19 +1,27 @@
-let pontos = JSON.parse(localStorage.getItem('pontosApoio'));
+const dadosIniciaisDoJSON = [
+  {
+    "id": 1,
+    "nome": "Paróquia São Jorge",
+    "endereco": "R. Corcovado, 425 - Jardim América, Belo Horizonte - MG, 30421-389",
+    "inicio": "2025-06-15",
+    "fim": "2025-07-15",
+    "imagem": "imagens/igreja.avif"
+  }
+];
 
-if (!pontos || pontos.length === 0) {
-  fetch('temporarios.json')
-    .then(response => response.json())
-    .then(data => {
-      pontos = data;
-      salvarLocal();
-      renderizarPontos();
-    })
-    .catch(error => {
-      console.error('Erro ao carregar os dados:', error);
-    });
+let pontos = [];
+
+const pontosSalvos = localStorage.getItem('pontosApoio');
+
+if (pontosSalvos) {
+  pontos = JSON.parse(pontosSalvos);
 } else {
-  renderizarPontos();
+  pontos = dadosIniciaisDoJSON;
+
+  salvarLocal();
 }
+
+renderizarPontos(); 
 
 function salvarLocal() {
   localStorage.setItem('pontosApoio', JSON.stringify(pontos));
@@ -26,37 +34,29 @@ function renderizarPontos() {
   pontos.forEach(ponto => {
     const card = document.createElement('div');
     card.className = 'card';
-    card.style.width = '25rem';
     card.innerHTML = `
-      <img src="${ponto.imagem}" class="card-img-top" alt="Imagem do ponto">
+      <img src="${ponto.imagem}" alt="Imagem do ponto">
       <div class="card-body">
         <h3 class="card-title">${ponto.nome}</h3>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><strong>Endereço:</strong> ${ponto.endereco}</li>
-        <li class="list-group-item"><strong>Início:</strong> ${ponto.inicio}</li>
-        <li class="list-group-item"><strong>Fim:</strong> ${ponto.fim}</li>
+      <ul>
+        <li><strong>Endereço:</strong> ${ponto.endereco}</li>
+        <li><strong>Início:</strong> ${ponto.inicio}</li>
+        <li><strong>Fim:</strong> ${ponto.fim}</li>
       </ul>
       <div class="card-body">
         <button onclick="editarPonto(${ponto.id})">Alterar</button>
-        <button onclick="excluirPonto(${ponto.id})" style="background-color: red; color: white;">Excluir</button>
+        <button onclick="excluirPonto(${ponto.id})" style="background-color:red;color:white;">Excluir</button>
       </div>
     `;
     container.appendChild(card);
   });
-}
 
-function editarPonto(id) {
-  localStorage.setItem('pontoParaEditar', id);
-  window.location.href = 'editar-temporario.html';
-}
-
-function excluirPonto(id) {
-  if (confirm('Tem certeza que deseja excluir este ponto de apoio?')) {
-    pontos = pontos.filter(ponto => ponto.id !== id);
-    salvarLocal();
-    renderizarPontos();
-  }
+  const botaoAdicionar = document.createElement('div');
+  botaoAdicionar.className = 'add-item';
+  botaoAdicionar.textContent = '+';
+  botaoAdicionar.onclick = abrirModal;
+  container.appendChild(botaoAdicionar);
 }
 
 function abrirModal() {
@@ -88,9 +88,8 @@ function salvarPonto() {
     };
 
     pontos.push(novoPonto);
-    salvarLocal();
-    renderizarPontos();
-
+    salvarLocal();  
+    renderizarPontos(); 
     document.getElementById('modal').style.display = 'none';
     document.getElementById('nome').value = '';
     document.getElementById('endereco').value = '';
@@ -101,8 +100,22 @@ function salvarPonto() {
 
   reader.readAsDataURL(imagem);
 }
- cancelButton.addEventListener('click', () => {
-    if (confirm('Deseja cancelar e voltar para a lista de filmes?')) {
-        window.location.href = 'temporarios.html';
-    }
+
+function excluirPonto(id) {
+  if (confirm('Deseja excluir este ponto?')) {
+    pontos = pontos.filter(ponto => ponto.id !== id);
+    salvarLocal();
+    renderizarPontos();
+  }
+}
+
+function editarPonto(id) {
+  localStorage.setItem('pontoParaEditar', id);
+  window.location.href = 'editar-temporario.html';
+}
+
+document.getElementById('cancelButton').addEventListener('click', () => {
+  if (confirm('Deseja cancelar e fechar o cadastro?')) {
+    document.getElementById('modal').style.display = 'none';
+  }
 });
