@@ -14,8 +14,56 @@
 </head>
 
 <body>
+    <div class="divBannerCeuAzul"></div>
+    <div class="containerInicial">
+        <main class="mainPapeis">
+            <img class="logo" src="../BernardoLeao/imgs/Logo.svg" alt="">
+            <h2>Doando o que não precisa para ajudar quem necessita.</h2>
+            <nav>
+                <div id="divPapel" class="divsPapeis">
+                    <div class="divImg1"></div>
+                    <h1>Quero Roupa</h1>
+                </div>
+                <div id="divPapel2" class="divsPapeis">
+                    <div class="divImg2"></div>
+                    <h1>Quero Doar</h1>
+                </div>
+                <div id="divPapel3" class="divsPapeis">
+                    <div class="divImg3"></div>
+                    <h1>Sou Ponto de Apoio</h1>
+                </div>
+            </nav>
+
+            <button class="btnProsseguir" disabled>
+                <span>PROSSEGUIR</span>
+                <svg class="primeiraSeta" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path
+                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                </svg>
+                <svg class="segundaSeta" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path
+                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                </svg>
+            </button>
+        </main>
+    </div>
+
+    <!----------------------------------------------------------------------------Login & Cadastro---------------------------------------------------------------------------->
+
     <div class="containerLoginECadastrar">
         <div class="imagemIgreja"></div>
+        <header>
+            <buttom class="btnVoltarLoginECadastro" href="/Pagina Inicial/index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-left-square" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                </svg>
+                <span>Voltar</span>
+            </buttom>
+        </header>
 
         <main class="mainLoginECadastro">
             <div class="containerLogin">
@@ -33,7 +81,7 @@
                     </div>
                     <a href="">Esqueceu a senha?</a>
                 </div>
-                <button class="btnEntrar">Entrar</button>
+                <button class="btnEntrar" disabled>Entrar</button>
                 <div class="divSC">
                     <span>Não cadastrou o seu ponto de apoio? <button
                             class="buttomCadastrar">Cadastrar-se</button></span>
@@ -92,10 +140,10 @@
         </main>
     </div>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-    <script src="/codigo/BernardoLeao/script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
