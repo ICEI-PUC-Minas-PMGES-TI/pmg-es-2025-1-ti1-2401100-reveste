@@ -14,6 +14,28 @@
 </head>
 
 <body>
+    <div class="PontoDeApoioNaoEncontrado">
+        <header>
+            <svg class="fecharMensagem1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-x" viewBox="0 0 16 16">
+                <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+            </svg>
+        </header>
+        <h1>Ponto de Apoio não encontrado!</h1>
+    </div>
+
+    <div class="CadastroBemSucedido">
+        <header>
+            <svg class="fecharMensagem2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-x" viewBox="0 0 16 16">
+                <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+            </svg>
+        </header>
+        <h1>Cadastro feito com sucesso!</h1>
+    </div>
+
     <div class="divBannerCeuAzul"></div>
     <div class="containerInicial">
         <main class="mainPapeis">
@@ -76,7 +98,7 @@
                     </div>
 
                     <div>
-                        <input type="password" maxlength="30" required>
+                        <input type="password" class="inputSenha" maxlength="30" required>
                         <span class="spanSenha">Senha:</span>
                     </div>
                     <a href="">Esqueceu a senha?</a>
@@ -102,17 +124,17 @@
                     </div>
                     <div class="containerCPNJeTelefone">
                         <div>
-                            <input type="text" class="inputTelefone">
+                            <input type="text" class="inputTelefone" id="telefone">
                             <span class="spanTelefone">Telefone:</span>
                         </div>
 
                         <div>
-                            <input type="text" class="inputCNPJCadastrar">
+                            <input type="text" class="inputCNPJCadastrar" id="cnpjCadastrar">
                             <span class="spanCNPJCadastrar">CNPJ:</span>
                         </div>
                     </div>
                     <div>
-                        <input type="text" class="inputEmail">
+                        <input type="text" class="inputEmail" id="email">
                         <span class="spanEmail">Email:</span>
                     </div>
                     <div>
@@ -132,7 +154,7 @@
                         <input class="inputFinal" type="text">
                     </div>
                 </div>
-                <button class="btnCadastrar">Cadastrar</button>
+                <button class="btnCadastrar" type="submit" disabled>Cadastrar</button>
                 <div class="divCC">
                     <span>Já cadastrou um ponto de apoio? <button class="buttomEntrar">Entrar</button></span>
                 </div>
@@ -143,7 +165,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="script.js"></script>
+    <script src="../BernardoLeao/script.js"></script>
 </body>
 
 </html>

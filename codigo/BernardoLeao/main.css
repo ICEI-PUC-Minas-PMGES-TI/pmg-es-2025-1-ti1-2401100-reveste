@@ -61,6 +61,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: -2%;
 }
 
 .mainPapeis img {
@@ -667,6 +668,65 @@ header {
 .movimentoContainerCadastrar {
     margin-left: 0%;
     opacity: 1;
+}
+
+.PontoDeApoioNaoEncontrado,
+.CadastroBemSucedido {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+    height: 15vh;
+    margin-top: 80%;
+    border-radius: 3px;
+    transition: .3s;
+    position: absolute;
+}
+
+.PontoDeApoioNaoEncontrado header,
+.CadastroBemSucedido header {
+    width: 95%;
+    height: 5vh;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.PontoDeApoioNaoEncontrado header svg,
+.CadastroBemSucedido header svg {
+    width: 8%;
+    height: 3vh;
+    border: solid rgb(187, 187, 187) 0.1vh;
+}
+
+.PontoDeApoioNaoEncontrado header svg:hover,
+.CadastroBemSucedido header svg:hover {
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+}
+
+.PontoDeApoioNaoEncontrado h1,
+.CadastroBemSucedido h1 {
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.btnEntrar:disabled,
+.btnCadastrar:disabled {
+    background-color: #163b3b;
+    color: rgb(138, 138, 138);
+}
+
+.btnEntrar:disabled:hover,
+.btnCadastrar:disabled:hover {
+    pointer-events: none;
+}
+
+.btnEntrar:enabled:hover,
+.btnCadastrar:enabled:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
 }
 
 /* -------------------------------------------------------- Animações de Navegação de Telas de Login e Cadastro -------------------------------------------------------- */
