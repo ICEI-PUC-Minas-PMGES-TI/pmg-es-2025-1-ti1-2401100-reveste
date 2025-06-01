@@ -19,18 +19,6 @@ document.querySelectorAll('.inputs div input, .inputsCadastrar div input').forEa
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const sr = ScrollReveal({
-        reset: true,
-        distance: '60px',
-        duration: 1000,
-        delay: 400
-    });
-
-    sr.reveal('.container', {  origin: 'bottom'});
-});
-
-
 const checkbox = document.querySelector('.checkbox');
 const divData = document.querySelector('.divDataPA');
 const containerPATemporario = document.querySelector('.divTemporario');
@@ -228,7 +216,7 @@ btnEntrar.addEventListener('click', () => {
     });
 
     if (usuarioEncontrado) {
-        document.querySelector(".CadastroBemSucedido").classList.add("aparecerMensagemCBS")
+        document.querySelector(".LoginBemSucedido").classList.add("aparecerMensagemLBS")
         document.querySelector(".sombra").classList.add("sombrear");
     } else {
         document.querySelector(".sombra").classList.add("sombrear");
@@ -240,11 +228,25 @@ btnEntrar.addEventListener('click', () => {
 document.querySelector(".fecharMensagem1").addEventListener("click", () => {
     document.querySelector(".sombra").classList.remove("sombrear");
     document.querySelector(".PontoDeApoioNaoEncontrado").classList.remove("aparecerMensagemPDANE");
+    setTimeout(() => {
+        document.querySelector(".PontoDeApoioNaoEncontrado").style.display = 'none'
+    }, 600);
 });
 
 document.querySelector(".fecharMensagem2").addEventListener("click", () => {
     document.querySelector(".sombra").classList.remove("sombrear");
     document.querySelector(".CadastroBemSucedido").classList.remove("aparecerMensagemCBS");
+    setTimeout(() => {
+        document.querySelector(".CadastroBemSucedido").style.display = 'none'
+    }, 600);
+});
+
+document.querySelector(".fecharMensagem3").addEventListener("click", () => {
+    document.querySelector(".sombra").classList.remove("sombrear");
+    document.querySelector(".LoginBemSucedido").classList.remove("aparecerMensagemLBS");
+    setTimeout(() => {
+        document.querySelector(".LoginBemSucedido").style.display = 'none'
+    }, 600);
 });
 
 // VALIDAR TELEFONE
@@ -266,7 +268,7 @@ function verificarCamposCadastro() {
         .every(id => document.getElementById(id).value.trim() !== '');
 
     if (!todosPreenchidos) {
-        document.getElementById('btnCadastrar').disabled = true;
+        document.querySelector('.btnCadastrar').disabled = true;
         return;
     }
 
@@ -274,7 +276,9 @@ function verificarCamposCadastro() {
     const cnpjValido = validarCNPJ(document.getElementById('cnpjCadastrar').value);
     const emailValido = validarEmail(document.getElementById('email').value);
 
-    document.getElementById('btnCadastrar').disabled = !(telefoneValido && cnpjValido && emailValido);
+    console.log({ todosPreenchidos, telefoneValido, cnpjValido, emailValido });
+
+    document.querySelector('.btnCadastrar').disabled = !(telefoneValido && cnpjValido && emailValido);
 }
 
 // APLICAR A VERIFICAÇÃO EM CADA CAMPO
@@ -283,16 +287,16 @@ camposCadastro.forEach(id => {
 });
 
 // BOTÃO DE CADASTRO
-document.getElementById('btnCadastrar').addEventListener('click', () => {
-    const temporario = document.getElementById('temporario').checked;
+document.querySelector('.btnCadastrar').addEventListener('click', () => {
+    const temporario = document.querySelector('.checkbox').checked;
 
     const novoUsuario = {
-        nome: document.getElementById('nome').value.trim(),
-        endereco: document.getElementById('endereco').value.trim(),
-        telefone: document.getElementById('telefone').value.trim(),
-        cnpj: document.getElementById('cnpjCadastrar').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        senha: document.getElementById('senhaCadastrar').value.trim(),
+        nome: document.querySelector('.inputNome').value.trim(),
+        endereco: document.querySelector('.inputEndereco').value.trim(),
+        telefone: document.querySelector('.inputTelefone').value.trim(),
+        cnpj: document.querySelector('.inputCNPJCadastrar').value.trim(),
+        email: document.querySelector('.inputEmail').value.trim(),
+        senha: document.querySelector('.inputSenhaCadastrar').value.trim(),
         temporario: temporario
     };
 
@@ -312,8 +316,8 @@ document.getElementById('btnCadastrar').addEventListener('click', () => {
         input.value = '';
         input.classList.remove('inputPreenchido');
     });
-    document.getElementById('temporario').checked = false;
-    document.getElementById('btnCadastrar').disabled = true;
+    document.querySelector('.checkbox').checked = false;
+    document.querySelector('.btnCadastrar').disabled = true;
 
     document.querySelector(".CadastroBemSucedido").classList.add("aparecerMensagemCBS");
     document.querySelector(".sombra").classList.add("sombrear");

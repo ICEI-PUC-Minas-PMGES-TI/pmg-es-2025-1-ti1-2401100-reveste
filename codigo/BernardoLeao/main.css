@@ -671,7 +671,8 @@ header {
 }
 
 .PontoDeApoioNaoEncontrado,
-.CadastroBemSucedido {
+.CadastroBemSucedido,
+.LoginBemSucedido {
     background-color: white;
     display: flex;
     align-items: center;
@@ -685,7 +686,8 @@ header {
 }
 
 .PontoDeApoioNaoEncontrado header,
-.CadastroBemSucedido header {
+.CadastroBemSucedido header,
+.LoginBemSucedido header {
     width: 95%;
     height: 5vh;
     display: flex;
@@ -694,20 +696,23 @@ header {
 }
 
 .PontoDeApoioNaoEncontrado header svg,
-.CadastroBemSucedido header svg {
+.CadastroBemSucedido header svg,
+.LoginBemSucedido header svg {
     width: 8%;
     height: 3vh;
     border: solid rgb(187, 187, 187) 0.1vh;
 }
 
 .PontoDeApoioNaoEncontrado header svg:hover,
-.CadastroBemSucedido header svg:hover {
+.CadastroBemSucedido header svg:hover,
+.LoginBemSucedido header svg:hover {
     background-color: rgb(236, 236, 236);
     cursor: pointer;
 }
 
 .PontoDeApoioNaoEncontrado h1,
-.CadastroBemSucedido h1 {
+.CadastroBemSucedido h1,
+.LoginBemSucedido h1 {
     font-size: 1.3rem;
     text-align: center;
 }
@@ -727,6 +732,38 @@ header {
 .btnCadastrar:enabled:hover {
     background-color: var(--third-color);
     cursor: pointer;
+}
+
+.aparecerMensagemPDANE,
+.aparecerMensagemLBS,
+.aparecerMensagemCBS {
+    margin-top: 0%;
+}
+
+.sombra {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: transparent;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    transition: .3s;
+    top: 0;
+    left: 0;
+}
+
+.sombrear {
+    background-color: rgba(0, 0, 0, 0.3);
+    pointer-events: all;
+}
+
+input.inputPreenchido+span {
+    margin-top: -13%;
+    margin-left: -0%;
+    z-index: 99;
 }
 
 /* -------------------------------------------------------- Animações de Navegação de Telas de Login e Cadastro -------------------------------------------------------- */
