@@ -15,7 +15,6 @@ body,
 html {
     height: 100%;
     width: 100%;
-    overflow: hidden;
 }
 
 body {
@@ -766,7 +765,7 @@ input.inputPreenchido+span {
     z-index: 99;
 }
 
-/* -------------------------------------------------------- Animações de Navegação de Telas de Login e Cadastro -------------------------------------------------------- */
+/* ------------------------------------------------------ Animações de Navegação de Telas de Login e Cadastro de PA ------------------------------------------------------ */
 
 .MostrarTelaDeLoginECadastroParaOUsuario {
     margin-left: 0%;
@@ -805,4 +804,81 @@ input.inputPreenchido+span {
     opacity: 1;
     margin-top: 0%;
     transition-delay: 1.5s;
+}
+
+/* ---------------------------------------------------- Animações de Navegação de Telas de Login e Cadastro de Doador ---------------------------------------------------- */
+
+
+.MovimentarLogoParaADireitaESumir {
+    margin-left: 60%;
+    opacity: 0;
+    transition-delay: .3s;
+}
+
+.Movimentarh2ParaADireitaESumir {
+    margin-left: 60%;
+    opacity: 0;
+    transition: .5s;
+    transition-delay: .2s;
+}
+
+.MovimentarNavDePapeisParaADireitaESumir {
+    margin-left: 60%;
+    opacity: 0;
+    transition: .7s;
+    pointer-events: none;
+}
+
+.MovimentarBotaoDeProsseguirParaADireitaESumir {
+    margin-left: 130%;
+    visibility: hidden;
+    transition: .7s;
+    pointer-events: none;
+    transition-delay: .2s;
+}
+
+.MostrarTelaDeLoginECadastroDeDoadorParaOUsuario {
+    margin-top: -100%;
+}
+
+/* ------------------------------------------------------------------- CSS Login e Cadastrar Doador ------------------------------------------------------------------- */
+
+
+.containerLoginECadastrarDoador {
+    position: absolute;
+    width: 100%;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100%;
+    transition: 0.9s ease-in-out;
+}
+
+.btnVoltarLoginECadastroDoador {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: solid var(--main-color) 1px;
+    width: 6%;
+    height: 4vh;
+    text-decoration: none;
+    color: white;
+    border-radius: 3px;
+    transition: .2s;
+    background-color: var(--main-color);
+}
+
+.btnVoltarLoginECadastroDoador svg {
+    fill: white;
+}
+
+.btnVoltarLoginECadastroDoador:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+}
+
+.btnVoltarLoginECadastroDoador:hover svg {
+    fill: white;
 }

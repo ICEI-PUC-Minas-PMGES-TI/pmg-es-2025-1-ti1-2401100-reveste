@@ -120,6 +120,13 @@ botao.addEventListener("click", function () {
         document.querySelector('.imagemIgreja').classList.add('MostrarImagemDaIgrejaDeLoginECadastroParaOUsuario')
         document.querySelector('.containerLoginECadastrar').classList.add('MostrarTelaDeLoginECadastroParaOUsuario')
     }
+    if (divQueroDoarClicada) {
+        document.querySelector('.logo').classList.add('MovimentarLogoParaADireitaESumir');
+        document.querySelector('main h2').classList.add('Movimentarh2ParaADireitaESumir');
+        document.querySelector("main nav").classList.add('MovimentarNavDePapeisParaADireitaESumir');
+        botao.classList.add('MovimentarBotaoDeProsseguirParaADireitaESumir');
+        document.querySelector('.containerLoginECadastrarDoador').classList.add('MostrarTelaDeLoginECadastroDeDoadorParaOUsuario')
+    }
 });
 
 document.querySelector('.btnVoltarLoginECadastro').addEventListener('click', () => {
@@ -133,6 +140,15 @@ document.querySelector('.btnVoltarLoginECadastro').addEventListener('click', () 
     document.querySelector('.containerLoginECadastrar').classList.remove('MostrarTelaDeLoginECadastroParaOUsuario')
     containerLogin.classList.remove('movimentoContainerLogin');
     containerCadastrar.classList.remove('movimentoContainerCadastrar')
+})
+
+document.querySelector('.btnVoltarLoginECadastroDoador').addEventListener('click', () => {
+    setTimeout(() => {
+        document.querySelector('.logo').classList.remove('MovimentarLogoParaAEsquerdaESumir');
+        document.querySelector('main h2').classList.remove('Movimentarh2ParaAEsquerdaESumir');
+        document.querySelector("main nav").classList.remove('MovimentarNavDePapeisParaAEsquerdaESumir');
+        botao.classList.remove('MovimentarBotaoDeProsseguirParaAEsquerdaESumir');
+    }, 600);
 })
 
 /*-------------------------------------------------------------------------- JS Login E Cadastro --------------------------------------------------------------------------*/
