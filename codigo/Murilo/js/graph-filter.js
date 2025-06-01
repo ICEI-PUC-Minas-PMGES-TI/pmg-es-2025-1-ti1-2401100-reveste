@@ -1,6 +1,6 @@
 let firstChart;
 let secondChart;
-let currentChart; 
+let loadedData = null;
 
 function createFirstChart(data) {
     const ctx = document.getElementById('first-graph').getContext('2d');
@@ -43,6 +43,7 @@ function initCharts() {
             return response.json();
         })
         .then(data => {
+            loadedData = data;
             createFirstChart(data);
             createSecondChart(data);
         })
@@ -76,6 +77,74 @@ function setupFilterMenu() {
     });
 }
 
+function setupCheckboxFilters() {
+    const childishCheck = document.querySelector("#childish");
+    const adultCheck = document.querySelector("#adult");
+
+    if (!childishCheck || !adultCheck) return;
+
+    childishCheck.addEventListener("change", () => {
+        if (!loadedData) return;
+
+        const allLabels = loadedData.labels;
+        const allValues = loadedData.datasets[0].data;
+        const allColors = loadedData.datasets[0].backgroundColor;
+
+        const filteredLabels = [];
+        const filteredData = [];
+        const filteredColors = [];
+
+        allLabels.forEach((label, index) => {
+            if (label.includes("Infantil")) {
+                filteredLabels.push(label);
+                filteredData.push(allValues[index]);
+                filteredColors.push(allColors[index]);
+            }
+        });
+
+        const newData = {
+            labels: filteredLabels,
+            datasets: [{
+                data: filteredData,
+                backgroundColor: filteredColors
+            }]
+        };
+
+        createFirstChart(newData);
+        createSecondChart(newData);
+    });
+
+    adultCheck.addEventListener("change", () => {
+        if (!loadedData) return;
+
+        const allLabels = loadedData.labels;
+        const allValues = loadedData.datasets[0].data;
+        const allColors = loadedData.datasets[0].backgroundColor;
+
+        const filteredLabels = [];
+        const filteredData = [];
+        const filteredColors = [];
+
+        allLabels.forEach((label, index) => {
+            if (label.includes("Masculino") || label.includes("Feminino")) {
+                filteredLabels.push(label);
+                filteredData.push(allValues[index]);
+                filteredColors.push(allColors[index]);
+            }
+        });
+
+        const newData = {
+            labels: filteredLabels,
+            datasets: [{
+                data: filteredData,
+                backgroundColor: filteredColors
+            }]
+        };
+
+        createFirstChart(newData);
+        createSecondChart(newData);
+    });
+}
 
 
 
