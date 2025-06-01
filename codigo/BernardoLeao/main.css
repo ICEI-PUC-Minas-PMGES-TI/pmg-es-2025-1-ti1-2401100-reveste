@@ -15,6 +15,7 @@ body,
 html {
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -673,7 +674,7 @@ header {
 .CadastroBemSucedido,
 .LoginBemSucedido {
     background-color: white;
-    display: flex;
+    display: none;
     align-items: center;
     flex-direction: column;
     width: 20%;
@@ -838,7 +839,7 @@ input.inputPreenchido+span {
 }
 
 .MostrarTelaDeLoginECadastroDeDoadorParaOUsuario {
-    margin-top: -100%;
+    margin-top: -5000%;
 }
 
 /* ------------------------------------------------------------------- CSS Login e Cadastrar Doador ------------------------------------------------------------------- */

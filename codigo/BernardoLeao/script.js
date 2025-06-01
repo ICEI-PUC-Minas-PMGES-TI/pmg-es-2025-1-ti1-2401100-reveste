@@ -232,11 +232,17 @@ btnEntrar.addEventListener('click', () => {
     });
 
     if (usuarioEncontrado) {
-        document.querySelector(".LoginBemSucedido").classList.add("aparecerMensagemLBS")
+        document.querySelector(".LoginBemSucedido").style.display = 'flex'
+        setTimeout(() => {
+            document.querySelector(".LoginBemSucedido").classList.add("aparecerMensagemLBS")
+        }, 200);
         document.querySelector(".sombra").classList.add("sombrear");
     } else {
         document.querySelector(".sombra").classList.add("sombrear");
-        document.querySelector(".PontoDeApoioNaoEncontrado").classList.add("aparecerMensagemPDANE");
+        document.querySelector(".PontoDeApoioNaoEncontrado").style.display - 'flex'
+        setTimeout(() => {
+            document.querySelector(".PontoDeApoioNaoEncontrado").classList.add("aparecerMensagemPDANE");
+        }, 200);
     }
 });
 
@@ -335,7 +341,10 @@ document.querySelector('.btnCadastrar').addEventListener('click', () => {
     document.querySelector('.checkbox').checked = false;
     document.querySelector('.btnCadastrar').disabled = true;
 
-    document.querySelector(".CadastroBemSucedido").classList.add("aparecerMensagemCBS");
+    document.querySelector(".CadastroBemSucedido").style.display = 'flex'
+        setTimeout(() => {
+        document.querySelector(".CadastroBemSucedido").classList.add("aparecerMensagemCBS");
+    }, 200);
     document.querySelector(".sombra").classList.add("sombrear");
 });
 
