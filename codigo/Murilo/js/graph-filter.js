@@ -83,7 +83,7 @@ function setupCheckboxFilters() {
 
     if (!childishCheck || !adultCheck) return;
 
-    childishCheck.addEventListener("change", () => {
+    function updateChartsByFilters() {
         if (!loadedData) return;
 
         const allLabels = loadedData.labels;
@@ -94,8 +94,17 @@ function setupCheckboxFilters() {
         const filteredData = [];
         const filteredColors = [];
 
+        if (!childishCheck.checked && !adultCheck.checked) {
+            createFirstChart(loadedData);
+            createSecondChart(loadedData);
+            return;
+        }
+
         allLabels.forEach((label, index) => {
-            if (label.includes("Infantil")) {
+            const isChildish = label.includes("Infantil");
+            const isAdult = label.includes("Masculino") || label.includes("Feminino");
+
+            if ((childishCheck.checked && isChildish) || (adultCheck.checked && isAdult)) {
                 filteredLabels.push(label);
                 filteredData.push(allValues[index]);
                 filteredColors.push(allColors[index]);
@@ -112,40 +121,11 @@ function setupCheckboxFilters() {
 
         createFirstChart(newData);
         createSecondChart(newData);
-    });
+    }
 
-    adultCheck.addEventListener("change", () => {
-        if (!loadedData) return;
-
-        const allLabels = loadedData.labels;
-        const allValues = loadedData.datasets[0].data;
-        const allColors = loadedData.datasets[0].backgroundColor;
-
-        const filteredLabels = [];
-        const filteredData = [];
-        const filteredColors = [];
-
-        allLabels.forEach((label, index) => {
-            if (label.includes("Masculino") || label.includes("Feminino")) {
-                filteredLabels.push(label);
-                filteredData.push(allValues[index]);
-                filteredColors.push(allColors[index]);
-            }
-        });
-
-        const newData = {
-            labels: filteredLabels,
-            datasets: [{
-                data: filteredData,
-                backgroundColor: filteredColors
-            }]
-        };
-
-        createFirstChart(newData);
-        createSecondChart(newData);
-    });
+    childishCheck.addEventListener("change", updateChartsByFilters);
+    adultCheck.addEventListener("change", updateChartsByFilters);
 }
-
 
 
 document.addEventListener("DOMContentLoaded", () => {
