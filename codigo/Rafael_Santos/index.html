@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM&libraries=geometry&callback=initMap">
+<script type="module"
+  src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
+<script type="module" src="./js/index.js"></script>
+<script>
+  window.initMap = function () {
+    import('./js/index.js').then((module) => {
+      module.initMap && module.initMap();
+      module.onInit && module.onInit();
+    });
+  };
 </script>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
-    <script type="module" src="./js/index.js"></script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM&libraries=geometry,marker&callback=initMap">
+  </script>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css"></link>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    
-    <style>
-        gmp-map {
-          height: 100%;
-        }
-        html,
-        body {
-          height: 100%;
-          margin: 0;
-          padding: 0;
-          background-color: #1B263B;
-        }
-      </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+  </link>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+  <style>
+    #map {
+  height: 500px;
+  width: 100%;
+}
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #1B263B;
+    }
+  </style>
 </head>
+
 <body>
   <header>
-    <img src="./images/Logo.svg" style="width: 100px;"/>
+    <img src="./images/Logo.svg" style="width: 100px;" />
     <nav>
       <a>Quero roupa</a>
       <a>Quero doar</a>
@@ -60,4 +74,5 @@
     </div>
   </footer>
 </body>
+
 </html>

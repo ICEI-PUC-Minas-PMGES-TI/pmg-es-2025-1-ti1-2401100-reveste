@@ -144,7 +144,10 @@ function computeRoute(currentPosition, destination) {
         })
     })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => {
+            const route = data.routes[0];
+            drawPolyline(route.polyline.encodedPolyline);
+        })
         .catch(error => console.error('Erro:', error));
 }
 
