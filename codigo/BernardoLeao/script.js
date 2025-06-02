@@ -34,7 +34,7 @@ checkbox.addEventListener('change', () => {
 const containerLogin = document.querySelector('.containerLogin');
 const containerCadastrar = document.querySelector('.containerCadastrar');
 
-document.querySelector('.buttomCadastrar').addEventListener('click', () => {
+document.querySelector('.buttonCadastrar').addEventListener('click', () => {
     containerLogin.classList.add('movimentoContainerLogin');
     containerCadastrar.classList.add('movimentoContainerCadastrar')
 });
@@ -132,37 +132,40 @@ botao.addEventListener("click", function () {
 document.querySelector('.btnVoltarLoginECadastro').addEventListener('click', () => {
     setTimeout(() => {
         document.querySelector('.logo').classList.remove('MovimentarLogoParaAEsquerdaESumir');
-        document.querySelector('main h2').classList.remove('Movimentarh2ParaAEsquerdaESumir');
-        document.querySelector("main nav").classList.remove('MovimentarNavDePapeisParaAEsquerdaESumir');
+        document.querySelector('h2').classList.remove('Movimentarh2ParaAEsquerdaESumir');
+        document.querySelector("nav").classList.remove('MovimentarNavDePapeisParaAEsquerdaESumir');
         botao.classList.remove('MovimentarBotaoDeProsseguirParaAEsquerdaESumir');
     }, 600);
     document.querySelector('.imagemIgreja').classList.remove('MostrarImagemDaIgrejaDeLoginECadastroParaOUsuario')
     document.querySelector('.containerLoginECadastrar').classList.remove('MostrarTelaDeLoginECadastroParaOUsuario')
     containerLogin.classList.remove('movimentoContainerLogin');
     containerCadastrar.classList.remove('movimentoContainerCadastrar')
+    divSouPAClicada = false;
 })
 
 document.querySelector('.btnVoltarLoginECadastroDoador').addEventListener('click', () => {
     setTimeout(() => {
-        document.querySelector('.logo').classList.remove('MovimentarLogoParaAEsquerdaESumir');
-        document.querySelector('main h2').classList.remove('Movimentarh2ParaAEsquerdaESumir');
-        document.querySelector("main nav").classList.remove('MovimentarNavDePapeisParaAEsquerdaESumir');
-        botao.classList.remove('MovimentarBotaoDeProsseguirParaAEsquerdaESumir');
+        document.querySelector('.logo').classList.remove('MovimentarLogoParaADireitaESumir');
+        document.querySelector('main h2').classList.remove('Movimentarh2ParaADireitaESumir');
+        document.querySelector("main nav").classList.remove('MovimentarNavDePapeisParaADireitaESumir');
+        botao.classList.remove('MovimentarBotaoDeProsseguirParaADireitaESumir');
     }, 600);
+    document.querySelector('.containerLoginECadastrarDoador').classList.remove('MostrarTelaDeLoginECadastroDeDoadorParaOUsuario')
+    document.querySelector('.containerLoginDoador').classList.remove('MoverTelaDeLoginDeDoadorParaDireitaESumir')
+    document.querySelector('.containerCadastrarD').classList.remove('MoverTelaDeCadastroDeDoadorParaDireitaEAparecer')
+    document.querySelector('.containerLoginDoador').style.display = 'flex'
+    divQueroDoarClicada = false;
 })
 
-/*-------------------------------------------------------------------------- JS Login E Cadastro --------------------------------------------------------------------------*/
+document.querySelector('.buttomCadastrarDoador').addEventListener('click', () => {
+    document.querySelector('.containerLoginDoador').classList.add('MoverTelaDeLoginDeDoadorParaDireitaESumir')
+    document.querySelector('.containerCadastrarD').classList.add('MoverTelaDeCadastroDeDoadorParaDireitaEAparecer')
+})
 
-document.addEventListener("DOMContentLoaded", function () {
-    const sr = ScrollReveal({
-        reset: true,
-        distance: '60px',
-        duration: 1000,
-        delay: 400
-    });
-
-    sr.reveal('.container', { origin: 'bottom' });
-});
+document.querySelector('.buttomEntrarD').addEventListener('click', () => {
+    document.querySelector('.containerLoginDoador').classList.remove('MoverTelaDeLoginDeDoadorParaDireitaESumir')
+    document.querySelector('.containerCadastrarD').classList.remove('MoverTelaDeCadastroDeDoadorParaDireitaEAparecer')
+})
 
 /*----------------------------------------------------------------- Validar dados e inserir no JSON -----------------------------------------------------------------*/
 
@@ -342,7 +345,7 @@ document.querySelector('.btnCadastrar').addEventListener('click', () => {
     document.querySelector('.btnCadastrar').disabled = true;
 
     document.querySelector(".CadastroBemSucedido").style.display = 'flex'
-        setTimeout(() => {
+    setTimeout(() => {
         document.querySelector(".CadastroBemSucedido").classList.add("aparecerMensagemCBS");
     }, 200);
     document.querySelector(".sombra").classList.add("sombrear");
