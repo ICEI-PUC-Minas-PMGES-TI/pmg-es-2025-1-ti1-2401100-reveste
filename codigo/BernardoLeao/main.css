@@ -19,8 +19,8 @@ html {
 }
 
 body {
-    width: 100%;
-    height: 100vh;
+    width: 400%;
+    height: 400vh;
     border: none;
     background-repeat: no-repeat;
     background-position: center;
@@ -28,9 +28,239 @@ body {
     font-weight: 400;
     font-style: normal;
     display: flex;
-    justify-content: center;
-    background-image: url(/codigo/BernardoLeao/imgs/ceu.svg);
+    justify-content: flex-start;
+    align-items: flex-start;
 }
+
+.divBannerCeuAzul {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-repeat: no-repeat;
+    background-size: cover center;
+    z-index: -2;
+    background-image: url(./imgs/ceu.svg);
+}
+
+.containerInicial {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainPapeis {
+    width: 90%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -2%;
+}
+
+.mainPapeis img {
+    width: 25%;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    transition: 0.5s;
+}
+
+.mainPapeis h2 {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: white;
+    line-height: 1.8rem;
+    text-align: center;
+    transition: 0.9s;
+}
+
+.mainPapeis nav {
+    width: 37%;
+    height: 25vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.mainPapeis nav div {
+    border-color: white !important;
+}
+
+#divPapel,
+#divPapel2,
+#divPapel3 {
+    width: 30%;
+    height: 25vh;
+    border: solid 1px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: .3s;
+}
+
+#divPapel img {
+    width: 45%;
+}
+
+#divPapel h1,
+#divPapel2 h1,
+#divPapel3 h1 {
+    font-size: 1rem;
+    width: 60%;
+    text-align: center;
+    transition: .1s;
+    color: white;
+}
+
+#divPapel:hover,
+#divPapel2:hover,
+#divPapel3:hover {
+    transform: translateY(-20px);
+    cursor: pointer;
+    background-color: var(--second-color);
+    border-color: var(--fourth-color);
+}
+
+nav:not(.clicado):hover>.divsPapeis:not(:hover) {
+    filter: blur(5px);
+}
+
+.divImg1,
+.divImg2,
+.divImg3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 12vh;
+    background-position: center;
+    background-size: cover;
+    transition: .1s;
+    pointer-events: none;
+}
+
+.divImg1 {
+    background-image: url(../BernardoLeao/imgs/QueroRoupaB.svg);
+
+}
+
+.divImg2 {
+    background-image: url(../BernardoLeao/imgs/QueroDoarB.svg);
+}
+
+.divImg3 {
+    background-image: url(../BernardoLeao/imgs/SouEstabelecimentoB.svg);
+}
+
+.papelEscolhido {
+    background-color: var(--fourth-color);
+}
+
+
+.btnProsseguir {
+    width: 15%;
+    height: 6vh;
+    margin-top: 4%;
+    border: none;
+    outline: none;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1rem;
+    transition: .3s;
+    border: solid 2px var(--second-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnProsseguir:disabled {
+    border-color: var(--third-color);
+    cursor: not-allowed;
+    opacity: 0.6;
+    color: rgb(104, 104, 104);
+}
+
+.btnProsseguir span {
+    transition: 0.6s;
+}
+
+.btnProsseguir svg {
+    display: none;
+    transition: 0.6s;
+}
+
+.btnProsseguir:not(:disabled):hover span {
+    margin-right: 5%;
+}
+
+.btnProsseguir:not(:disabled):hover svg {
+    display: block;
+}
+
+.btnProsseguir:not(:disabled):hover .primeiraSeta {
+    animation: AnimacaoSeta infinite 0.6s ease-in-out;
+}
+
+.btnProsseguir:not(:disabled):hover .segundaSeta {
+    animation: AnimacaoSeta infinite 0.6s ease-in-out;
+    animation-delay: 0.1s;
+}
+
+.btnProsseguir:not(:disabled):hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: var(--second-color);
+    cursor: pointer;
+    color: white;
+}
+
+@keyframes AnimacaoSeta {
+    from {
+        opacity: 0.2;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+.divPraCima {
+    transform: translateY(-20px);
+    background-color: var(--second-color) !important;
+    filter: none !important;
+}
+
+.efeitoBlur {
+    filter: blur(5px);
+}
+
+.papelEscolhido img {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+.divsPapeis:hover:not(.efeitoBlur) {
+    transform: translateY(-20px);
+    cursor: pointer;
+    background-color: var(--second-color);
+    border-color: var(--fourth-color);
+}
+
+
+/* ------------------------------------------------------------------------- Login & Cadastro ------------------------------------------------------------------------- */
 
 .containerLoginECadastrar {
     position: absolute;
@@ -40,6 +270,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-left: 100%;
     transition: 0.9s ease-in-out;
 }
 
@@ -48,11 +279,13 @@ body {
     height: 100vh;
     position: absolute;
     top: 0;
+    margin-top: 40%;
     left: 0;
-    background-image: url(/codigo/BernardoLeao/imgs/igreja.svg);
+    background-image: url(./imgs/igreja.svg);
     background-position: center cover;
     z-index: 1;
     pointer-events: none;
+    opacity: 0;
     transition: 2s;
 }
 
@@ -124,17 +357,20 @@ header {
     backdrop-filter: blur(40px);
     border: solid white 1px;
     flex-direction: column;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     transition: all 0.6s ease-in-out;
     pointer-events: auto;
+    display: flex;
     margin-left: 140%;
+    opacity: 1;
     position: absolute;
 }
 
-.containerLogin,
-.containerCadastrar h1 {
+.containerLogin h1,
+.containerLoginDoador h1,
+.containerCadastrar h1,
+.containerCadastrarD h1 {
     color: var(--third-color);
 }
 
@@ -185,7 +421,7 @@ header {
     background-color: transparent;
     -webkit-appearance: none;
     color: white;
-    padding-left: 6.5%;
+    padding-left: 5%;
 }
 
 .inputs span {
@@ -297,17 +533,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 60%;
     height: 5vh;
 }
 
 .containerCPNJeTelefone div {
-    width: 50%;
-    display: flex;
-    align-items: center;
-}
-
-.containerCPNJeTelefone div input {
     width: 100%;
 }
 
@@ -381,7 +611,103 @@ header {
     opacity: 1;
 }
 
-/* -------------------------------------------------------- Animações de Navegação de Telas de Login e Cadastro -------------------------------------------------------- */
+.PontoDeApoioNaoEncontrado,
+.CadastroBemSucedido,
+.LoginBemSucedido {
+    background-color: white;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+    height: 15vh;
+    margin-top: 80%;
+    border-radius: 3px;
+    transition: .3s;
+    position: absolute;
+}
+
+.PontoDeApoioNaoEncontrado header,
+.CadastroBemSucedido header,
+.LoginBemSucedido header {
+    width: 95%;
+    height: 5vh;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.PontoDeApoioNaoEncontrado header svg,
+.CadastroBemSucedido header svg,
+.LoginBemSucedido header svg {
+    width: 8%;
+    height: 3vh;
+    border: solid rgb(187, 187, 187) 0.1vh;
+}
+
+.PontoDeApoioNaoEncontrado header svg:hover,
+.CadastroBemSucedido header svg:hover,
+.LoginBemSucedido header svg:hover {
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+}
+
+.PontoDeApoioNaoEncontrado h1,
+.CadastroBemSucedido h1,
+.LoginBemSucedido h1 {
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.btnEntrar:disabled,
+.btnCadastrar:disabled {
+    background-color: #163b3b;
+    color: rgb(138, 138, 138);
+}
+
+.btnEntrar:disabled:hover,
+.btnCadastrar:disabled:hover {
+    pointer-events: none;
+}
+
+.btnEntrar:enabled:hover,
+.btnCadastrar:enabled:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+}
+
+.aparecerMensagemPDANE,
+.aparecerMensagemLBS,
+.aparecerMensagemCBS {
+    margin-top: 0%;
+}
+
+.sombra {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: transparent;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    transition: .3s;
+    top: 0;
+    left: 0;
+}
+
+.sombrear {
+    background-color: rgba(0, 0, 0, 0.3);
+    pointer-events: all;
+}
+
+input.inputPreenchido+span {
+    margin-top: -13%;
+    margin-left: -0%;
+    z-index: 99;
+}
+
+/* ------------------------------------------------------ Animações de Navegação de Telas de Login e Cadastro de PA ------------------------------------------------------ */
 
 .MostrarTelaDeLoginECadastroParaOUsuario {
     margin-left: 0%;
@@ -420,4 +746,309 @@ header {
     opacity: 1;
     margin-top: 0%;
     transition-delay: 1.5s;
+}
+
+/* ---------------------------------------------------- Animações de Navegação de Telas de Login e Cadastro de Doador ---------------------------------------------------- */
+
+
+.MovimentarLogoParaADireitaESumir {
+    margin-left: 60%;
+    opacity: 0;
+    transition-delay: .3s;
+}
+
+.Movimentarh2ParaADireitaESumir {
+    margin-left: 60%;
+    opacity: 0;
+    transition: .5s;
+    transition-delay: .2s;
+}
+
+.MovimentarNavDePapeisParaADireitaESumir {
+    margin-left: 60%;
+    opacity: 0;
+    transition: .7s;
+    pointer-events: none;
+}
+
+.MovimentarBotaoDeProsseguirParaADireitaESumir {
+    margin-left: 130%;
+    visibility: hidden;
+    transition: .7s;
+    pointer-events: none;
+    transition-delay: .1s;
+}
+
+.containerLoginECadastrarDoador.MostrarTelaDeLoginECadastroDeDoadorParaOUsuario {
+    margin-left: 0%;
+    transition-delay: .1s;
+}
+
+/* ------------------------------------------------------------------- CSS Login e Cadastrar Doador ------------------------------------------------------------------- */
+
+
+.containerLoginECadastrarDoador {
+    position: absolute;
+    width: 100%;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: -100%;
+    transition: 0.9s ease-in-out;
+}
+
+.btnVoltarLoginECadastroDoador {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: solid var(--main-color) 1px;
+    width: 6%;
+    height: 4vh;
+    text-decoration: none;
+    color: white;
+    border-radius: 3px;
+    transition: .2s;
+    background-color: var(--main-color);
+}
+
+.btnVoltarLoginECadastroDoador svg {
+    fill: white;
+}
+
+.btnVoltarLoginECadastroDoador:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+}
+
+.btnVoltarLoginECadastroDoador:hover svg {
+    fill: white;
+}
+
+.mainLoginECadastroDoador {
+    width: 100%;
+    height: 91vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerLoginDoador {
+    width: 30%;
+    height: 60vh;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(40px);
+    border: solid white 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.6s ease-in-out;
+    margin-left: 0;
+    pointer-events: auto;
+}
+
+.btnEntrarDoador {
+    background-color: var(--main-color);
+    border: none;
+    outline: none;
+    color: white;
+    width: 60%;
+    height: 5vh;
+    border-radius: 5px;
+    transition: .3s;
+    margin-top: 5%;
+}
+
+.btnEntrarDoador:hover,
+.btnCadastrarDoador:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+}
+
+.btnEntrarDoador:disabled,
+.btnCadastrarDoador:disabled {
+    background-color: #163b3b;
+    color: rgb(138, 138, 138);
+}
+
+.btnEntrarDoador:disabled:hover,
+.btnCadastrarDoador:disabled:hover {
+    pointer-events: none;
+}
+
+.btnEntrarDoador:enabled:hover,
+.btnCadastrarDoador:enabled:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+}
+
+.containerCadastrarD {
+    width: 35%;
+    height: 75vh;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(40px);
+    border: solid white 1px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.6s ease-in-out;
+    pointer-events: auto;
+    display: flex;
+    margin-left: -150%;
+    opacity: 1;
+    position: absolute;
+}
+
+.inputsCadastrarD {
+    width: 100%;
+    height: 43vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputsCadastrarD div {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 60%;
+    height: 3.5vh;
+    margin: 4%;
+}
+
+.inputsCadastrarD div input {
+    width: 100%;
+    height: 5vh;
+    font-size: 1rem;
+    border-radius: 3px;
+    border: solid white 0.1px;
+    outline: 10px var(--fourth-color);
+    background-color: transparent;
+    -webkit-appearance: none;
+    color: white;
+    padding-left: 5%;
+}
+
+.inputsCadastrarD span {
+    position: absolute;
+    z-index: 2;
+    transition: 0.2s ease-in-out;
+    pointer-events: none;
+    text-align: left;
+    margin-left: 4%;
+    width: 11%;
+    color: white;
+}
+
+.inputsCadastrarD input.not-empty+span {
+    margin-top: -13%;
+    margin-left: -0%;
+    z-index: 99;
+}
+
+.inputsCadastrarD a {
+    font-size: 1rem;
+    width: 60%;
+    text-align: right;
+    color: var(--third-color);
+    transition: .3s;
+}
+
+.inputsCadastrarD a:hover {
+    color: var(--main-color);
+}
+
+.btnCadastrarD {
+    background-color: var(--main-color);
+    border: none;
+    outline: none;
+    color: white;
+    width: 60%;
+    height: 5vh;
+    border-radius: 5px;
+    transition: .3s;
+    margin-top: 2%;
+}
+
+.btnCadastrarD:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+}
+
+.MoverTelaDeLoginDeDoadorParaDireitaESumir {
+    margin-left: 100%;
+    opacity: 0;
+}
+
+.MoverTelaDeCadastroDeDoadorParaDireitaEAparecer {
+    margin-left: 0%;
+}
+
+
+@media (max-width: 500px) {
+    header {
+        width: 93%;
+    }
+
+    header button {
+        width: 11%;
+    }
+
+    .divShadow {
+        left: 95%;
+    }
+
+    .mainPapeis img {
+        width: 45%;
+    }
+
+    .mainPapeis h2 {
+        font-size: 0.8rem;
+        line-height: 2vh;
+    }
+
+    .mainPapeis nav {
+        width: 99%;
+        margin-top: 5%;
+    }
+
+    .efeitoBlur {
+        filter: blur(3px);
+    }
+
+    #divPapel,
+    #divPapel2,
+    #divPapel3 {
+        width: 31%;
+        height: 20vh;
+    }
+
+    #divPapel h1,
+    #divPapel2 h1,
+    #divPapel3 h1 {
+        font-size: 0.5rem;
+    }
+
+    .divImg1,
+    .divImg2,
+    .divImg3 {
+        width: 45%;
+        height: 6vh;
+    }
+
+    .btnProsseguir {
+        width: 60%;
+        font-size: 0.8rem;
+    }
+
+    .btnProsseguir svg {
+        width: 12px;
+        height: 12px;
+    }
 }

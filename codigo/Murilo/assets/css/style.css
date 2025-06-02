@@ -82,7 +82,7 @@ main header div button {
   transform: scale(1.2) rotate(90deg);
 }
 /* FILTER */
-#filter {
+#menu {
     width: 0;
     transform: translateX(-10px);
     overflow: hidden;
@@ -90,29 +90,29 @@ main header div button {
     display: flex; 
 }
 
-#filter.active {
+#menu.active {
     width: 20%; 
     transform: translateX(0);
 
 }
 
-#filter > div {
+#menu > div {
     margin-left: 40px;
     margin-top: 60px;
 }
 
-#filter div header {
+#menu div header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
 
-#filter div header h2 {
+#menu div header h2 {
     font-size: 24px;
     margin-right: 10px;
 }
 
-#filter div header img {
+#menu div header img {
     filter: invert(100%);
     width: 18px;
     height: 18px;
@@ -135,6 +135,10 @@ main header div button {
     margin-top: 5px;
 }
 
+#filter-checkboxes li > label{
+    margin-left: 10px;
+}
+
 #filter-checkboxes div:last-child {
     display: flex;
     flex-direction: column;
@@ -148,6 +152,20 @@ main header div button {
 }
 
 #clothes-size-forms-select option {
+    color: black;
+}
+
+#graph-type h2{
+    margin-bottom: 8px;
+}
+#graph-type-select {
+    margin-top: 5px;
+    width: 100px;
+    padding: 5px;
+    color: black;
+}
+
+#graph-type-select option {
     color: black;
 }
 

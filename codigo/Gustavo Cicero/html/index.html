@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Necessidades das ONGs</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Gerenciador de Necessidades das ONGs</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <button id="voltar" onclick="window.location.href='/codigo/BernardoSantos/html/estoque.html'">← Voltar</button>
-  
-  <div class="container">
-    <h1>Necessidades das ONGs</h1>
+    <button id="btnVoltar" onclick="window.location.href='#'">← Voltar (Exemplo)</button>
     
-    <p>Você pode cadastrar as necessidades das ONGs, incluindo itens como roupas, alimentos e materiais diversos. Preencha os campos abaixo e contribua para um mundo melhor.</p>
-    
-    <div class="formulario">
-      <label for="nomeONG">Nome da ONG:</label>
-      <input type="text" id="nomeONG" placeholder="Nome da ONG" />
+    <div class="container">
+        <h1>Gerenciador de Necessidades das ONGs</h1>
+        
+        <p>Cadastre e visualize as necessidades de diversas ONGs, como roupas, alimentos e materiais. Contribua para um mundo melhor!</p>
+        
+        <div class="actions">
+            <button class="add-ong-btn" onclick="openONGForm()">+ Cadastrar Nova ONG</button>
+        </div>
 
-      <div id="pecasContainer"></div>
-      <button class="adicionar-btn" onclick="adicionarPeca()">+ Adicionar Peça</button>
-      <button class="salvar-btn" onclick="salvarONG()">Salvar ONG</button>
+        <div id="ongListDisplay" class="ong-list-display">
+            </div>
+
+        <h3>Texto para Copiar (Resumo das Necessidades)</h3>
+        <textarea id="needsTextToCopy" rows="10" readonly></textarea>
+        <button class="copy-btn" onclick="copyNeedsText()">Copiar Texto</button>
     </div>
 
-    <h2>Lista de Necessidades e Texto para Copiar</h2>
-    <div id="listaNecessidades"></div>
-    <textarea id="listaTextoCopiar" rows="10" cols="50"></textarea>
-  </div>
+    <div id="ongFormModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeONGFormModal()">&times;</span>
+            <h2 id="modalTitle">Cadastrar Necessidades da ONG</h2>
+            
+            <div class="form-group">
+                <label for="ongName">Nome da ONG:</label>
+                <input type="text" id="ongName" placeholder="Ex: Amigos do Bem" required />
+            </div>
 
-  <script src="script.js"></script>
+            <div id="itemsContainer" class="items-container">
+                </div>
+            
+            <button class="add-item-btn" onclick="addNewItemField()">+ Adicionar Item</button>
+            <button class="save-ong-btn" onclick="saveONG()">Salvar ONG</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

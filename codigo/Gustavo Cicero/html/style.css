@@ -1,152 +1,385 @@
-/* Resetando margens e padding */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Geral */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #0d1b2a;
-  color: #fff;
-  margin: 0;
-  padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #0A192F; /* Azul marinho muito escuro, quase preto */
+    color: #e6e6e6; /* Texto claro para contraste */
+    line-height: 1.6;
 }
 
-/* Estilo do botão de voltar */
-#voltar {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #fff;
-  color: #1b263b;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: background-color 0.3s;
-}
-
-#voltar:hover {
-  background-color: #415a77;
-  color: white;
-}
-
-/* Estilo do container principal */
 .container {
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 20px;
-  background-color: #1b263b;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #1A345C; /* Azul escuro principal do container */
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Sombra mais forte */
+    color: #f0f0f0; /* Texto mais claro para o container */
 }
 
-/* Títulos principais */
-h1, h2 {
-  color: #4db8ff;
-  text-align: center;
-  margin-bottom: 20px;
+h1, h2, h3 {
+    color: #64FFDA; /* Azul turquesa vibrante para títulos */
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilo do formulário */
-.formulario {
-  margin-bottom: 30px;
+p {
+    text-align: center;
+    margin-bottom: 35px;
+    color: #B2B2B2; /* Cinza claro para parágrafos */
 }
 
-label {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-  display: block;
-  color: #b0c4de;
-}
-
-input, select, textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #415a77;
-  font-size: 1rem;
-  color: #333;
-  background-color: #f5f5f5;
-  transition: border-color 0.3s;
-}
-
-input:focus, select:focus, textarea:focus {
-  border-color: #4db8ff;
-}
-
+/* Botões */
 button {
-  background-color: #4db8ff;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 10px;
-  transition: background-color 0.3s;
+    background-color: #64FFDA; /* Azul turquesa vibrante para botões principais */
+    color: #0A192F; /* Cor do texto dos botões para contraste */
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(100, 255, 218, 0.3); /* Sombra que realça o botão */
 }
 
 button:hover {
-  background-color: #3a8ab7;
+    background-color: #4DE0C5; /* Tom um pouco mais escuro no hover */
+    transform: translateY(-3px); /* Efeito de elevação */
+    box-shadow: 0 6px 15px rgba(100, 255, 218, 0.4);
 }
 
-/* Estilos para os botões específicos */
-.adicionar-btn {
-  background-color: #50b3a2;
-  margin-top: 15px;
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(100, 255, 218, 0.2);
 }
 
-.adicionar-btn:hover {
-  background-color: #459e8a;
+#btnVoltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #4A6E8A; /* Azul acinzentado para o botão de voltar */
+    color: white;
+    box-shadow: none;
 }
 
-.salvar-btn {
-  margin-left: 10px;
-  background-color: #ff6f61;
+#btnVoltar:hover {
+    background-color: #3C5A70;
 }
 
-.salvar-btn:hover {
-  background-color: #e65c4f;
+.actions {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-/* Estilo da lista de necessidades */
-#listaNecessidades {
-
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 10px;
+.add-ong-btn {
+    padding: 15px 30px;
+    font-size: 19px;
+    background-color: #28a745; /* Verde para adicionar */
+    color: white;
 }
 
-#listaNecessidades ul {
-  list-style-type: disc;
-  padding-left: 20px;
+.add-ong-btn:hover {
+    background-color: #218838;
 }
 
-#listaNecessidades li {
-  margin-bottom: 8px;
+/* Lista de ONGs */
+.ong-list-display {
+    margin-top: 40px;
 }
 
-/* Estilo do textarea para copiar */
-#textoCopiar {
-  width: 100%;
-  padding: 10px;
-  margin-top: 20px;
-  border-radius: 5px;
-  background-color: #f5f5f5;
-  color: #333;
-  font-size: 1rem;
-  resize: none;
-  border: 1px solid #415a77;
+.ong-card {
+    background-color: #2E4A7D; /* Azul escuro um pouco mais claro que o container */
+    border: 1px solid #4A6E8A; /* Borda em tom azul-acinzentado */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#textoCopiar:focus {
-  border-color: #4db8ff;
+.ong-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
-.logo{
-    float: right;
+
+.ong-card h4 {
+    color: #64FFDA;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-right: 150px;
+}
+
+.ong-card ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-top: 15px;
+    color: #D3D3D3; /* Texto das listas mais claro */
+}
+
+.ong-card li {
+    margin-bottom: 8px;
+}
+
+.ong-card .card-actions {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.ong-card .card-actions button {
+    margin-left: 10px;
+    padding: 8px 14px;
+    font-size: 14px;
+    box-shadow: none;
+    color: #0A192F; /* Texto escuro para botões de ação */
+}
+
+.ong-card .card-actions .edit-btn {
+    background-color: #FFD700; /* Amarelo ouro */
+}
+.ong-card .card-actions .edit-btn:hover {
+    background-color: #E6C200;
+}
+
+.ong-card .card-actions .delete-btn {
+    background-color: #F44336; /* Vermelho vibrante */
+    color: white; /* Texto branco para contraste com o vermelho */
+}
+.ong-card .card-actions .delete-btn:hover {
+    background-color: #D32F2F;
+}
+
+
+/* Textarea para Copiar */
+#needsTextToCopy {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #4A6E8A; /* Borda azul-acinzentada */
+    border-radius: 5px;
+    resize: vertical;
+    font-size: 14px;
+    background-color: #FFFFFF; /* Fundo branco para o textarea */
+    color: #333; /* Texto escuro para o textarea */
+    min-height: 150px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.07);
+}
+
+.copy-btn {
+    width: 100%;
+    margin-top: 15px;
+    background-color: #4A6E8A; /* Cinza azulado para o botão de copiar */
+    color: white;
+}
+.copy-btn:hover {
+    background-color: #3C5A70;
+}
+
+/* --- Modal Styling --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); /* Fundo ainda mais escuro para o modal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+.modal-content {
+    background-color: #2E4A7D; /* Fundo do modal um pouco mais claro que o body */
+    padding: 30px;
+    border: 1px solid #4A6E8A;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 650px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); /* Sombra mais proeminente */
+    position: relative;
+    box-sizing: border-box;
+    color: #F0F0F0; /* Texto claro dentro do modal */
+}
+
+.close-button {
+    color: #64FFDA; /* Mesma cor dos títulos para o X */
+    font-size: 35px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #4DE0C5; /* Um pouco mais escuro no hover */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #B2B2B2; /* Cinza claro para labels */
+}
+
+.form-group input,
+.form-group select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #4A6E8A; /* Borda azul-acinzentada */
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #FFFFFF; /* Fundo branco para input/select */
+    color: #333; /* Texto escuro para input/select */
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #64FFDA; /* Borda ativa turquesa */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.25);
+}
+
+.items-container {
+    border: 1px dashed #64FFDA; /* Borda tracejada turquesa */
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    background-color: #1A345C; /* Fundo dos itens no modal */
+}
+
+.item-field {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: #2E4A7D; /* Fundo de cada item */
+    border-radius: 8px;
+    border: 1px solid #4A6E8A;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.item-field input,
+.item-field select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: #FFFFFF; /* Fundo branco para input/select de item */
+    color: #333; /* Texto escuro para input/select de item */
+    border: 1px solid #4A6E8A;
+}
+
+.item-field input:focus,
+.item-field select:focus {
+    border-color: #64FFDA;
+    box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+}
+
+.item-field .remove-item-btn {
+    background-color: #F44336;
+    color: white;
+    padding: 0;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-left: auto;
+    box-shadow: none;
+}
+.item-field .remove-item-btn:hover {
+    background-color: #D32F2F;
+}
+
+.add-item-btn {
+    background-color: #64FFDA; /* Turquesa */
+    color: #0A192F; /* Texto escuro */
+    margin-top: 15px;
+    margin-bottom: 25px;
+    width: 100%;
+    padding: 12px;
+}
+.add-item-btn:hover {
+    background-color: #4DE0C5;
+}
+
+.save-ong-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 19px;
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+.save-ong-btn:hover {
+    background-color: #218838;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px auto;
+        padding: 15px;
+    }
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    .item-field {
+        grid-template-columns: 1fr;
+    }
+    .item-field input,
+    .item-field select {
+        width: 100%;
+    }
+    .item-field .remove-item-btn {
+        margin-left: 0;
+        width: 100%;
+        border-radius: 5px;
+    }
+    .ong-card .card-actions {
+        position: static;
+        float: none;
+        text-align: right;
+        margin-top: 10px;
+    }
+    .ong-card h4 {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    .add-ong-btn, .save-ong-btn {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+    .item-field {
+        gap: 10px;
+        padding: 10px;
+    }
 }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Área de Gestão</title>
 </head>
@@ -12,14 +12,14 @@
     <aside>
         <!--Será implementado um componente de outra pessoa aqui-->
     </aside>
-    
+
     <main>
         <header>
             <h2>Gestão</h2>
             <div>
-                <img src="assets/img/Logo.svg" alt="desapegai.png">
+                <img src="./assets/img/logo.png" alt="desapegai.png" />
                 <button id="filter-appear-btn">
-                    <img src="assets/img/menu.png" alt="list.png" id="list-menu-img">
+                    <img src="./assets/img/menu.png" alt="list.png" id="list-menu-img" />
                 </button>
             </div>
         </header>
@@ -35,46 +35,38 @@
             </div>
         </section>
     </main>
-    
-    <aside id="filter">
-        <div>
+
+    <aside id="menu">
+        <div id="graph-type">
+            <h2>Tipo do Gráfico</h2>
+            <select id="graph-type-select">
+                <option value="column">Coluna</option>
+                <option value="pie" selected>Pizza</option>
+                <option value="bar">Barra</option>
+            </select>
+        </div>
+        <div id="filter">
             <header>
                 <h2>Filtros</h2>
-                <img src="./assets/img/filtro.png" alt="filter.png">
+                <img src="./assets/img/filtro.png" alt="filter.png" />
             </header>
 
             <div id="filter-checkboxes">
                 <div>
                     <label>Por Público-Alvo</label>
                     <ul>
-                        <li>
-                            <input type="checkbox" name="Infatil" id="childish">
-                            <label>Infantil</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" name="Adolescente" id="teen">
-                            <label>Adolescente</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" name="Adolescente" id="adult">
-                            <label>Adulto</label>
-                        </li>
+                        <li><input type="checkbox" id="childish" /><label for="childish">Infantil</label></li>
+                        <li><input type="checkbox" id="adult" /><label for="adult">Adulto</label></li>
                     </ul>
                 </div>
                 <div>
                     <label>Por Gênero</label>
                     <ul>
-                        <li>
-                            <input type="checkbox" name="Infatil" id="masculine-genre-checkbox">
-                            <label>Masculino</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" name="Infatil" id="feminine-genre-checkbox">
-                            <label>Feminino</label>
-                        </li>
+                        <li><input type="checkbox" id="masculine-genre-checkbox" /><label for="masculine-genre-checkbox">Masculino</label></li>
+                        <li><input type="checkbox" id="feminine-genre-checkbox" /><label for="feminine-genre-checkbox">Feminino</label></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <label>Por Tamanho</label>
                     <select id="clothes-size-forms-select">
@@ -89,55 +81,8 @@
             </div>
         </div>
     </aside>
-    <footer>
-    </footer>
 
-    <!-- SCRIPT CENTRAL AQUI -->
-    <script>
-        const data = {
-            labels: [
-                "Infantil - RN", "Infantil - P", "Infantil - M", "Infantil - G", "Infantil - XG",
-                "Masculino - PP", "Masculino - P", "Masculino - M", "Masculino - G", "Masculino - GG", "Masculino - XG",
-                "Feminino - PP", "Feminino - P", "Feminino - M", "Feminino - G", "Feminino - GG", "Feminino - XG"
-            ],
-            datasets: [{
-                data: [5, 10, 15, 20, 25, 8, 12, 18, 22, 28, 30, 7, 11, 17, 21, 26, 29],
-                backgroundColor: [
-                    "#FFD700", "#FFC300", "#FFB000", "#FFA000", "#FF8C00",
-                    "#1E90FF", "#1C86EE", "#1874CD", "#104E8B", "#0B3D91", "#08306B",
-                    "#FF69B4", "#FF6EB4", "#FF85B5", "#FF9ABA", "#FFADC1", "#FFC0CB"
-                ],
-                hoverOffset: 4
-            }]
-        };
-
-        const options = {
-            responsive: false,
-            plugins: {
-                legend: {
-                    display: false,
-                    position: 'bottom'
-                },
-                tooltip: {
-                    enabled: true
-                }
-            }
-        };
-
-        const ctx1 = document.getElementById('first-graph').getContext('2d');
-        new Chart(ctx1, {
-            type: 'pie',
-            data: data,
-            options: options
-        });
-
-        const ctx2 = document.getElementById('second-graph').getContext('2d');
-        new Chart(ctx2, {
-            type: 'pie',
-            data: data,
-            options: options
-        });
-    </script>
+    <footer></footer>
 
     <script src="./js/graph-filter.js"></script>
 </body>
