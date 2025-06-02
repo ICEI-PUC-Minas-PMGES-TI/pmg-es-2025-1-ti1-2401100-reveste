@@ -12,41 +12,44 @@ const pontoApoio = [{
   }
 ];
 
-const agendamento = [];
+const agendamento = { 
+    id: 2, 
+    idPontoApoio: 1, 
+    nome: "João Silva", 
+    email: "joao.silva@example.com", 
+    cpf: "15221451678", 
+    data_horario_doacao: "2025-05-10T14:30:00" 
+};
 
-let agendamentos = JSON.parse(localStorage.getItem('agendamentos')) || [];
+// Função para obter o parâmetro da query string
+let agendamentos = [];
 
+        // Função para obter o parâmetro da query string
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
         }
+
+        // Função para definir o nome do ponto de apoio
         function definirPontoApoio() {
             const idPontoApoio = getQueryParam('id');
             const nomePontoApoioElement = document.getElementById('nomePontoApoio');
 
             if (idPontoApoio) {
+                // Encontrar o ponto de apoio correspondente no array
                 const pontoApoioEncontrado = pontoApoio.find(ponto => ponto.id === parseInt(idPontoApoio));
 
                 if (pontoApoioEncontrado) {
                     nomePontoApoioElement.textContent = pontoApoioEncontrado.nome;
+                    // Salvar o ID do ponto de apoio em um atributo do formulário
                     document.getElementById('idPontoApoio').value = pontoApoioEncontrado.id;
                 } else {
                     nomePontoApoioElement.textContent = 'Ponto de Apoio não encontrado';
-                    blockCampos();
                 }
             } else {
+                // Se nenhum ID for fornecido, mostrar uma mensagem padrão
                 nomePontoApoioElement.textContent = 'Selecione um Ponto de Apoio';
-                blockCampos();
             }
-        }
-
-        function blockCampos()
-        {
-            document.getElementById('nome').disabled = true;
-            document.getElementById('email').disabled = true;
-            document.getElementById('cpf').disabled = true;
-            document.getElementById('horario').disabled = true;
-            document.getElementById('numero').disabled = true;
         }
 
 
@@ -57,32 +60,24 @@ let agendamentos = JSON.parse(localStorage.getItem('agendamentos')) || [];
             const email = document.getElementById('email').value;
             const cpf = document.getElementById('cpf').value;
             const horario = document.getElementById('horario').value;
-            const numero = document.getElementById('numero').value;
             const idPontoApoio = document.getElementById('idPontoApoio').value;
 
 
-            if (!nome || !email || !cpf || !horario || !numero || !idPontoApoio) {
+            if (!nome || !email || !cpf || !horario || !idPontoApoio) {
                 alert('Por favor, preencha todos os campos.');
                 return;
             }
 
-            const maxId = agendamentos.length > 0 
-                ? Math.max(...agendamentos.map(a => a.id)) 
-                : 0;
-                
             const novoAgendamento = {
-                id: maxId + 1,
+                id: agendamentos.length + 1, // Gera um novo ID
                 idPontoApoio: parseInt(idPontoApoio),
                 nome: nome,
                 email: email,
-                numero: numero.replace(/[^\d]/g, ''),
-                cpf: cpf.replace(/[^\d]/g, ''), 
+                cpf: cpf.replace(/[^\d]/g, ''), // Remove caracteres não numéricos
                 data_horario_doacao: horario
             };
 
             agendamentos.push(novoAgendamento);
-            
-            localStorage.setItem('agendamentos', JSON.stringify(agendamentos));
 
             event.target.reset();
 
@@ -93,72 +88,9 @@ let agendamentos = JSON.parse(localStorage.getItem('agendamentos')) || [];
 
 
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('Agendamentos carregados do localStorage:', agendamentos);
-            
+
             definirPontoApoio();
 
             const form = document.querySelector('form');
             form.addEventListener('submit', criarAgendamento);
         });
-
-document.addEventListener('DOMContentLoaded', function() {
-
-    function mascaraCPF(cpf) {
-        cpf = cpf.replace(/\D/g, '');
-        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2'); 
-        cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-        return cpf;
-    }
-
-
-    function mascaraTelefone(telefone) {
-        telefone = telefone.replace(/\D/g, '');
-        
-        if (telefone.length > 0) {
-            telefone = '(' + telefone;
-        }
-        if (telefone.length > 3) {
-            telefone = telefone.substring(0, 3) + ') ' + telefone.substring(3);
-        }
-        if (telefone.length > 10) {
-            if (telefone.length > 10) {
-                telefone = telefone.substring(0, 10) + '-' + telefone.substring(10);
-            }
-        } else if (telefone.length > 9) {
-            telefone = telefone.substring(0, 9) + '-' + telefone.substring(9);
-        }
-        
-        return telefone;
-    }
-
-
-    const cpfInput = document.querySelector('input#cpf');
-    const telefoneInput = document.querySelector('input[placeholder="(31) 9723-7293"]');
-
-    if (cpfInput) {
-        cpfInput.addEventListener('input', function(e) {
-            const value = e.target.value;
-            e.target.value = mascaraCPF(value);
-        });
-    }
-
-    if (telefoneInput) {
-        telefoneInput.addEventListener('input', function(e) {
-            const value = e.target.value;
-            e.target.value = mascaraTelefone(value);
-        });
-    }
-
-    cpfInput?.addEventListener('keypress', function(e) {
-        if (e.target.value.length >= 14) {
-            e.preventDefault();
-        }
-    });
-
-    telefoneInput?.addEventListener('keypress', function(e) {
-        if (e.target.value.length >= 15) {
-            e.preventDefault();
-        }
-    });
-});

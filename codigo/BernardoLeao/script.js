@@ -19,18 +19,6 @@ document.querySelectorAll('.inputs div input, .inputsCadastrar div input').forEa
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const sr = ScrollReveal({
-        reset: true,
-        distance: '60px',
-        duration: 1000,
-        delay: 400
-    });
-
-    sr.reveal('.container', { origin: 'bottom' });
-});
-
-
 const checkbox = document.querySelector('.checkbox');
 const divData = document.querySelector('.divDataPA');
 const containerPATemporario = document.querySelector('.divTemporario');
@@ -48,27 +36,135 @@ const containerCadastrar = document.querySelector('.containerCadastrar');
 
 document.querySelector('.buttomCadastrar').addEventListener('click', () => {
     containerLogin.classList.add('movimentoContainerLogin');
-    document.querySelector(".imagemIgreja").classList.add("index");
-    setTimeout(() => {
-        containerCadastrar.style.display = 'flex';
-    }, 200);
-    setTimeout(() => {
-        containerCadastrar.classList.add('movimentoContainerCadastrar')
-    }, 700);
+    containerCadastrar.classList.add('movimentoContainerCadastrar')
 });
 
 document.querySelector('.buttomEntrar').addEventListener('click', () => {
-    document.querySelector(".imagemIgreja").classList.remove("index");
-    setTimeout(() => {
-        containerLogin.classList.remove('movimentoContainerLogin');
-    }, 600)
+    containerLogin.classList.remove('movimentoContainerLogin');
     containerCadastrar.classList.remove('movimentoContainerCadastrar')
-    setTimeout(() => {
-        containerCadastrar.style.display = 'none';
-    }, 600)
 });
 
-/* ------------------------------------------------------------------- Validação e localStorage ------------------------------------------------------------------- */
+const divs = document.querySelectorAll('.divsPapeis');
+const nav = document.querySelector('nav');
+const botao = document.querySelector('.btnProsseguir');
+const main = document.querySelector('main')
+
+let selecionado = null;
+
+divs.forEach(div => {
+    div.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        if (selecionado === div) {
+            div.classList.remove('papelEscolhido', 'divPraCima');
+            divs.forEach(d => d.classList.remove('efeitoBlur'));
+            nav.classList.remove('clicado');
+            botao.disabled = true;
+            selecionado = null;
+        } else {
+            divs.forEach(d => d.classList.remove('papelEscolhido', 'efeitoBlur', 'divPraCima'));
+            div.classList.add('papelEscolhido', 'divPraCima');
+            divs.forEach(d => {
+                if (d !== div) d.classList.add('efeitoBlur');
+            });
+            nav.classList.add('clicado');
+            botao.disabled = false;
+            selecionado = div;
+        }
+    });
+
+    div.addEventListener('mouseenter', () => {
+        if (selecionado && div !== selecionado) {
+            div.classList.remove('efeitoBlur');
+        }
+    });
+
+    div.addEventListener('mouseleave', () => {
+        if (selecionado && div !== selecionado) {
+            div.classList.add('efeitoBlur');
+        }
+    });
+});
+
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.divsPapeis')) {
+        divs.forEach(d => d.classList.remove('papelEscolhido', 'efeitoBlur', 'divPraCima'));
+        nav.classList.remove('clicado');
+        botao.disabled = true;
+        selecionado = null;
+    }
+});
+
+let divQueroRoupaClicada = false;
+let divQueroDoarClicada = false;
+let divSouPAClicada = false;
+
+document.querySelector("#divPapel").addEventListener('click', () => {
+    divQueroRoupaClicada = true;
+})
+
+document.querySelector("#divPapel2").addEventListener('click', () => {
+    divQueroDoarClicada = true;
+})
+
+document.querySelector("#divPapel3").addEventListener('click', () => {
+    divSouPAClicada = true;
+})
+
+botao.addEventListener("click", function () {
+    if (divSouPAClicada) {
+        document.querySelector('.logo').classList.add('MovimentarLogoParaAEsquerdaESumir');
+        document.querySelector('main h2').classList.add('Movimentarh2ParaAEsquerdaESumir');
+        document.querySelector("main nav").classList.add('MovimentarNavDePapeisParaAEsquerdaESumir');
+        botao.classList.add('MovimentarBotaoDeProsseguirParaAEsquerdaESumir');
+        document.querySelector('.imagemIgreja').classList.add('MostrarImagemDaIgrejaDeLoginECadastroParaOUsuario')
+        document.querySelector('.containerLoginECadastrar').classList.add('MostrarTelaDeLoginECadastroParaOUsuario')
+    }
+    if (divQueroDoarClicada) {
+        document.querySelector('.logo').classList.add('MovimentarLogoParaADireitaESumir');
+        document.querySelector('main h2').classList.add('Movimentarh2ParaADireitaESumir');
+        document.querySelector("main nav").classList.add('MovimentarNavDePapeisParaADireitaESumir');
+        botao.classList.add('MovimentarBotaoDeProsseguirParaADireitaESumir');
+        document.querySelector('.containerLoginECadastrarDoador').classList.add('MostrarTelaDeLoginECadastroDeDoadorParaOUsuario')
+    }
+});
+
+document.querySelector('.btnVoltarLoginECadastro').addEventListener('click', () => {
+    setTimeout(() => {
+        document.querySelector('.logo').classList.remove('MovimentarLogoParaAEsquerdaESumir');
+        document.querySelector('main h2').classList.remove('Movimentarh2ParaAEsquerdaESumir');
+        document.querySelector("main nav").classList.remove('MovimentarNavDePapeisParaAEsquerdaESumir');
+        botao.classList.remove('MovimentarBotaoDeProsseguirParaAEsquerdaESumir');
+    }, 600);
+    document.querySelector('.imagemIgreja').classList.remove('MostrarImagemDaIgrejaDeLoginECadastroParaOUsuario')
+    document.querySelector('.containerLoginECadastrar').classList.remove('MostrarTelaDeLoginECadastroParaOUsuario')
+    containerLogin.classList.remove('movimentoContainerLogin');
+    containerCadastrar.classList.remove('movimentoContainerCadastrar')
+})
+
+document.querySelector('.btnVoltarLoginECadastroDoador').addEventListener('click', () => {
+    setTimeout(() => {
+        document.querySelector('.logo').classList.remove('MovimentarLogoParaAEsquerdaESumir');
+        document.querySelector('main h2').classList.remove('Movimentarh2ParaAEsquerdaESumir');
+        document.querySelector("main nav").classList.remove('MovimentarNavDePapeisParaAEsquerdaESumir');
+        botao.classList.remove('MovimentarBotaoDeProsseguirParaAEsquerdaESumir');
+    }, 600);
+})
+
+/*-------------------------------------------------------------------------- JS Login E Cadastro --------------------------------------------------------------------------*/
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sr = ScrollReveal({
+        reset: true,
+        distance: '60px',
+        duration: 1000,
+        delay: 400
+    });
+
+    sr.reveal('.container', { origin: 'bottom' });
+});
+
+/*----------------------------------------------------------------- Validar dados e inserir no JSON -----------------------------------------------------------------*/
 
 const inputCNPJ = document.querySelector('.inputCNPJ');
 const inputSenha = document.querySelector('.inputSenha');
@@ -136,11 +232,17 @@ btnEntrar.addEventListener('click', () => {
     });
 
     if (usuarioEncontrado) {
-        document.querySelector(".CadastroBemSucedido").classList.add("aparecerMensagemCBS")
+        document.querySelector(".LoginBemSucedido").style.display = 'flex'
+        setTimeout(() => {
+            document.querySelector(".LoginBemSucedido").classList.add("aparecerMensagemLBS")
+        }, 200);
         document.querySelector(".sombra").classList.add("sombrear");
     } else {
         document.querySelector(".sombra").classList.add("sombrear");
-        document.querySelector(".PontoDeApoioNaoEncontrado").classList.add("aparecerMensagemPDANE");
+        document.querySelector(".PontoDeApoioNaoEncontrado").style.display - 'flex'
+        setTimeout(() => {
+            document.querySelector(".PontoDeApoioNaoEncontrado").classList.add("aparecerMensagemPDANE");
+        }, 200);
     }
 });
 
@@ -148,11 +250,25 @@ btnEntrar.addEventListener('click', () => {
 document.querySelector(".fecharMensagem1").addEventListener("click", () => {
     document.querySelector(".sombra").classList.remove("sombrear");
     document.querySelector(".PontoDeApoioNaoEncontrado").classList.remove("aparecerMensagemPDANE");
+    setTimeout(() => {
+        document.querySelector(".PontoDeApoioNaoEncontrado").style.display = 'none'
+    }, 600);
 });
 
 document.querySelector(".fecharMensagem2").addEventListener("click", () => {
     document.querySelector(".sombra").classList.remove("sombrear");
     document.querySelector(".CadastroBemSucedido").classList.remove("aparecerMensagemCBS");
+    setTimeout(() => {
+        document.querySelector(".CadastroBemSucedido").style.display = 'none'
+    }, 600);
+});
+
+document.querySelector(".fecharMensagem3").addEventListener("click", () => {
+    document.querySelector(".sombra").classList.remove("sombrear");
+    document.querySelector(".LoginBemSucedido").classList.remove("aparecerMensagemLBS");
+    setTimeout(() => {
+        document.querySelector(".LoginBemSucedido").style.display = 'none'
+    }, 600);
 });
 
 // VALIDAR TELEFONE
@@ -174,7 +290,7 @@ function verificarCamposCadastro() {
         .every(id => document.getElementById(id).value.trim() !== '');
 
     if (!todosPreenchidos) {
-        document.getElementById('btnCadastrar').disabled = true;
+        document.querySelector('.btnCadastrar').disabled = true;
         return;
     }
 
@@ -182,7 +298,9 @@ function verificarCamposCadastro() {
     const cnpjValido = validarCNPJ(document.getElementById('cnpjCadastrar').value);
     const emailValido = validarEmail(document.getElementById('email').value);
 
-    document.getElementById('btnCadastrar').disabled = !(telefoneValido && cnpjValido && emailValido);
+    console.log({ todosPreenchidos, telefoneValido, cnpjValido, emailValido });
+
+    document.querySelector('.btnCadastrar').disabled = !(telefoneValido && cnpjValido && emailValido);
 }
 
 // APLICAR A VERIFICAÇÃO EM CADA CAMPO
@@ -191,16 +309,16 @@ camposCadastro.forEach(id => {
 });
 
 // BOTÃO DE CADASTRO
-document.getElementById('btnCadastrar').addEventListener('click', () => {
-    const temporario = document.getElementById('temporario').checked;
+document.querySelector('.btnCadastrar').addEventListener('click', () => {
+    const temporario = document.querySelector('.checkbox').checked;
 
     const novoUsuario = {
-        nome: document.getElementById('nome').value.trim(),
-        endereco: document.getElementById('endereco').value.trim(),
-        telefone: document.getElementById('telefone').value.trim(),
-        cnpj: document.getElementById('cnpjCadastrar').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        senha: document.getElementById('senhaCadastrar').value.trim(),
+        nome: document.querySelector('.inputNome').value.trim(),
+        endereco: document.querySelector('.inputEndereco').value.trim(),
+        telefone: document.querySelector('.inputTelefone').value.trim(),
+        cnpj: document.querySelector('.inputCNPJCadastrar').value.trim(),
+        email: document.querySelector('.inputEmail').value.trim(),
+        senha: document.querySelector('.inputSenhaCadastrar').value.trim(),
         temporario: temporario
     };
 
@@ -220,10 +338,13 @@ document.getElementById('btnCadastrar').addEventListener('click', () => {
         input.value = '';
         input.classList.remove('inputPreenchido');
     });
-    document.getElementById('temporario').checked = false;
-    document.getElementById('btnCadastrar').disabled = true;
+    document.querySelector('.checkbox').checked = false;
+    document.querySelector('.btnCadastrar').disabled = true;
 
-    document.querySelector(".CadastroBemSucedido").classList.add("aparecerMensagemCBS");
+    document.querySelector(".CadastroBemSucedido").style.display = 'flex'
+        setTimeout(() => {
+        document.querySelector(".CadastroBemSucedido").classList.add("aparecerMensagemCBS");
+    }, 200);
     document.querySelector(".sombra").classList.add("sombrear");
 });
 

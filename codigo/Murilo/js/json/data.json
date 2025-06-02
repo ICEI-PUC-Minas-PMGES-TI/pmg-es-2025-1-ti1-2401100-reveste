@@ -1,0 +1,34 @@
+{
+  "ongs": [
+    {
+      "nome": "Roupa que Abraça",
+      "endereco": "Rua 123",
+      "pecas": ["camiseta", "calça"],
+      "favorito": false,
+      "imagem": "./assets/img/ondRoupa.jpg"
+    },
+    {
+      "nome": "Coração Solidário",
+      "endereco": "Av. Brasil, 456",
+      "pecas": ["camiseta", "jaqueta"],
+      "favorito": true,
+      "imagem": "./assets/img/dom-quixote-campanha-agasalho.jpg"
+    }
+  ],
+  "pontosApoio": [
+    {
+      "nome": "Centro de Apoio",
+      "endereco": "Praça Central, 789",
+      "pecas": ["casaco"],
+      "favorito": false,
+      "imagem": "./assets/img/roupaLivre.png"
+    },
+    {
+      "nome": "Vestir com Amor",
+      "endereco": "Praça Matriz, 712",
+      "pecas": ["tenis"],
+      "favorito": false,
+      "imagem": "./assets/img/vestirAmor.jpg"
+    }
+  ]
+}

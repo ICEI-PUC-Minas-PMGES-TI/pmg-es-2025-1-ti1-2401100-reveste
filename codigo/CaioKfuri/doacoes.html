@@ -22,7 +22,19 @@
         </aside>
         <main class="content">
             <h1>Minhas Doações</h1>
-            <div id="doacoes-container" class="doacoes-card-grid"></div>
+            <div class="filtros-caixa">
+                <label for="filtro-ong">ONG:</label>
+                <select id="filtro-ong">
+                    <option value="">Todas</option>
+                </select>
+                <label for="data-inicio">De:</label>
+                <input type="date" id="data-inicio">
+                <label for="data-fim">Até:</label>
+                <input type="date" id="data-fim">
+                <button id="btn-filtrar-doacoes" class="btn-detalhes-doacao" style="margin:0;">Filtrar</button>
+                <button id="btn-limpar-filtro" class="btn-detalhes-doacao" style="margin:0;background:#36405a;">Limpar</button>
+            </div>
+            <div id="ongs-doacoes-container"></div>
         </main>
     </div>
     <script src="./assets/js/doacoes.js"></script>

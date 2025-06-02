@@ -1,60 +1,89 @@
 const doacoes = [
     {
-        id: 1,
-        ong: "Roupa Para Todos",
-        imagem: "./imgs/ong1.png",
-        data: "2024-06-01",
-        item: "10 camisetas",
-        agendamento: "2024-05-30 14:00",
-        endereco: "Rua das Flores, 123, Centro, Cidade X",
-        observacao: "Deixar na portaria"
-    },
-    {
-        id: 2,
-        ong: "Aquecendo Vidas",
-        imagem: "./imgs/ong2.jpg",
-        data: "2024-05-15",
-        item: "5 cobertores",
-        agendamento: "2024-05-13 09:30",
-        endereco: "Av. Brasil, 456, Bairro Y",
-        observacao: ""
-    },
-    {
-        id: 3,
-        ong: "Roupas Que Abraçam",
-        imagem: "./imgs/ong3.jpg",
-        data: "2024-04-20",
-        item: "3 calças jeans",
-        agendamento: "2024-04-18 16:00",
-        endereco: "Rua Esperança, 789, Bairro Z",
-        observacao: "Entregar para a responsável"
+        ongId: 1,
+        ongNome: "Roupa Para Todos",
+        ongImagem: "./imgs/ong1.png",
+        doacoes: [
+            {
+                id: 1,
+                data: "2024-06-01",
+                item: "10 camisetas",
+                endereco: "Rua das Flores, 123, Centro, Cidade X",
+                observacao: "Deixar na portaria"
+            },
+            {
+                id: 2,
+                data: "2024-06-10",
+                item: "2 calças jeans",
+                endereco: "Rua das Flores, 123, Centro, Cidade X",
+                observacao: ""
+            }
+        ]
     }
 ];
 
+function formatarDataBR(dataISO) {
+    const [ano, mes, dia] = dataISO.split("-");
+    return `${dia}/${mes}/${ano}`;
+}
+
 function renderDetalhesDoacao() {
     const urlParams = new URLSearchParams(window.location.search);
-    const doacaoId = parseInt(urlParams.get('id'));
-    const doacao = doacoes.find(d => d.id === doacaoId);
-
+    const ongId = parseInt(urlParams.get('ongId'));
+    const doacaoId = urlParams.get('doacaoId');
+    const ong = doacoes.find(o => o.ongId === ongId);
     const container = document.getElementById('detalhes-doacao-container');
-    if (!doacao || !container) {
+
+    if (!ong || !container) {
         container.innerHTML = "<p>Doação não encontrada.</p>";
         return;
     }
 
-    container.innerHTML = `
-        <img src="${doacao.imagem}" alt="${doacao.ong}" class="detalhes-doacao-img">
-        <div class="detalhes-doacao-content">
-            <span class="detalhes-doacao-badge">Doação</span>
-            <h1>${doacao.ong}</h1>
-            <p><strong>Data da doação:</strong> ${doacao.data}</p>
-            <p><strong>Agendamento:</strong> ${doacao.agendamento}</p>
-            <p><strong>Conteúdo:</strong> ${doacao.item}</p>
-            <p><strong>Endereço de entrega:</strong> ${doacao.endereco}</p>
-            ${doacao.observacao ? `<p><strong>Observação:</strong> ${doacao.observacao}</p>` : ""}
-        </div>
-    `;
-    document.title = `${doacao.ong} - Detalhes da Doação`;
+    if (doacaoId) {
+        const doacao = ong.doacoes.find(d => String(d.id) === String(doacaoId));
+        if (!doacao) {
+            container.innerHTML = "<p>Doação não encontrada.</p>";
+            return;
+        }
+        container.innerHTML = `
+            <img src="${ong.ongImagem}" alt="${ong.ongNome}" class="detalhes-doacao-img">
+            <div class="detalhes-doacao-content">
+                <span class="detalhes-doacao-badge">Doação para ${ong.ongNome}</span>
+                <h1>${ong.ongNome}</h1>
+                <div>
+                    <div class="detalhes-doacao-info">
+                        <p><strong>Data da doação:</strong> ${formatarDataBR(doacao.data)}</p>
+                        <p><strong>Conteúdo:</strong> ${doacao.item}</p>
+                        <p><strong>Endereço de entrega:</strong> ${doacao.endereco}</p>
+                        ${doacao.observacao ? `<p><strong>Observação:</strong> ${doacao.observacao}</p>` : ""}
+                        <a href="doacoes.html" class="btn-detalhes-doacao voltar-btn">Voltar</a>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.title = `${ong.ongNome} - Detalhes da Doação`;
+    } else {
+        const doacoesOrdenadas = [...ong.doacoes].sort((a, b) => b.data.localeCompare(a.data));
+        container.innerHTML = `
+            <img src="${ong.ongImagem}" alt="${ong.ongNome}" class="detalhes-doacao-img">
+            <div class="detalhes-doacao-content">
+                <span class="detalhes-doacao-badge">Doações para ${ong.ongNome}</span>
+                <h1>${ong.ongNome}</h1>
+                <div>
+                    ${doacoesOrdenadas.map(doacao => `
+                        <div class="detalhes-doacao-info">
+                            <p><strong>Data da doação:</strong> ${formatarDataBR(doacao.data)}</p>
+                            <p><strong>Conteúdo:</strong> ${doacao.item}</p>
+                            <p><strong>Endereço de entrega:</strong> ${doacao.endereco}</p>
+                            ${doacao.observacao ? `<p><strong>Observação:</strong> ${doacao.observacao}</p>` : ""}
+                            <a href="detalhes-doacao.html?ongId=${ong.ongId}&doacaoId=${doacao.id}" class="btn-detalhes-doacao">Ver detalhes</a>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        document.title = `${ong.ongNome} - Detalhes das Doações`;
+    }
 }
 
 document.addEventListener("DOMContentLoaded", renderDetalhesDoacao);
