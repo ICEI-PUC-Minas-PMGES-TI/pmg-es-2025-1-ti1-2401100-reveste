@@ -135,6 +135,8 @@ main header div button {
     margin-top: 5px;
 }
 
+#filter-checkboxes > 
+
 #filter-checkboxes div:last-child {
     display: flex;
     flex-direction: column;
