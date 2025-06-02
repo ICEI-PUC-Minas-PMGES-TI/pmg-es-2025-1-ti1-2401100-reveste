@@ -58,12 +58,13 @@
     color: #fff;
     text-decoration: none;
     padding: 10px 18px;
-    background-color: #22627c;
+    background-color: #1A253A;
     border-radius: 6px;
     transition: background 0.2s;
     font-weight: 600;
     margin-left: 0;
     margin-top: 18px;
+    border: none;
 }
 .voltar-btn:hover {
     background-color: #3FC1C9;
@@ -78,7 +79,7 @@
     gap: 6px;
 }
 .btn-detalhes-doacao {
-    background: #22627c;
+    background: #1A253A;
     color: #fff;
     border: none;
     padding: 10px 18px;

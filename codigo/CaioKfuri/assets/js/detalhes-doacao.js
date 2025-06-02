@@ -22,6 +22,11 @@ const doacoes = [
     }
 ];
 
+function formatarDataBR(dataISO) {
+    const [ano, mes, dia] = dataISO.split("-");
+    return `${dia}/${mes}/${ano}`;
+}
+
 function renderDetalhesDoacao() {
     const urlParams = new URLSearchParams(window.location.search);
     const ongId = parseInt(urlParams.get('ongId'));
@@ -47,7 +52,7 @@ function renderDetalhesDoacao() {
                 <h1>${ong.ongNome}</h1>
                 <div>
                     <div class="detalhes-doacao-info">
-                        <p><strong>Data da doação:</strong> ${doacao.data}</p>
+                        <p><strong>Data da doação:</strong> ${formatarDataBR(doacao.data)}</p>
                         <p><strong>Conteúdo:</strong> ${doacao.item}</p>
                         <p><strong>Endereço de entrega:</strong> ${doacao.endereco}</p>
                         ${doacao.observacao ? `<p><strong>Observação:</strong> ${doacao.observacao}</p>` : ""}
@@ -66,7 +71,7 @@ function renderDetalhesDoacao() {
                 <div>
                     ${ong.doacoes.map(doacao => `
                         <div class="detalhes-doacao-info">
-                            <p><strong>Data da doação:</strong> ${doacao.data}</p>
+                            <p><strong>Data da doação:</strong> ${formatarDataBR(doacao.data)}</p>
                             <p><strong>Conteúdo:</strong> ${doacao.item}</p>
                             <p><strong>Endereço de entrega:</strong> ${doacao.endereco}</p>
                             ${doacao.observacao ? `<p><strong>Observação:</strong> ${doacao.observacao}</p>` : ""}

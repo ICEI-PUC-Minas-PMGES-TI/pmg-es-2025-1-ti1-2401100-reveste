@@ -50,6 +50,11 @@ function filtrarPorOng(doacoesArr, ongId) {
     return doacoesArr.filter(ong => String(ong.ongId) === String(ongId));
 }
 
+function formatarDataBR(dataISO) {
+    const [ano, mes, dia] = dataISO.split("-");
+    return `${dia}/${mes}/${ano}`;
+}
+
 function renderOngsDoacoes() {
     const container = document.getElementById("ongs-doacoes-container");
     container.innerHTML = "";
@@ -89,7 +94,7 @@ function renderOngsDoacoes() {
             card.innerHTML = `
                 <img src="${ong.ongImagem}" alt="${ong.ongNome}">
                 <h3>${ong.ongNome}</h3>
-                <p><strong>Data:</strong> ${doacao.data}</p>
+                <p><strong>Data:</strong> ${formatarDataBR(doacao.data)}</p>
                 <p><strong>Conteúdo:</strong> ${doacao.item}</p>
                 <button class="btn-detalhes-doacao" onclick="verDetalhesDoacao(${ong.ongId},${doacao.id})">Ver detalhes</button>
             `;
