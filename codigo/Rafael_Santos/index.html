@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM&callback=console.debug&libraries=maps,marker&v=beta" defer></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM&libraries=geometry&callback=initMap">
+</script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
     <script type="module" src="./js/index.js"></script>
 <head>
@@ -44,10 +46,7 @@
       <section class="section cards" id="section-cards">
       </section>
       <section class="section maps">
-        <gmpx-api-loader key="AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM" solution-channel="GMP_GE_mapsandplacesautocomplete_v2">
-        </gmpx-api-loader>
-        <gmp-map id="map" center="-19.918914794921875,-43.938743591308594" zoom="14" map-id="DEMO_MAP_ID">
-        </gmp-map>
+        <div id="map"></div>
       </section>
     </div>
   </main>

@@ -1,6 +1,9 @@
 import Apoio from "./model/Apoio.js";
 
 const apiKey = "AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM";
+let map;
+let directionsService;
+let directionsRenderer;
 
 function onInit() {
     fetch('./utils/dados.json')
@@ -17,17 +20,33 @@ function onInit() {
     if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(
             position => {
-                const map = document.getElementById('map');
-                const gMapAdvancedMarker = document.createElement('gmp-advanced-marker');
-                gMapAdvancedMarker.setAttribute('position', `${position.coords.latitude}, ${position.coords.longitude}`);
-                gMapAdvancedMarker.content = createCustomUserMarker();
-                map.appendChild(gMapAdvancedMarker);
+                addUserLocationAdvancedMarker(position);
             }
         ), (error) => {
             console.error(`Erro: ${error.message}`);
         }
     }
 }
+
+function addUserLocationAdvancedMarker(position) {
+    // Verificar se Advanced Markers estão disponíveis
+    if (typeof google.maps.marker !== 'undefined') {
+        const marker = new google.maps.marker.AdvancedMarkerElement({
+            position: {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            },
+            map: map,
+            title: "Sua localização",
+            content: createCustomUserMarker()
+        });
+        return marker;
+    } else {
+        // Fallback para marker tradicional
+        return addUserLocationMarker(position);
+    }
+}
+
 
 function createCustomUserMarker() {
     const marker = document.createElement('div');
@@ -145,15 +164,34 @@ function drawPolyline(encoded) {
 
 function setAdvancedMapMarker(card) {
     const apoio = new Apoio(card);
-    const map = document.getElementById('map');
 
-    const gMapAdvancedMarker = document.createElement('gmp-advanced-marker');
-    gMapAdvancedMarker.setAttribute('position', `${apoio.local.x},${apoio.local.y}`);
-    map.appendChild(gMapAdvancedMarker);
+    const marker = new google.maps.Marker({
+        position: { lat: parseFloat(apoio.local.x), lng: parseFloat(apoio.local.y) },
+        map: map,
+        title: card.title || "Marcador"
+    });
+
+    return marker;
+}
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 14,
+        center: { lat: -19.918914794921875, lng: -43.938743591308594 },
+        mapId: "DEMO_MAP_ID"
+    });
+
+    directionsService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer({
+        strokeColor: "#4285F4",
+        strokeOpacity: 1.0,
+        strokeWeight: 4
+    });
+    directionsRenderer.setMap(map);
 }
 
 
-
 document.addEventListener('DOMContentLoaded', function () {
+    initMap();
     onInit();
 });
