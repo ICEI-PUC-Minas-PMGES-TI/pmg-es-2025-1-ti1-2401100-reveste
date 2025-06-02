@@ -982,7 +982,8 @@ input.inputPreenchido+span {
 }
 
 .MoverTelaDeLoginDeDoadorParaDireitaESumir {
-    margin-left: 150%;
+    margin-left: 100%;
+    opacity: 0;
 }
 
 .MoverTelaDeCadastroDeDoadorParaDireitaEAparecer {
