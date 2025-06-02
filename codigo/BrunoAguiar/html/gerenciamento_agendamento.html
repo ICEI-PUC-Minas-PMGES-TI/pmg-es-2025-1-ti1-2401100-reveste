@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="../css/agendamentos.css" rel="stylesheet">
-
 </head>
 <body>
     <!-- Sidebar -->
@@ -59,13 +58,12 @@
             <button class="menu-toggle d-md-none" onclick="toggleSidebar()">
                 <i class="fas fa-bars"></i>
             </button>
-            
         </div>
 
         <h1 class="page-title">Agendamentos</h1>
 
         <div class="appointments-grid">
-            <div class="appointment-card">
+            <div class="appointment-card" onclick="openAppointmentModal(1)">
                 <div class="appointment-title">Agendamento #1</div>
                 <div class="appointment-status accepted">Aceito</div>
                 <div class="appointment-details">
@@ -76,31 +74,89 @@
                 </div>
             </div>
 
-            <div class="appointment-card">
+            <div class="appointment-card" onclick="openAppointmentModal(2)">
                 <div class="appointment-title">Agendamento #2</div>
                 <div class="appointment-status pending">Pendente</div>
                 <div class="appointment-details">
-                    <strong>João Silva</strong><br>
-                    23/05/25 - 14:00<br>
-                    CPF 14225467876<br>
-                    Número: (31) 98409-7102
+                    <strong>Maria Santos</strong><br>
+                    24/05/25 - 15:30<br>
+                    CPF 98765432100<br>
+                    Número: (31) 99876-5432
                 </div>
             </div>
 
-            <div class="appointment-card">
+            <div class="appointment-card" onclick="openAppointmentModal(3)">
                 <div class="appointment-title">Agendamento #3</div>
                 <div class="appointment-status declined">Recusado</div>
                 <div class="appointment-details">
-                    <strong>João Silva</strong><br>
-                    23/05/25 - 14:00<br>
-                    CPF 14225467876<br>
-                    Número: (31) 98409-7102
+                    <strong>Pedro Oliveira</strong><br>
+                    25/05/25 - 09:00<br>
+                    CPF 55544433322<br>
+                    Número: (31) 91234-5678
                 </div>
             </div>
-
         </div>
-        
+    </div>
 
+    <!-- Modal Pop-up -->
+    <div class="modal-overlay" id="appointmentModal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 class="modal-title">Detalhes do Agendamento</h3>
+                <button class="close-btn" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="appointment-detail-grid">
+                    <div class="detail-item">
+                        <label>ID do Agendamento:</label>
+                        <span id="modal-id">-</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <label>Nome:</label>
+                        <span id="modal-nome">-</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <label>CPF:</label>
+                        <span id="modal-cpf">-</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <label>Número:</label>
+                        <span id="modal-numero">-</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <label>E-mail:</label>
+                        <span id="modal-email">-</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <label>Data e Hora:</label>
+                        <span id="modal-data-hora">-</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <label>Ponto de Apoio:</label>
+                        <span id="modal-ponto-apoio">-</span>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <label>Status:</label>
+                        <span id="modal-status" class="status-badge">-</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal()">Fechar</button>
+                <button class="btn-primary" onclick="editAppointment()">Editar</button>
+            </div>
+        </div>
     </div>
 
     <!-- Contact Section -->
@@ -114,6 +170,56 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Dados simulados baseados no JSON fornecido
+        const mockData = {
+            agendamento: [
+                {
+                    id: 1,
+                    idPontoApoio: 1,
+                    Nome: "João Silva",
+                    cpf: "14225467876",
+                    numero: "(31) 98409-7102",
+                    email: "joao.silva@email.com",
+                    data_hora_agendamento: "2025-05-23T14:00",
+                    status: "accepted"
+                },
+                {
+                    id: 2,
+                    idPontoApoio: 2,
+                    Nome: "Maria Santos",
+                    cpf: "98765432100",
+                    numero: "(31) 99876-5432",
+                    email: "maria.santos@email.com",
+                    data_hora_agendamento: "2025-05-24T15:30",
+                    status: "pending"
+                },
+                {
+                    id: 3,
+                    idPontoApoio: 3,
+                    Nome: "Pedro Oliveira",
+                    cpf: "55544433322",
+                    numero: "(31) 91234-5678",
+                    email: "pedro.oliveira@email.com",
+                    data_hora_agendamento: "2025-05-25T09:00",
+                    status: "declined"
+                }
+            ],
+            pontoApoio: [
+                {
+                    id: 1,
+                    nome: "Igreja Batista"
+                },
+                {
+                    id: 2,
+                    nome: "ONG Reveste"
+                },
+                {
+                    id: 3,
+                    nome: "Teste"
+                }
+            ]
+        };
+
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('show');
@@ -141,6 +247,67 @@
             chevron.classList.toggle('rotate');
         }
 
+        function openAppointmentModal(appointmentId) {
+            const appointment = mockData.agendamento.find(a => a.id === appointmentId);
+            const pontoApoio = mockData.pontoApoio.find(p => p.id === appointment.idPontoApoio);
+            
+            if (appointment) {
+                // Preencher os dados no modal
+                document.getElementById('modal-id').textContent = appointment.id;
+                document.getElementById('modal-nome').textContent = appointment.Nome;
+                document.getElementById('modal-cpf').textContent = formatCPF(appointment.cpf);
+                document.getElementById('modal-numero').textContent = appointment.numero;
+                document.getElementById('modal-email').textContent = appointment.email;
+                document.getElementById('modal-data-hora').textContent = formatDateTime(appointment.data_hora_agendamento);
+                document.getElementById('modal-ponto-apoio').textContent = pontoApoio ? pontoApoio.nome : 'Não informado';
+                
+                // Status
+                const statusElement = document.getElementById('modal-status');
+                const statusText = getStatusText(appointment.status);
+                statusElement.textContent = statusText;
+                statusElement.className = `status-badge ${appointment.status}`;
+                
+                // Mostrar modal
+                document.getElementById('appointmentModal').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(event) {
+            if (!event || event.target === document.getElementById('appointmentModal') || event.type === 'click') {
+                document.getElementById('appointmentModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function editAppointment() {
+            alert('Função de edição será implementada');
+        }
+
+        function formatCPF(cpf) {
+            return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        }
+
+        function formatDateTime(dateTime) {
+            const date = new Date(dateTime);
+            return date.toLocaleString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function getStatusText(status) {
+            const statusMap = {
+                'accepted': 'Aceito',
+                'pending': 'Pendente',
+                'declined': 'Recusado'
+            };
+            return statusMap[status] || 'Desconhecido';
+        }
+
         // Initialize - show Gestão submenu by default since Agendamentos is active
         document.addEventListener('DOMContentLoaded', function() {
             toggleSubmenu('gestao');
@@ -155,6 +322,13 @@
                 !sidebar.contains(event.target) && 
                 !menuToggle.contains(event.target)) {
                 sidebar.classList.remove('show');
+            }
+        });
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
             }
         });
     </script>
