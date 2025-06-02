@@ -135,7 +135,9 @@ main header div button {
     margin-top: 5px;
 }
 
-#filter-checkboxes > 
+#filter-checkboxes li > label{
+    margin-left: 10px;
+}
 
 #filter-checkboxes div:last-child {
     display: flex;
