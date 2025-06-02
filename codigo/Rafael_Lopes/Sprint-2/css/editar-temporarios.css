@@ -4,10 +4,13 @@ body {
   background-color: #0f1c33;
   color: white;
 }
-h1{
+
+h1 {
   margin: 20px;
+  text-align: center;
 }
-button{
+
+button {
   background-color: dodgerblue;
   border: none;
   padding: 10px;
@@ -17,18 +20,36 @@ button{
   font-size: 16px;
   margin-top: 10px;
 }
-#form-editar{
+
+#form-editar {
   display: flex;
   flex-direction: column;
   gap: 15px;
   max-width: 500px;
   margin: 100px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
+
 #form-editar input {
- padding: 10px;
+  padding: 10px;
   font-size: 16px;
   border-radius: 6px;
   border: 1px solid #ccc;
   width: 100%;
   box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  #form-editar {
+    margin: 50px auto;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  button {
+    font-size: 14px;
+  }
 }
