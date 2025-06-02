@@ -82,7 +82,49 @@ function setCards(card) {
     container.addEventListener('click', () => {
         const map = document.getElementById('map');
         map.setAttribute('center', `${apoio.local.x},${apoio.local.y}`);
+        if ('geolocation' in navigator) {
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                    computeRoute(position, apoio.local)
+                }
+            ), (error) => {
+                console.error(`Erro: ${error.message}`);
+            }
+        }
     });
+}
+
+function computeRoute(currentPosition, destination) {
+    fetch(`https://routes.googleapis.com/directions/v2:computeRoutes`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Goog-Api-Key': apiKey,
+            'X-Goog-FieldMask': 'routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline'
+        },
+        body: JSON.stringify({
+            origin: {
+                location: {
+                    latLng: {
+                        latitude: currentPosition.coords.latitude,
+                        longitude: currentPosition.coords.longitude
+                    }
+                }
+            },
+            destination: {
+                location: {
+                    latLng: {
+                        latitude: destination.x,
+                        longitude: destination.y
+                    }
+                }
+            },
+            travelMode: 'DRIVE'
+        })
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Erro:', error));
 }
 
 function setAdvancedMapMarker(card) {
