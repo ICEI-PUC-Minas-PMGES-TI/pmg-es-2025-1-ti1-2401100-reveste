@@ -163,10 +163,10 @@ button:active {
     border-radius: 5px;
     resize: vertical;
     font-size: 14px;
-    background-color: #1A345C; /* Mesmo azul escuro do container */
-    color: #E6E6E6; /* Texto claro */
+    background-color: #FFFFFF; /* Fundo branco para o textarea */
+    color: #333; /* Texto escuro para o textarea */
     min-height: 150px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.07);
 }
 
 .copy-btn {
@@ -243,8 +243,8 @@ button:active {
     border: 1px solid #4A6E8A; /* Borda azul-acinzentada */
     border-radius: 4px;
     font-size: 16px;
-    background-color: #1A345C; /* Fundo do input */
-    color: #E6E6E6; /* Texto do input */
+    background-color: #FFFFFF; /* Fundo branco para input/select */
+    color: #333; /* Texto escuro para input/select */
     box-sizing: border-box;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -282,8 +282,8 @@ button:active {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
-    background-color: #1A345C; /* Fundo do input do item */
-    color: #E6E6E6; /* Texto do input do item */
+    background-color: #FFFFFF; /* Fundo branco para input/select de item */
+    color: #333; /* Texto escuro para input/select de item */
     border: 1px solid #4A6E8A;
 }
 
