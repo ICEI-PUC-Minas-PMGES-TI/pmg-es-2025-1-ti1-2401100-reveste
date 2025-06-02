@@ -1,5 +1,7 @@
 import Apoio from "./model/Apoio.js";
 
+const apiKey = "AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM";
+
 function onInit() {
     fetch('./utils/dados.json')
         .then(response => response.json())
@@ -125,6 +127,20 @@ function computeRoute(currentPosition, destination) {
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.error('Erro:', error));
+}
+
+function drawPolyline(encoded) {
+    const decodedPath = google.maps.geometry.encoding.decodePath(encoded);
+
+    const routePolyline = new google.maps.Polyline({
+        path: decodedPath,
+        geodesic: true,
+        strokeColor: "#4285F4",
+        strokeOpacity: 1.0,
+        strokeWeight: 4
+    });
+
+    routePolyline.setMap(map);
 }
 
 function setAdvancedMapMarker(card) {
