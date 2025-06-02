@@ -45,12 +45,13 @@ function renderDetalhesDoacao() {
             <div class="detalhes-doacao-content">
                 <span class="detalhes-doacao-badge">Doação para ${ong.ongNome}</span>
                 <h1>${ong.ongNome}</h1>
-                <div style="margin-top:18px;">
-                    <div style="margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid #22304A;">
+                <div>
+                    <div class="detalhes-doacao-info">
                         <p><strong>Data da doação:</strong> ${doacao.data}</p>
                         <p><strong>Conteúdo:</strong> ${doacao.item}</p>
                         <p><strong>Endereço de entrega:</strong> ${doacao.endereco}</p>
                         ${doacao.observacao ? `<p><strong>Observação:</strong> ${doacao.observacao}</p>` : ""}
+                        <a href="doacoes.html" class="btn-detalhes-doacao voltar-btn">Voltar</a>
                     </div>
                 </div>
             </div>
@@ -62,14 +63,14 @@ function renderDetalhesDoacao() {
             <div class="detalhes-doacao-content">
                 <span class="detalhes-doacao-badge">Doações para ${ong.ongNome}</span>
                 <h1>${ong.ongNome}</h1>
-                <div style="margin-top:18px;">
+                <div>
                     ${ong.doacoes.map(doacao => `
-                        <div style="margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid #22304A;">
+                        <div class="detalhes-doacao-info">
                             <p><strong>Data da doação:</strong> ${doacao.data}</p>
                             <p><strong>Conteúdo:</strong> ${doacao.item}</p>
                             <p><strong>Endereço de entrega:</strong> ${doacao.endereco}</p>
                             ${doacao.observacao ? `<p><strong>Observação:</strong> ${doacao.observacao}</p>` : ""}
-                            <button class="btn-detalhes-doacao" style="margin-top:10px;" onclick="window.location.href='detalhes-doacao.html?ongId=${ong.ongId}&doacaoId=${doacao.id}'">Ver detalhes</button>
+                            <a href="detalhes-doacao.html?ongId=${ong.ongId}&doacaoId=${doacao.id}" class="btn-detalhes-doacao">Ver detalhes</a>
                         </div>
                     `).join('')}
                 </div>

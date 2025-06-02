@@ -130,8 +130,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectOng = document.getElementById("filtro-ong");
 
     btnFiltrar.addEventListener("click", () => {
-        filtroDataInicio = inputInicio.value ? inputInicio.value : null;
-        filtroDataFim = inputFim.value ? inputFim.value : null;
+        const inicio = inputInicio.value ? inputInicio.value : null;
+        const fim = inputFim.value ? inputFim.value : null;
+        if (inicio && fim && inicio > fim) {
+            alert("A data de início não pode ser maior que a data final.");
+            return;
+        }
+        filtroDataInicio = inicio;
+        filtroDataFim = fim;
         filtroOngId = selectOng.value;
         renderOngsDoacoes();
     });
