@@ -152,9 +152,8 @@
                 </div>
             </div>
             
-            <div class="modal-footer">
+            <div class="modal-footer" id="modal-footer">
                 <button class="btn-secondary" onclick="closeModal()">Fechar</button>
-                <button class="btn-primary" onclick="editAppointment()">Editar</button>
             </div>
         </div>
     </div>
@@ -267,10 +266,107 @@
                 statusElement.textContent = statusText;
                 statusElement.className = `status-badge ${appointment.status}`;
                 
+                // Configurar footer baseado no status
+                updateModalFooter(appointment);
+                
                 // Mostrar modal
                 document.getElementById('appointmentModal').style.display = 'flex';
                 document.body.style.overflow = 'hidden';
             }
+        }
+
+        function updateModalFooter(appointment) {
+            const footer = document.getElementById('modal-footer');
+            
+            if (appointment.status === 'pending') {
+                // Para agendamentos pendentes, mostrar opções de aceitar/recusar
+                footer.innerHTML = `
+                    <button class="btn-secondary" onclick="closeModal()">Fechar</button>
+                    <button class="btn-danger" onclick="rejectAppointment(${appointment.id})">Recusar</button>
+                    <button class="btn-success" onclick="acceptAppointment(${appointment.id})">Aceitar</button>
+                `;
+            } else {
+                // Para agendamentos já processados, apenas mostrar fechar
+                footer.innerHTML = `
+                    <button class="btn-secondary" onclick="closeModal()">Fechar</button>
+                `;
+            }
+        }
+
+        function acceptAppointment(appointmentId) {
+            const appointment = mockData.agendamento.find(a => a.id === appointmentId);
+            if (appointment) {
+                appointment.status = 'accepted';
+                
+                // Atualizar status no modal
+                const statusElement = document.getElementById('modal-status');
+                statusElement.textContent = 'Aceito';
+                statusElement.className = 'status-badge accepted';
+                
+                // Atualizar footer
+                updateModalFooter(appointment);
+                
+                // Atualizar o card na grid principal
+                updateAppointmentCard(appointmentId, 'accepted');
+                
+                // Mostrar mensagem de sucesso
+                showNotification('Agendamento aceito com sucesso!', 'success');
+            }
+        }
+
+        function rejectAppointment(appointmentId) {
+            const appointment = mockData.agendamento.find(a => a.id === appointmentId);
+            if (appointment) {
+                appointment.status = 'declined';
+                
+                // Atualizar status no modal
+                const statusElement = document.getElementById('modal-status');
+                statusElement.textContent = 'Recusado';
+                statusElement.className = 'status-badge declined';
+                
+                // Atualizar footer
+                updateModalFooter(appointment);
+                
+                // Atualizar o card na grid principal
+                updateAppointmentCard(appointmentId, 'declined');
+                
+                // Mostrar mensagem de sucesso
+                showNotification('Agendamento recusado com sucesso!', 'warning');
+            }
+        }
+
+        function updateAppointmentCard(appointmentId, newStatus) {
+            // Encontrar o card correspondente e atualizar o status
+            const cards = document.querySelectorAll('.appointment-card');
+            cards.forEach(card => {
+                if (card.getAttribute('onclick').includes(appointmentId)) {
+                    const statusElement = card.querySelector('.appointment-status');
+                    statusElement.className = `appointment-status ${newStatus}`;
+                    statusElement.textContent = getStatusText(newStatus);
+                }
+            });
+        }
+
+        function showNotification(message, type) {
+            // Criar elemento de notificação
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            // Adicionar ao body
+            document.body.appendChild(notification);
+            
+            // Mostrar com animação
+            setTimeout(() => notification.classList.add('show'), 100);
+            
+            // Remover após 3 segundos
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
         }
 
         function closeModal(event) {
