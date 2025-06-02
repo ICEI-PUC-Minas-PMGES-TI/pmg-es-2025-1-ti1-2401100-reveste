@@ -7,13 +7,36 @@ function onInit() {
             let dados = dadosResponse;
             for (let dado of dados) {
                 setCards(dado);
+                setAdvancedMapMarker(dado);
             }
         })
         .catch(error => console.error('Erro ao carregar os dados:', error));
 
-    getLocation();
+    if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                const map = document.getElementById('map');
+                const gMapAdvancedMarker = document.createElement('gmp-advanced-marker');
+                gMapAdvancedMarker.setAttribute('position', `${position.coords.latitude}, ${position.coords.longitude}`);
+                gMapAdvancedMarker.content = createCustomUserMarker();
+                map.appendChild(gMapAdvancedMarker);
+            }
+        ), (error) => {
+            console.error(`Erro: ${error.message}`);
+        }
+    }
 }
 
+function createCustomUserMarker() {
+    const marker = document.createElement('div');
+    marker.style.width = '20px';
+    marker.style.height = '20px';
+    marker.style.backgroundColor = 'blue';
+    marker.style.border = '3px solid white';
+    marker.style.borderRadius = '50%';
+    marker.style.boxShadow = '0 0 6px rgba(0,0,0,0.5)';
+    return marker;
+}
 
 function setCards(card) {
     let apoio = new Apoio(card);
@@ -25,9 +48,11 @@ function setCards(card) {
     let body = document.createElement("div");
     let img = document.createElement("img");
     let address = document.createElement("p");
+    let buttonDetail = document.createElement('button');
 
     body.append(img);
     body.append(address);
+    body.append(buttonDetail);
     header.append(title);
     container.append(header);
     container.append(body);
@@ -40,52 +65,35 @@ function setCards(card) {
     container.classList.add("card");
     container.style.width = "191px";
 
-    title.style.fontSize = "large"
+    title.style.fontSize = "large";
+    title.style.whiteSpace = "nowrap";
 
     img.style.width = "156px";
     img.style.height = "65px";
 
+    buttonDetail.innerText = "Quero doar";
+    buttonDetail.style.backgroundColor = "#6DA34D";
+    buttonDetail.style.width = "100px";
+    buttonDetail.style.borderRadius = "10px";
+    buttonDetail.style.border = "none";
+
     address.style.fontSize = "x-small";
+
+    container.addEventListener('click', () => {
+        const map = document.getElementById('map');
+        map.setAttribute('center', `${apoio.local.x},${apoio.local.y}`);
+    });
 }
 
-// function getLocation() {
+function setAdvancedMapMarker(card) {
+    const apoio = new Apoio(card);
+    const map = document.getElementById('map');
 
-//            if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(
-//       async (position) => {
-//         const userLocation = {
-//           lat: position.coords.latitude,
-//           lng: position.coords.longitude,
-//         };
+    const gMapAdvancedMarker = document.createElement('gmp-advanced-marker');
+    gMapAdvancedMarker.setAttribute('position', `${apoio.local.x},${apoio.local.y}`);
+    map.appendChild(gMapAdvancedMarker);
+}
 
-//         const gmpMapElement = document.querySelector('gmp-map');
-//         if (!gmpMapElement) {
-//           console.error('gmp-map não encontrado!');
-//           return;
-//         }
-
-//         // Espera o mapa carregar (caso ainda não tenha carregado)
-//         await gmpMapElement.ready;
-
-//         // Cria o marcador com a nova API
-//         const marker = new google.maps.marker.AdvancedMarkerElement({
-//           map: gmpMapElement,
-//           position: userLocation,
-//           title: 'Sua Localização',
-//         });
-
-//         // Centraliza e aplica o zoom no mapa
-//         gmpMapElement.zoom = 15;
-//         gmpMapElement.center = userLocation;
-//       },
-//       () => {
-//         alert("Erro ao obter sua localização.");
-//       }
-//     );
-//   } else {
-//     alert("Geolocalização não é suportada por este navegador.");
-//   }
-// }
 
 
 document.addEventListener('DOMContentLoaded', function () {

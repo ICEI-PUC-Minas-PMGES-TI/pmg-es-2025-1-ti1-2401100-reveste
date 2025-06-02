@@ -78,7 +78,6 @@
         padding: 10px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(5, 115px);
     }
 
     .section.maps {

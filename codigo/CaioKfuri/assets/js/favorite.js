@@ -1,6 +1,4 @@
-const ONG_STORAGE_KEY = "favoriteOngs";
-
-const defaultOngs = [
+const favoriteOngs = [
   {
     id: 1,
     nome: "Roupa Para Todos",
@@ -26,24 +24,6 @@ const defaultOngs = [
     favorited: true
   }
 ];
-
-function loadOngs() {
-  const data = localStorage.getItem(ONG_STORAGE_KEY);
-  if (data) {
-    try {
-      return JSON.parse(data);
-    } catch {
-      return [...defaultOngs];
-    }
-  }
-  return [...defaultOngs];
-}
-
-function saveOngs() {
-  localStorage.setItem(ONG_STORAGE_KEY, JSON.stringify(favoriteOngs));
-}
-
-let favoriteOngs = loadOngs();
 
 function renderFavorites() {
   const container = document.getElementById("favorites-container");
@@ -97,7 +77,6 @@ function alternarFavorito(icone) {
   if (!ong) return;
 
   ong.favorited = !ong.favorited;
-  saveOngs();
   renderFavorites();
 }
 
