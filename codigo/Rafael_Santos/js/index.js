@@ -171,7 +171,7 @@ function setAdvancedMapMarker(card) {
     const marker = new google.maps.Marker({
         position: { lat: parseFloat(apoio.local.x), lng: parseFloat(apoio.local.y) },
         map: map,
-        title: card.title || "Marcador"
+        title: card.nome
     });
 
     return marker;
