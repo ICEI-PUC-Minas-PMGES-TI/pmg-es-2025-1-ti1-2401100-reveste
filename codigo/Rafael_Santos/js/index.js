@@ -4,6 +4,7 @@ const apiKey = "AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM";
 let map;
 let directionsService;
 let directionsRenderer;
+let rotaUnica;
 
 function onInit() {
     fetch('./utils/dados.json')
@@ -29,7 +30,6 @@ function onInit() {
 }
 
 function addUserLocationAdvancedMarker(position) {
-    // Verificar se Advanced Markers estão disponíveis
     if (typeof google.maps.marker !== 'undefined') {
         const marker = new google.maps.marker.AdvancedMarkerElement({
             position: {
@@ -42,7 +42,6 @@ function addUserLocationAdvancedMarker(position) {
         });
         return marker;
     } else {
-        // Fallback para marker tradicional
         return addUserLocationMarker(position);
     }
 }
@@ -145,8 +144,13 @@ function computeRoute(currentPosition, destination) {
     })
         .then(response => response.json())
         .then(data => {
-            const route = data.routes[0];
-            drawPolyline(route.polyline.encodedPolyline);
+            
+            if (rotaUnica) {
+                rotaUnica.setMap(null);
+            }
+
+            const rota = data.routes[0];
+            drawPolyline(rota.polyline.encodedPolyline);
         })
         .catch(error => console.error('Erro:', error));
 }
@@ -154,7 +158,7 @@ function computeRoute(currentPosition, destination) {
 function drawPolyline(encoded) {
     const decodedPath = google.maps.geometry.encoding.decodePath(encoded);
 
-    const routePolyline = new google.maps.Polyline({
+    rotaUnica = new google.maps.Polyline({
         path: decodedPath,
         geodesic: true,
         strokeColor: "#4285F4",
@@ -162,7 +166,7 @@ function drawPolyline(encoded) {
         strokeWeight: 4
     });
 
-    routePolyline.setMap(map);
+    rotaUnica.setMap(map);
 }
 
 function setAdvancedMapMarker(card) {
