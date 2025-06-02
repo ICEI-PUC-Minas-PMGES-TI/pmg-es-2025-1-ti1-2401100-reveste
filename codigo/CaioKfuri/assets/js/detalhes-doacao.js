@@ -63,13 +63,14 @@ function renderDetalhesDoacao() {
         `;
         document.title = `${ong.ongNome} - Detalhes da Doação`;
     } else {
+        const doacoesOrdenadas = [...ong.doacoes].sort((a, b) => b.data.localeCompare(a.data));
         container.innerHTML = `
             <img src="${ong.ongImagem}" alt="${ong.ongNome}" class="detalhes-doacao-img">
             <div class="detalhes-doacao-content">
                 <span class="detalhes-doacao-badge">Doações para ${ong.ongNome}</span>
                 <h1>${ong.ongNome}</h1>
                 <div>
-                    ${ong.doacoes.map(doacao => `
+                    ${doacoesOrdenadas.map(doacao => `
                         <div class="detalhes-doacao-info">
                             <p><strong>Data da doação:</strong> ${formatarDataBR(doacao.data)}</p>
                             <p><strong>Conteúdo:</strong> ${doacao.item}</p>
