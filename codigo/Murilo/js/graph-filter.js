@@ -80,8 +80,10 @@ function setupFilterMenu() {
 function setupCheckboxFilters() {
     const childishCheck = document.querySelector("#childish");
     const adultCheck = document.querySelector("#adult");
-
-    if (!childishCheck || !adultCheck) return;
+    const masculineCheck = document.querySelector("#masculine-genre-checkbox");
+    const feminineCheck = document.querySelector("#feminine-genre-checkbox");
+    
+    if (!childishCheck || !adultCheck || !masculineCheck || !feminineCheck) return;
 
     function updateChartsByFilters() {
         if (!loadedData) return;
@@ -102,9 +104,26 @@ function setupCheckboxFilters() {
 
         allLabels.forEach((label, index) => {
             const isChildish = label.includes("Infantil");
-            const isAdult = label.includes("Masculino") || label.includes("Feminino");
+            const isMasculine = label.includes("Masculino");
+            const isFeminine = label.includes("Feminino");
 
-            if ((childishCheck.checked && isChildish) || (adultCheck.checked && isAdult)) {
+            let include = false;
+
+            if (childishCheck.checked && isChildish) {
+                include = true;
+            }
+
+            if (adultCheck.checked) {
+                if (!masculineCheck.checked && !feminineCheck.checked) {
+                    if (!isChildish) include = true;
+                } else {
+                    if ((masculineCheck.checked && isMasculine) || (feminineCheck.checked && isFeminine)) {
+                        include = true;
+                    }
+                }
+            }
+
+            if (include) {
                 filteredLabels.push(label);
                 filteredData.push(allValues[index]);
                 filteredColors.push(allColors[index]);
@@ -125,6 +144,8 @@ function setupCheckboxFilters() {
 
     childishCheck.addEventListener("change", updateChartsByFilters);
     adultCheck.addEventListener("change", updateChartsByFilters);
+    masculineCheck.addEventListener("change", updateChartsByFilters);
+    feminineCheck.addEventListener("change", updateChartsByFilters);
 }
 
 
