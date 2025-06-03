@@ -37,7 +37,7 @@ function createSecondChart(data) {
 }
 
 function initCharts() {
-    fetch('./js/json/graph-data.json')
+    fetch('./js/json/graph-filter.json')
         .then(response => {
             if (!response.ok) throw new Error('Erro ao carregar JSON');
             return response.json();
@@ -85,7 +85,7 @@ function setupCheckboxFilters() {
     
     if (!childishCheck || !adultCheck || !masculineCheck || !feminineCheck) return;
 
-    function updateChartsByFilters() {
+    function updateChartsByGenresFilters() {
         if (!loadedData) return;
 
         const allLabels = loadedData.labels;
@@ -167,15 +167,60 @@ function setupCheckboxFilters() {
         createSecondChart(newData);
     }
 
-    childishCheck.addEventListener("change", updateChartsByFilters);
-    adultCheck.addEventListener("change", updateChartsByFilters);
-    masculineCheck.addEventListener("change", updateChartsByFilters);
-    feminineCheck.addEventListener("change", updateChartsByFilters);
+    childishCheck.addEventListener("change", updateChartsByGenresFilters);
+    adultCheck.addEventListener("change", updateChartsByGenresFilters);
+    masculineCheck.addEventListener("change", updateChartsByGenresFilters);
+    feminineCheck.addEventListener("change", updateChartsByGenresFilters);
 }
+
+function setupCloseSizeForms() {
+    const clothesInput = document.querySelector("#clothes-size-forms-select");
+
+    function updateChartsBySizeFilters() {
+        if (!loadedData) return;    
+
+        const allLabels = loadedData.labels;
+        const allValues = loadedData.datasets[0].data;
+        const allColors = loadedData.datasets[0].backgroundColor;
+
+        const filteredLabels = [];
+        const filteredData = [];
+        const filteredColors = [];
+
+        const clothesInputValue = clothesInput.value;
+
+        allLabels.forEach((label, index) => {
+            const parts = label.trim().split(" ");
+            const size = parts[parts.length - 1];
+
+            if (size === clothesInputValue) {
+                filteredLabels.push(label);
+                filteredData.push(allValues[index]);
+                filteredColors.push(allColors[index]);
+            }
+        });
+
+        const newData = {
+            labels: filteredLabels,
+            datasets: [{
+                data: filteredData,
+                backgroundColor: filteredColors
+            }]
+        };
+
+        createFirstChart(newData);
+        createSecondChart(newData);
+    }
+
+    clothesInput.addEventListener("change", updateChartsBySizeFilters);
+}
+
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
     initCharts();
     setupFilterMenu();
     setupCheckboxFilters();
+    setupCloseSizeForms();
 });
