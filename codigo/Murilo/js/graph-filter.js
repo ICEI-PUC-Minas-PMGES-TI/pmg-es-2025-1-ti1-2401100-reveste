@@ -96,7 +96,12 @@ function setupCheckboxFilters() {
         const filteredData = [];
         const filteredColors = [];
 
-        if (!childishCheck.checked && !adultCheck.checked) {
+        if (
+            !childishCheck.checked &&
+            !adultCheck.checked &&
+            !masculineCheck.checked &&
+            !feminineCheck.checked
+        ) {
             createFirstChart(loadedData);
             createSecondChart(loadedData);
             return;
@@ -106,20 +111,34 @@ function setupCheckboxFilters() {
             const isChildish = label.includes("Infantil");
             const isMasculine = label.includes("Masculino");
             const isFeminine = label.includes("Feminino");
+            const isAdult = !isChildish;
 
             let include = false;
 
-            if (childishCheck.checked && isChildish) {
-                include = true;
-            }
 
-            if (adultCheck.checked) {
+            if (childishCheck.checked && isChildish) {
                 if (!masculineCheck.checked && !feminineCheck.checked) {
-                    if (!isChildish) include = true;
+                    include = true;
                 } else {
                     if ((masculineCheck.checked && isMasculine) || (feminineCheck.checked && isFeminine)) {
                         include = true;
                     }
+                }
+            }
+
+            if (adultCheck.checked && isAdult) {
+                if (!masculineCheck.checked && !feminineCheck.checked) {
+                    include = true;
+                } else {
+                    if ((masculineCheck.checked && isMasculine) || (feminineCheck.checked && isFeminine)) {
+                        include = true;
+                    }
+                }
+            }
+
+            if (!childishCheck.checked && !adultCheck.checked) {
+                if ((masculineCheck.checked && isMasculine) || (feminineCheck.checked && isFeminine)) {
+                    include = true;
                 }
             }
 
@@ -129,6 +148,12 @@ function setupCheckboxFilters() {
                 filteredColors.push(allColors[index]);
             }
         });
+
+        if (filteredLabels.length === 0) {
+            createFirstChart(loadedData);
+            createSecondChart(loadedData);
+            return;
+        }
 
         const newData = {
             labels: filteredLabels,
