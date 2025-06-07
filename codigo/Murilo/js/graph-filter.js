@@ -1,6 +1,7 @@
 let firstChart;
 let secondChart;
-let loadedData = null;  
+let donatedData = null;
+let availableData = null;
 let selectedChartType = "pie";
 
 function createFirstChart(data, type = selectedChartType) {
@@ -38,16 +39,25 @@ function createSecondChart(data, type = selectedChartType) {
 }
 
 function initCharts() {
-    fetch('./js/json/graph-filter.json')
+    fetch('./js/json/donated_clothes.json')
         .then(response => {
             if (!response.ok) throw new Error('Erro ao carregar JSON');
             return response.json();
         })
         .then(data => {
-            loadedData = data;
-            currentData = data;
-            createFirstChart(currentData, selectedChartType);
-            createSecondChart(currentData, selectedChartType);
+            donatedData = data;
+            createFirstChart(donatedData, selectedChartType);
+        })
+        .catch(error => console.error(error));
+
+    fetch('./js/json/avaliable_clothes.json')
+        .then(response => {
+            if (!response.ok) throw new Error('Erro ao carregar JSON');
+            return response.json();
+        })
+        .then(data => {
+            availableData = data;
+            createSecondChart(availableData, selectedChartType);
         })
         .catch(error => console.error(error));
 }
@@ -84,19 +94,13 @@ function setupCheckboxFilters() {
     const adultCheck = document.querySelector("#adult");
     const masculineCheck = document.querySelector("#masculine-genre-checkbox");
     const feminineCheck = document.querySelector("#feminine-genre-checkbox");
-    
+
     if (!childishCheck || !adultCheck || !masculineCheck || !feminineCheck) return;
 
-    function updateChartsByGenresFilters() {
-        if (!loadedData) return;
-
-        const allLabels = loadedData.labels;
-        const allValues = loadedData.datasets[0].data;
-        const allColors = loadedData.datasets[0].backgroundColor;
-
-        const filteredLabels = [];
-        const filteredData = [];
-        const filteredColors = [];
+    function filterData(data) {
+        const allLabels = data.labels;
+        const allValues = data.datasets[0].data;
+        const allColors = data.datasets[0].backgroundColor;
 
         if (
             !childishCheck.checked &&
@@ -104,11 +108,12 @@ function setupCheckboxFilters() {
             !masculineCheck.checked &&
             !feminineCheck.checked
         ) {
-            currentData = loadedData;
-            createFirstChart(currentData, selectedChartType);
-            createSecondChart(currentData, selectedChartType);
-            return;
+            return data;
         }
+
+        const filteredLabels = [];
+        const filteredData = [];
+        const filteredColors = [];
 
         allLabels.forEach((label, index) => {
             const isChildish = label.includes("Infantil");
@@ -121,20 +126,16 @@ function setupCheckboxFilters() {
             if (childishCheck.checked && isChildish) {
                 if (!masculineCheck.checked && !feminineCheck.checked) {
                     include = true;
-                } else {
-                    if ((masculineCheck.checked && isMasculine) || (feminineCheck.checked && isFeminine)) {
-                        include = true;
-                    }
+                } else if ((masculineCheck.checked && isMasculine) || (feminineCheck.checked && isFeminine)) {
+                    include = true;
                 }
             }
 
             if (adultCheck.checked && isAdult) {
                 if (!masculineCheck.checked && !feminineCheck.checked) {
                     include = true;
-                } else {
-                    if ((masculineCheck.checked && isMasculine) || (feminineCheck.checked && isFeminine)) {
-                        include = true;
-                    }
+                } else if ((masculineCheck.checked && isMasculine) || (feminineCheck.checked && isFeminine)) {
+                    include = true;
                 }
             }
 
@@ -152,22 +153,26 @@ function setupCheckboxFilters() {
         });
 
         if (filteredLabels.length === 0) {
-            currentData = loadedData;
-            createFirstChart(currentData, selectedChartType);
-            createSecondChart(currentData, selectedChartType);
-            return;
+            return data;
         }
 
-        currentData = {
+        return {
             labels: filteredLabels,
             datasets: [{
                 data: filteredData,
                 backgroundColor: filteredColors
             }]
         };
+    }
 
-        createFirstChart(currentData, selectedChartType);
-        createSecondChart(currentData, selectedChartType);
+    function updateChartsByGenresFilters() {
+        if (!donatedData || !availableData) return;
+
+        const filteredDonated = filterData(donatedData);
+        const filteredAvailable = filterData(availableData);
+
+        createFirstChart(filteredDonated, selectedChartType);
+        createSecondChart(filteredAvailable, selectedChartType);
     }
 
     childishCheck.addEventListener("change", updateChartsByGenresFilters);
@@ -179,40 +184,51 @@ function setupCheckboxFilters() {
 function setupCloseSizeForms() {
     const clothesInput = document.querySelector("#clothes-size-forms-select");
 
-    function updateChartsBySizeFilters() {
-        if (!loadedData) return;    
+    function filterDataBySize(data, sizeValue) {
+        const allLabels = data.labels;
+        const allValues = data.datasets[0].data;
+        const allColors = data.datasets[0].backgroundColor;
 
-        const allLabels = loadedData.labels;
-        const allValues = loadedData.datasets[0].data;
-        const allColors = loadedData.datasets[0].backgroundColor;
+        if (!sizeValue) return data;
 
         const filteredLabels = [];
         const filteredData = [];
         const filteredColors = [];
 
-        const clothesInputValue = clothesInput.value;
-
         allLabels.forEach((label, index) => {
             const parts = label.trim().split(" ");
             const size = parts[parts.length - 1];
 
-            if (size === clothesInputValue) {
+            if (size === sizeValue) {
                 filteredLabels.push(label);
                 filteredData.push(allValues[index]);
                 filteredColors.push(allColors[index]);
             }
         });
 
-        currentData = {
+        if (filteredLabels.length === 0) {
+            return data;
+        }
+
+        return {
             labels: filteredLabels,
             datasets: [{
                 data: filteredData,
                 backgroundColor: filteredColors
             }]
         };
+    }
 
-        createFirstChart(currentData, selectedChartType);
-        createSecondChart(currentData, selectedChartType);
+    function updateChartsBySizeFilters() {
+        if (!donatedData || !availableData) return;
+
+        const sizeValue = clothesInput.value;
+
+        const filteredDonated = filterDataBySize(donatedData, sizeValue);
+        const filteredAvailable = filterDataBySize(availableData, sizeValue);
+
+        createFirstChart(filteredDonated, selectedChartType);
+        createSecondChart(filteredAvailable, selectedChartType);
     }
 
     clothesInput.addEventListener("change", updateChartsBySizeFilters);
@@ -227,21 +243,16 @@ function setupTypeGraph() {
     }
 
     function updateChartsByTypeGraphFilters() {
-        const typeGraphValue = typeGraph.value;
-        
-        selectedChartType = typeGraphValue;
-        
+        selectedChartType = typeGraph.value;
 
         if (firstChart) firstChart.destroy();
         if (secondChart) secondChart.destroy();
 
-        createFirstChart(currentData, selectedChartType);
-        createSecondChart(currentData, selectedChartType);
+        createFirstChart(donatedData, selectedChartType);
+        createSecondChart(availableData, selectedChartType);
     }
 
-    typeGraph.addEventListener("change", () => {
-        updateChartsByTypeGraphFilters();
-    });
+    typeGraph.addEventListener("change", updateChartsByTypeGraphFilters);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
