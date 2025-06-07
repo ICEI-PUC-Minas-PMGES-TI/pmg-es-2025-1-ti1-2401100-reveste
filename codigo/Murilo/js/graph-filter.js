@@ -1,13 +1,14 @@
 let firstChart;
 let secondChart;
-let loadedData = null;
+let loadedData = null;  
+let selectedChartType = "pie";
 
-function createFirstChart(data) {
+function createFirstChart(data, type = selectedChartType) {
     const ctx = document.getElementById('first-graph').getContext('2d');
     if (firstChart) firstChart.destroy();
 
     firstChart = new Chart(ctx, {
-        type: 'pie',
+        type: type,
         data: data,
         options: {
             responsive: false,
@@ -19,12 +20,12 @@ function createFirstChart(data) {
     });
 }
 
-function createSecondChart(data) {
+function createSecondChart(data, type = selectedChartType) {
     const ctx = document.getElementById('second-graph').getContext('2d');
     if (secondChart) secondChart.destroy();
 
     secondChart = new Chart(ctx, {
-        type: 'pie',
+        type: type,
         data: data,
         options: {
             responsive: false,
@@ -44,8 +45,9 @@ function initCharts() {
         })
         .then(data => {
             loadedData = data;
-            createFirstChart(data);
-            createSecondChart(data);
+            currentData = data;
+            createFirstChart(currentData, selectedChartType);
+            createSecondChart(currentData, selectedChartType);
         })
         .catch(error => console.error(error));
 }
@@ -102,8 +104,9 @@ function setupCheckboxFilters() {
             !masculineCheck.checked &&
             !feminineCheck.checked
         ) {
-            createFirstChart(loadedData);
-            createSecondChart(loadedData);
+            currentData = loadedData;
+            createFirstChart(currentData, selectedChartType);
+            createSecondChart(currentData, selectedChartType);
             return;
         }
 
@@ -114,7 +117,6 @@ function setupCheckboxFilters() {
             const isAdult = !isChildish;
 
             let include = false;
-
 
             if (childishCheck.checked && isChildish) {
                 if (!masculineCheck.checked && !feminineCheck.checked) {
@@ -150,12 +152,13 @@ function setupCheckboxFilters() {
         });
 
         if (filteredLabels.length === 0) {
-            createFirstChart(loadedData);
-            createSecondChart(loadedData);
+            currentData = loadedData;
+            createFirstChart(currentData, selectedChartType);
+            createSecondChart(currentData, selectedChartType);
             return;
         }
 
-        const newData = {
+        currentData = {
             labels: filteredLabels,
             datasets: [{
                 data: filteredData,
@@ -163,8 +166,8 @@ function setupCheckboxFilters() {
             }]
         };
 
-        createFirstChart(newData);
-        createSecondChart(newData);
+        createFirstChart(currentData, selectedChartType);
+        createSecondChart(currentData, selectedChartType);
     }
 
     childishCheck.addEventListener("change", updateChartsByGenresFilters);
@@ -200,7 +203,7 @@ function setupCloseSizeForms() {
             }
         });
 
-        const newData = {
+        currentData = {
             labels: filteredLabels,
             datasets: [{
                 data: filteredData,
@@ -208,19 +211,43 @@ function setupCloseSizeForms() {
             }]
         };
 
-        createFirstChart(newData);
-        createSecondChart(newData);
+        createFirstChart(currentData, selectedChartType);
+        createSecondChart(currentData, selectedChartType);
     }
 
     clothesInput.addEventListener("change", updateChartsBySizeFilters);
 }
 
+function setupTypeGraph() {
+    const typeGraph = document.querySelector("#graph-type-select");
 
+    if (!typeGraph) {
+        console.error("Elemento #graph-type-select não encontrado!");
+        return;
+    }
 
+    function updateChartsByTypeGraphFilters() {
+        const typeGraphValue = typeGraph.value;
+        
+        selectedChartType = typeGraphValue;
+        
+
+        if (firstChart) firstChart.destroy();
+        if (secondChart) secondChart.destroy();
+
+        createFirstChart(currentData, selectedChartType);
+        createSecondChart(currentData, selectedChartType);
+    }
+
+    typeGraph.addEventListener("change", () => {
+        updateChartsByTypeGraphFilters();
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     initCharts();
     setupFilterMenu();
     setupCheckboxFilters();
     setupCloseSizeForms();
+    setupTypeGraph();
 });
