@@ -472,6 +472,7 @@ body {
 
 .MovimentoImgIgrejaPA {
     margin-top: 0%;
+    transition-duration: 1.5s;
 }
 
 .PontoDeApoioNaoEncontrado,
@@ -583,7 +584,7 @@ body {
 }
 
 .divCadastrarPA {
-    width: 28%;
+    width: 30%;
     height: 70vh;
     backdrop-filter: blur(20px);
     border: solid white 0.2vh;
@@ -873,7 +874,7 @@ input.inputPreenchido+span {
 }
 
 .divCadastrarDO {
-    width: 28%;
+    width: 30%;
     height: 70vh;
     backdrop-filter: blur(20px);
     border: solid white 0.2vh;

@@ -98,8 +98,10 @@ document.querySelector('#btnProsseguir').addEventListener('click', () => {
             }, 300);
             setTimeout(() => {
                 containerPA.classList.add('MovimentoContainerPA');
-                imgIgreja.classList.add('MovimentoImgIgrejaPA');
             }, 600);
+            setTimeout(() => {
+                imgIgreja.classList.add('MovimentoImgIgrejaPA');
+            }, 1000);
         });
     }
     if (Doador === true) {
