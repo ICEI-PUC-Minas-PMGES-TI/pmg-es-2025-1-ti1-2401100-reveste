@@ -701,7 +701,7 @@ header {
     pointer-events: all;
 }
 
-input.inputPreenchido+span {
+.inputsCadastrar div input.inputPreenchido+span {
     margin-top: -13%;
     margin-left: -0%;
     z-index: 99;
