@@ -1,70 +1,34 @@
 $(document).ready(function () {
-    $('.inputCNPJ').mask('00.000.000/0000-00', { reverse: true });
+    $('#inputCNPJ').mask('00.000.000/0000-00', { reverse: true });
+    $('#inputCPFDoador').mask('000.000.000-00', { reverse: true });
+    $('.inputCPFCadastroDoador').mask('000.000.000-00', { reverse: true });
     $('.inputTelefone').mask('(00) 0000-0000');
-    $('.inputCNPJCadastrar').mask('00.000.000/0000-00', { reverse: true });
+    $('.inputTelefoneDoador').mask('(00) 0000-0000');
+    $('.inputCNPJCadastro').mask('00.000.000/0000-00', { reverse: true });
     $('.inputInicio').mask('00/00/0000');
     $('.inputFinal').mask('00/00/0000');
 });
 
-
-document.querySelectorAll('.inputs div input, .inputsCadastrar div input').forEach(input => {
-    input.addEventListener('focus', () => {
-        input.classList.add('not-empty');
-    });
-
-    input.addEventListener('blur', () => {
-        if (input.value.trim() === '') {
-            input.classList.remove('not-empty');
-        }
-    });
-});
-
-const checkbox = document.querySelector('.checkbox');
-const divData = document.querySelector('.divDataPA');
-const containerPATemporario = document.querySelector('.divTemporario');
-
-checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
-        divData.classList.add('mostrarInputsData');
-    } else {
-        divData.classList.remove('mostrarInputsData');
-    }
-});
-
-const containerLogin = document.querySelector('.containerLogin');
-const containerCadastrar = document.querySelector('.containerCadastrar');
-
-document.querySelector('.buttonCadastrar').addEventListener('click', () => {
-    containerLogin.classList.add('movimentoContainerLogin');
-    containerCadastrar.classList.add('movimentoContainerCadastrar')
-});
-
-document.querySelector('.buttomEntrar').addEventListener('click', () => {
-    containerLogin.classList.remove('movimentoContainerLogin');
-    containerCadastrar.classList.remove('movimentoContainerCadastrar')
-});
-
-const divs = document.querySelectorAll('.divsPapeis');
-const nav = document.querySelector('nav');
-const botao = document.querySelector('.btnProsseguir');
-const main = document.querySelector('main')
+const papeisDeUsuario = document.querySelectorAll('.container nav>div');
+const nav = document.querySelector('.container nav');
+const botao = document.querySelector('#btnProsseguir');
 
 let selecionado = null;
 
-divs.forEach(div => {
+papeisDeUsuario.forEach(div => {
     div.addEventListener('click', (e) => {
         e.stopPropagation();
 
         if (selecionado === div) {
             div.classList.remove('papelEscolhido', 'divPraCima');
-            divs.forEach(d => d.classList.remove('efeitoBlur'));
+            papeisDeUsuario.forEach(d => d.classList.remove('efeitoBlur'));
             nav.classList.remove('clicado');
             botao.disabled = true;
             selecionado = null;
         } else {
-            divs.forEach(d => d.classList.remove('papelEscolhido', 'efeitoBlur', 'divPraCima'));
+            papeisDeUsuario.forEach(d => d.classList.remove('papelEscolhido', 'efeitoBlur', 'divPraCima'));
             div.classList.add('papelEscolhido', 'divPraCima');
-            divs.forEach(d => {
+            papeisDeUsuario.forEach(d => {
                 if (d !== div) d.classList.add('efeitoBlur');
             });
             nav.classList.add('clicado');
@@ -87,98 +51,179 @@ divs.forEach(div => {
 });
 
 document.addEventListener('click', (e) => {
-    if (!e.target.closest('.divsPapeis')) {
-        divs.forEach(d => d.classList.remove('papelEscolhido', 'efeitoBlur', 'divPraCima'));
+    if (!e.target.closest('.container nav div')) {
+        papeisDeUsuario.forEach(d => d.classList.remove('papelEscolhido', 'efeitoBlur', 'divPraCima'));
         nav.classList.remove('clicado');
         botao.disabled = true;
         selecionado = null;
     }
 });
 
-let divQueroRoupaClicada = false;
-let divQueroDoarClicada = false;
-let divSouPAClicada = false;
+let QueroRoupa = false;
+let Doador = false;
+let PA = false;
 
-document.querySelector("#divPapel").addEventListener('click', () => {
-    divQueroRoupaClicada = true;
-})
+document.querySelector('#divPapel1').addEventListener('click', () => {
+    QueroRoupa = true;
+});
 
-document.querySelector("#divPapel2").addEventListener('click', () => {
-    divQueroDoarClicada = true;
-})
+document.querySelector('#divPapel2').addEventListener('click', () => {
+    Doador = true;
+});
 
-document.querySelector("#divPapel3").addEventListener('click', () => {
-    divSouPAClicada = true;
-})
+document.querySelector('#divPapel3').addEventListener('click', () => {
+    PA = true;
+});
 
-botao.addEventListener("click", function () {
-    if (divSouPAClicada) {
-        document.querySelector('.logo').classList.add('MovimentarLogoParaAEsquerdaESumir');
-        document.querySelector('main h2').classList.add('Movimentarh2ParaAEsquerdaESumir');
-        document.querySelector("main nav").classList.add('MovimentarNavDePapeisParaAEsquerdaESumir');
-        botao.classList.add('MovimentarBotaoDeProsseguirParaAEsquerdaESumir');
-        document.querySelector('.imagemIgreja').classList.add('MostrarImagemDaIgrejaDeLoginECadastroParaOUsuario')
-        document.querySelector('.containerLoginECadastrar').classList.add('MostrarTelaDeLoginECadastroParaOUsuario')
+const logo = document.querySelector('#logo');
+const desc = document.querySelector('#desc');
+const navPapeis = document.querySelector('.container nav')
+const btnProsseguir = document.querySelector('#btnProsseguir');
+const containerPA = document.querySelector('.containerPA');
+const containerDoador = document.querySelector('.containerDoador');
+const imgIgreja = document.querySelector('.imgIgreja');
+
+document.querySelector('#btnProsseguir').addEventListener('click', () => {
+    if (PA == true) {
+        logo.classList.add('MovimentoLogoPA');
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                desc.classList.add('MovimentoDescPA');
+            }, 100);
+            setTimeout(() => {
+                navPapeis.classList.add('MovimentoNavPapeisPA');
+            }, 200);
+            setTimeout(() => {
+                btnProsseguir.classList.add('MovimentoBtnProsseguirPA');
+            }, 300);
+            setTimeout(() => {
+                containerPA.classList.add('MovimentoContainerPA');
+            }, 600);
+            setTimeout(() => {
+                imgIgreja.classList.add('MovimentoImgIgrejaPA');
+            }, 1000);
+        });
     }
-    if (divQueroDoarClicada) {
-        document.querySelector('.logo').classList.add('MovimentarLogoParaADireitaESumir');
-        document.querySelector('main h2').classList.add('Movimentarh2ParaADireitaESumir');
-        document.querySelector("main nav").classList.add('MovimentarNavDePapeisParaADireitaESumir');
-        botao.classList.add('MovimentarBotaoDeProsseguirParaADireitaESumir');
-        document.querySelector('.containerLoginECadastrarDoador').classList.add('MostrarTelaDeLoginECadastroDeDoadorParaOUsuario')
+    if (Doador === true) {
+        logo.classList.add('MovimentoLogoDO');
+
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                desc.classList.add('DescExpandir');
+                desc.classList.add('MovimentoDescDO');
+            }, 100);
+
+            setTimeout(() => {
+                navPapeis.classList.add('MovimentoNavPapeisDO');
+            }, 200);
+
+            setTimeout(() => {
+                btnProsseguir.classList.add('MovimentoBtnProsseguirDO');
+            }, 300);
+
+            setTimeout(() => {
+                containerDoador.classList.add('MovimentoContainerDO');
+            }, 600);
+        });
     }
 });
 
-document.querySelector('.btnVoltarLoginECadastro').addEventListener('click', () => {
+document.querySelector('.btnVoltar1').addEventListener('click', () => {
+    containerPA.classList.remove('MovimentoContainerPA');
+    document.querySelector('.divLoginPA').classList.remove('divLoginParaEsquerda');
+    document.querySelector('.divCadastrarPA').classList.remove('divCadastroParaEsquerda');
+    imgIgreja.classList.remove('MovimentoImgIgrejaPA');
+
+    const inputCNPJ = document.getElementById('inputCNPJ');
+    const inputSenha = document.getElementById('inputSenha');
+    inputCNPJ.value = '';
+    inputSenha.value = '';
+    inputCNPJ.classList.remove('inputPreenchido', 'not-empty');
+    inputSenha.classList.remove('inputPreenchido', 'not-empty');
+    document.getElementById('btnEntrar').disabled = true;
+
+    const camposCadastroPA = [
+        'nome', 'endereco', 'telefone', 'cnpjCadastro',
+        'email', 'senhaCadastro', 'inicio', 'final'
+    ];
+
+    camposCadastroPA.forEach(id => {
+        const input = document.getElementById(id);
+        if (input) {
+            input.value = '';
+            input.classList.remove('inputPreenchido', 'not-empty');
+        }
+    });
+
+    const checkbox = document.querySelector('.checkbox');
+    const divData = document.querySelector('.divDataPA');
+    checkbox.checked = false;
+    divData.classList.remove('mostrarInputsData');
+
+    document.getElementById('btnCadastrar').disabled = true;
+
     setTimeout(() => {
-        document.querySelector('.logo').classList.remove('MovimentarLogoParaAEsquerdaESumir');
-        document.querySelector('h2').classList.remove('Movimentarh2ParaAEsquerdaESumir');
-        document.querySelector("nav").classList.remove('MovimentarNavDePapeisParaAEsquerdaESumir');
-        botao.classList.remove('MovimentarBotaoDeProsseguirParaAEsquerdaESumir');
-    }, 600);
-    document.querySelector('.imagemIgreja').classList.remove('MostrarImagemDaIgrejaDeLoginECadastroParaOUsuario')
-    document.querySelector('.containerLoginECadastrar').classList.remove('MostrarTelaDeLoginECadastroParaOUsuario')
-    containerLogin.classList.remove('movimentoContainerLogin');
-    containerCadastrar.classList.remove('movimentoContainerCadastrar')
-    divSouPAClicada = false;
-})
+        logo.classList.remove('MovimentoLogoPA');
+        desc.classList.remove('MovimentoDescPA');
+        navPapeis.classList.remove('MovimentoNavPapeisPA');
+        btnProsseguir.classList.remove('MovimentoBtnProsseguirPA');
+    }, 700);
 
-document.querySelector('.btnVoltarLoginECadastroDoador').addEventListener('click', () => {
+    PA = false;
+});
+
+
+document.querySelector('.btnVoltar2').addEventListener('click', () => {
+    containerDoador.classList.remove('MovimentoContainerDO');
+    document.querySelector('.divLoginDoador').classList.remove('divLoginParaDireita');
+    document.querySelector('.divCadastrarDO').classList.remove('divCadastroParaDireita');
     setTimeout(() => {
-        document.querySelector('.logo').classList.remove('MovimentarLogoParaADireitaESumir');
-        document.querySelector('main h2').classList.remove('Movimentarh2ParaADireitaESumir');
-        document.querySelector("main nav").classList.remove('MovimentarNavDePapeisParaADireitaESumir');
-        botao.classList.remove('MovimentarBotaoDeProsseguirParaADireitaESumir');
-    }, 600);
-    document.querySelector('.containerLoginECadastrarDoador').classList.remove('MostrarTelaDeLoginECadastroDeDoadorParaOUsuario')
-    document.querySelector('.containerLoginDoador').classList.remove('MoverTelaDeLoginDeDoadorParaDireitaESumir')
-    document.querySelector('.containerCadastrarD').classList.remove('MoverTelaDeCadastroDeDoadorParaDireitaEAparecer')
-    document.querySelector('.containerLoginDoador').style.display = 'flex'
-    divQueroDoarClicada = false;
-})
+        logo.classList.remove('MovimentoLogoDO');
+        desc.classList.remove('MovimentoDescDO');
+        navPapeis.classList.remove('MovimentoNavPapeisDO');
+        btnProsseguir.classList.remove('MovimentoBtnProsseguirDO');
+    }, 700);
 
-document.querySelector('.buttomCadastrarDoador').addEventListener('click', () => {
-    document.querySelector('.containerLoginDoador').classList.add('MoverTelaDeLoginDeDoadorParaDireitaESumir')
-    document.querySelector('.containerCadastrarD').classList.add('MoverTelaDeCadastroDeDoadorParaDireitaEAparecer')
-})
+    const cpfInput = document.getElementById('inputCPFDoador');
+    const senhaInput = document.getElementById('inputSenhaDoador');
+    cpfInput.value = '';
+    senhaInput.value = '';
+    cpfInput.classList.remove('inputPreenchido', 'not-empty');
+    senhaInput.classList.remove('inputPreenchido', 'not-empty');
+    document.getElementById('btnEntrarDoador').disabled = true;
 
-document.querySelector('.buttomEntrarD').addEventListener('click', () => {
-    document.querySelector('.containerLoginDoador').classList.remove('MoverTelaDeLoginDeDoadorParaDireitaESumir')
-    document.querySelector('.containerCadastrarD').classList.remove('MoverTelaDeCadastroDeDoadorParaDireitaEAparecer')
-})
+    const containerCadastrar = document.querySelector('.containerCadastrarDO');
+    if (containerCadastrar) {
+        const inputsCadastro = containerCadastrar.querySelectorAll('input');
+        inputsCadastro.forEach(input => {
+            input.value = '';
+            input.classList.remove('inputPreenchido', 'not-empty');
+        });
+    }
 
-/*----------------------------------------------------------------- Validar dados e inserir no JSON -----------------------------------------------------------------*/
+    const btnCadastrarDoador = document.getElementById('btnCadastrarDoador');
+    if (btnCadastrarDoador) btnCadastrarDoador.disabled = true;
 
-const inputCNPJ = document.querySelector('.inputCNPJ');
-const inputSenha = document.querySelector('.inputSenha');
-const btnEntrar = document.querySelector('.btnEntrar');
+    Doador = false;
+});
 
-const camposCadastro = [
-    'nome', 'endereco', 'telefone', 'cnpjCadastrar',
-    'email', 'senhaCadastrar', 'inicio', 'final'
-];
 
-// VALIDAR CAMPOS DE LOGIN
+document.querySelectorAll('.divInputsLogin input, .divInputsCadastrar input, .divInputsLoginDoador input, .divInputsCadastrarDO input').forEach(input => {
+    input.addEventListener('focus', () => {
+        input.classList.add('not-empty');
+    });
+
+    input.addEventListener('blur', () => {
+        if (input.value.trim() === '') {
+            input.classList.remove('not-empty');
+        }
+    });
+});
+
+const inputCNPJ = document.getElementById('inputCNPJ');
+const inputSenha = document.getElementById('inputSenha');
+const btnEntrar = document.getElementById('btnEntrar');
+
 function verificarCamposLogin() {
     const cnpj = inputCNPJ.value.trim();
     const senha = inputSenha.value.trim();
@@ -186,7 +231,6 @@ function verificarCamposLogin() {
     btnEntrar.disabled = !(validarCNPJ(cnpj) && senha !== '');
 }
 
-// VALIDAR CNPJ
 function validarCNPJ(cnpj) {
     cnpj = cnpj.replace(/[^\d]+/g, '');
     if (cnpj.length !== 14 || /^(\d)\1+$/.test(cnpj)) return false;
@@ -219,11 +263,9 @@ function validarCNPJ(cnpj) {
     return resultado == parseInt(digitos.charAt(1));
 }
 
-// VERIFICAR CAMPOS DE LOGIN
 inputCNPJ.addEventListener('input', verificarCamposLogin);
 inputSenha.addEventListener('input', verificarCamposLogin);
 
-// AÇÃO DO BOTÃO "ENTRAR"
 btnEntrar.addEventListener('click', () => {
     const cnpj = inputCNPJ.value.trim().replace(/\D/g, '');
     const senha = inputSenha.value.trim();
@@ -235,97 +277,87 @@ btnEntrar.addEventListener('click', () => {
     });
 
     if (usuarioEncontrado) {
-        document.querySelector(".LoginBemSucedido").style.display = 'flex'
+        document.querySelector('.LoginBemSucedido').style.display = 'flex';
         setTimeout(() => {
-            document.querySelector(".LoginBemSucedido").classList.add("aparecerMensagemLBS")
+            document.querySelector('.LoginBemSucedido').classList.add('aparecerMensagemLBS');
         }, 200);
-        document.querySelector(".sombra").classList.add("sombrear");
+        document.querySelector('.sombra').classList.add('sombrear');
     } else {
-        document.querySelector(".sombra").classList.add("sombrear");
-        document.querySelector(".PontoDeApoioNaoEncontrado").style.display - 'flex'
+        document.querySelector('.sombra').classList.add('sombrear');
+        document.querySelector('.PontoDeApoioNaoEncontrado').style.display = 'flex';
         setTimeout(() => {
-            document.querySelector(".PontoDeApoioNaoEncontrado").classList.add("aparecerMensagemPDANE");
-        }, 200);
+            document.querySelector('.PontoDeApoioNaoEncontrado').classList.add('aparecerMensagemPDANE');
+        }, 300);
     }
 });
 
-// BOTÕES DE FECHAR MENSAGENS
-document.querySelector(".fecharMensagem1").addEventListener("click", () => {
-    document.querySelector(".sombra").classList.remove("sombrear");
-    document.querySelector(".PontoDeApoioNaoEncontrado").classList.remove("aparecerMensagemPDANE");
-    setTimeout(() => {
-        document.querySelector(".PontoDeApoioNaoEncontrado").style.display = 'none'
-    }, 600);
+document.querySelector('.PontoDeApoioNaoEncontrado header svg').addEventListener('click', () => {
+    document.querySelector('.sombra').classList.remove('sombrear');
+    document.querySelector('.PontoDeApoioNaoEncontrado').classList.remove('aparecerMensagemPDANE');
 });
 
-document.querySelector(".fecharMensagem2").addEventListener("click", () => {
-    document.querySelector(".sombra").classList.remove("sombrear");
-    document.querySelector(".CadastroBemSucedido").classList.remove("aparecerMensagemCBS");
-    setTimeout(() => {
-        document.querySelector(".CadastroBemSucedido").style.display = 'none'
-    }, 600);
-});
+const camposCadastro = [
+    'nome', 'endereco', 'telefone', 'cnpjCadastro',
+    'email', 'senhaCadastro', 'inicio', 'final'
+];
 
-document.querySelector(".fecharMensagem3").addEventListener("click", () => {
-    document.querySelector(".sombra").classList.remove("sombrear");
-    document.querySelector(".LoginBemSucedido").classList.remove("aparecerMensagemLBS");
-    setTimeout(() => {
-        document.querySelector(".LoginBemSucedido").style.display = 'none'
-    }, 600);
-});
-
-// VALIDAR TELEFONE
 function validarTelefone(telefone) {
     const limpo = telefone.replace(/\D/g, '');
     return limpo.length === 10 || limpo.length === 11;
 }
 
-// VALIDAR EMAIL
 function validarEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
 }
 
-// VERIFICAR CAMPOS DO FORMULÁRIO DE CADASTRO
 function verificarCamposCadastro() {
-    const todosPreenchidos = camposCadastro
-        .filter(id => id !== 'inicio' && id !== 'final')
+    const checkboxTemporario = document.querySelector('.checkbox').checked;
+
+    let camposObrigatorios = [
+        'nome', 'endereco', 'telefone',
+        'cnpjCadastro', 'email', 'senhaCadastro'
+    ];
+
+    if (checkboxTemporario) {
+        camposObrigatorios.push('inicio', 'final');
+    }
+
+    const todosPreenchidos = camposObrigatorios
         .every(id => document.getElementById(id).value.trim() !== '');
 
     if (!todosPreenchidos) {
-        document.querySelector('.btnCadastrar').disabled = true;
+        document.querySelector('#btnCadastrar').disabled = true;
         return;
     }
 
     const telefoneValido = validarTelefone(document.getElementById('telefone').value);
-    const cnpjValido = validarCNPJ(document.getElementById('cnpjCadastrar').value);
+    const cnpjValido = validarCNPJ(document.getElementById('cnpjCadastro').value);
     const emailValido = validarEmail(document.getElementById('email').value);
 
-    console.log({ todosPreenchidos, telefoneValido, cnpjValido, emailValido });
-
-    document.querySelector('.btnCadastrar').disabled = !(telefoneValido && cnpjValido && emailValido);
+    document.querySelector('#btnCadastrar').disabled = !(telefoneValido && cnpjValido && emailValido);
 }
 
-// APLICAR A VERIFICAÇÃO EM CADA CAMPO
 camposCadastro.forEach(id => {
-    document.getElementById(id).addEventListener('input', verificarCamposCadastro);
+    const input = document.getElementById(id);
+    if (input) {
+        input.addEventListener('input', verificarCamposCadastro);
+    }
 });
 
-// BOTÃO DE CADASTRO
-document.querySelector('.btnCadastrar').addEventListener('click', () => {
+document.querySelector('#btnCadastrar').addEventListener('click', () => {
     const temporario = document.querySelector('.checkbox').checked;
 
     const novoUsuario = {
         nome: document.querySelector('.inputNome').value.trim(),
         endereco: document.querySelector('.inputEndereco').value.trim(),
         telefone: document.querySelector('.inputTelefone').value.trim(),
-        cnpj: document.querySelector('.inputCNPJCadastrar').value.trim(),
+        cnpj: document.querySelector('.inputCNPJCadastro').value.trim(),
         email: document.querySelector('.inputEmail').value.trim(),
-        senha: document.querySelector('.inputSenhaCadastrar').value.trim(),
+        senha: document.querySelector('.inputSenhaCadastro').value.trim(),
         temporario: temporario
     };
 
-    // Se for ponto de apoio temporário, salva os campos de data (se existirem)
     if (temporario) {
         novoUsuario.inicio = document.getElementById('inicio').value.trim();
         novoUsuario.final = document.getElementById('final').value.trim();
@@ -335,20 +367,49 @@ document.querySelector('.btnCadastrar').addEventListener('click', () => {
     lista.push(novoUsuario);
     localStorage.setItem('usuarios', JSON.stringify(lista));
 
-    // Limpar campos
     camposCadastro.forEach(id => {
         const input = document.getElementById(id);
-        input.value = '';
-        input.classList.remove('inputPreenchido');
+        if (input) {
+            input.value = '';
+            input.classList.remove('inputPreenchido');
+            input.classList.remove('not-empty');
+        }
     });
-    document.querySelector('.checkbox').checked = false;
-    document.querySelector('.btnCadastrar').disabled = true;
 
-    document.querySelector(".CadastroBemSucedido").style.display = 'flex'
+    document.querySelector('.checkbox').checked = false;
+    document.querySelector('#btnCadastrar').disabled = true;
+
+    document.querySelector(".CadastroBemSucedido").style.display = 'flex';
     setTimeout(() => {
         document.querySelector(".CadastroBemSucedido").classList.add("aparecerMensagemCBS");
     }, 200);
     document.querySelector(".sombra").classList.add("sombrear");
+});
+
+document.querySelector('.LoginBemSucedido header svg').addEventListener('click', () => {
+    document.querySelector('.sombra').classList.remove('sombrear');
+    document.querySelector('.LoginBemSucedido').classList.remove('aparecerMensagemLBS');
+});
+
+document.querySelector('.CadastroBemSucedido header svg').addEventListener('click', () => {
+    document.querySelector('.sombra').classList.remove('sombrear');
+    document.querySelector('.CadastroBemSucedido').classList.remove('aparecerMensagemCBS');
+});
+
+document.querySelector('.DoadorNaoEncontrado header svg').addEventListener('click', () => {
+    document.querySelector('.sombra').classList.remove('sombrear');
+    document.querySelector('.DoadorNaoEncontrado').classList.remove('aparecerMensagemDNE');
+});
+
+const checkbox = document.querySelector('.checkbox');
+const divData = document.querySelector('.divDataPA');
+
+checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+        divData.classList.add('mostrarInputsData');
+    } else {
+        divData.classList.remove('mostrarInputsData');
+    }
 });
 
 document.querySelectorAll('input').forEach(input => {
@@ -360,3 +421,151 @@ document.querySelectorAll('input').forEach(input => {
         }
     });
 });
+
+document.querySelector('.divLoginPA>span button').addEventListener('click', () => {
+    document.querySelector('.divLoginPA').classList.add('divLoginParaEsquerda');
+    document.querySelector('.divCadastrarPA').classList.add('divCadastroParaEsquerda');
+});
+
+document.querySelector('.divLoginDoador>span button').addEventListener('click', () => {
+    document.querySelector('.divLoginDoador').classList.add('divLoginParaDireita');
+    document.querySelector('.divCadastrarDO').classList.add('divCadastroParaDireita');
+});
+
+document.querySelector('.divCadastrarDO>span button').addEventListener('click', () => {
+    document.querySelector('.divLoginDoador').classList.remove('divLoginParaDireita');
+    document.querySelector('.divCadastrarDO').classList.remove('divCadastroParaDireita');
+});
+
+document.querySelector('.divCadastrarPA>span button').addEventListener('click', () => {
+    document.querySelector('.divLoginPA').classList.remove('divLoginParaEsquerda');
+    document.querySelector('.divCadastrarPA').classList.remove('divCadastroParaEsquerda');
+});
+
+function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g, '');
+    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+
+    let soma = 0;
+    for (let i = 0; i < 9; i++) {
+        soma += parseInt(cpf.charAt(i)) * (10 - i);
+    }
+    let resto = (soma * 10) % 11;
+    if (resto === 10 || resto === 11) resto = 0;
+    if (resto !== parseInt(cpf.charAt(9))) return false;
+
+    soma = 0;
+    for (let i = 0; i < 10; i++) {
+        soma += parseInt(cpf.charAt(i)) * (11 - i);
+    }
+    resto = (soma * 10) % 11;
+    if (resto === 10 || resto === 11) resto = 0;
+    return resto === parseInt(cpf.charAt(10));
+}
+
+function verificarCamposLoginDoador() {
+    const cpfDoador = document.getElementById('inputCPFDoador').value.trim();
+    const senhaDoador = document.getElementById('inputSenhaDoador').value.trim();
+    const btnEntrarDoador = document.getElementById('btnEntrarDoador');
+
+    if (validarCPF(cpfDoador) && senhaDoador !== '') {
+        btnEntrarDoador.disabled = false;
+    } else {
+        btnEntrarDoador.disabled = true;
+    }
+}
+
+document.getElementById('inputCPFDoador').addEventListener('input', verificarCamposLoginDoador);
+document.getElementById('inputSenhaDoador').addEventListener('input', verificarCamposLoginDoador);
+
+document.getElementById('btnEntrarDoador').addEventListener('click', () => {
+    const cpfD = document.getElementById('inputCPFDoador').value.trim().replace(/\D/g, '');
+    const senhaD = document.getElementById('inputSenhaDoador').value.trim();
+    const listaDoadores = JSON.parse(localStorage.getItem('doadores')) || [];
+
+    const doadorEncontrado = listaDoadores.find(doador => {
+        const cpfSalvo = (doador.cpf || '').replace(/\D/g, '');
+        return cpfSalvo === cpfD && doador.senha === senhaD;
+    });
+
+    if (doadorEncontrado) {
+        document.querySelector('.LoginBemSucedido').style.display = 'flex';
+        setTimeout(() => {
+            document.querySelector('.LoginBemSucedido').classList.add('aparecerMensagemLBS');
+        }, 200);
+        document.querySelector('.sombra').classList.add('sombrear');
+    } else {
+        document.querySelector('.sombra').classList.add('sombrear');
+        document.querySelector('.DoadorNaoEncontrado').style.display = 'flex';
+        setTimeout(() => {
+            document.querySelector('.DoadorNaoEncontrado').classList.add('aparecerMensagemDNE');
+        }, 300);
+    }
+});
+
+function verificarCamposCadastroDoador() {
+    const nome = document.getElementById('nomeDoador').value.trim();
+    const endereco = document.getElementById('enderecoDoador').value.trim();
+    const telefone = document.getElementById('telefoneDoador').value.trim();
+    const cpf = document.getElementById('cpfCadastroDoador').value.trim();
+    const email = document.getElementById('emailDoador').value.trim();
+    const senha = document.getElementById('senhaCadastroDoador').value.trim();
+
+    const btnCadastrar = document.getElementById('btnCadastrarDoador');
+
+    const todosPreenchidos = nome && endereco && telefone && cpf && email && senha;
+    const telefoneValido = validarTelefone(telefone);
+    const cpfValido = validarCPF(cpf);
+    const emailValido = validarEmail(email);
+
+    btnCadastrar.disabled = !(todosPreenchidos && telefoneValido && cpfValido && emailValido);
+}
+
+function cadastrarDoador() {
+    const nome = document.getElementById('nomeDoador').value.trim();
+    const endereco = document.getElementById('enderecoDoador').value.trim();
+    const telefone = document.getElementById('telefoneDoador').value.trim();
+    const cpf = document.getElementById('cpfCadastroDoador').value.trim();
+    const email = document.getElementById('emailDoador').value.trim();
+    const senha = document.getElementById('senhaCadastroDoador').value.trim();
+
+    const doador = {
+        nome,
+        endereco,
+        telefone,
+        cpf,
+        email,
+        senha
+    };
+
+    const doadoresSalvos = JSON.parse(localStorage.getItem('doadores')) || [];
+    doadoresSalvos.push(doador);
+
+    localStorage.setItem('doadores', JSON.stringify(doadoresSalvos));
+
+    document.querySelector(".CadastroBemSucedido").style.display = 'flex';
+    setTimeout(() => {
+        document.querySelector(".CadastroBemSucedido").classList.add("aparecerMensagemCBS");
+    }, 200);
+    document.querySelector(".sombra").classList.add("sombrear");
+
+    document.getElementById('nomeDoador').value = '';
+    document.getElementById('enderecoDoador').value = '';
+    document.getElementById('telefoneDoador').value = '';
+    document.getElementById('cpfCadastroDoador').value = '';
+    document.getElementById('emailDoador').value = '';
+    document.getElementById('senhaCadastroDoador').value = '';
+    document.getElementById('btnCadastrarDoador').disabled = true;
+}
+
+[
+    'nomeDoador', 'enderecoDoador', 'telefoneDoador',
+    'cpfCadastroDoador', 'emailDoador', 'senhaCadastroDoador'
+].forEach(id => {
+    const input = document.getElementById(id);
+    if (input) {
+        input.addEventListener('input', verificarCamposCadastroDoador);
+    }
+});
+
+document.getElementById('btnCadastrarDoador').addEventListener('click', cadastrarDoador);

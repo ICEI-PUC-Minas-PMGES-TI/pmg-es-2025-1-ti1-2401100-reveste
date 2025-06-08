@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desapegai</title>
-    <link rel="stylesheet" href="./main.css">
+    <title>Desapeguai</title>
+    <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,62 +15,73 @@
 
 <body>
     <div class="sombra">
-        <div class="PontoDeApoioNaoEncontrado">
+        <div class="LoginBemSucedido">
             <header>
-                <svg class="fecharMensagem1" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <svg id="fecharM1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-x" viewBox="0 0 16 16">
                     <path
                         d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
                 </svg>
             </header>
-            <h1>Ponto de Apoio não encontrado!</h1>
+            <h1>Login bem sucedido</h1>
+        </div>
+
+        <div class="PontoDeApoioNaoEncontrado">
+            <header>
+                <svg id="fecharM2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-x" viewBox="0 0 16 16">
+                    <path
+                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                </svg>
+            </header>
+            <h1>Ponto de Apoio não encontrado</h1>
         </div>
 
         <div class="CadastroBemSucedido">
             <header>
-                <svg class="fecharMensagem2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <svg id="fecharM3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-x" viewBox="0 0 16 16">
                     <path
                         d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
                 </svg>
             </header>
-            <h1>Cadastro feito com sucesso!</h1>
+            <h1>Cadastrado com sucesso!</h1>
         </div>
 
-        <div class="LoginBemSucedido">
+        <div class="DoadorNaoEncontrado">
             <header>
-                <svg class="fecharMensagem3" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <svg id="fecharM4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-x" viewBox="0 0 16 16">
                     <path
                         d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
                 </svg>
             </header>
-            <h1>Login bem sucedido!</h1>
+            <h1>Usuário não encontrado!</h1>
         </div>
     </div>
 
-    <div class="divBannerCeuAzul"></div>
-    <div class="containerInicial">
-        <main class="mainPapeis">
-            <img class="logo" src="./imgs/Logo.svg" alt="">
-            <h2>Doando o que não precisa para ajudar quem necessita.</h2>
-            <nav>
-                <div id="divPapel" class="divsPapeis">
-                    <div class="divImg1"></div>
-                    <h1>Quero Roupa</h1>
-                </div>
-                <div id="divPapel2" class="divsPapeis">
-                    <div class="divImg2"></div>
-                    <h1>Quero Doar</h1>
-                </div>
-                <div id="divPapel3" class="divsPapeis">
-                    <div class="divImg3"></div>
-                    <h1>Sou Ponto de Apoio</h1>
-                </div>
-            </nav>
+    <div class="container">
+        <img id="logo" class="animated-4" src="imgs/Logo.svg" alt="">
+        <h1 id="desc" class="animated-4">Doando o que não precisa para ajudar quem necessita</h1>
 
-            <button class="btnProsseguir" disabled>
-                <span>PROSSEGUIR</span>
+        <nav>
+            <div id="divPapel1" class="animated-1 delay-1">
+                <div class="img1"></div>
+                <h2>Quero Roupa</h2>
+            </div>
+            <div id="divPapel2" class="animated-2 delay-2">
+                <div class="img2"></div>
+                <h2>Quero Doar</h2>
+            </div>
+            <div id="divPapel3" class="animated-3 delay-3">
+                <div class="img3"></div>
+                <h2>Sou Ponto de Apoio</h2>
+            </div>
+        </nav>
+
+        <button id="btnProsseguir" class="animated-2" disabled>
+            <span>Prosseguir</span>
+            <div>
                 <svg class="primeiraSeta" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                     <path
@@ -81,175 +92,169 @@
                     <path
                         d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
                 </svg>
-            </button>
-        </main>
+            </div>
+        </button>
     </div>
 
-    <!-----------------------------------------------------------------------Login & Cadastro de PA----------------------------------------------------------------------->
 
-    <div class="containerLoginECadastrar">
-        <div class="imagemIgreja"></div>
+    <div class="containerPA">
+        <div class="imgIgreja"></div>
         <header>
-            <button class="btnVoltarLoginECadastro" href="/Pagina Inicial/index.html">
+            <button class="btnVoltar1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-arrow-left-square" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                    class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <path
+                        d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
                 </svg>
                 <span>Voltar</span>
             </button>
         </header>
+        <div class="divLoginPA">
+            <h1>Login</h1>
 
-        <main class="mainLoginECadastro">
-            <div class="containerLogin">
-                <h1>Login</h1>
-
-                <div class="inputs">
-                    <div>
-                        <input class="inputCNPJ" maxlength="18" type="text" required>
-                        <span class="spanCNPJ">CNPJ:</span>
-                    </div>
-
-                    <div>
-                        <input type="password" class="inputSenha" maxlength="30" required>
-                        <span class="spanSenha">Senha:</span>
-                    </div>
-                    <a href="">Esqueceu a senha?</a>
-                </div>
-                <button class="btnEntrar" disabled>Entrar</button>
-                <div class="divSC">
-                    <span>Não cadastrou o seu ponto de apoio? <button
-                            class="buttonCadastrar">Cadastrar-se</button></span>
-                </div>
+            <div class="divInputsLogin">
+                <span>CNPJ</span>
+                <input type="text" id="inputCNPJ">
+            </div>
+            <div class="divInputsLogin">
+                <span>Senha</span>
+                <input type="password" id="inputSenha" maxlength="100">
             </div>
 
+            <div class="link-esqueceu-a-senha">
+                <a href="">Esqueceu a senha?</a>
+            </div>
+
+            <button id="btnEntrar" disabled>Entrar</button>
+
+            <span>Não cadastrou seu ponto de apoio? <button>Cadastrar-se</button></span>
+        </div>
+
+        <div class="divCadastrarPA">
+            <h1>Cadastrar</h1>
+
             <div class="containerCadastrar">
-                <h1>Cadastrar</h1>
+                <div class="divInputsCadastrar">
+                    <span>Nome:</span>
+                    <input type="text" id="nome" class="inputNome">
+                </div>
+                <div class="divInputsCadastrar">
+                    <span>Endereço:</span>
+                    <input type="text" id="endereco" class="inputEndereco">
+                </div>
+                <div class="containerInputsCadastro">
+                    <div class="divInputsCadastrar">
+                        <span>Telefone:</span>
+                        <input type="text" id="telefone" class="inputTelefone">
+                    </div>
 
-                <div class="inputsCadastrar">
-                    <div>
-                        <input type="text" class="inputNome" id="nome">
-                        <span class="spanNome">Nome:</span>
+                    <div class="divInputsCadastrar">
+                        <span>CNPJ:</span>
+                        <input type="text" id="cnpjCadastro" class="inputCNPJCadastro">
                     </div>
-                    <div>
-                        <input type="text" class="inputEndereco" id="endereco">
-                        <span class="spanEndereco">Endereço:</span>
-                    </div>
-                    <div class="containerCPNJeTelefone">
-                        <div>
-                            <input type="text" class="inputTelefone" id="telefone">
-                            <span class="spanTelefone">Telefone:</span>
-                        </div>
-
-                        <div>
-                            <input type="text" class="inputCNPJCadastrar" id="cnpjCadastrar">
-                            <span class="spanCNPJCadastrar">CNPJ:</span>
-                        </div>
-                    </div>
-                    <div>
-                        <input type="text" class="inputEmail" id="email">
-                        <span class="spanEmail">Email:</span>
-                    </div>
-                    <div>
-                        <input type="password" class="inputSenhaCadastrar" id="senhaCadastrar" maxlength="30">
-                        <span class="spanSenhaCadastrar">Senha:</span>
-                    </div>
+                </div>
+                <div class="divInputsCadastrar">
+                    <span>Email:</span>
+                    <input type="text" id="email" class="inputEmail">
+                </div>
+                <div class="divInputsCadastrar">
+                    <span>Senha:</span>
+                    <input type="text" id="senhaCadastro" class="inputSenhaCadastro">
                 </div>
                 <div class="divTemporario">
                     <div class="divCheckbox">
                         <input class="checkbox" type="checkbox">
-                        <span>PA Temporário?</span>
+                        <span>Temporária?</span>
                     </div>
 
                     <div class="divDataPA">
-                        <input class="inputInicio" id="inicio" type="text">
-                        <span>até</span>
-                        <input class="inputFinal" id="final" type="text">
+                        <input class="inputInicio" id="inicio" type="text" placeholder="De">
+                        <input class="inputFinal" id="final" type="text" placeholder="Até">
                     </div>
                 </div>
-                <button class="btnCadastrar" disabled>Cadastrar</button>
-                <div class="divCC">
-                    <span>Já cadastrou um ponto de apoio? <button class="buttomEntrar">Entrar</button></span>
-                </div>
             </div>
-        </main>
+
+            <button id="btnCadastrar" disabled>Cadastrar</button>
+
+            <span>Já é cadastrado? <button>Entrar</button></span>
+        </div>
     </div>
 
-    <!-----------------------------------------------------------------------Login & Cadastro de PA----------------------------------------------------------------------->
-
-    <div class="containerLoginECadastrarDoador">
+    <div class="containerDoador">
         <header>
-            <button class="btnVoltarLoginECadastroDoador" href="/Pagina Inicial/index.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-arrow-left-square" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                </svg>
+            <button class="btnVoltar2">
                 <span>Voltar</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <path
+                        d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+                </svg>
             </button>
         </header>
 
-        <main class="mainLoginECadastroDoador">
-            <div class="containerLoginDoador">
-                <h1>Login</h1>
+        <div class="divLoginDoador">
+            <h1>Login</h1>
 
-                <div class="inputs">
-                    <div>
-                        <input class="inputNomeDoador" maxlength="18" type="text" required>
-                        <span class="spanNomeDoador">Nome</span>
-                    </div>
+            <div class="divInputsLoginDoador">
+                <span>CPF</span>
+                <input type="text" id="inputCPFDoador">
+            </div>
+            <div class="divInputsLogin">
+                <span>Senha</span>
+                <input type="password" id="inputSenhaDoador" maxlength="100">
+            </div>
 
-                    <div>
-                        <input type="password" class="inputSenhaDoador" maxlength="30" required>
-                        <span class="spanSenhaDoador">Senha:</span>
-                    </div>
-                    <a href="">Esqueceu a senha?</a>
+            <div class="link-esqueceu-a-senha">
+                <a href="">Esqueceu a senha?</a>
+            </div>
+
+            <button id="btnEntrarDoador" disabled>Entrar</button>
+
+            <span>Não cadastrou seu ponto de apoio? <button>Cadastrar-se</button></span>
+        </div>
+
+        <div class="divCadastrarDO">
+            <h1>Cadastrar</h1>
+
+            <div class="containerCadastrarDO">
+                <div class="divInputsCadastrarDO">
+                    <span>Nome:</span>
+                    <input type="text" id="nomeDoador" class="inputNomeDoador">
                 </div>
-                <button class="btnEntrarDoador" disabled>Entrar</button>
-                <div class="divSC">
-                    <span>Não cadastrou o seu ponto de apoio? <button
-                            class="buttomCadastrarDoador">Cadastrar-se</button></span>
+                <div class="divInputsCadastrarDO">
+                    <span>Endereço:</span>
+                    <input type="text" id="enderecoDoador" class="inputEnderecoDoador">
+                </div>
+                <div class="containerInputsCadastroDO">
+                    <div class="divInputsCadastrarDO">
+                        <span>Telefone:</span>
+                        <input type="text" id="telefoneDoador" class="inputTelefoneDoador">
+                    </div>
+
+                    <div class="divInputsCadastrarDO">
+                        <span>CPF:</span>
+                        <input type="text" id="cpfCadastroDoador" class="inputCPFCadastroDoador">
+                    </div>
+                </div>
+                <div class="divInputsCadastrarDO">
+                    <span>Email:</span>
+                    <input type="text" id="emailDoador" class="inputEmailDador">
+                </div>
+                <div class="divInputsCadastrarDO">
+                    <span>Senha:</span>
+                    <input type="text" id="senhaCadastroDoador" class="inputSenhaCadastroDoador">
                 </div>
             </div>
 
-            <div class="containerCadastrarD">
-                <h1>Cadastrar</h1>
+            <button id="btnCadastrarDoador" disabled>Cadastrar</button>
 
-                <div class="inputsCadastrarD">
-                    <div>
-                        <input type="text" class="inputNomeD" id="nome">
-                        <span class="spanNome">Nome:</span>
-                    </div>
-                        <div>
-                            <input type="text" class="inputTelefone" id="telefoneD">
-                            <span class="spanTelefone">Telefone:</span>
-                        </div>
-
-                        <div>
-                            <input type="text" class="inputCNPJCadastrar" id="cpfCadastrarD">
-                            <span class="spanCNPJCadastrar">CNPJ:</span>
-                        </div>
-                    <div>
-                        <input type="text" class="inputEmailD" id="emailD">
-                        <span class="spanEmailD">Email:</span>
-                    </div>
-                    <div>
-                        <input type="password" class="inputSenhaCadastrarD" id="senhaCadastrarD" maxlength="30">
-                        <span class="spanSenhaCadastrarD">Senha:</span>
-                    </div>
-                </div>
-                <button class="btnCadastrarD" disabled>Cadastrar</button>
-                <div class="divCC">
-                    <span>Já cadastrou um ponto de apoio? <button class="buttomEntrarD">Entrar</button></span>
-                </div>
-            </div>
-        </main>
+            <span>Já é cadastrado? <button>Entrar</button></span>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
