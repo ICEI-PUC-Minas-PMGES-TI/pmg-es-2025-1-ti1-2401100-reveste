@@ -9,11 +9,10 @@
     <link href="../css/agendamentos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <i class="fas fa-bars menu-toggle" onclick="toggleSidebar()"></i>
-            CRAS - VILA ANTENA
+            <span id="ponto-apoio-nome">Carregando...</span>
             <div class="sidebar-logo">
                 <img src="https://png.pngtree.com/element_our/png/20181214/people-church-logo-design-png_268571.jpg" alt="Logo CRAS" class="logo-img">
             </div>
@@ -52,7 +51,6 @@
         </ul>
     </div>
 
-    <!-- Main Content -->
     <div class="main-content">
         <div class="header">
             <button class="menu-toggle d-md-none" onclick="toggleSidebar()">
@@ -62,43 +60,11 @@
 
         <h1 class="page-title">Agendamentos</h1>
 
-        <div class="appointments-grid">
-            <div class="appointment-card" onclick="openAppointmentModal(1)">
-                <div class="appointment-title">Agendamento #1</div>
-                <div class="appointment-status accepted">Aceito</div>
-                <div class="appointment-details">
-                    <strong>João Silva</strong><br>
-                    23/05/25 - 14:00<br>
-                    CPF 14225467876<br>
-                    Número: (31) 98409-7102
-                </div>
-            </div>
-
-            <div class="appointment-card" onclick="openAppointmentModal(2)">
-                <div class="appointment-title">Agendamento #2</div>
-                <div class="appointment-status pending">Pendente</div>
-                <div class="appointment-details">
-                    <strong>Maria Santos</strong><br>
-                    24/05/25 - 15:30<br>
-                    CPF 98765432100<br>
-                    Número: (31) 99876-5432
-                </div>
-            </div>
-
-            <div class="appointment-card" onclick="openAppointmentModal(3)">
-                <div class="appointment-title">Agendamento #3</div>
-                <div class="appointment-status declined">Recusado</div>
-                <div class="appointment-details">
-                    <strong>Pedro Oliveira</strong><br>
-                    25/05/25 - 09:00<br>
-                    CPF 55544433322<br>
-                    Número: (31) 91234-5678
-                </div>
-            </div>
+        <div class="appointments-grid" id="appointments-grid">
+            <!-- Agendamentos serão carregados aqui via JavaScript -->
         </div>
     </div>
 
-    <!-- Modal Pop-up -->
     <div class="modal-overlay" id="appointmentModal" onclick="closeModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
@@ -123,11 +89,6 @@
                     <div class="detail-item">
                         <label>CPF:</label>
                         <span id="modal-cpf">-</span>
-                    </div>
-                    
-                    <div class="detail-item">
-                        <label>Número:</label>
-                        <span id="modal-numero">-</span>
                     </div>
                     
                     <div class="detail-item">
@@ -158,7 +119,6 @@
         </div>
     </div>
 
-    <!-- Contact Section -->
     <div class="contact-section">
         <div>Para chamar o suporte:</div>
         <div class="contact-links">
@@ -168,56 +128,114 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/agendamento.js"></script>
     <script>
-        // Dados simulados baseados no JSON fornecido
-        const mockData = {
-            agendamento: [
-                {
-                    id: 1,
-                    idPontoApoio: 1,
-                    Nome: "João Silva",
-                    cpf: "14225467876",
-                    numero: "(31) 98409-7102",
-                    email: "joao.silva@email.com",
-                    data_hora_agendamento: "2025-05-23T14:00",
-                    status: "accepted"
-                },
-                {
-                    id: 2,
-                    idPontoApoio: 2,
-                    Nome: "Maria Santos",
-                    cpf: "98765432100",
-                    numero: "(31) 99876-5432",
-                    email: "maria.santos@email.com",
-                    data_hora_agendamento: "2025-05-24T15:30",
-                    status: "pending"
-                },
-                {
-                    id: 3,
-                    idPontoApoio: 3,
-                    Nome: "Pedro Oliveira",
-                    cpf: "55544433322",
-                    numero: "(31) 91234-5678",
-                    email: "pedro.oliveira@email.com",
-                    data_hora_agendamento: "2025-05-25T09:00",
-                    status: "declined"
+        const pontoApoio = [
+            { id: 1, nome: "Igreja Batista" },
+            { id: 2, nome: "ONG Reveste" },
+            { id: 3, nome: "Teste" }
+        ];
+
+        let currentPontoApoioId = null;
+        let agendamentos = [];
+
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function loadAgendamentos() {
+            try {
+                const savedAgendamentos = localStorage.getItem('agendamentos');
+                if (savedAgendamentos) {
+                    agendamentos = JSON.parse(savedAgendamentos);
+                } else {
+                    agendamentos = [];
                 }
-            ],
-            pontoApoio: [
-                {
-                    id: 1,
-                    nome: "Igreja Batista"
-                },
-                {
-                    id: 2,
-                    nome: "ONG Reveste"
-                },
-                {
-                    id: 3,
-                    nome: "Teste"
-                }
-            ]
-        };
+            } catch (error) {
+                console.error('Erro ao carregar agendamentos do localStorage:', error);
+                agendamentos = [];
+            }
+        }
+        function saveAgendamentos() {
+            try {
+                localStorage.setItem('agendamentos', JSON.stringify(agendamentos));
+            } catch (error) {
+                console.error('Erro ao salvar agendamentos no localStorage:', error);
+            }
+        }
+
+        function getAgendamentosByPontoApoio(pontoApoioId) {
+            
+            return agendamentos.filter(agendamento => agendamento.idPontoApoio == pontoApoioId);
+        }
+
+        function renderAgendamentos() {
+            const grid = document.getElementById('appointments-grid');
+            const filteredAgendamentos = getAgendamentosByPontoApoio(currentPontoApoioId);
+            if (currentPontoApoioId == null) 
+            {
+                grid.innerHTML = `
+                    <div class="no-appointments">
+                        <i class="fas fa-calendar-times"></i>
+                        <h3>Selecione um ponto de apoio (query string "?id=")</h3>
+                    </div>
+                `;
+                return;
+            }
+            if (filteredAgendamentos.length === 0) {
+                grid.innerHTML = `
+                    <div class="no-appointments">
+                        <i class="fas fa-calendar-times"></i>
+                        <h3>Nenhum agendamento encontrado</h3>
+                        <p>Não há agendamentos para este ponto de apoio.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = '';
+            
+            filteredAgendamentos.forEach((agendamento, index) => {
+                const card = document.createElement('div');
+                card.className = 'appointment-card';
+                card.onclick = () => openAppointmentModal(agendamento.id);
+                
+                card.innerHTML = `
+                    <div class="appointment-title">Agendamento #${agendamento.id}</div>
+                    <div class="appointment-status ${agendamento.status}">${getStatusText(agendamento.status)}</div>
+                    <div class="appointment-details">
+                        <strong>${agendamento.nome}</strong><br>
+                        ${formatDateTime(agendamento.data_horario_doacao)}<br>
+                        CPF ${formatCPF(agendamento.cpf)}<br>
+                        ${agendamento.email}
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+
+        function updatePontoApoioTitle() {
+            const titleElement = document.getElementById('ponto-apoio-nome');
+            
+            if (currentPontoApoioId) {
+                const ponto = pontoApoio.find(p => p.id == currentPontoApoioId);
+                titleElement.textContent = ponto ? ponto.nome : 'Ponto de Apoio Não Encontrado';
+            } else {
+                titleElement.textContent = 'Ponto de Apoio Não Encontrado ';
+            }
+        }
+
+        function initializePage() {
+            currentPontoApoioId = getUrlParameter('id');
+            
+            loadAgendamentos();
+            
+            updatePontoApoioTitle();
+            
+            renderAgendamentos();
+        }
 
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
@@ -228,7 +246,6 @@
             const submenu = document.getElementById(menuId + '-submenu');
             const chevron = document.getElementById(menuId + '-chevron');
             
-            // Close other submenus
             document.querySelectorAll('.submenu').forEach(menu => {
                 if (menu.id !== menuId + '-submenu') {
                     menu.classList.remove('show');
@@ -241,52 +258,48 @@
                 }
             });
             
-            // Toggle current submenu
             submenu.classList.toggle('show');
             chevron.classList.toggle('rotate');
         }
 
         function openAppointmentModal(appointmentId) {
-            const appointment = mockData.agendamento.find(a => a.id === appointmentId);
-            const pontoApoio = mockData.pontoApoio.find(p => p.id === appointment.idPontoApoio);
+            const appointment = agendamentos.find(a => a.id == appointmentId);
             
-            if (appointment) {
-                // Preencher os dados no modal
-                document.getElementById('modal-id').textContent = appointment.id;
-                document.getElementById('modal-nome').textContent = appointment.Nome;
-                document.getElementById('modal-cpf').textContent = formatCPF(appointment.cpf);
-                document.getElementById('modal-numero').textContent = appointment.numero;
-                document.getElementById('modal-email').textContent = appointment.email;
-                document.getElementById('modal-data-hora').textContent = formatDateTime(appointment.data_hora_agendamento);
-                document.getElementById('modal-ponto-apoio').textContent = pontoApoio ? pontoApoio.nome : 'Não informado';
-                
-                // Status
-                const statusElement = document.getElementById('modal-status');
-                const statusText = getStatusText(appointment.status);
-                statusElement.textContent = statusText;
-                statusElement.className = `status-badge ${appointment.status}`;
-                
-                // Configurar footer baseado no status
-                updateModalFooter(appointment);
-                
-                // Mostrar modal
-                document.getElementById('appointmentModal').style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+            if (!appointment) {
+                showNotification('Agendamento não encontrado!', 'warning');
+                return;
             }
+
+            const pontoApoioObj = pontoApoio.find(p => p.id == appointment.idPontoApoio);
+            
+            document.getElementById('modal-id').textContent = appointment.id;
+            document.getElementById('modal-nome').textContent = appointment.nome;
+            document.getElementById('modal-cpf').textContent = formatCPF(appointment.cpf);
+            document.getElementById('modal-email').textContent = appointment.email;
+            document.getElementById('modal-data-hora').textContent = formatDateTime(appointment.data_horario_doacao);
+            document.getElementById('modal-ponto-apoio').textContent = pontoApoioObj ? pontoApoioObj.nome : 'Não informado';
+            
+            const statusElement = document.getElementById('modal-status');
+            const statusText = getStatusText(appointment.status);
+            statusElement.textContent = statusText;
+            statusElement.className = `status-badge ${appointment.status}`;
+            
+            updateModalFooter(appointment);
+            
+            document.getElementById('appointmentModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
 
         function updateModalFooter(appointment) {
             const footer = document.getElementById('modal-footer');
             
             if (appointment.status === 'pending') {
-                // Para agendamentos pendentes, mostrar opções de aceitar/recusar
                 footer.innerHTML = `
                     <button class="btn-secondary" onclick="closeModal()">Fechar</button>
                     <button class="btn-danger" onclick="rejectAppointment(${appointment.id})">Recusar</button>
                     <button class="btn-success" onclick="acceptAppointment(${appointment.id})">Aceitar</button>
                 `;
             } else {
-                // Para agendamentos já processados, apenas mostrar fechar
                 footer.innerHTML = `
                     <button class="btn-secondary" onclick="closeModal()">Fechar</button>
                 `;
@@ -294,61 +307,42 @@
         }
 
         function acceptAppointment(appointmentId) {
-            const appointment = mockData.agendamento.find(a => a.id === appointmentId);
-            if (appointment) {
-                appointment.status = 'accepted';
+            const appointmentIndex = agendamentos.findIndex(a => a.id == appointmentId);
+            if (appointmentIndex !== -1) {
+                agendamentos[appointmentIndex].status = 'accepted';
+                saveAgendamentos();
                 
-                // Atualizar status no modal
                 const statusElement = document.getElementById('modal-status');
                 statusElement.textContent = 'Aceito';
                 statusElement.className = 'status-badge accepted';
                 
-                // Atualizar footer
-                updateModalFooter(appointment);
+                updateModalFooter(agendamentos[appointmentIndex]);
+
+                renderAgendamentos();
                 
-                // Atualizar o card na grid principal
-                updateAppointmentCard(appointmentId, 'accepted');
-                
-                // Mostrar mensagem de sucesso
                 showNotification('Agendamento aceito com sucesso!', 'success');
             }
         }
 
         function rejectAppointment(appointmentId) {
-            const appointment = mockData.agendamento.find(a => a.id === appointmentId);
-            if (appointment) {
-                appointment.status = 'declined';
-                
-                // Atualizar status no modal
+            const appointmentIndex = agendamentos.findIndex(a => a.id == appointmentId);
+            if (appointmentIndex !== -1) {
+                agendamentos[appointmentIndex].status = 'declined';
+                saveAgendamentos();
+
                 const statusElement = document.getElementById('modal-status');
                 statusElement.textContent = 'Recusado';
                 statusElement.className = 'status-badge declined';
                 
-                // Atualizar footer
-                updateModalFooter(appointment);
+                updateModalFooter(agendamentos[appointmentIndex]);
                 
-                // Atualizar o card na grid principal
-                updateAppointmentCard(appointmentId, 'declined');
+                renderAgendamentos();
                 
-                // Mostrar mensagem de sucesso
                 showNotification('Agendamento recusado com sucesso!', 'warning');
             }
         }
 
-        function updateAppointmentCard(appointmentId, newStatus) {
-            // Encontrar o card correspondente e atualizar o status
-            const cards = document.querySelectorAll('.appointment-card');
-            cards.forEach(card => {
-                if (card.getAttribute('onclick').includes(appointmentId)) {
-                    const statusElement = card.querySelector('.appointment-status');
-                    statusElement.className = `appointment-status ${newStatus}`;
-                    statusElement.textContent = getStatusText(newStatus);
-                }
-            });
-        }
-
         function showNotification(message, type) {
-            // Criar elemento de notificação
             const notification = document.createElement('div');
             notification.className = `notification ${type}`;
             notification.innerHTML = `
@@ -356,16 +350,18 @@
                 <span>${message}</span>
             `;
             
-            // Adicionar ao body
             document.body.appendChild(notification);
             
-            // Mostrar com animação
             setTimeout(() => notification.classList.add('show'), 100);
             
-            // Remover após 3 segundos
+
             setTimeout(() => {
                 notification.classList.remove('show');
-                setTimeout(() => document.body.removeChild(notification), 300);
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
             }, 3000);
         }
 
@@ -376,15 +372,14 @@
             }
         }
 
-        function editAppointment() {
-            alert('Função de edição será implementada');
-        }
-
         function formatCPF(cpf) {
-            return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            if (!cpf) return '';
+            const cleanCpf = cpf.replace(/\D/g, '');
+            return cleanCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
         }
 
         function formatDateTime(dateTime) {
+            if (!dateTime) return '';
             const date = new Date(dateTime);
             return date.toLocaleString('pt-BR', {
                 day: '2-digit',
@@ -404,8 +399,8 @@
             return statusMap[status] || 'Desconhecido';
         }
 
-        // Initialize - show Gestão submenu by default since Agendamentos is active
         document.addEventListener('DOMContentLoaded', function() {
+            initializePage();
             toggleSubmenu('gestao');
         });
 
@@ -420,8 +415,6 @@
                 sidebar.classList.remove('show');
             }
         });
-
-        // Close modal with ESC key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeModal();
