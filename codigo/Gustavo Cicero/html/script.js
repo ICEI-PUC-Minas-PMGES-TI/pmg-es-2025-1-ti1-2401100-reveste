@@ -1,96 +1,195 @@
-let listaOngs = JSON.parse(localStorage.getItem('necessidades')) || [];
+// --- Variáveis Globais ---
+let organizations = JSON.parse(localStorage.getItem('organizationNeeds')) || [];
+let editingOrgId = null; // Armazena o ID da ONG que está sendo editada
 
-function adicionarPeca() {
-  const container = document.getElementById('pecasContainer');
+// --- Funções do Modal de Cadastro/Edição de ONG ---
 
-  const div = document.createElement('div');
-  div.classList.add('peca-form');
+// Abre o modal para cadastrar uma nova ONG ou editar uma existente
+function openONGForm(orgId = null) {
+    const modal = document.getElementById('ongFormModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const ongNameInput = document.getElementById('ongName');
+    const itemsContainer = document.getElementById('itemsContainer');
 
-  div.innerHTML = `
-    <input type="text" placeholder="Nome da peça" class="nomePeca" />
-    <input type="text" placeholder="Tamanho" class="tamanhoPeca" />
-    <input type="number" placeholder="Quantidade" class="quantidadePeca" />
-    <select class="prioridadePeca">
-      <option value="Alta">Alta</option>
-      <option value="Média">Média</option>
-      <option value="Baixa">Baixa</option>
-    </select>
-    <button class="removerPeca" onclick="removerPeca(event)">Remover</button>
-  `;
+    itemsContainer.innerHTML = ''; // Limpa os campos de itens
 
-  container.appendChild(div);
-}
-
-// Função para remover uma peça
-function removerPeca(event) {
-  const pecaDiv = event.target.parentElement;
-  pecaDiv.remove();
-}
-
-function salvarONG() {
-  const nome = document.getElementById('nomeONG').value.trim();
-  if (!nome) {
-    alert("Preencha o nome da ONG.");
-    return;
-  }
-
-  const pecas = [];
-  const pecasDivs = document.querySelectorAll('.peca-form');
-
-  pecasDivs.forEach(div => {
-    const nomePeca = div.querySelector('.nomePeca').value.trim();
-    const tamanho = div.querySelector('.tamanhoPeca').value.trim();
-    const quantidade = parseInt(div.querySelector('.quantidadePeca').value.trim());
-    const prioridade = div.querySelector('.prioridadePeca').value;
-
-    if (nomePeca && tamanho && !isNaN(quantidade)) {
-      pecas.push({ nomePeca, tamanho, quantidade, prioridade });
+    if (orgId) {
+        // Modo de edição
+        editingOrgId = orgId;
+        modalTitle.textContent = 'Editar Necessidades da ONG';
+        const orgToEdit = organizations.find(org => org.id === orgId);
+        if (orgToEdit) {
+            ongNameInput.value = orgToEdit.name;
+            orgToEdit.needs.forEach(item => addNewItemField(item)); // Preenche os itens existentes
+        }
+    } else {
+        // Modo de cadastro
+        editingOrgId = null;
+        modalTitle.textContent = 'Cadastrar Necessidades da ONG';
+        ongNameInput.value = '';
+        addNewItemField(); // Adiciona um campo de item vazio para começar
     }
-  });
-
-  if (pecas.length === 0) {
-    alert("Adicione ao menos uma peça válida.");
-    return;
-  }
-
-  const novaONG = {
-    idONG: "ong" + (listaOngs.length + 1),
-    nomeONG: nome,
-    pecasNecessarias: pecas
-  };
-
-  listaOngs.push(novaONG);
-  salvarLocal();
-  atualizarLista();
-  limparFormulario();
+    modal.style.display = 'flex'; // Exibe o modal
 }
 
-function salvarLocal() {
-  localStorage.setItem('necessidades', JSON.stringify(listaOngs));
+// Fecha o modal
+function closeONGFormModal() {
+    document.getElementById('ongFormModal').style.display = 'none';
 }
 
-function atualizarLista() {
-  const listaTextoCopiar = document.getElementById('listaTextoCopiar');
-  
-  listaTextoCopiar.value = "";  
+// Adiciona um novo campo para item de necessidade no formulário do modal
+function addNewItemField(itemData = null) {
+    const itemsContainer = document.getElementById('itemsContainer');
+    const itemDiv = document.createElement('div');
+    itemDiv.classList.add('item-field');
 
-  listaOngs.forEach(ong => {
-    listaTextoCopiar.value += `ONG: ${ong.nomeONG}\n`;
+    itemDiv.innerHTML = `
+        <input type="text" placeholder="Nome do Item (Ex: Calça Jeans)" class="itemName" value="${itemData ? itemData.name : ''}" required />
+        <input type="text" placeholder="Tamanho (Ex: M, 40)" class="itemSize" value="${itemData ? itemData.size : ''}" />
+        <input type="number" placeholder="Quantidade" class="itemQuantity" min="1" value="${itemData ? itemData.quantity : '1'}" required />
+        <select class="itemPriority">
+            <option value="Alta" ${itemData && itemData.priority === 'Alta' ? 'selected' : ''}>Alta</option>
+            <option value="Média" ${itemData && itemData.priority === 'Média' ? 'selected' : ''}>Média</option>
+            <option value="Baixa" ${itemData && itemData.priority === 'Baixa' ? 'selected' : ''}>Baixa</option>
+        </select>
+        <button class="remove-item-btn" onclick="removeItemField(this)">&times;</button>
+    `;
+    itemsContainer.appendChild(itemDiv);
+}
 
-    ong.pecasNecessarias.forEach(p => {
-      listaTextoCopiar.value += `- ${p.quantidade}x ${p.nomePeca} (Tam: ${p.tamanho}, Prioridade: ${p.prioridade})\n`;
+// Remove um campo de item do formulário do modal
+function removeItemField(button) {
+    button.closest('.item-field').remove();
+}
+
+// Salva (cadastra ou edita) a ONG e suas necessidades
+function saveONG() {
+    const ongName = document.getElementById('ongName').value.trim();
+    if (!ongName) {
+        alert('Por favor, preencha o nome da ONG.');
+        return;
+    }
+
+    const itemFields = document.querySelectorAll('.item-field');
+    const needs = [];
+    let isValid = true;
+
+    if (itemFields.length === 0) {
+        alert('Adicione ao menos um item de necessidade.');
+        return;
+    }
+
+    itemFields.forEach(field => {
+        const itemName = field.querySelector('.itemName').value.trim();
+        const itemSize = field.querySelector('.itemSize').value.trim();
+        const itemQuantity = parseInt(field.querySelector('.itemQuantity').value.trim());
+        const itemPriority = field.querySelector('.itemPriority').value;
+
+        if (!itemName || isNaN(itemQuantity) || itemQuantity <= 0) {
+            alert('Por favor, preencha todos os campos do item corretamente (Nome e Quantidade válida).');
+            isValid = false;
+            return;
+        }
+        needs.push({ name: itemName, size: itemSize, quantity: itemQuantity, priority: itemPriority });
     });
 
-    listaTextoCopiar.value += '\n';
-  });
-}
-function Enviar_necessidades(event) {
-  const pecaDiv = event.target.parentElement;
-  pecaDiv.send();
+    if (!isValid) return;
+
+    if (editingOrgId) {
+        // Atualiza ONG existente
+        const index = organizations.findIndex(org => org.id === editingOrgId);
+        if (index !== -1) {
+            organizations[index] = { id: editingOrgId, name: ongName, needs: needs };
+            alert('Necessidades da ONG atualizadas com sucesso!');
+        }
+    } else {
+        // Cadastra nova ONG
+        const newOrg = { id: 'org_' + Date.now(), name: ongName, needs: needs };
+        organizations.push(newOrg);
+        alert('ONG cadastrada com sucesso!');
+    }
+
+    saveToLocalStorage();
+    renderONGList();
+    closeONGFormModal();
 }
 
-document.getElementById('adicionarPeca').addEventListener('click', adicionarPeca);
+// --- Funções de Gerenciamento de Dados e Exibição ---
 
+// Salva a lista de ONGs no Local Storage
+function saveToLocalStorage() {
+    localStorage.setItem('organizationNeeds', JSON.stringify(organizations));
+}
+
+// Renderiza a lista de ONGs e suas necessidades na página
+function renderONGList() {
+    const ongListDisplay = document.getElementById('ongListDisplay');
+    const needsTextToCopy = document.getElementById('needsTextToCopy');
+    
+    ongListDisplay.innerHTML = '';
+    needsTextToCopy.value = '';
+
+    if (organizations.length === 0) {
+        ongListDisplay.innerHTML = '<p style="text-align: center;">Nenhuma ONG cadastrada ainda. Clique em "+ Cadastrar Nova ONG" para começar!</p>';
+        return;
+    }
+
+    organizations.forEach(org => {
+        // Renderiza no display visual
+        const orgCard = document.createElement('div');
+        orgCard.classList.add('ong-card');
+        orgCard.innerHTML = `
+            <h4>${org.name}</h4>
+            <div class="card-actions">
+                <button class="edit-btn" onclick="openONGForm('${org.id}')">Editar</button>
+                <button class="delete-btn" onclick="deleteONG('${org.id}')">Excluir</button>
+            </div>
+            <ul>
+                ${org.needs.map(item => `
+                    <li>${item.quantity}x ${item.name} (${item.size ? `Tam: ${item.size}, ` : ''}Prioridade: ${item.priority})</li>
+                `).join('')}
+            </ul>
+        `;
+        ongListDisplay.appendChild(orgCard);
+
+        // Gera texto para copiar
+        needsTextToCopy.value += `ONG: ${org.name}\n`;
+        org.needs.forEach(item => {
+            needsTextToCopy.value += `- ${item.quantity}x ${item.name} (Tam: ${item.size || 'N/A'}, Prioridade: ${item.priority})\n`;
+        });
+        needsTextToCopy.value += '\n';
+    });
+}
+
+// Exclui uma ONG da lista
+function deleteONG(orgId) {
+    if (confirm('Tem certeza que deseja excluir esta ONG e todas as suas necessidades?')) {
+        organizations = organizations.filter(org => org.id !== orgId);
+        saveToLocalStorage();
+        renderONGList();
+        alert('ONG excluída com sucesso!');
+    }
+}
+
+// Copia o texto das necessidades para a área de transferência
+function copyNeedsText() {
+    const needsTextToCopy = document.getElementById('needsTextToCopy');
+    needsTextToCopy.select();
+    document.execCommand('copy');
+    alert('Texto das necessidades copiado para a área de transferência!');
+}
+
+// --- Inicialização ---
+
+// Carrega as ONGs e renderiza a lista ao carregar a página
 window.onload = () => {
-  atualizarLista();
+    renderONGList();
+};
+
+// Fechar o modal ao clicar fora dele
+window.onclick = function(event) {
+    const modal = document.getElementById('ongFormModal');
+    if (event.target == modal) {
+        closeONGFormModal();
+    }
 };

@@ -11,234 +11,105 @@
     user-select: none;
 }
 
+img {
+    pointer-events: none;
+}
+
 body,
 html {
-    height: 100%;
     width: 100%;
+    height: 100vh;
     overflow: hidden;
 }
 
 body {
-    width: 400%;
-    height: 400vh;
-    border: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
     background-repeat: no-repeat;
-    background-position: center;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
-    font-style: normal;
+    background-image: url(imgs/ceu.svg);
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.divBannerCeuAzul {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    background-repeat: no-repeat;
-    background-size: cover center;
-    z-index: -2;
-    background-image: url(../BernardoLeao/imgs/ceu.svg);
-}
-
-.containerInicial {
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.mainPapeis {
-    width: 90%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: -2%;
 }
 
-.mainPapeis img {
-    width: 25%;
-    pointer-events: none;
-    -webkit-user-drag: none;
-    transition: 0.5s;
+.container {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.mainPapeis h2 {
-    font-weight: 600;
-    font-size: 1.2rem;
+.container img {
+    width: 50%;
+    transition: .3s ease-in;
+}
+
+.img1 {
+    background-image: url(imgs/QueroRoupaB.svg);
+}
+
+.img2 {
+    background-image: url(imgs/QueroDoarB.svg);
+}
+
+.img3 {
+    background-image: url(imgs/SouEstabelecimentoB.svg);
+}
+
+.container h1 {
     color: white;
-    line-height: 1.8rem;
     text-align: center;
-    transition: 0.9s;
+    font-size: 1.2rem;
 }
 
-.mainPapeis nav {
-    width: 37%;
-    height: 25vh;
+.container nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 3%;
+    margin-top: 5%;
+    transition: all .3s ease;
+    height: 35vh;
+    width: 100%;
 }
 
-.mainPapeis nav div {
-    border-color: white !important;
-}
-
-#divPapel,
-#divPapel2,
-#divPapel3 {
-    width: 30%;
-    height: 25vh;
-    border: solid 1px;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+.container nav>div {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    transition: .3s;
+    backdrop-filter: blur(20px);
+    width: 30%;
+    height: 30vh;
+    border: solid white 0.2vh;
+    transition: .2s ease-in;
 }
 
-#divPapel img {
-    width: 45%;
-}
-
-#divPapel h1,
-#divPapel2 h1,
-#divPapel3 h1 {
-    font-size: 1rem;
-    width: 60%;
-    text-align: center;
-    transition: .1s;
-    color: white;
-}
-
-#divPapel:hover,
-#divPapel2:hover,
-#divPapel3:hover {
-    transform: translateY(-20px);
+.container nav>div:hover {
     cursor: pointer;
-    background-color: var(--second-color);
-    border-color: var(--fourth-color);
+    margin-top: -5%;
 }
 
-nav:not(.clicado):hover>.divsPapeis:not(:hover) {
+.container nav:not(.clicado):hover>.container nav>div:not(:hover) {
     filter: blur(5px);
 }
 
-.divImg1,
-.divImg2,
-.divImg3 {
+.container nav div div {
+    width: 100%;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60%;
-    height: 12vh;
     background-position: center;
-    background-size: cover;
-    transition: .1s;
-    pointer-events: none;
-}
-
-.divImg1 {
-    background-image: url(../BernardoLeao/imgs/QueroRoupaB.svg);
-
-}
-
-.divImg2 {
-    background-image: url(../BernardoLeao/imgs/QueroDoarB.svg);
-}
-
-.divImg3 {
-    background-image: url(../BernardoLeao/imgs/SouEstabelecimentoB.svg);
-}
-
-.papelEscolhido {
-    background-color: var(--fourth-color);
-}
-
-
-.btnProsseguir {
-    width: 15%;
-    height: 6vh;
-    margin-top: 4%;
-    border: none;
-    outline: none;
-    background-color: var(--main-color);
-    border-radius: 5px;
-    color: white;
-    font-size: 1.1rem;
-    transition: .3s;
-    border: solid 2px var(--second-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.btnProsseguir:disabled {
-    border-color: var(--third-color);
-    cursor: not-allowed;
-    opacity: 0.6;
-    color: rgb(104, 104, 104);
-}
-
-.btnProsseguir span {
-    transition: 0.6s;
-}
-
-.btnProsseguir svg {
-    display: none;
-    transition: 0.6s;
-}
-
-.btnProsseguir:not(:disabled):hover span {
-    margin-right: 5%;
-}
-
-.btnProsseguir:not(:disabled):hover svg {
-    display: block;
-}
-
-.btnProsseguir:not(:disabled):hover .primeiraSeta {
-    animation: AnimacaoSeta infinite 0.6s ease-in-out;
-}
-
-.btnProsseguir:not(:disabled):hover .segundaSeta {
-    animation: AnimacaoSeta infinite 0.6s ease-in-out;
-    animation-delay: 0.1s;
-}
-
-.btnProsseguir:not(:disabled):hover {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: var(--second-color);
-    cursor: pointer;
-    color: white;
-}
-
-@keyframes AnimacaoSeta {
-    from {
-        opacity: 0.2;
-    }
-
-    to {
-        opacity: 1;
-    }
-
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .divPraCima {
-    transform: translateY(-20px);
+    margin-top: -5%;
     background-color: var(--second-color) !important;
     filter: none !important;
 }
@@ -252,367 +123,594 @@ nav:not(.clicado):hover>.divsPapeis:not(:hover) {
     opacity: 1 !important;
 }
 
-.divsPapeis:hover:not(.efeitoBlur) {
+.container nav>div:hover:not(.efeitoBlur) {
     transform: translateY(-20px);
     cursor: pointer;
     background-color: var(--second-color);
-    border-color: var(--fourth-color);
 }
 
-@media (max-width: 500px) {
-    header {
-        width: 93%;
+@keyframes fadeLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-140px);
     }
 
-    header button {
-        width: 11%;
-    }
-
-    .divShadow {
-        left: 95%;
-    }
-
-    .mainPapeis img {
-        width: 45%;
-    }
-
-    .mainPapeis h2 {
-        font-size: 0.8rem;
-        line-height: 2vh;
-    }
-
-    .mainPapeis nav {
-        width: 99%;
-        margin-top: 5%;
-    }
-
-    .efeitoBlur {
-        filter: blur(3px);
-    }
-
-    #divPapel,
-    #divPapel2,
-    #divPapel3 {
-        width: 31%;
-        height: 20vh;
-    }
-
-    #divPapel h1,
-    #divPapel2 h1,
-    #divPapel3 h1 {
-        font-size: 0.5rem;
-    }
-
-    .divImg1,
-    .divImg2,
-    .divImg3 {
-        width: 45%;
-        height: 6vh;
-    }
-
-    .btnProsseguir {
-        width: 60%;
-        font-size: 0.8rem;
-    }
-
-    .btnProsseguir svg {
-        width: 12px;
-        height: 12px;
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
-/* ------------------------------------------------------------------------- Login & Cadastro ------------------------------------------------------------------------- */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(140px);
+    }
 
-.containerLoginECadastrar {
-    position: absolute;
-    width: 100%;
-    height: 95vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-left: 100%;
-    transition: 0.9s ease-in-out;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.imagemIgreja {
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    margin-top: 40%;
-    left: 0;
-    background-image: url(../BernardoLeao/imgs/igreja.svg);
-    background-position: center cover;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0;
-    transition: 2s;
+@keyframes fadeDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-140px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-header {
-    width: 97%;
-    height: 9vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@keyframes fadeRight {
+    0% {
+        opacity: 0;
+        transform: translateX(140px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.btnVoltarLoginECadastro {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    border: solid var(--main-color) 1px;
-    width: 6%;
-    height: 4vh;
-    text-decoration: none;
+.animated-1 {
+    animation: fadeLeft 1.5s ease forwards;
+}
+
+.animated-2 {
+    animation: fadeUp 1.5s ease forwards;
+}
+
+.animated-3 {
+    animation: fadeRight 1.5s ease forwards;
+}
+
+.animated-4 {
+    animation: fadeDown 1.5s ease forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.3s;
+}
+
+.delay-3 {
+    animation-delay: 0.5s;
+}
+
+.container nav>div h2 {
     color: white;
+    font-size: 1rem;
+    width: 60%;
+    text-align: center;
+}
+
+.container button {
+    height: 6vh;
+    width: 31%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    border: solid var(--main-color) .2vh;
+    outline: none;
     border-radius: 3px;
-    transition: .2s;
+    transition: .3s ease;
+    font-size: 1rem;
+}
+
+.container button:disabled {
+    background-color: rgba(24, 72, 72, 0.8);
+    color: rgb(145, 145, 145);
+    pointer-events: none;
+}
+
+.container button:enabled {
     background-color: var(--main-color);
+    transition: .3s ease-in-out;
 }
 
-.btnVoltarLoginECadastro svg {
-    fill: white;
-}
-
-.btnVoltarLoginECadastro:hover {
+.container button:enabled:hover {
     background-color: var(--third-color);
     cursor: pointer;
 }
 
-.btnVoltarLoginECadastro:hover svg {
-    fill: white;
+.container button span {
+    text-transform: uppercase;
+    font-size: .9rem;
 }
 
-.mainLoginECadastro {
+.container button div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 4%;
+}
+
+.container button div svg {
+    display: none;
+}
+
+.container button:enabled:hover div svg {
+    display: flex;
+}
+
+.container button div svg:first-child {
+    animation: ArrowAnimation 0.5s infinite ease-in-out;
+}
+
+.container button div svg:nth-child(2) {
+    animation: ArrowAnimation 0.5s infinite ease-in-out;
+    animation-delay: 0.1s;
+}
+
+@keyframes ArrowAnimation {
+    from {
+        fill: rgb(209, 209, 209);
+    }
+
+    to {
+        fill: white;
+    }
+}
+
+@keyframes OpacityDinamic {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.MovimentoLogoPA,
+.MovimentoDescPA,
+.MovimentoNavPapeisPA,
+.MovimentoBtnProsseguirPA {
+    margin-left: -100%;
+    opacity: 0;
+    animation: OpacityDinamic 0.3s ease-in-out forwards;
+}
+
+.containerPA {
     width: 100%;
-    height: 91vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.containerLogin {
-    width: 30%;
-    height: 60vh;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(40px);
-    border: solid white 1px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.6s ease-in-out;
-    margin-left: 0;
-    pointer-events: auto;
-}
-
-.containerCadastrar {
-    width: 35%;
-    height: 75vh;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(40px);
-    border: solid white 1px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.6s ease-in-out;
-    pointer-events: auto;
-    display: flex;
-    margin-left: 140%;
-    opacity: 1;
+    height: 100vh;
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 150%;
+    transition: all .8s ease-in-out;
 }
 
-.containerLogin,
-.containerCadastrar h1 {
+.divLoginPA,
+.divLoginDoador {
+    width: 28%;
+    height: 60vh;
+    backdrop-filter: blur(20px);
+    border: solid white 0.2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all .6s ease-in-out;
+}
+
+.divLoginPA h1,
+.divLoginDoador h1 {
+    font-size: 2.5rem;
+    color: var(--fifth-color);
+}
+
+.divInputsLogin,
+.divInputsLoginDoador {
+    width: 65%;
+    height: 5.5vh;
+    margin-top: 2%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 6%;
+}
+
+.divInputsLogin span,
+.divInputsLoginDoador span {
+    position: absolute;
+    margin-left: 4%;
+    color: white;
+    z-index: -1;
+    transition: all .2s ease-in-out;
+    font-size: .9rem;
+}
+
+.divInputsLogin input,
+.divInputsLoginDoador input {
+    width: 100%;
+    height: 5.5vh;
+    outline: none;
+    border: solid rgb(231, 231, 231) 0.1vh;
+    background-color: transparent;
+    border-radius: 3px;
+    color: white;
+    padding-left: 6%;
+    font-size: .9rem;
+}
+
+.link-esqueceu-a-senha {
+    width: 65%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-top: 3%;
+    font-size: .9rem;
+}
+
+.link-esqueceu-a-senha a {
+    color: var(--second-color);
+    text-align: center;
+    transition: .3s;
+}
+
+.divLoginPA a:hover {
     color: var(--third-color);
 }
 
-.inputs {
-    width: 100%;
-    height: 20vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.divLoginPA>button,
+.divLoginDoador>button {
+    background-color: var(--second-color);
+    width: 65%;
+    height: 5vh;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 0.8rem;
+    margin-top: 10%;
+    transition: .3s;
 }
 
-.inputsCadastrar {
-    width: 100%;
-    height: 43vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.divLoginPA>button:enabled:hover,
+.divLoginDoador>button:enabled:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
 }
 
-.inputs div {
+.divLoginPA>button:disabled,
+.divLoginDoador>button:disabled {
+    background-color: rgba(24, 72, 72, 0.8);
+    color: rgb(145, 145, 145);
+    pointer-events: none;
+}
+
+.divInputsLogin:has(input.not-empty) span,
+.divInputsLoginDoador:has(input.not-empty) span {
+    margin-top: -16%;
+    margin-left: -0%;
+    z-index: 99;
+}
+
+.imgIgreja {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-image: url(imgs/igreja.svg);
+    z-index: 98;
+    pointer-events: none;
+    margin-top: 100%;
+    transition: all .8s ease-in-out;
+}
+
+.containerPA header,
+.containerDoador header {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+}
+
+.btnVoltar1,
+.btnVoltar2 {
+    background-color: var(--second-color);
+    border: solid var(--darkmode-color) 0.1vh;
+    outline: none;
+    height: 5vh;
+    width: 7%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    transition: .3s;
+}
+
+.btnVoltar2 svg {
+    rotate: 180deg;
+}
+
+.btnVoltar1:hover,
+.btnVoltar2:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+}
+
+.MovimentoContainerPA,
+.containerDoador.MovimentoContainerDO {
+    margin-left: 0%;
+}
+
+.MovimentoImgIgrejaPA {
+    margin-top: 0%;
+    transition-duration: 1.5s;
+}
+
+.PontoDeApoioNaoEncontrado,
+.CadastroBemSucedido,
+.LoginBemSucedido,
+.DoadorNaoEncontrado {
+    width: 20%;
+    height: 17vh;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 99;
+    margin-top: 90%;
+    display: none;
+    flex-direction: column;
+    transition: .5s;
+    opacity: 0;
+}
+
+
+.PontoDeApoioNaoEncontrado header,
+.CadastroBemSucedido header,
+.LoginBemSucedido header,
+.DoadorNaoEncontrado header {
+    width: 85%;
+    display: flex;
+    justify-content: right;
+    height: 5vh;
+    margin-top: -4%;
+}
+
+.PontoDeApoioNaoEncontrado header svg,
+.CadastroBemSucedido header svg,
+.LoginBemSucedido header svg,
+.DoadorNaoEncontrado header svg {
+    width: 9%;
+    height: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid rgb(182, 182, 182) 0.2vh;
+    border-radius: 3px;
+}
+
+.PontoDeApoioNaoEncontrado header svg:hover,
+.CadastroBemSucedido header svg:hover,
+.LoginBemSucedido header svg:hover,
+.DoadorNaoEncontrado header svg:hover {
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+}
+
+.PontoDeApoioNaoEncontrado h1,
+.CadastroBemSucedido h1,
+.LoginBemSucedido h1,
+.DoadorNaoEncontrado h1 {
+    font-size: 1rem;
+    width: 80%;
+    text-align: center;
+}
+
+.aparecerMensagemPDANE,
+.aparecerMensagemCBS,
+.aparecerMensagemLBS,
+.aparecerMensagemDNE {
+    margin-top: 0%;
+    opacity: 1;
+}
+
+.sombra {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 99;
+    pointer-events: none;
+}
+
+.sombrear {
+    background-color: rgba(0, 0, 0, 0.6);
+    pointer-events: all;
+}
+
+.divLoginPA>span,
+.divLoginDoador>span {
+    font-size: .8rem;
+    color: black;
+    margin-top: 4%;
+    font-weight: 300;
+}
+
+.divLoginPA>span button,
+.divLoginDoador>span button {
+    background-color: transparent;
+    border: none;
+    color: var(--second-color);
+    font-size: .9rem;
+    transition: all .3;
+    font-weight: 300;
+}
+
+.divLoginPA>span button:hover,
+.divLoginDoador>span button:hover {
+    color: var(--third-color);
+    cursor: pointer;
+}
+
+.divCadastrarPA {
+    width: 30%;
+    height: 70vh;
+    backdrop-filter: blur(20px);
+    border: solid white 0.2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    margin-left: 150%;
+    opacity: 0;
+    transition: all .6s ease-in-out;
+}
+
+.divCadastrarPA>h1,
+.divCadastrarDO>h1 {
+    font-size: 2.5rem;
+    color: var(--fifth-color);
+}
+
+.containerCadastrar {
+    width: 100%;
+    height: 47vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -7%;
+}
+
+.containerCadastrarDO {
+    width: 100%;
+    height: 47vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -12%;
+}
+
+.divInputsCadastrar,
+.divInputsCadastrarDO {
+    width: 65%;
+    height: 5.5vh;
+    margin-top: 4%;
     display: flex;
     justify-content: left;
     align-items: center;
-    width: 60%;
-    height: 3.5vh;
-    margin: 4%;
 }
 
-.inputsCadastrar div {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    width: 60%;
-    height: 3.5vh;
-    margin: 4%;
+.divInputsCadastrar span,
+.divInputsCadastrarDO span {
+    position: absolute;
+    margin-left: 4%;
+    color: white;
+    z-index: -1;
+    transition: all .2s ease-in-out;
+    margin-top: 1%;
+    font-size: .9rem;
 }
 
-.inputs div input,
-.inputsCadastrar div input {
+.divInputsCadastrar input,
+.divInputsCadastrarDO input {
+    margin-top: 2%;
     width: 100%;
     height: 5vh;
-    font-size: 1rem;
-    border-radius: 3px;
-    border: solid white 0.1px;
-    outline: 10px var(--fourth-color);
     background-color: transparent;
-    -webkit-appearance: none;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border: solid white 0.1vh;
+    outline: none;
+    padding-left: 5.5%;
     color: white;
-    padding-left: 5%;
+    font-size: .8rem;
 }
 
-.inputs span {
-    position: absolute;
-    z-index: 2;
-    transition: 0.2s ease-in-out;
-    pointer-events: none;
-    text-align: left;
-    margin-left: 4%;
-    width: 11%;
-    color: white;
-}
-
-.inputsCadastrar span {
-    position: absolute;
-    z-index: 2;
-    transition: 0.2s ease-in-out;
-    pointer-events: none;
-    text-align: left;
-    margin-left: 4%;
-    width: 11%;
-    color: white;
-}
-
-.inputs input.not-empty+span,
-.inputsCadastrar input.not-empty+span {
+.divInputsCadastrar:has(input.not-empty) span,
+.divInputsCadastrarDO:has(input.not-empty) span {
     margin-top: -13%;
     margin-left: -0%;
     z-index: 99;
 }
 
-.inputs a,
-.inputsCadastrar a {
-    font-size: 1rem;
-    width: 60%;
-    text-align: right;
-    color: var(--third-color);
-    transition: .3s;
-}
-
-.inputs a:hover,
-.inputsCadastrar a:hover {
-    color: var(--main-color);
-}
-
-.btnEntrar {
-    background-color: var(--main-color);
-    border: none;
-    outline: none;
-    color: white;
-    width: 60%;
-    height: 5vh;
-    border-radius: 5px;
-    transition: .3s;
-    margin-top: 5%;
-}
-
-.btnCadastrar {
-    background-color: var(--main-color);
-    border: none;
-    outline: none;
-    color: white;
-    width: 60%;
-    height: 5vh;
-    border-radius: 5px;
-    transition: .3s;
-    margin-top: 2%;
-}
-
-.btnEntrar:hover,
-.btnCadastrar:hover {
-    background-color: var(--third-color);
-    cursor: pointer;
-}
-
-.divSC {
-    margin-top: 2%;
-}
-
-.divCC {
-    margin-top: 1%;
-}
-
-.divSC span,
-.divCC span {
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: black;
-}
-
-.divSC button,
-.divCC button {
-    border: none;
-    background-color: transparent;
-    outline: none;
-    color: var(--third-color);
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.divSC button:hover,
-.divCC button:hover {
-    color: var(--main-color);
-    cursor: pointer;
-    transition: .3s;
-}
-
-.containerCPNJeTelefone {
+.containerInputsCadastro,
+.containerInputsCadastroDO {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
-    height: 5vh;
+    height: 7vh;
+    width: 65%;
+    margin-top: 2%;
 }
 
-.containerCPNJeTelefone div {
-    width: 100%;
+.containerInputsCadastro div,
+.containerInputsCadastroDO div {
+    width: 48%;
 }
 
 .divTemporario {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 61%;
+    width: 65%;
     height: 5vh;
+    margin-top: 2%;
+}
+
+.divTemporario span {
+    color: white;
+    font-size: 0.8rem;
+}
+
+.divTemporario div input {
+    border: none;
+    border-bottom: solid white 0.1vh;
+    background-color: transparent;
+    outline: none;
+    width: 40%;
 }
 
 .divCheckbox {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 40%;
+    width: 35%;
 }
 
 .divCheckbox input {
@@ -627,31 +725,74 @@ header {
     cursor: pointer;
 }
 
-.divTemporario span {
-    color: white;
-    font-size: 0.9rem;
+.divCheckbox span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .divDataPA {
-    opacity: 1;
     display: none;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 60%;
+    width: 55%;
     opacity: 0;
     transition: .5s ease-in-out;
     gap: 2%;
 }
 
-.inputInicio,
-.inputFinal {
-    width: 30%;
-    border: none;
-    background-color: transparent;
-    border-bottom: solid white 1px;
-    outline: none;
-    color: white;
+.divDataPA input {
     text-align: center;
+}
+
+.divDataPA input::placeholder {
+    color: rgb(224, 224, 224);
+}
+
+.divDataPA:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    height: 2vh;
+    width: 0.1vh;
+    background-color: white;
+    margin-left: 17.5%;
+}
+
+.containerInputsCadastro div>input,
+.containerInputsCadastroDO div>input {
+    padding-left: 11%;
+}
+
+.divCadastrarPA>button,
+.divCadastrarDO>button {
+    background-color: var(--second-color);
+    width: 65%;
+    height: 5vh;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 0.8rem;
+    transition: .3s;
+}
+
+.divCadastrarPA>button:enabled,
+.divCadastrarDO>button:enabled {
+    background-color: var(--second-color);
+    color: white;
+}
+
+.divCadastrarPA>button:enabled:hover,
+.divCadastrarDO>button:enabled:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+}
+
+.divCadastrarPA>button:disabled,
+.divCadastrarDO>button:disabled {
+    background-color: rgba(24, 72, 72, 0.8);
+    color: rgb(145, 145, 145);
+    pointer-events: none;
 }
 
 .mostrarInputsData {
@@ -659,105 +800,8 @@ header {
     display: flex;
 }
 
-.movimentoContainerLogin {
-    margin-left: -100%;
-    pointer-events: none;
-    opacity: 0;
-}
-
-.movimentoContainerCadastrar {
-    margin-left: 0%;
-    opacity: 1;
-}
-
-.PontoDeApoioNaoEncontrado,
-.CadastroBemSucedido,
-.LoginBemSucedido {
-    background-color: white;
-    display: none;
-    align-items: center;
-    flex-direction: column;
-    width: 20%;
-    height: 15vh;
-    margin-top: 80%;
-    border-radius: 3px;
-    transition: .3s;
-    position: absolute;
-}
-
-.PontoDeApoioNaoEncontrado header,
-.CadastroBemSucedido header,
-.LoginBemSucedido header {
-    width: 95%;
-    height: 5vh;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-
-.PontoDeApoioNaoEncontrado header svg,
-.CadastroBemSucedido header svg,
-.LoginBemSucedido header svg {
-    width: 8%;
-    height: 3vh;
-    border: solid rgb(187, 187, 187) 0.1vh;
-}
-
-.PontoDeApoioNaoEncontrado header svg:hover,
-.CadastroBemSucedido header svg:hover,
-.LoginBemSucedido header svg:hover {
-    background-color: rgb(236, 236, 236);
-    cursor: pointer;
-}
-
-.PontoDeApoioNaoEncontrado h1,
-.CadastroBemSucedido h1,
-.LoginBemSucedido h1 {
-    font-size: 1.3rem;
-    text-align: center;
-}
-
-.btnEntrar:disabled,
-.btnCadastrar:disabled {
-    background-color: #163b3b;
-    color: rgb(138, 138, 138);
-}
-
-.btnEntrar:disabled:hover,
-.btnCadastrar:disabled:hover {
-    pointer-events: none;
-}
-
-.btnEntrar:enabled:hover,
-.btnCadastrar:enabled:hover {
-    background-color: var(--third-color);
-    cursor: pointer;
-}
-
-.aparecerMensagemPDANE,
-.aparecerMensagemLBS,
-.aparecerMensagemCBS {
-    margin-top: 0%;
-}
-
-.sombra {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: transparent;
-    z-index: 99;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-    transition: .3s;
-    top: 0;
-    left: 0;
-}
-
-.sombrear {
-    background-color: rgba(0, 0, 0, 0.3);
-    pointer-events: all;
+.checkbox {
+    transform: scale(0.8);
 }
 
 input.inputPreenchido+span {
@@ -766,120 +810,158 @@ input.inputPreenchido+span {
     z-index: 99;
 }
 
-/* ------------------------------------------------------ Animações de Navegação de Telas de Login e Cadastro de PA ------------------------------------------------------ */
-
-.MostrarTelaDeLoginECadastroParaOUsuario {
-    margin-left: 0%;
-    transition-delay: .7s;
+.divCadastrarPA>span,
+.divCadastrarDO>span {
+    font-size: .8rem;
+    color: black;
+    margin-top: 2%;
+    font-weight: 300;
 }
 
-.MovimentarLogoParaAEsquerdaESumir {
-    margin-left: -60%;
-    opacity: 0;
-    transition-delay: .3s;
+.divCadastrarPA>span button,
+.divCadastrarDO>span button {
+    background-color: transparent;
+    border: none;
+    color: var(--second-color);
+    font-size: .9rem;
+    transition: all .3;
+    font-weight: 300;
 }
 
-.Movimentarh2ParaAEsquerdaESumir {
-    margin-left: -60%;
-    opacity: 0;
-    transition: .5s;
-    transition-delay: .2s;
+.divCadastrarPA>span button:hover,
+.divCadastrarDO>span button:hover {
+    color: var(--third-color);
+    cursor: pointer;
 }
 
-.MovimentarNavDePapeisParaAEsquerdaESumir {
-    margin-left: -60%;
-    opacity: 0;
-    transition: .7s;
-    pointer-events: none;
-}
-
-.MovimentarBotaoDeProsseguirParaAEsquerdaESumir {
+.divLoginParaEsquerda {
     margin-left: -130%;
-    visibility: hidden;
-    transition: .7s;
-    pointer-events: none;
-    transition-delay: .2s;
-}
-
-.MostrarImagemDaIgrejaDeLoginECadastroParaOUsuario {
-    opacity: 1;
-    margin-top: 0%;
-    transition-delay: 1.5s;
-}
-
-/* ---------------------------------------------------- Animações de Navegação de Telas de Login e Cadastro de Doador ---------------------------------------------------- */
-
-
-.MovimentarLogoParaADireitaESumir {
-    margin-left: 60%;
     opacity: 0;
-    transition-delay: .3s;
 }
 
-.Movimentarh2ParaADireitaESumir {
-    margin-left: 60%;
-    opacity: 0;
-    transition: .5s;
-    transition-delay: .2s;
-}
-
-.MovimentarNavDePapeisParaADireitaESumir {
-    margin-left: 60%;
-    opacity: 0;
-    transition: .7s;
-    pointer-events: none;
-}
-
-.MovimentarBotaoDeProsseguirParaADireitaESumir {
+.divLoginParaDireita {
     margin-left: 130%;
-    visibility: hidden;
-    transition: .7s;
-    pointer-events: none;
-    transition-delay: .2s;
+    opacity: 0;
 }
 
-.MostrarTelaDeLoginECadastroDeDoadorParaOUsuario {
-    margin-top: -5000%;
+.divCadastroParaEsquerda {
+    margin-left: 0%;
+    opacity: 1;
 }
 
-/* ------------------------------------------------------------------- CSS Login e Cadastrar Doador ------------------------------------------------------------------- */
+.divCadastrarDO.divCadastroParaDireita {
+    margin-left: 0%;
+    opacity: 1;
+}
 
+.MovimentoLogoDO,
+.MovimentoDescDO,
+.MovimentoNavPapeisDO,
+.MovimentoBtnProsseguirDO {
+    margin-left: 100%;
+    opacity: 0;
+    animation: OpacityDinamic 0.3s ease-in-out forwards;
+}
 
-.containerLoginECadastrarDoador {
-    position: absolute;
+.DescExpandir {
+    width: 200%;
+}
+
+.containerDoador {
     width: 100%;
-    height: 95vh;
+    height: 100vh;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 100%;
-    transition: 0.9s ease-in-out;
+    transition: all .8s ease-in-out;
+    position: absolute;
+    margin-left: -130%;
 }
 
-.btnVoltarLoginECadastroDoador {
+.divCadastrarDO {
+    width: 30%;
+    height: 70vh;
+    backdrop-filter: blur(20px);
+    border: solid white 0.2vh;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    border: solid var(--main-color) 1px;
-    width: 6%;
-    height: 4vh;
-    text-decoration: none;
-    color: white;
-    border-radius: 3px;
-    transition: .2s;
-    background-color: var(--main-color);
+    flex-direction: column;
+    position: absolute;
+    transition: all .6s ease-in-out;
+    margin-left: -150%;
 }
 
-.btnVoltarLoginECadastroDoador svg {
-    fill: white;
-}
+@media (max-width: 1366px) {
+    body {
+        background-image: url(imgs/ceu1366-768px.svg);
+    }
 
-.btnVoltarLoginECadastroDoador:hover {
-    background-color: var(--third-color);
-    cursor: pointer;
-}
+    .imgIgreja {
+        background-image: url(imgs/igreja1366-768px.svg);
+        margin-top: 8%;
+        margin-left: 1%;
+    }
 
-.btnVoltarLoginECadastroDoador:hover svg {
-    fill: white;
+    .container {
+        width: 43%;
+    }
+
+    .container h1 {
+        font-size: 1rem;
+    }
+
+    .container nav>div h2 {
+        font-size: 0.8rem;
+    }
+
+    .container button span {
+        font-size: .8rem;
+    }
+
+    .divLoginPA h1,
+    .divLoginDoador h1,
+    .divCadastrarPA h1,
+    .divCadastrarDO h1 {
+        font-size: 2.2rem;
+    }
+
+    .link-esqueceu-a-senha {
+        font-size: 0.8rem;
+    }
+
+    .divLoginPA>span,
+    .divLoginDoador>span,
+    .divCadastrarPA>span,
+    .divCadastrarDO>span {
+        font-size: .7rem;
+        margin-top: 4%;
+    }
+
+    .divLoginPA>span button,
+    .divLoginDoador>span button {
+        font-size: .8rem;
+    }
+
+    .divInputsLogin span,
+    .divInputsLoginDoador span,
+    .divInputsCadastrar span,
+    .divInputsCadastrarDO span {
+        font-size: .8rem;
+    }
+
+    .divInputsLogin input,
+    .divInputsLoginDoador input,
+    .divInputsCadastrar input,
+    .divInputsCadastrarDO input {
+        font-size: .7rem;
+    }
+
+
+    .divCadastrarPA {
+        height: 73vh;
+    }
+
 }
