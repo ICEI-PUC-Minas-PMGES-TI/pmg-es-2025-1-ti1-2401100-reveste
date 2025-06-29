@@ -511,7 +511,6 @@ Registro das opções de funcionalidades possíveis da aplicação
     "Ciano", "Mostarda"
   ],
   "opcoesPrioridade": ["Alta", "Média", "Baixa"]
-}
   
 ```
 >
