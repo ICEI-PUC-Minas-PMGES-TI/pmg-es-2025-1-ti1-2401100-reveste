@@ -1,27 +1,3 @@
-const doacoes = [
-    {
-        ongId: 1,
-        ongNome: "Roupa Para Todos",
-        ongImagem: "./imgs/ong1.png",
-        doacoes: [
-            {
-                id: 1,
-                data: "2024-06-01",
-                item: "10 camisetas",
-                endereco: "Rua das Flores, 123, Centro, Cidade X",
-                observacao: "Deixar na portaria"
-            },
-            {
-                id: 2,
-                data: "2024-06-10",
-                item: "2 calças jeans",
-                endereco: "Rua das Flores, 123, Centro, Cidade X",
-                observacao: ""
-            }
-        ]
-    }
-];
-
 function formatarDataBR(dataISO) {
     const [ano, mes, dia] = dataISO.split("-");
     return `${dia}/${mes}/${ano}`;
@@ -31,8 +7,16 @@ function renderDetalhesDoacao() {
     const urlParams = new URLSearchParams(window.location.search);
     const ongId = parseInt(urlParams.get('ongId'));
     const doacaoId = urlParams.get('doacaoId');
-    const ong = doacoes.find(o => o.ongId === ongId);
     const container = document.getElementById('detalhes-doacao-container');
+
+    if (!doacoes || !Array.isArray(doacoes)) {
+        if (container) {
+            container.innerHTML = "<p>Nenhum dado de doação encontrado.</p>";
+        }
+        return;
+    }
+
+    const ong = doacoes.find(o => o.ongId === ongId);
 
     if (!ong || !container) {
         container.innerHTML = "<p>Doação não encontrada.</p>";
