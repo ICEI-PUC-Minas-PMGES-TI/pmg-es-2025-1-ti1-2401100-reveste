@@ -97,6 +97,10 @@ function setCards(card) {
     buttonDetail.style.borderRadius = "10px";
     buttonDetail.style.border = "none";
 
+    buttonDetail.addEventListener('click', () => {
+        window.location.href = "../BrunoAguiar/index.html";
+    })
+
     address.style.fontSize = "x-small";
 
     container.addEventListener('click', () => {

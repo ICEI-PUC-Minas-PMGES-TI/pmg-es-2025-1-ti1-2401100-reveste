@@ -490,6 +490,7 @@ document.getElementById('btnEntrarDoador').addEventListener('click', () => {
 
     if (doadorEncontrado) {
         document.querySelector('.LoginBemSucedido').style.display = 'flex';
+        window.location.href = "../Rafael_Santos/index.html";
         setTimeout(() => {
             document.querySelector('.LoginBemSucedido').classList.add('aparecerMensagemLBS');
         }, 200);
