@@ -359,7 +359,6 @@ Registro dos usuários do sistema utilizados para login e para o perfil do siste
       ],
       "observacao": "Não requer cadastro ou autenticação"
     }
-  }
 ```
 ##### Estrutura de Dados - Funcionalidade
 
