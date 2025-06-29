@@ -291,43 +291,228 @@ Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
 
 Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info
 
-##### Estrutura de Dados - Contatos   ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Sistema
 
-Contatos da aplicação
+Sistema da aplicação
 
 ```json
   {
-    "id": 1,
-    "nome": "Leanne Graham",
-    "cidade": "Belo Horizonte",
-    "categoria": "amigos",
-    "email": "Sincere@april.biz",
-    "telefone": "1-770-736-8031",
-    "website": "hildegard.org"
+    "nome": "Sistema Reveste",
+    "versao": "1.0.0",
+    "descricao": "Sistema para doação e gerenciamento de roupas",
+    "tiposUsuario": ["ongs", "doadores", "beneficiados"]
   }
   
 ```
 
-##### Estrutura de Dados - Usuários  ⚠️ EXEMPLO ⚠️
+##### Estrutura de Dados - Usuários  
 
 Registro dos usuários do sistema utilizados para login e para o perfil do sistema
 
 ```json
-  {
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    email: "admin@abc.com",
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    login: "admin",
-    nome: "Administrador do Sistema",
-    senha: "123"
-  }
+  "ongs": [
+      {
+        "id": 1,
+        "nome": "Roupa Para Todos",
+        "email": "contato@roupaparatodos.org",
+        "senha": "senha123",
+        "cnpj": "12.345.678/0001-90",
+        "telefone": "(31) 91234-5678",
+        "imagem": "./imgs/ong1.png",
+        "endereco": "Rua das Flores, 123, Centro, Cidade X",
+        "dataCadastro": "2024-01-15",
+        "status": "ativo",
+        "necessidades": [
+          {
+            "name": "Camiseta",
+            "size": "M",
+            "quantity": 10,
+            "priority": "Alta"
+          }
+        ]
+      }
+    ],
+    
+    "doadores": [
+      {
+        "id": 1,
+        "nome": "João Silva",
+        "email": "joao@exemplo.com",
+        "senha": "senha123",
+        "telefone": "(31) 99999-8888",
+        "cpf": "123.456.789-00",
+        "endereco": "Rua A, 100 - Centro",
+        "dataCadastro": "2024-02-10",
+        "status": "ativo",
+        "totalDoacoes": 5,
+        "ongsFavoritas": [1, 2]
+      }
+    ],
+    
+    "beneficiados": {
+      "descricao": "Usuários que acessam o sistema sem login para buscar pontos de apoio e informações sobre doações",
+      "funcionalidades": [
+        "Visualizar pontos de apoio",
+        "Buscar CRAS/CREAS",
+        "Ver informações de ONGs",
+        "Acessar mapa de localização"
+      ],
+      "observacao": "Não requer cadastro ou autenticação"
+    }
 ```
+##### Estrutura de Dados - Funcionalidade
 
-> ⚠️ **APAGUE ESSA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação quanto outras estruturas que foram criadas para algum tipo de configuração
->
-> Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.
+Registro das opções de funcionalidades possíveis da aplicação 
+
+```json
+  "doacoes": [
+    {
+      "id": 1,
+      "ongId": 1,
+      "doadorId": 1,
+      "ongNome": "Roupa Para Todos",
+      "ongImagem": "./imgs/ong1.png",
+      "data": "2024-06-01",
+      "item": "10 camisetas",
+      "agendamento": "2024-06-01 14:00",
+      "endereco": "Rua das Flores, 123, Centro, Cidade X",
+      "observacao": "Deixar na portaria",
+      "status": "concluida"
+    }
+  ],
+
+  "agendamentos": [
+    {
+      "id": 1,
+      "idPontoApoio": 1,
+      "tipoUsuario": "doador",
+      "usuarioId": 1,
+      "Nome": "João Silva",
+      "cpf": "12345678910",
+      "numero": "(31) 99999-8888",
+      "email": "joao@exemplo.com",
+      "data_hora_agendamento": "2025-06-06T18:48",
+      "status": "agendado"
+    }
+  ],
+
+  "pontoApoio": [
+    {
+      "id": 1,
+      "nome": "Igreja Batista",
+      "endereco": "R. Central, 78 - Vila Antena",
+      "telefone": "(31) 91111-1111",
+      "horarioFuncionamento": "Segunda a Sexta: 08:00 às 18:00",
+      "tiposAceitos": ["roupas", "calcados", "acessorios"],
+      "acessivelBeneficiados": true
+    },
+    {
+      "id": 2,
+      "nome": "ONG Reveste",
+      "endereco": "Av. Principal, 100 - Centro",
+      "telefone": "(31) 92222-2222",
+      "horarioFuncionamento": "Segunda a Sábado: 09:00 às 17:00",
+      "tiposAceitos": ["roupas", "calcados"],
+      "acessivelBeneficiados": true
+    }
+  ],
+
+  "estoque": [
+    {
+      "id": 1,
+      "ongId": 1,
+      "nome": "Camiseta Polo",
+      "tamanho": "M",
+      "cor": "Azul",
+      "quantidade": 5,
+      "categoria": "masculina",
+      "imagem": "data:image/base64...",
+      "dataEntrada": "2024-06-01",
+      "status": "disponivel",
+      "destinoBeneficiados": true
+    }
+  ],
+
+  "roupasNaoAceitas": [
+    {
+      "id": 1,
+      "ongId": 1,
+      "nome": "Camiseta Rasgada",
+      "tamanho": "G",
+      "motivo": "Roupa em mal estado de conservação",
+      "dataRecusa": "2024-06-03",
+      "usuario": "ONG"
+    }
+  ],
+
+  "temporarios": [
+    {
+      "id": 1,
+      "nome": "Paróquia São Jorge",
+      "endereco": "R. Corcovado, 425 - Jardim América, Belo Horizonte - MG",
+      "inicio": "2025-06-15",
+      "fim": "2025-07-15",
+      "imagem": "imagens/igreja.avif",
+      "acessivelBeneficiados": true,
+      "responsavel": "Padre José"
+    }
+  ],
+
+  "crasCreas": [
+    {
+      "id": 1,
+      "nome": "CRAS VILA ANTENA",
+      "endereco": "R. Central, 78 - Vila Antena, Belo Horizonte - MG, 30440-530",
+      "imagem": "./images/CRAS_VILA_ANTENA.jpg",
+      "telefone": "(31) 3277-8899",
+      "horarioFuncionamento": "Segunda a Sexta: 07:00 às 17:00",
+      "local": {
+        "x": "-19.948732",
+        "y": "-43.962925"
+      },
+      "servicosOferecidos": [
+        "Distribuição de roupas",
+        "Assistência social",
+        "Cadastro único"
+      ],
+      "publicoAlvo": "beneficiados"
+    }
+  ],
+
+  "permissoes": {
+    "ongs": [
+      "gerenciar_estoque",
+      "visualizar_agendamentos", 
+      "gerenciar_necessidades",
+      "recusar_doacoes",
+      "gerar_relatorios"
+    ],
+    "doadores": [
+      "fazer_doacoes",
+      "agendar_entregas",
+      "favoritar_ongs",
+      "visualizar_historico",
+      "filtrar_doacoes"
+    ],
+    "beneficiados": [
+      "visualizar_pontos_apoio",
+      "buscar_cras_creas",
+      "acessar_mapa",
+      "ver_informacoes_ongs"
+    ]
+  },
+
+  "opcoesTamanho": ["PP", "P", "M", "G", "GG"],
+  "opcoesCor": [
+    "Branco", "Preto", "Cinza", "Vermelho", "Verde", "Azul",
+    "Amarelo", "Rosa", "Roxo", "Marrom", "Laranja", "Bege",
+    "Bordô", "Dourado", "Prata", "Lilás", "Turquesa", "Salmão",
+    "Vinho", "Pêssego", "Cáqui", "Oliva", "Fúcsia", "Magenta",
+    "Ciano", "Mostarda"
+  ],
+  "opcoesPrioridade": ["Alta", "Média", "Baixa"]
+  
+```
 >
 > **Orientações:**
 >
