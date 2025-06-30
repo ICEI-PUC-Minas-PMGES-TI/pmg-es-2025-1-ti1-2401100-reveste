@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: inter, Arial, sans-serif;
+    color: white;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #1B263B;
+}
+
+#sidebar {
+    width: 280px;
+    background-color: #0f1419;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+}
+
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid #2d3748;
+    text-align: center;
+}
+
+.sidebar-logo {
+    height: 40px;
+    filter: brightness(0) invert(1);
+    margin-bottom: 10px;
+}
+
+.sidebar-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4a90e2;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin-bottom: 5px;
+}
+
+.nav-link {
+    display: block;
+    color: #a0aec0;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+    background-color: #1a202c;
+    color: white;
+    border-left-color: #4a90e2;
+}
+
+.nav-link.active {
+    background-color: #2d3748;
+    color: #4a90e2;
+    border-left-color: #4a90e2;
+}
+
+.nav-link.logout {
+    color: #e53e3e;
+}
+
+.nav-link.logout:hover {
+    background-color: #742a2a;
+    border-left-color: #e53e3e;
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #1a202c;
+}
+
+main header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 30px;
+    background-color: #2d3748;
+    border-radius: 12px;
+    margin: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+main header h2 {
+    font-size: 32px;
+}
+
+main header div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+main header div :nth-child(1){
+    width: 130px;
+}
+
+main header div button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+}
+
+#list-menu-img {
+  height: 45px;
+  filter: invert(100%);
+  transition: transform 300ms ease, width 300ms ease, height 300ms ease;
+}
+#list-menu-img:hover{
+    transform: scale(1.1);
+}
+
+#list-menu-img.active {
+  transform: scale(1.2) rotate(90deg);
+}
+/* FILTER MENU */
+#menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 0;
+    background-color: #0f1419;
+    transform: translateX(100%);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+#menu.active {
+    width: 320px;
+    transform: translateX(0);
+}
+
+#menu > div {
+    padding: 20px 30px;
+}
+
+#graph-type {
+    border-bottom: 1px solid #2d3748;
+    margin-bottom: 20px;
+}
+
+#menu div header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#menu div header h2 {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #4a90e2;
+}
+
+#menu div header img {
+    filter: brightness(0) invert(1);
+    width: 20px;
+    height: 20px;
+}
+
+#filter-checkboxes div {
+    margin-bottom: 30px;
+}
+
+#filter-checkboxes div > label {
+    font-weight: 600;
+    font-size: 16px;
+    color: #e2e8f0;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#filter-checkboxes div ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+#filter-checkboxes div ul li {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+}
+
+#filter-checkboxes li > label{
+    margin-left: 8px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #a0aec0;
+    cursor: pointer;
+}
+
+#filter-checkboxes input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #4a90e2;
+    cursor: pointer;
+}
+
+#filter-checkboxes div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+#clothes-size-forms-select,
+#graph-type-select {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background-color: #2d3748;
+    color: white;
+    border: 1px solid #4a5568;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#clothes-size-forms-select {
+    width: 100px;
+}
+
+#graph-type-select {
+    width: 120px;
+}
+
+#clothes-size-forms-select option,
+#graph-type-select option {
+    background-color: #2d3748;
+    color: white;
+}
+
+#graph-type h2{
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: #4a90e2;
+}
+
+/* GRAPHS */
+#graphs {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 20px;
+    flex: 1;
+}
+
+#graphs div {
+    background-color: #2d3748;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+#graphs div:hover {
+    transform: translateY(-5px);
+}
+
+#graphs div > h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4a90e2;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#graphs canvas {
+    border-radius: 8px;
+}
+
+/* FILTER HEADER */
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #2d3748;
+    background-color: #1a202c;
+}
+
+.filter-header h2 {
+    font-size: 20px;
+    color: #4a90e2;
+    margin: 0;
+}
+
+#close-filter-btn {
+    background: none;
+    border: none;
+    color: #a0aec0;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+#close-filter-btn:hover {
+    background-color: #2d3748;
+    color: white;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+    #graphs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #graphs canvas {
+        width: 400px !important;
+        height: 400px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    
+    #sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1001;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    #sidebar.mobile-active {
+        transform: translateY(0);
+    }
+    
+    main {
+        margin-top: 60px;
+    }
+    
+    main header {
+        padding: 15px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #1a202c;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    main header div :nth-child(1){
+        width: 100px;
+    }
+    
+    #graphs {
+        padding-top: 80px;
+    }
+    
+    #graphs canvas {
+        width: 300px !important;
+        height: 300px !important;
+    }
+    
+    #menu {
+        width: 100%;
+    }
+    
+    #menu.active {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    main header h2 {
+        font-size: 20px;
+    }
+    
+    #graphs canvas {
+        width: 250px !important;
+        height: 250px !important;
+    }
+    
+    .sidebar-nav .nav-link {
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+}

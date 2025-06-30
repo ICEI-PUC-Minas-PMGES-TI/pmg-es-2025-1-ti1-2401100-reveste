@@ -21,5 +21,159 @@
       "email": "rommel@gmail.com",
       "id": 3
     }
+  ],
+  "pontosDeApoio": [
+    {
+      "id": 1,
+      "nome": "Igreja São José",
+      "endereco": "Rua das Flores, 123",
+      "telefone": "(31) 3333-4444",
+      "cnpj": "12.345.678/0001-90",
+      "email": "contato@igrejasaojose.org.br",
+      "senha": "123456",
+      "temporario": false
+    },
+    {
+      "id": 2,
+      "nome": "Igreja Batista",
+      "endereco": "Rua das Pedras, 456",
+      "telefone": "(31) 2222-3333",
+      "cnpj": "98.765.432/0001-10",
+      "email": "contato@igrejabatista.org.br",
+      "senha": "123456",
+      "temporario": false
+    },
+    {
+      "id": 3,
+      "nome": "ONG Reveste",
+      "endereco": "Av. Central, 789",
+      "telefone": "(31) 1111-2222",
+      "cnpj": "11.222.333/0001-44",
+      "email": "contato@ongreveste.org.br",
+      "senha": "123456",
+      "temporario": false
+    }
+  ],
+  "doadores": [
+    {
+      "id": 1,
+      "nome": "Maria Silva",
+      "endereco": "Rua das Palmeiras, 456",
+      "telefone": "(31) 9999-8888",
+      "cpf": "123.456.789-10",
+      "email": "maria.silva@email.com",
+      "senha": "123456"
+    },
+    {
+      "nome": "Caio",
+      "endereco": "Rua teste",
+      "telefone": "(31) 9999-9999",
+      "cpf": "111.111.111-11",
+      "email": "caio@teste.com",
+      "senha": "teste",
+      "id": 2
+    }
+  ],
+  "estoque": [
+    {
+      "id": 1,
+      "nome": "Camisa Básica",
+      "tamanho": "M",
+      "cor": "Azul",
+      "quantidade": 5,
+      "imagem": ""
+    }
+  ],
+  "roupasNaoAceitas": [
+    {
+      "id": 1,
+      "nome": "Camisa Rasgada",
+      "tamanho": "G",
+      "motivo": "Estado muito deteriorado"
+    }
+  ],
+  "necessidadesOngs": [
+    {
+      "id": 1,
+      "nome": "Casa de Apoio São Francisco",
+      "endereco": "Rua das Esperanças, 789",
+      "telefone": "(31) 2222-3333",
+      "necessidades": [
+        {
+          "id": 1,
+          "tipo": "Roupas",
+          "descricao": "Roupas de inverno para crianças",
+          "quantidade": 50,
+          "urgencia": "Alta"
+        }
+      ]
+    }
+  ],
+  "agendamentos": [
+    {
+      "id": 1,
+      "idPontoApoio": 1,
+      "nome": "NomeExemplo",
+      "cpf": "12345678910",
+      "telefone": "31999998888",
+      "email": "email@exemplo.com",
+      "dataHoraAgendamento": "2025-06-06T18:48"
+    }
+  ],
+  "doacoes": [
+    {
+      "id": 1,
+      "idDoador": 1,
+      "idPontoApoio": 1,
+      "data": "2024-06-01",
+      "itens": [
+        {
+          "tipo": "camiseta",
+          "quantidade": 5,
+          "tamanho": "M",
+          "cor": "variadas"
+        },
+        {
+          "tipo": "calça",
+          "quantidade": 2,
+          "tamanho": "G",
+          "cor": "jeans"
+        }
+      ],
+      "status": "concluida",
+      "observacao": "Roupas em bom estado"
+    },
+    {
+      "id": 2,
+      "idDoador": 1,
+      "idPontoApoio": 2,
+      "data": "2024-06-15",
+      "itens": [
+        {
+          "tipo": "blusa",
+          "quantidade": 3,
+          "tamanho": "P",
+          "cor": "variadas"
+        }
+      ],
+      "status": "concluida",
+      "observacao": "Blusas de frio"
+    },
+    {
+      "id": 3,
+      "idDoador": 2,
+      "idPontoApoio": 1,
+      "data": "2024-06-20",
+      "itens": [
+        {
+          "tipo": "vestido",
+          "quantidade": 1,
+          "tamanho": "M",
+          "cor": "azul"
+        }
+      ],
+      "status": "concluida",
+      "observacao": ""
+    }
   ]
 }

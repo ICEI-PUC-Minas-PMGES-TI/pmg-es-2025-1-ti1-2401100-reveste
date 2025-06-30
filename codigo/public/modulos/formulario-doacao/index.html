@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Doação - Desapegaí</title>
+    <link rel="shortcut icon" href="../../assets/images/logoDesapegai.ico" type="image/x-icon">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="../encontrar-ongs/index.html">
+            <img src="../../assets/images/Logo.svg" style="width: 100px; filter: brightness(0) invert(1);" />
+        </a>
+        <nav>
+            <a href="../encontrar-ongs/index.html" class="nav-link">Voltar ao Mapa</a>
+            <a href="../perfil-doador/index.html" class="nav-link">Meu Perfil</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="form-header">
+                <h1>Agendar Doação</h1>
+                <p>Preencha os dados abaixo para agendar sua doação</p>
+            </div>
+
+            <form id="donationForm" class="donation-form">
+                <div class="form-section">
+                    <h2>Dados Pessoais</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo:</label>
+                            <input type="text" id="nome" name="nome" placeholder="João Silva" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="joao@email.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cpf">CPF:</label>
+                            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefone">Telefone:</label>
+                            <input type="text" id="telefone" name="telefone" placeholder="(31) 99999-9999" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Dados da Doação</h2>
+                    <div class="form-group">
+                        <label for="pontoApoio">Ponto de Apoio:</label>
+                        <select id="pontoApoio" name="pontoApoio" required>
+                            <option value="">Selecione um ponto de apoio</option>
+                            <option value="cras-vila-antena">CRAS VILA ANTENA</option>
+                            <option value="cras-sao-jose">CRAS SÃO JOSÉ</option>
+                            <option value="cras-vila-senhor-passos">CRAS VILA SENHOR DOS PASSOS</option>
+                            <option value="cras-jardim-felicidade">CRAS JARDIM FELICIDADE</option>
+                            <option value="cras-confisco">CRAS CONFISCO</option>
+                            <option value="cras-vila-apolonia">CRAS Vila Apolônia</option>
+                            <option value="creas-leste">CREAS LESTE</option>
+                            <option value="creas-barreiro">CREAS BARREIRO</option>
+                            <option value="creas-nordeste">CREAS NORDESTE</option>
+                            <option value="creas-venda-nova">CREAS VENDA NOVA</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dataDoacao">Data da Doação:</label>
+                            <input type="date" id="dataDoacao" name="dataDoacao" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="horaDoacao">Horário:</label>
+                            <input type="time" id="horaDoacao" name="horaDoacao" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="observacoes">Descrição dos Itens:</label>
+                        <textarea id="observacoes" name="observacoes" rows="4" placeholder="Descreva os itens que serão doados (roupas, calçados, etc.)..." required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="window.history.back()">Cancelar</button>
+                    <button type="submit" class="btn-primary">Confirmar Agendamento</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="js/formulario-doacao.js"></script>
+</body>
+</html>

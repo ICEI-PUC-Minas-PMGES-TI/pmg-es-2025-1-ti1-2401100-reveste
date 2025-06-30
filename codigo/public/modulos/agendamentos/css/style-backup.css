@@ -1,0 +1,99 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #111C30;
+        }
+
+        .header-nav {
+            background-color: #111C30;
+            padding: 15px 0;
+        }
+
+        .logo-placeholder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo-placeholder img {
+            height: 40px;
+            width: auto;
+        }
+
+        .header-nav .nav-link {
+            color: white;
+            margin-left: 25px;
+        }
+
+        .form-container {
+            background-color: #111C30;
+            color: white;
+            max-width: 450px;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 50px auto;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .form-label {
+            margin-top: 10px;
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+            pointer-events: auto !important;
+            user-select: auto !important;
+            background-color: white !important;
+            color: black !important;
+            border: 1px solid #ccc !important;
+        }
+        
+        .form-control option {
+            background-color: white !important;
+            color: black !important;
+        }
+
+        .form-control:focus {
+            outline: none !important;
+            border-color: #5cb85c !important;
+            box-shadow: 0 0 5px rgba(92, 184, 92, 0.5) !important;
+        }
+
+        .btn-agendar {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .footer {
+            background-color: #111C30;
+            color: white;
+            padding: 15px 0;
+            margin-top: auto;
+        }
+
+        .footer-btn {
+            background-color: #0055c4;
+            border-radius: 5px;
+            color: white;
+            padding: 5px 15px;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+
+        .footer-btn.whatsapp {
+            background-color: #076adf;
+        }

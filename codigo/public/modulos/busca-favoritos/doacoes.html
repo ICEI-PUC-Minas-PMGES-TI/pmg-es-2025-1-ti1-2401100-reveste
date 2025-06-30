@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/camisa-polo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/doacoes.css">
+    <title>Minhas Doações</title>
+</head>
+<body>
+    <div class="layout">
+        <header class="top-header">
+            <button class="btn-voltar" onclick="voltarTelaInicial()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                </svg>
+                Voltar
+            </button>
+            <img src="../../assets/images/Logo.svg" alt="Logo" class="logo-header">
+        </header>
+        <main class="content">
+            <h1>Minhas Doações</h1>
+            <div class="filtros-caixa">
+                <label for="filtro-ong">ONG:</label>
+                <select id="filtro-ong">
+                    <option value="">Todas</option>
+                </select>
+                <label for="data-inicio">De:</label>
+                <input type="date" id="data-inicio">
+                <label for="data-fim">Até:</label>
+                <input type="date" id="data-fim">
+                <button id="btn-filtrar-doacoes" class="btn-detalhes-doacao" style="margin:0;">Filtrar</button>
+                <button id="btn-limpar-filtro" class="btn-detalhes-doacao" style="margin:0;background:#36405a;">Limpar</button>
+            </div>
+            <div id="ongs-doacoes-container"></div>
+        </main>
+    </div>
+    <script src="js/doacoes.js"></script>
+</body>
+</html>

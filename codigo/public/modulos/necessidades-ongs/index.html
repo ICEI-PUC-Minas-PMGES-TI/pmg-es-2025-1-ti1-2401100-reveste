@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Necessidades da ONG</title>
+    <link rel="shortcut icon" href="../../assets/images/logoDesapegai.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="../../assets/js/verificar-login.js"></script>
+</head>
+<body>
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <a href="../encontrar-ongs/index.html">
+                <img src="../../assets/images/Logo.svg" alt="Logo Desapegai" class="sidebar-logo" />
+            </a>
+            <h3>Painel de Gestão</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="../area-gestao/area-gestao.html" class="nav-link">📊 Dashboard</a></li>
+                <li><a href="../gestao-estoque/estoque.html" class="nav-link">📦 Estoque</a></li>
+                <li><a href="index.html" class="nav-link active">🏢 ONGs</a></li>
+                <li><a href="../agendamentos/index.html" class="nav-link">📅 Agendamentos</a></li>
+                <li><a href="../cadastro-ongs/index.html" class="nav-link">➕ Cadastrar ONG</a></li>
+                <li><a href="../../index.html" class="nav-link logout">🚪 Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <h2>Gerenciador de Necessidades das ONGs</h2>
+            <div>
+                <a href="../encontrar-ongs/index.html">
+                    <img src="../../assets/images/Logo.svg" alt="Logo Desapegai" style="height: 50px; filter: brightness(0) invert(1);" />
+                </a>
+                <button id="filter-appear-btn">
+                    <img src="../area-gestao/images/menu.png" alt="Menu" id="list-menu-img" />
+                </button>
+            </div>
+        </header>
+
+        <section class="content">
+            <div class="welcome-section">
+                <p>Cadastre e visualize as necessidades de diversas ONGs, como roupas, alimentos e materiais. Contribua para um mundo melhor!</p>
+                
+                <div class="actions-bar">
+                    <button class="add-ong-btn" onclick="openONGForm()">
+                        <span>+</span> Cadastrar Nova ONG
+                    </button>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <h3 id="total-ongs">0</h3>
+                            <p>ONGs Cadastradas</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="total-needs">0</h3>
+                            <p>Necessidades</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ongListDisplay" class="ongs-grid">
+                
+            </div>
+
+            <div class="export-section">
+                <h3>Resumo das Necessidades</h3>
+                <textarea id="needsTextToCopy" rows="8" readonly placeholder="O resumo das necessidades aparecerá aqui..."></textarea>
+                <button class="copy-btn" onclick="copyNeedsText()">
+                    📋 Copiar Texto
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <aside id="menu">
+        <div class="filter-header">
+            <h2>Filtros</h2>
+            <button id="close-filter-btn" onclick="document.getElementById('menu').classList.remove('active')">&times;</button>
+        </div>
+        <div class="filter-section">
+            <h3>Por Tipo</h3>
+            <div class="checkbox-group">
+                <label><input type="checkbox" value="roupas"> Roupas</label>
+                <label><input type="checkbox" value="alimentos"> Alimentos</label>
+                <label><input type="checkbox" value="materiais"> Materiais</label>
+                <label><input type="checkbox" value="outros"> Outros</label>
+            </div>
+        </div>
+        <div class="filter-section">
+            <h3>Por Urgência</h3>
+            <select id="urgency-filter">
+                <option value="">Todas</option>
+                <option value="alta">Alta</option>
+                <option value="media">Média</option>
+                <option value="baixa">Baixa</option>
+            </select>
+        </div>
+    </aside>
+
+    <div id="ongFormModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Cadastrar Necessidades da ONG</h2>
+                <button class="close-btn" onclick="closeONGFormModal()">&times;</button>
+            </div>
+            
+            <div class="form-group">
+                <label for="ongName">Nome da ONG:</label>
+                <input type="text" id="ongName" placeholder="Ex: Amigos do Bem" required />
+            </div>
+
+            <div id="itemsContainer" class="items-container">
+                
+            </div>
+            
+            <div class="modal-actions">
+                <button class="btn-secondary" onclick="addNewItemField()">+ Adicionar Item</button>
+                <button class="btn-primary" onclick="saveONG()">Salvar ONG</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/necessidades.js"></script>
+</body>
+</html>

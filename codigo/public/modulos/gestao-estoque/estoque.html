@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestão de Estoque</title>
+  <link rel="shortcut icon" href="../../assets/images/logoDesapegai.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/estoque.css" />
+</head>
+<body>
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <a href="../encontrar-ongs/index.html">
+        <img src="../../assets/images/Logo.svg" alt="Logo Desapegai" class="sidebar-logo" />
+      </a>
+      <h3>Painel de Gestão</h3>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="../area-gestao/area-gestao.html" class="nav-link">📊 Dashboard</a></li>
+        <li><a href="estoque.html" class="nav-link active">📦 Estoque</a></li>
+        <li><a href="../necessidades-ongs/index.html" class="nav-link">🏢 ONGs</a></li>
+        <li><a href="../agendamentos/index.html" class="nav-link">📅 Agendamentos</a></li>
+        <li><a href="../cadastro-ongs/index.html" class="nav-link">➕ Cadastrar ONG</a></li>
+        <li><a href="../../index.html" class="nav-link logout">🚪 Sair</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+    <header>
+      <h2>Gestão de Estoque</h2>
+      <div>
+        <a href="../encontrar-ongs/index.html">
+          <img src="../../assets/images/Logo.svg" alt="Logo Desapegai" style="height: 50px; filter: brightness(0) invert(1);" />
+        </a>
+        <button id="filter-appear-btn">
+          <img src="../area-gestao/images/menu.png" alt="Menu" id="list-menu-img" />
+        </button>
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="actions-bar">
+        <button class="add-item-btn" onclick="openModal()">
+          <span>+</span> Adicionar Item ao Estoque
+        </button>
+        <div class="stats">
+          <div class="stat-card">
+            <h3 id="total-items">0</h3>
+            <p>Total de Itens</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="total-categories">0</h3>
+            <p>Categorias</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="grid" class="items-grid">
+      </div>
+    </section>
+  </main>
+
+  <aside id="menu">
+    <div class="filter-header">
+      <h2>Filtros</h2>
+      <button id="close-filter-btn" onclick="document.getElementById('menu').classList.remove('active')">&times;</button>
+    </div>
+    <div class="filter-section">
+      <button class="clear-filters-btn" onclick="limparFiltros()">🗑️ Limpar Filtros</button>
+    </div>
+    <div class="filter-section">
+      <h3>Por Tamanho</h3>
+      <div class="checkbox-group">
+        <label><input type="checkbox" value="PP"> PP</label>
+        <label><input type="checkbox" value="P"> P</label>
+        <label><input type="checkbox" value="M"> M</label>
+        <label><input type="checkbox" value="G"> G</label>
+        <label><input type="checkbox" value="GG"> GG</label>
+      </div>
+    </div>
+    <div class="filter-section">
+      <h3>Por Cor</h3>
+      <select id="color-filter">
+        <option value="">Todas as cores</option>
+        <option value="Branco">Branco</option>
+        <option value="Preto">Preto</option>
+        <option value="Azul">Azul</option>
+        <option value="Vermelho">Vermelho</option>
+        <option value="Cinza">Cinza</option>
+        <option value="Verde">Verde</option>
+        <option value="Amarelo">Amarelo</option>
+        <option value="Rosa">Rosa</option>
+        <option value="Roxo">Roxo</option>
+        <option value="Marrom">Marrom</option>
+        <option value="Laranja">Laranja</option>
+        <option value="Bege">Bege</option>
+        <option value="Bordô">Bordô</option>
+      </select>
+    </div>
+  </aside>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">Cadastrar Item no Estoque</h2>
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+      </div>
+      
+      <div class="form-group">
+        <label for="nome">Nome do Item:</label>
+        <input id="nome" type="text" placeholder="Ex: Camiseta Básica" />
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="tamanho">Tamanho:</label>
+          <select id="tamanho">
+            <option value="">Selecione o tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="quantidade">Quantidade:</label>
+          <input id="quantidade" type="number" placeholder="0" min="1" />
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="cor">Cor:</label>
+        <select id="cor">
+          <option value="">Selecione a cor</option>
+          <option value="Branco">Branco</option>
+          <option value="Preto">Preto</option>
+          <option value="Cinza">Cinza</option>
+          <option value="Vermelho">Vermelho</option>
+          <option value="Verde">Verde</option>
+          <option value="Azul">Azul</option>
+          <option value="Amarelo">Amarelo</option>
+          <option value="Rosa">Rosa</option>
+          <option value="Roxo">Roxo</option>
+          <option value="Marrom">Marrom</option>
+          <option value="Laranja">Laranja</option>
+          <option value="Bege">Bege</option>
+          <option value="Bordô">Bordô</option>
+          <option value="Dourado">Dourado</option>
+          <option value="Prata">Prata</option>
+          <option value="Lilás">Lilás</option>
+          <option value="Turquesa">Turquesa</option>
+          <option value="Salmão">Salmão</option>
+          <option value="Vinho">Vinho</option>
+          <option value="Pêssego">Pêssego</option>
+          <option value="Cáqui">Cáqui</option>
+          <option value="Oliva">Oliva</option>
+          <option value="Fúcsia">Fúcsia</option>
+          <option value="Magenta">Magenta</option>
+          <option value="Ciano">Ciano</option>
+          <option value="Mostarda">Mostarda</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="foto">Foto do Item:</label>
+        <input id="foto" type="file" accept="image/*" />
+      </div>
+      
+      <div class="modal-actions">
+        <button class="btn-secondary" onclick="closeModal()">Cancelar</button>
+        <button class="btn-primary" onclick="salvarRoupa()">Salvar Item</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/estoque.js"></script>
+</body>
+</html>

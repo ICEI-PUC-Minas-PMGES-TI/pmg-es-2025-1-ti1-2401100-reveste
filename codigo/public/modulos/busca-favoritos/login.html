@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../../assets/images/logoDesapegai.ico">
+  <link rel="stylesheet" href="css/login.css">
+  <title>Login - Quero Roupa</title>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <img src="../../assets/images/Logo.svg" alt="Desapegaí" class="logo">
+        <h1>Quero Roupa</h1>
+        <p>Faça login para encontrar roupas disponíveis</p>
+      </div>
+
+      <div class="login-forms">
+        <!-- Formulário de Login -->
+        <div class="form-container" id="login-form">
+          <h2>Entrar</h2>
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="loginNome">Nome:</label>
+              <input type="text" id="loginNome" name="nome" placeholder="Digite seu nome" required>
+            </div>
+            <div class="form-group">
+              <label for="loginSenha">Senha:</label>
+              <input type="password" id="loginSenha" name="senha" placeholder="Digite sua senha" required>
+            </div>
+            <button type="submit" class="btn-primary">Entrar</button>
+          </form>
+          <p class="form-switch">
+            Não tem conta? <a href="#" onclick="showRegisterForm()">Cadastre-se</a>
+          </p>
+        </div>
+
+        <!-- Formulário de Cadastro -->
+        <div class="form-container hidden" id="register-form">
+          <h2>Cadastrar</h2>
+          <form id="registerForm">
+            <div class="form-group">
+              <label for="registerNome">Nome:</label>
+              <input type="text" id="registerNome" name="nome" placeholder="Digite seu nome completo" required>
+            </div>
+            <div class="form-group">
+              <label for="registerSenha">Senha:</label>
+              <input type="password" id="registerSenha" name="senha" placeholder="Crie uma senha" required minlength="4">
+            </div>
+            <div class="form-group">
+              <label for="confirmSenha">Confirmar Senha:</label>
+              <input type="password" id="confirmSenha" name="confirmSenha" placeholder="Confirme sua senha" required>
+            </div>
+            <button type="submit" class="btn-primary">Cadastrar</button>
+          </form>
+          <p class="form-switch">
+            Já tem conta? <a href="#" onclick="showLoginForm()">Faça login</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

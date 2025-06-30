@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "nome": "Igreja São José",
+    "endereço": "Rua das Flores, 123",
+    "telefone": "(31) 3333-4444",
+    "imagem": "../../assets/images/Logo.svg",
+    "local": {
+      "x": "-19.918914",
+      "y": "-43.938743"
+    },
+    "necessidades": ["Roupas infantis", "Calçados", "Agasalhos"]
+  },
+  {
+    "id": 2,
+    "nome": "Igreja Batista",
+    "endereço": "Rua das Pedras, 456",
+    "telefone": "(31) 2222-3333",
+    "imagem": "../../assets/images/Logo.svg",
+    "local": {
+      "x": "-19.920000",
+      "y": "-43.940000"
+    },
+    "necessidades": ["Roupas adulto", "Cobertores", "Sapatos"]
+  },
+  {
+    "id": 3,
+    "nome": "ONG Reveste",
+    "endereço": "Av. Central, 789",
+    "telefone": "(31) 1111-2222",
+    "imagem": "../../assets/images/Logo.svg",
+    "local": {
+      "x": "-19.915000",
+      "y": "-43.935000"
+    },
+    "necessidades": ["Roupas femininas", "Roupas masculinas", "Acessórios"]
+  }
+]

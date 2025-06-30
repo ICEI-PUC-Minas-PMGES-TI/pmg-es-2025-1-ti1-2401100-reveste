@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cadastro de ONGs</title>
+    <link rel="shortcut icon" href="../../assets/images/logoDesapegai.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="../../assets/js/verificar-login.js"></script>
+</head>
+<body>
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <a href="../encontrar-ongs/index.html">
+                <img src="../../assets/images/Logo.svg" alt="Logo Desapegai" class="sidebar-logo" />
+            </a>
+            <h3>Painel de Gestão</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="../area-gestao/area-gestao.html" class="nav-link">📊 Dashboard</a></li>
+                <li><a href="../gestao-estoque/estoque.html" class="nav-link">📦 Estoque</a></li>
+                <li><a href="../necessidades-ongs/index.html" class="nav-link">🏢 ONGs</a></li>
+                <li><a href="../agendamentos/index.html" class="nav-link">📅 Agendamentos</a></li>
+                <li><a href="index.html" class="nav-link active">➕ Cadastrar ONG</a></li>
+                <li><a href="../../index.html" class="nav-link logout">🚪 Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <h2>Cadastro de ONGs</h2>
+            <div>
+                <a href="../encontrar-ongs/index.html">
+                    <img src="../../assets/images/Logo.svg" alt="Logo Desapegai" style="height: 50px; filter: brightness(0) invert(1);" />
+                </a>
+                <button id="filter-appear-btn">
+                    <img src="../area-gestao/images/menu.png" alt="Menu" id="list-menu-img" />
+                </button>
+            </div>
+        </header>
+
+        <section class="content">
+            <div class="welcome-section">
+                <p>Cadastre novas ONGs para expandir a rede de apoio e facilitar as doações para quem mais precisa.</p>
+                
+                <div class="actions-bar">
+                    <div class="actions-left">
+                        <h3>📝 Formulário de Cadastro</h3>
+                        <p>Preencha os dados da ONG abaixo</p>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <h3 id="total-ongs">0</h3>
+                            <p>ONGs Cadastradas</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="active-ongs">0</h3>
+                            <p>Ativas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="form-card">
+                    <form id="cadastroForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome da ONG *</label>
+                                <input type="text" id="nome" name="nome" placeholder="Ex: Casa da Esperança" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cnpj">CNPJ *</label>
+                                <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" maxlength="18" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" placeholder="contato@ong.org.br" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="text" id="telefone" name="telefone" placeholder="(31) 99999-9999">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="endereco">Endereço</label>
+                            <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro, cidade - UF">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="responsavel">Responsável</label>
+                                <input type="text" id="responsavel" name="responsavel" placeholder="Nome do responsável">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="area-atuacao">Área de Atuação</label>
+                                <select id="area-atuacao" name="areaAtuacao">
+                                    <option value="">Selecione uma área</option>
+                                    <option value="assistencia-social">Assistência Social</option>
+                                    <option value="educacao">Educação</option>
+                                    <option value="saude">Saúde</option>
+                                    <option value="meio-ambiente">Meio Ambiente</option>
+                                    <option value="direitos-humanos">Direitos Humanos</option>
+                                    <option value="cultura">Cultura</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descricao">Descrição das Atividades</label>
+                            <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva brevemente as principais atividades da ONG..."></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="senha">Senha *</label>
+                                <div class="password-container">
+                                    <input type="password" id="senha" name="senha" placeholder="Digite uma senha segura" required>
+                                    <button type="button" id="toggleSenha" class="toggle-password">
+                                        👁️
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirmarSenha">Confirmar Senha *</label>
+                                <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirme a senha" required>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" onclick="resetForm()">Limpar</button>
+                            <button type="submit" class="btn-primary">Cadastrar ONG</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="ongs-list">
+                    <h3>ONGs Cadastradas</h3>
+                    <div id="ongsList" class="ongs-grid">
+                        <!-- ONGs cadastradas aparecerão aqui -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <aside id="menu">
+        <div class="filter-header">
+            <h2>Opções</h2>
+            <button id="close-filter-btn" onclick="document.getElementById('menu').classList.remove('active')">&times;</button>
+        </div>
+        <div class="filter-section">
+            <h3>Exportar Dados</h3>
+            <button class="export-btn" onclick="exportONGs()">
+                📋 Exportar Lista de ONGs
+            </button>
+        </div>
+        <div class="filter-section">
+            <h3>Filtrar por Área</h3>
+            <select id="area-filter">
+                <option value="">Todas as áreas</option>
+                <option value="assistencia-social">Assistência Social</option>
+                <option value="educacao">Educação</option>
+                <option value="saude">Saúde</option>
+                <option value="meio-ambiente">Meio Ambiente</option>
+                <option value="direitos-humanos">Direitos Humanos</option>
+                <option value="cultura">Cultura</option>
+                <option value="outros">Outros</option>
+            </select>
+        </div>
+    </aside>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>✅ Sucesso!</h2>
+                <button class="close-btn" onclick="closeSuccessModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>ONG cadastrada com sucesso!</p>
+                <p>Os dados foram salvos e a ONG está pronta para receber doações.</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="closeSuccessModal()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/cadastro-ongs.js"></script>
+</body>
+</html>

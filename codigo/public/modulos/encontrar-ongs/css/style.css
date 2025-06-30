@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+header {
+    background-color: #1B263B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-voltar {
+    background-color: #6DA34D;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.btn-voltar:hover {
+    background-color: #5a8f3a;
+}
+
+.btn-voltar .material-icons {
+    font-size: 18px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+.nav-link:hover {
+    color: #ccc;
+}
+
+.main-body {
+    background-color: #1B263B;
+    padding: 20px;
+    min-height: calc(100vh - 200px);
+}
+
+footer {
+    height: 11%;
+    background-color: #1B263B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px 0px 10px;
+}
+
+button.contact {
+    background-color: #16459C;
+    border-radius: 25px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+button.contact:hover {
+    background-color: #0f3a7a;
+}
+
+.filters-top {
+    background: rgba(45, 55, 72, 0.8);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #4a5568;
+    margin-bottom: 20px;
+}
+
+.filters-top h3 {
+    color: #6DA34D;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.filters-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.filter-locale {
+    width: 250px;
+    height: 35px;
+    text-align: left;
+    color: black;
+    padding: 0 10px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 0;
+}
+
+.input-icon-container {
+    position: relative;
+    width: 250px;
+}
+
+.input-icon-container input {
+    padding-left: 35px;
+}
+
+.input-icon-container .material-icons {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: gray;
+}
+
+.body-view {
+    display: flex;
+    gap: 20px;
+    height: calc(100vh - 280px);
+    min-height: 500px;
+}
+
+.section.cards {
+    flex: 1;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    max-height: 100%;
+    overflow-y: auto;
+    background: rgba(45, 55, 72, 0.3);
+    border-radius: 12px;
+    border: 1px solid #4a5568;
+}
+
+.section.maps {
+    flex: 1.5;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card {
+    background: #2d3748;
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid #4a5568;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    border-color: #6DA34D;
+}
+
+.card img {
+    width: 100%;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.card p:first-of-type {
+    font-weight: bold;
+    color: #6DA34D;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.card button {
+    background-color: #6DA34D;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    margin-top: auto;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #5a8f3a;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid #4a5568;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .btn-voltar {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+    
+    .btn-voltar .material-icons {
+        font-size: 16px;
+    }
+    
+    .filters-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .input-icon-container {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .filter-locale {
+        width: 100%;
+    }
+    
+    .body-view {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+    }
+    
+    .section.cards {
+        grid-template-columns: 1fr;
+        max-height: 400px;
+        order: 2;
+    }
+    
+    .section.maps {
+        order: 1;
+    }
+    
+    #map {
+        height: 300px;
+    }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../../assets/images/logoDesapegai.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Favoritos - Desapegaí</title>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <img src="../../assets/images/Logo.svg" alt="Logo" class="logo" style="filter: brightness(0) invert(1);">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#" onclick="irParaInicio()">Início</a></li>
+        <li><a href="#" class="active">Favoritos</a></li>
+        <li><a href="#" onclick="irParaDoacoes()">Minhas Doações</a></li>
+        <li><a href="#" onclick="logout()">Sair</a></li>
+      </ul>
+    </aside>
+    <main class="content">
+      <div class="welcome-section">
+        <h1>Seus Favoritos</h1>
+        <p>ONGs e pontos de apoio que você marcou como favoritos</p>
+      </div>
+      
+      <div class="favorites-section">
+        <h2>ONGs Favoritas</h2>
+        <div class="favorites-grid" id="favorites-grid">
+          <!-- Favoritos serão carregados aqui -->
+        </div>
+      </div>
+
+      <div class="actions-section">
+        <h2>Ações Rápidas</h2>
+        <div class="actions-grid">
+          <a href="../formulario-doacao/index.html" class="action-btn primary">
+            Agendar Nova Doação
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/doacoes.js"></script>
+  <script src="js/favoritos.js"></script>
+</body>
+</html>

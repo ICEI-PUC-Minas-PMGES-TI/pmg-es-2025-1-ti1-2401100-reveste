@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encontrar ONGs - Desapegaí</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/images/logoDesapegai.ico">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <header>
+    <img src="../../assets/images/Logo.svg" style="width: 100px; filter: brightness(0) invert(1);" />
+    <nav>
+      <a href="../busca-favoritos/index.html" class="nav-link">Quero roupa</a>
+      <a href="../../index.html" class="nav-link">Quero doar</a>
+      <a href="#" class="nav-link" onclick="irParaLogin()">Sou ponto de apoio</a>
+    </nav>
+  </header>
+  <main class="main-body">
+    <div class="container">
+      <div class="profile-header">
+        <h1>Encontrar ONGs</h1>
+        <p>Encontre ONGs próximas a você e faça sua doação</p>
+      </div>
+      
+      <div class="dashboard-section">
+        <h2>Suas Estatísticas</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Total de Doações</h3>
+            <div class="stat-number">0</div>
+          </div>
+          <div class="stat-card">
+            <h3>Agendamentos Pendentes</h3>
+            <div class="stat-number">0</div>
+          </div>
+          <div class="stat-card">
+            <h3>Pontos de Apoio Atendidos</h3>
+            <div class="stat-number">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-section">
+        <h2>Mapa das ONGs Próximas</h2>
+        <div id="map" class="map-container"></div>
+      </div>
+
+      <div class="donations-section">
+        <h2>ONGs Disponíveis</h2>
+        <div id="section-cards" class="donations-list">
+          <p>Carregando ONGs próximas...</p>
+        </div>
+      </div>
+
+      <div class="actions-section">
+        <h2>Ações Rápidas</h2>
+        <div class="actions-grid">
+          <a href="../perfil-doador/index.html" class="action-btn primary">
+            Meu Perfil
+          </a>
+          <a href="../perfil-doador/doacoes.html" class="action-btn secondary">
+            Minhas Doações
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Scripts do Google Maps -->
+  <script async defer 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM&callback=initMap&libraries=marker">
+  </script>
+  <script type="module" src="js/index.js"></script>
+  <script src="js/navegacao.js"></script>
+</body>
+
+</html>

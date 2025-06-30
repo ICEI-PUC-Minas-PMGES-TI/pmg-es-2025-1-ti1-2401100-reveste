@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Doação - Desapegaí</title>
+    <link rel="shortcut icon" href="../../assets/images/logoDesapegai.ico" type="image/x-icon">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="../encontrar-ongs/index.html" class="logo">
+                <img src="../../assets/images/Logo.svg" alt="Desapegaí" />
+            </a>
+            <nav class="nav">
+                <a href="../busca-roupas/index.html" class="nav-link">Quero roupa</a>
+                <a href="../encontrar-ongs/index.html" class="nav-link">Encontrar ONGs</a>
+                <a href="../perfil-doador/index.html" class="nav-link">Meu Perfil</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="form-section">
+                <div class="form-header">
+                    <h1>Agendar Doação</h1>
+                    <p>Preencha os dados abaixo para agendar sua doação</p>
+                </div>
+
+                <form id="donationForm" class="donation-form">
+                    <div class="form-group">
+                        <label for="pontoApoio">Ponto de Apoio*</label>
+                        <select id="pontoApoio" name="pontoApoio" required>
+                            <option value="">Selecione um ponto de apoio</option>
+                            <option value="cras-vila-antena">CRAS Vila Antena</option>
+                            <option value="cras-sao-jose">CRAS São José</option>
+                            <option value="cras-vila-senhor-passos">CRAS Vila Senhor dos Passos</option>
+                            <option value="cras-jardim-felicidade">CRAS Jardim Felicidade</option>
+                            <option value="cras-confisco">CRAS Confisco</option>
+                            <option value="cras-vila-apolonia">CRAS Vila Apolônia</option>
+                            <option value="creas-leste">CREAS Leste</option>
+                            <option value="creas-barreiro">CREAS Barreiro</option>
+                            <option value="creas-nordeste">CREAS Nordeste</option>
+                            <option value="creas-venda-nova">CREAS Venda Nova</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo*</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail*</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cpf">CPF*</label>
+                            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefone">Telefone*</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(31) 99999-9999" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dataDoacao">Data da Doação*</label>
+                            <input type="date" id="dataDoacao" name="dataDoacao" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="horario">Horário Preferido*</label>
+                            <select id="horario" name="horario" required>
+                                <option value="">Selecione um horário</option>
+                                <option value="08:00">08:00</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endereco">Endereço para Coleta*</label>
+                        <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro, cidade" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tiposItens">Tipos de Itens para Doação*</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tiposItens" value="roupas-adulto"> Roupas Adulto
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tiposItens" value="roupas-infantil"> Roupas Infantil
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tiposItens" value="calcados"> Calçados
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tiposItens" value="acessorios"> Acessórios
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tiposItens" value="brinquedos"> Brinquedos
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="tiposItens" value="outros"> Outros
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantidade">Quantidade Estimada*</label>
+                        <select id="quantidade" name="quantidade" required>
+                            <option value="">Selecione a quantidade</option>
+                            <option value="1-5">1 a 5 peças</option>
+                            <option value="6-10">6 a 10 peças</option>
+                            <option value="11-20">11 a 20 peças</option>
+                            <option value="21-50">21 a 50 peças</option>
+                            <option value="50+">Mais de 50 peças</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="observacoes">Observações</label>
+                        <textarea id="observacoes" name="observacoes" rows="4" placeholder="Descreva os itens em mais detalhes, condições especiais ou outras informações importantes..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="window.history.back()">Cancelar</button>
+                        <button type="submit" class="btn-primary">Agendar Doação</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/formulario.js"></script>
+</body>
+</html>

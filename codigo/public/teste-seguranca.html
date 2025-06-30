@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Segurança</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn-test {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-danger {
+            background-color: #f44336;
+            color: white;
+        }
+        .btn-info {
+            background-color: #2196F3;
+            color: white;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔒 Teste de Segurança do Sistema</h1>
+    
+    <div class="test-section">
+        <h2>Estado Atual da Sessão</h2>
+        <div id="session-status"></div>
+        <button class="btn-info" onclick="checkSession()">Verificar Sessão</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Simulação de Usuário Doador</h2>
+        <p>Simula um doador logado tentando acessar áreas restritas</p>
+        <button class="btn-test" onclick="simulateDoador()">Simular Doador</button>
+        <button class="btn-danger" onclick="clearSession()">Limpar Sessão</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Simulação de Ponto de Apoio</h2>
+        <p>Simula um ponto de apoio logado</p>
+        <button class="btn-test" onclick="simulatePontoApoio()">Simular Ponto de Apoio</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Testes de Acesso às Áreas Restritas</h2>
+        <p>Tenta acessar módulos que devem ser protegidos</p>
+        <button class="btn-test" onclick="testAreaGestao()">Testar Área de Gestão</button>
+        <button class="btn-test" onclick="testAgendamentos()">Testar Agendamentos</button>
+        <button class="btn-test" onclick="testEstoque()">Testar Estoque</button>
+        <button class="btn-test" onclick="testCadastroOngs()">Testar Cadastro ONGs</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Log de Testes</h2>
+        <div id="test-log"></div>
+        <button class="btn-info" onclick="clearLog()">Limpar Log</button>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('test-log');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.className = `status ${type === 'error' ? 'error' : 'success'}`;
+            logEntry.innerHTML = `[${timestamp}] ${message}`;
+            logDiv.appendChild(logEntry);
+            console.log(message);
+        }
+        
+        function checkSession() {
+            const doadorId = sessionStorage.getItem('doadorId');
+            const pontoApoio = sessionStorage.getItem('pontoDeApoioLogado');
+            
+            let status = 'Sessão vazia';
+            if (doadorId) status = `Doador logado: ${doadorId}`;
+            if (pontoApoio) status = `Ponto de Apoio logado: ${pontoApoio}`;
+            if (doadorId && pontoApoio) status = 'ERRO: Ambos logados simultaneamente!';
+            
+            document.getElementById('session-status').innerHTML = `<div class="status success">${status}</div>`;
+            log(`Status da sessão: ${status}`);
+        }
+        
+        function simulateDoador() {
+            sessionStorage.clear();
+            sessionStorage.setItem('doadorId', '123');
+            log('Simulando doador logado (ID: 123)', 'success');
+            checkSession();
+        }
+        
+        function simulatePontoApoio() {
+            sessionStorage.clear();
+            sessionStorage.setItem('pontoDeApoioLogado', JSON.stringify({id: 1, nome: 'Teste'}));
+            log('Simulando ponto de apoio logado', 'success');
+            checkSession();
+        }
+        
+        function clearSession() {
+            sessionStorage.clear();
+            localStorage.clear();
+            log('Sessão limpa', 'success');
+            checkSession();
+        }
+        
+        function testAreaGestao() {
+            log('Testando acesso à Área de Gestão...');
+            try {
+                window.open('./modulos/area-gestao/area-gestao.html', '_blank');
+                log('Área de Gestão: Tentativa de acesso realizada - verificar se houve bloqueio', 'error');
+            } catch (error) {
+                log(`Área de Gestão: Erro ao tentar acessar - ${error.message}`, 'success');
+            }
+        }
+        
+        function testAgendamentos() {
+            log('Testando acesso aos Agendamentos...');
+            try {
+                window.open('./modulos/agendamentos/index.html', '_blank');
+                log('Agendamentos: Tentativa de acesso realizada - verificar se houve bloqueio', 'error');
+            } catch (error) {
+                log(`Agendamentos: Erro ao tentar acessar - ${error.message}`, 'success');
+            }
+        }
+        
+        function testEstoque() {
+            log('Testando acesso ao Estoque...');
+            try {
+                window.open('./modulos/gestao-estoque/estoque.html', '_blank');
+                log('Estoque: Tentativa de acesso realizada - verificar se houve bloqueio', 'error');
+            } catch (error) {
+                log(`Estoque: Erro ao tentar acessar - ${error.message}`, 'success');
+            }
+        }
+        
+        function testCadastroOngs() {
+            log('Testando acesso ao Cadastro de ONGs...');
+            try {
+                window.open('./modulos/cadastro-ongs/index.html', '_blank');
+                log('Cadastro ONGs: Tentativa de acesso realizada - verificar se houve bloqueio', 'error');
+            } catch (error) {
+                log(`Cadastro ONGs: Erro ao tentar acessar - ${error.message}`, 'success');
+            }
+        }
+        
+        function clearLog() {
+            document.getElementById('test-log').innerHTML = '';
+        }
+        
+        // Verificar sessão ao carregar a página
+        window.onload = function() {
+            checkSession();
+            log('Página de teste carregada');
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,783 @@
+:root {
+    --main-color: #184848;
+    --second-color: #006060;
+    --third-color: #007878;
+    --fourth-color: #a8c030;
+    --fifth-color: #f0f0d8;
+    --darkmode-color: #041f1f;
+}
+
+* {
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    pointer-events: none;
+}
+
+body,
+html {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    background-color: #1A253A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 40%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container img {
+    width: 50%;
+    transition: .3s ease-in;
+    filter: brightness(0) invert(1);
+}
+
+.img1 {
+    background-image: url(../images/QueroRoupaB.svg);
+}
+
+.img2 {
+    background-image: url(../images/QueroDoarB.svg);
+}
+
+.img3 {
+    background-image: url(../images/SouEstabelecimentoB.svg);
+}
+
+.container h1 {
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.container nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5%;
+    transition: all .3s ease;
+    height: 35vh;
+    width: 100%;
+}
+
+.container nav>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(20px);
+    width: 30%;
+    height: 30vh;
+    border: none;
+    transition: .2s ease-in;
+}
+
+.container nav>div:hover {
+    cursor: pointer;
+}
+
+.container nav:not(.clicado):hover>.container nav>div:not(:hover) {
+    filter: blur(5px);
+}
+
+.container nav div div {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.divPraCima {
+    background-color: var(--second-color) !important;
+    filter: none !important;
+}
+
+.efeitoBlur {
+    filter: blur(5px);
+}
+
+.papelEscolhido img {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+.container nav>div:hover:not(.efeitoBlur) {
+    cursor: pointer;
+    background-color: var(--second-color);
+}
+
+
+
+
+
+.container nav>div h2 {
+    color: white;
+    font-size: 1rem;
+    width: 60%;
+    text-align: center;
+}
+
+.container button {
+    height: 6vh;
+    width: 31%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    border: solid var(--main-color) .2vh;
+    outline: none;
+    border-radius: 3px;
+    transition: .3s ease;
+    font-size: 1rem;
+}
+
+.container button:disabled {
+    background-color: rgba(24, 72, 72, 0.8);
+    color: rgb(145, 145, 145);
+    pointer-events: none;
+}
+
+.container button:enabled {
+    background-color: var(--main-color);
+    transition: .3s ease-in-out;
+}
+
+.container button:enabled:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+}
+
+.container button span {
+    text-transform: uppercase;
+    font-size: .9rem;
+}
+
+.container button div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 4%;
+}
+
+.container button div svg {
+    display: none;
+}
+
+.container button:enabled:hover div svg {
+    display: flex;
+}
+
+.container button div svg:first-child {
+    display: flex;
+}
+
+.container button div svg:nth-child(2) {
+    display: flex;
+}
+
+
+
+
+
+.containerPA {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1A253A;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.containerDoador {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1A253A;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.divLoginPA,
+.divLoginDoador {
+    width: 28%;
+    height: 60vh;
+    backdrop-filter: blur(20px);
+    border: solid white 0.2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divLoginPA h1,
+.divLoginDoador h1 {
+    font-size: 2.5rem;
+    color: var(--fifth-color);
+}
+
+.divInputsLogin,
+.divInputsLoginDoador {
+    width: 65%;
+    height: 5.5vh;
+    margin-top: 2%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 6%;
+}
+
+.divInputsLogin span,
+.divInputsLoginDoador span {
+    position: absolute;
+    margin-left: 4%;
+    color: white;
+    z-index: -1;
+    transition: all .2s ease-in-out;
+    font-size: .9rem;
+}
+
+.divInputsLogin input,
+.divInputsLoginDoador input {
+    width: 100%;
+    height: 5.5vh;
+    outline: none;
+    border: solid rgb(231, 231, 231) 0.1vh;
+    background-color: transparent;
+    border-radius: 3px;
+    color: white;
+    padding-left: 6%;
+    font-size: .9rem;
+    text-align: left;
+}
+
+.link-esqueceu-a-senha {
+    width: 65%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-top: 3%;
+    font-size: .9rem;
+}
+
+.link-esqueceu-a-senha a {
+    color: var(--second-color);
+    text-align: center;
+    transition: .3s;
+}
+
+.divLoginPA a:hover {
+    color: var(--third-color);
+}
+
+.divLoginPA>button,
+.divLoginDoador>button {
+    background-color: var(--second-color);
+    width: 65%;
+    height: 5vh;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 0.8rem;
+    margin-top: 10%;
+    transition: .3s;
+}
+
+.divLoginPA>button:enabled:hover,
+.divLoginDoador>button:enabled:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+}
+
+.divLoginPA>button:disabled,
+.divLoginDoador>button:disabled {
+    background-color: rgba(24, 72, 72, 0.8);
+    color: rgb(145, 145, 145);
+    pointer-events: none;
+}
+
+.divInputsLogin:has(input.not-empty) span,
+.divInputsLoginDoador:has(input.not-empty) span {
+    margin-top: -16%;
+    margin-left: -0%;
+    z-index: 99;
+}
+
+.imgIgreja {
+    display: none;
+}
+
+.containerPA header,
+.containerDoador header {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+}
+
+.btnVoltar1,
+.btnVoltar2 {
+    background-color: var(--second-color);
+    border: solid var(--darkmode-color) 0.1vh;
+    outline: none;
+    height: 5vh;
+    width: 7%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    transition: .3s;
+}
+
+.btnVoltar2 svg {
+    rotate: 180deg;
+}
+
+.btnVoltar1:hover,
+.btnVoltar2:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+}
+
+.PontoDeApoioNaoEncontrado,
+.CadastroBemSucedido,
+.LoginBemSucedido,
+.DoadorNaoEncontrado {
+    width: 20%;
+    height: 17vh;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 99;
+    margin-top: 90%;
+    display: none;
+    flex-direction: column;
+    transition: .5s;
+    opacity: 0;
+}
+
+
+.PontoDeApoioNaoEncontrado header,
+.CadastroBemSucedido header,
+.LoginBemSucedido header,
+.DoadorNaoEncontrado header {
+    width: 85%;
+    display: flex;
+    justify-content: right;
+    height: 5vh;
+    margin-top: -4%;
+}
+
+.PontoDeApoioNaoEncontrado header svg,
+.CadastroBemSucedido header svg,
+.LoginBemSucedido header svg,
+.DoadorNaoEncontrado header svg {
+    width: 9%;
+    height: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid rgb(182, 182, 182) 0.2vh;
+    border-radius: 3px;
+}
+
+.PontoDeApoioNaoEncontrado header svg:hover,
+.CadastroBemSucedido header svg:hover,
+.LoginBemSucedido header svg:hover,
+.DoadorNaoEncontrado header svg:hover {
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+}
+
+.PontoDeApoioNaoEncontrado h1,
+.CadastroBemSucedido h1,
+.LoginBemSucedido h1,
+.DoadorNaoEncontrado h1 {
+    font-size: 1rem;
+    width: 80%;
+    text-align: center;
+}
+
+.aparecerMensagemPDANE,
+.aparecerMensagemCBS,
+.aparecerMensagemLBS,
+.aparecerMensagemDNE {
+    margin-top: 0%;
+    opacity: 1;
+}
+
+.sombra {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    pointer-events: none;
+}
+
+.sombrear {
+    background-color: rgba(0, 0, 0, 0.6);
+    pointer-events: all;
+}
+
+.divLoginPA>span,
+.divLoginDoador>span {
+    font-size: .8rem;
+    color: white;
+    margin-top: 4%;
+    font-weight: 300;
+}
+
+.divLoginPA>span button,
+.divLoginDoador>span button {
+    background-color: transparent;
+    border: none;
+    color: var(--second-color);
+    font-size: .9rem;
+    transition: all .3;
+    font-weight: 300;
+}
+
+.divLoginPA>span button:hover,
+.divLoginDoador>span button:hover {
+    color: var(--third-color);
+    cursor: pointer;
+}
+
+.divCadastrarPA {
+    width: 30%;
+    height: 70vh;
+    backdrop-filter: blur(20px);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+}
+
+.divCadastrarDO {
+    width: 30%;
+    height: 70vh;
+    backdrop-filter: blur(20px);
+    border: solid white 0.2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+}
+
+.divCadastrarPA>h1,
+.divCadastrarDO>h1 {
+    font-size: 2.5rem;
+    color: var(--fifth-color);
+}
+
+.containerCadastrar {
+    width: 100%;
+    height: 47vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -7%;
+}
+
+.containerCadastrarDO {
+    width: 100%;
+    height: 47vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -12%;
+}
+
+.divInputsCadastrar,
+.divInputsCadastrarDO {
+    width: 65%;
+    height: 5.5vh;
+    margin-top: 4%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.divInputsCadastrar span,
+.divInputsCadastrarDO span {
+    position: absolute;
+    margin-left: 4%;
+    color: white;
+    z-index: -1;
+    transition: all .2s ease-in-out;
+    margin-top: 1%;
+    font-size: .9rem;
+}
+
+.divInputsCadastrar input,
+.divInputsCadastrarDO input {
+    margin-top: 2%;
+    width: 100%;
+    height: 5vh;
+    background-color: transparent;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border: solid white 0.1vh;
+    outline: none;
+    padding-left: 5.5%;
+    color: white;
+    font-size: .8rem;
+    text-align: left;
+}
+
+.divInputsCadastrar:has(input.not-empty) span,
+.divInputsCadastrarDO:has(input.not-empty) span {
+    margin-top: -13%;
+    margin-left: -0%;
+    z-index: 99;
+}
+
+.containerInputsCadastro,
+.containerInputsCadastroDO {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+    width: 65%;
+    margin-top: 2%;
+}
+
+.containerInputsCadastro div,
+.containerInputsCadastroDO div {
+    width: 48%;
+}
+
+.divTemporario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 65%;
+    height: 5vh;
+    margin-top: 2%;
+}
+
+.divTemporario span {
+    color: white;
+    font-size: 0.8rem;
+}
+
+.divTemporario div input {
+    border: none;
+    border-bottom: solid white 0.1vh;
+    background-color: transparent;
+    outline: none;
+    width: 40%;
+}
+
+.divCheckbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 35%;
+}
+
+.divCheckbox input {
+    width: 15%;
+    height: 3vh;
+    background-color: transparent;
+    border: solid white 1px;
+    outline: none;
+}
+
+.divCheckbox input:hover {
+    cursor: pointer;
+}
+
+.divCheckbox span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divDataPA {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 55%;
+    opacity: 0;
+    transition: .5s ease-in-out;
+    gap: 2%;
+}
+
+.divDataPA input {
+    text-align: center;
+}
+
+.divDataPA input::placeholder {
+    color: rgb(224, 224, 224);
+}
+
+.divDataPA:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    height: 2vh;
+    width: 0.1vh;
+    background-color: white;
+    margin-left: 17.5%;
+}
+
+.containerInputsCadastro div>input,
+.containerInputsCadastroDO div>input {
+    padding-left: 11%;
+}
+
+.divCadastrarPA>button,
+.divCadastrarDO>button {
+    background-color: var(--second-color);
+    width: 65%;
+    height: 5vh;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 0.8rem;
+    transition: .3s;
+}
+
+.divCadastrarPA>button:enabled,
+.divCadastrarDO>button:enabled {
+    background-color: var(--second-color);
+    color: white;
+}
+
+.divCadastrarPA>button:enabled:hover,
+.divCadastrarDO>button:enabled:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+}
+
+.divCadastrarPA>button:disabled,
+.divCadastrarDO>button:disabled {
+    background-color: rgba(24, 72, 72, 0.8);
+    color: rgb(145, 145, 145);
+    pointer-events: none;
+}
+
+.mostrarInputsData {
+    opacity: 1;
+    display: flex;
+}
+
+.checkbox {
+    transform: scale(0.8);
+}
+
+input.inputPreenchido+span {
+    margin-top: -13%;
+    margin-left: -0%;
+    z-index: 99;
+}
+
+.divCadastrarPA>span,
+.divCadastrarDO>span {
+    font-size: .8rem;
+    color: white;
+    margin-top: 2%;
+    font-weight: 300;
+}
+
+.divCadastrarPA>span button,
+.divCadastrarDO>span button {
+    background-color: transparent;
+    border: none;
+    color: var(--second-color);
+    font-size: .9rem;
+    transition: all .3;
+    font-weight: 300;
+}
+
+.divCadastrarPA>span button:hover,
+.divCadastrarDO>span button:hover {
+    color: var(--third-color);
+    cursor: pointer;
+}
+
+/* Ocultar cadastros por padrão */
+.divCadastrarPA {
+    display: none;
+}
+
+.divCadastrarDO {
+    display: none;
+}
+
+.mostrarCadastroPA .divLoginPA {
+    display: none;
+}
+
+.mostrarCadastroPA .divCadastrarPA {
+    display: flex;
+}
+
+.mostrarCadastroDO .divLoginDoador {
+    display: none;
+}
+
+.mostrarCadastroDO .divCadastrarDO {
+    display: flex;
+}

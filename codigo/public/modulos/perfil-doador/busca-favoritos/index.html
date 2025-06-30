@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../../assets/images/logoDesapegai.ico">
+  <link rel="stylesheet" href="css/home.css">
+  <title>Buscar Roupas - Desapegaí</title>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <img src="../../assets/images/Logo.svg" alt="Logo" class="logo" style="filter: brightness(0) invert(1);">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#" class="active">Buscar Roupas</a></li>
+        <li><a href="favoritos.html">Favoritos</a></li>
+        <li><a href="../../index.html">Fazer Login</a></li>
+        <li><a href="../../index.html">Sair</a></li>
+      </ul>
+    </aside>
+    <main class="content">
+      <div class="welcome-section">
+        <h1>Encontre roupas disponíveis!</h1>
+        <p>Busque por roupas doadas pelos pontos de apoio da sua região</p>
+      </div>
+      
+      <div class="dashboard-section">
+        <h2>Roupas Disponíveis</h2>
+        <div class="dashboard-cards" id="dashboard-cards"></div>
+      </div>
+
+      <div class="recent-activity">
+        <h2>Roupas Recentemente Disponíveis</h2>
+        <div id="recent-donations" class="recent-list"></div>
+      </div>
+
+      <div class="impact-section">
+        <h2>Pontos de Apoio Próximos</h2>
+        <div id="impact-cards" class="impact-grid"></div>
+      </div>
+    </main>
+  </div>
+  <script src="js/doacoes.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

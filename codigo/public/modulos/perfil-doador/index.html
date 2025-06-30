@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../../assets/images/logoDesapegai.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Perfil do Doador - Desapegaí</title>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a href="../encontrar-ongs/index.html">
+        <img src="../../assets/images/Logo.svg" alt="Logo" class="logo" style="filter: brightness(0) invert(1);">
+      </a>
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#" class="active">Início</a></li>
+        <li><a href="#" onclick="irParaFavoritos()">Favoritos</a></li>
+        <li><a href="#" onclick="irParaDoacoes()">Minhas Doações</a></li>
+        <li><a href="#" onclick="logout()">Sair</a></li>
+      </ul>
+    </aside>
+    <main class="content">
+      <div class="welcome-section">
+        <h1>Bem-vindo ao seu perfil!</h1>
+        <p>Acompanhe suas estatísticas de doações e o impacto que você está causando</p>
+      </div>
+      
+      <div class="dashboard-section">
+        <h2>Suas Estatísticas</h2>
+        <div class="dashboard-cards" id="dashboard-cards"></div>
+      </div>
+
+      <div class="recent-activity">
+        <h2>Atividade Recente</h2>
+        <div id="recent-donations" class="recent-list"></div>
+      </div>
+
+      <div class="impact-section">
+        <h2>Seu Impacto</h2>
+        <div id="impact-cards" class="impact-grid"></div>
+      </div>
+
+      <div class="actions-section">
+        <h2>Ações Rápidas</h2>
+        <div class="actions-grid">
+          <a href="#" onclick="irParaAgendamento()" class="action-btn primary">
+            Agendar Nova Doação
+          </a>
+          <a href="#" onclick="irParaDoacoes()" class="action-btn secondary">
+            Ver Histórico Completo
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/utils.js"></script>
+  <script src="js/doacoes.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

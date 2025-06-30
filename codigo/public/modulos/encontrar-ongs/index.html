@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<script type="module"
+  src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
+<script type="module" src="./js/index.js"></script>
+<script>
+  window.initMap = function () {
+    import('./js/index.js').then((module) => {
+      module.initMap && module.initMap();
+      module.onInit && module.onInit();
+    });
+  };
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8L8PfjgbIApcO6BdEVXptWBjRp0WnZBM&libraries=geometry,marker&callback=initMap">
+</script>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encontrar ONGs</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/images/logoDesapegai.ico">
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="../../assets/js/verificar-login.js"></script>
+
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #1B263B;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+      <img src="../../assets/images/Logo.svg" style="width: 100px; filter: brightness(0) invert(1);" />
+    </a>
+    <nav>
+      <button id="btn-voltar" class="btn-voltar">
+        <span class="material-icons">arrow_back</span>
+        Voltar
+      </button>
+      <a href="#" class="nav-link">Quero roupa</a>
+      <a href="../../index.html" class="nav-link">Quero doar</a>
+      <a href="../perfil-doador/index.html" class="nav-link" id="link-meu-perfil" style="display: none;">Meu Perfil</a>
+    </nav>
+  </header>
+  <main class="main-body">
+    <section class="filters-top">
+      <h3>Filtros</h3>
+      <div class="filters-container">
+        <div class="input-icon-container">
+          <span class="material-icons">manage_search</span>
+          <input class="filter-locale" placeholder="Qualquer lugar em BH" />
+        </div>
+      </div>
+    </section>
+    
+    <div class="body-view">
+      <section class="section cards" id="section-cards">
+      </section>
+      <section class="section maps">
+        <div id="map"></div>
+      </section>
+    </div>
+  </main>
+</body>
+
+</html>

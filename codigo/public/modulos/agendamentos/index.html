@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos</title>
+    <link rel="shortcut icon" href="../../assets/images/logoDesapegai.ico" type="image/x-icon">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="../../assets/js/verificar-login.js"></script>
+</head>
+<body>
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <a href="../encontrar-ongs/index.html">
+                <img src="../../assets/images/Logo.svg" alt="Logo Desapegai" class="sidebar-logo" />
+            </a>
+            <h3>Painel de Gestão</h3>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="../area-gestao/area-gestao.html" class="nav-link">📊 Dashboard</a></li>
+                <li><a href="../gestao-estoque/estoque.html" class="nav-link">📦 Estoque</a></li>
+                <li><a href="../necessidades-ongs/index.html" class="nav-link">🏢 ONGs</a></li>
+                <li><a href="index.html" class="nav-link active">📅 Agendamentos</a></li>
+                <li><a href="../cadastro-ongs/index.html" class="nav-link">➕ Cadastrar ONG</a></li>
+                <li><a href="../../index.html" class="nav-link logout">🚪 Sair</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <h2>Gerenciamento de Agendamentos</h2>
+            <div>
+                <a href="../encontrar-ongs/index.html">
+                    <img src="../../assets/images/Logo.svg" alt="Logo Desapegai" style="height: 50px; filter: brightness(0) invert(1);" />
+                </a>
+                <button id="filter-appear-btn">
+                    <img src="../area-gestao/images/menu.png" alt="Menu" id="list-menu-img" />
+                </button>
+            </div>
+        </header>
+
+        <section class="content">
+            <div class="welcome-section">
+                <p>Gerencie agendamentos de doações e acompanhe o status das coletas.</p>
+                
+                <div class="actions-bar">
+                    <button class="add-item-btn" onclick="openScheduleForm()">
+                        <span>+</span> Novo Agendamento
+                    </button>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <h3 id="total-schedules">0</h3>
+                            <p>Agendamentos</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="pending-schedules">0</h3>
+                            <p>Pendentes</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="completed-schedules">0</h3>
+                            <p>Concluídos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="schedulesGrid" class="schedules-grid">
+            </div>
+        </section>
+    </main>
+
+    <aside id="menu">
+        <div class="filter-header">
+            <h2>Filtros</h2>
+            <button id="close-filter-btn" onclick="document.getElementById('menu').classList.remove('active')">&times;</button>
+        </div>
+        <div class="filter-section">
+            <h3>Por Status</h3>
+            <div class="checkbox-group">
+                <label><input type="checkbox" value="pendente"> Pendente</label>
+                <label><input type="checkbox" value="confirmado"> Confirmado</label>
+                <label><input type="checkbox" value="concluido"> Concluído</label>
+                <label><input type="checkbox" value="cancelado"> Cancelado</label>
+            </div>
+        </div>
+        <div class="filter-section">
+            <h3>Por Data</h3>
+            <select id="date-filter">
+                <option value="">Todas as datas</option>
+                <option value="hoje">Hoje</option>
+                <option value="semana">Esta semana</option>
+                <option value="mes">Este mês</option>
+            </select>
+        </div>
+    </aside>
+
+    <div id="scheduleFormModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Novo Agendamento de Doação</h2>
+                <button class="close-btn" onclick="closeScheduleModal()">&times;</button>
+            </div>
+            
+            <form id="scheduleForm">
+                <div class="form-group">
+                    <label for="pontoApoio">Ponto de Apoio:</label>
+                    <select id="pontoApoio" required>
+                        <option value="">Selecione um ponto de apoio</option>
+                        <option value="ong1">ONG Amigos do Bem</option>
+                        <option value="ong2">Casa da Esperança</option>
+                        <option value="ong3">Instituto Criança Feliz</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nome">Nome do Doador:</label>
+                        <input type="text" id="nome" placeholder="João Silva" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="joao@email.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" placeholder="000.000.000-00" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="text" id="telefone" placeholder="(31) 99999-9999" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dataHora">Data e Horário:</label>
+                    <input type="datetime-local" id="dataHora" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="observacoes">Observações:</label>
+                    <textarea id="observacoes" rows="3" placeholder="Descreva os itens que serão doados..."></textarea>
+                </div>
+            </form>
+            
+            <div class="modal-actions">
+                <button class="btn-secondary" onclick="closeScheduleModal()">Cancelar</button>
+                <button class="btn-primary" onclick="saveSchedule()">Salvar Agendamento</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/agendamento.js"></script>
+</body>
+</html>
